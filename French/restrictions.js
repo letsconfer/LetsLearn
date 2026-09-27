@@ -3,7 +3,7 @@ let isInternalAction = false;
 
 // Helper to get master config from window.CV_MASTER_CONFIG
 function getConfig() {
-    return window.CV_MASTER_CONFIG || window.MASTER_CONFIG || {};
+return window.French_MASTER_CONFIG || window.CV_MASTER_CONFIG || window.MASTER_CONFIG || {};
 }
 
 // Inject Indentation and Layout Styles
