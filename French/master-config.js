@@ -1,7 +1,7 @@
 // ==========================================
 // MASTER CONFIGURATION FILE (FRENCH - A1B2)
 // ==========================================
-window.IELTS_MASTER_CONFIG = {
+window.French_MASTER_CONFIG = {
     // 1. Security & Interaction Controls
     allowRightClick: false,      // false = Restricted (Default), true = Allowed
     allowLeftClick: false,       // true = Normal clicks, false = Blocks selection/clicks
@@ -17,8 +17,8 @@ window.IELTS_MASTER_CONFIG = {
     // 4. Fixed homepage (Points to root home.html)
     homePage: "../home.html", 
 
-    // 5. Favicon Setting (Points to root asset)
-    favicon: "../logo1.png"          
+    // 5. Favicon Setting (Local subfolder asset)
+    favicon: "logo1.png"         
 };
 
 // ==========================================
