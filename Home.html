@@ -32,21 +32,13 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
         }
 
-        .image-placeholder {
+        .hub-image {
             width: 150px;
             height: 100px;
-            background-color: var(--app-bg);
-            border: 2px dashed var(--border-color);
+            object-fit: cover;
             border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted-color);
-            font-weight: 500;
-            font-size: 9pt;
+            border: 1px solid var(--border-color);
             flex-shrink: 0;
-            text-align: center;
-            padding: 8px;
         }
 
         .hub-content {
@@ -60,25 +52,19 @@
             font-size: 11.5pt;
         }
 
+        .hub-content h2 a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .hub-content h2 a:hover {
+            text-decoration: underline;
+            opacity: 0.85;
+        }
+
         .hub-content p {
             color: var(--muted-color);
-            margin-bottom: 10px;
-        }
-
-        .nav-link-btn {
-            display: inline-block;
-            background-color: var(--text-color);
-            color: var(--container-bg);
-            padding: 4px 12px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 9pt;
-            transition: opacity 0.2s;
-        }
-
-        .nav-link-btn:hover {
-            opacity: 0.85;
+            margin-bottom: 0;
         }
 
         @media (max-width: 600px) {
@@ -86,7 +72,7 @@
                 flex-direction: column;
                 text-align: center;
             }
-            .image-placeholder {
+            .hub-image {
                 width: 100%;
                 height: 110px;
             }
@@ -106,31 +92,28 @@
     <div class="hub-grid">
         <!-- IELTS Preparation -->
         <div class="hub-card">
-            <div class="image-placeholder">Image Placeholder</div>
+            <img src="ielts.png" alt="IELTS Preparation" class="hub-image">
             <div class="hub-content">
-                <h2>IELTS Preparation</h2>
+                <h2><a href="./IELTS/language.html">IELTS Preparation</a></h2>
                 <p>Comprehensive training materials, vocabulary lists, practice tests, and strategic guides tailored for General Training and Academic modules.</p>
-                <a href="./IELTS/language.html" class="nav-link-btn">Access IELTS Hub</a>
             </div>
         </div>
 
         <!-- Learn French -->
         <div class="hub-card">
-            <div class="image-placeholder">Image Placeholder</div>
+            <img src="french.png" alt="Learn French" class="hub-image">
             <div class="hub-content">
-                <h2>Learn French</h2>
+                <h2><a href="./French/language.html">Learn French</a></h2>
                 <p>Master French alphabets, foundational grammar rules, pronunciation audio tools, and essential daily vocabulary to build a strong linguistic base.</p>
-                <a href="./French/language.html" class="nav-link-btn">Access French Modules</a>
             </div>
         </div>
 
         <!-- TCF/TEF Training -->
         <div class="hub-card">
-            <div class="image-placeholder">Image Placeholder</div>
+            <img src="tcf.png" alt="TCF/TEF Training" class="hub-image">
             <div class="hub-content">
-                <h2>TCF/TEF Training</h2>
+                <h2><a href="./French/language.html">TCF/TEF Training</a></h2>
                 <p>Focused preparation modules, practice exams, and targeted exercises designed specifically for official French proficiency tests (TCF and TEF).</p>
-                <a href="./French/language.html" class="nav-link-btn">Access TCF/TEF Training</a>
             </div>
         </div>
     </div>
