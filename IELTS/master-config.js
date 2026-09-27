@@ -8,17 +8,17 @@ window.IELTS_MASTER_CONFIG = {
     allowScreenshot: false,      // false = Blocks PrintScreen/shortcuts, true = Allowed
     
     // 2. Toolbar Icon Controls
-    showDownloadIcon: true,     // true = Show PDF download icon, false = Hidden
+    showDownloadIcon: true,      // true = Show PDF download icon, false = Hidden
     showThemeIcon: true,         // true = Show Theme toggle icon, false = Hidden
     
-    // 3. Profile Image Setting
-    profileImage: "me.jpeg",     
+    // 3. Profile Image Setting (Points to root asset)
+    profileImage: "../me.jpeg",     
 
-    // 4. Fixed homepage
-    homePage: "./language.html", // Homepage reference
+    // 4. Fixed homepage (Points to root home.html)
+    homePage: "../home.html", 
 
-    // 5. Favicon Setting
-    favicon: "logo1.png"         // Favicon image file path
+    // 5. Favicon Setting (Points to root asset)
+    favicon: "../logo1.png"          
 };
 
 // ==========================================
