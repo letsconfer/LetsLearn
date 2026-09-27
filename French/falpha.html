@@ -24,6 +24,33 @@
             padding: 20px;
         }
 
+        /* Top Navbar for Theme & Download Controls */
+        .top-nav {
+            max-width: 1000px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -125,6 +152,12 @@
 </head>
 <body>
 
+<!-- Navigation Bar for Master-Config & Restrictions Integration -->
+<div class="top-nav">
+    <button class="nav-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Change Theme">🎨 Theme</button>
+    <button class="nav-btn" id="downloadBtn" onclick="downloadPage()" title="Download Page">📥 Download</button>
+</div>
+
 <div class="container">
     <h1>French Alphabets</h1>
     <p class="subtitle">French letters with phonetic & Hindi pronunciation (FLA1)</p>
@@ -179,13 +212,30 @@
 
     function playAudio(text) {
         if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel(); // Stop any ongoing speech
+            window.speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'fr-FR';
-            utterance.rate = 0.8; // Slightly slower for clear pronunciation
+            utterance.rate = 0.8;
             window.speechSynthesis.speak(utterance);
         } else {
             alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+
+    // Placeholders for configuration functions if not defined in master-config.js
+    function toggleTheme() {
+        if (typeof window.switchTheme === 'function') {
+            window.switchTheme();
+        } else {
+            document.body.style.filter = document.body.style.filter ? '' : 'invert(1)';
+        }
+    }
+
+    function downloadPage() {
+        if (typeof window.triggerDownload === 'function') {
+            window.triggerDownload();
+        } else {
+            window.print();
         }
     }
 
@@ -193,7 +243,7 @@
 
     alphabetData.forEach(item => {
         const row = document.createElement('tr');
-        const cleanExampleWord = item.example.split(' ')[0]; // Extracts just the French word for speech synthesis
+        const cleanExampleWord = item.example.split(' ')[0];
         
         row.innerHTML = `
             <td class="french-letter">${item.letter}</td>
