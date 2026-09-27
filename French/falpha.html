@@ -16,48 +16,39 @@
             --border-color: #dee2e6;
         }
 
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
             padding: 20px;
-        }
-
-        /* Top Navbar for Theme & Download Controls */
-        .top-nav {
-            max-width: 1000px;
-            margin: 0 auto 15px auto;
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-        }
-
-        .nav-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.2s;
-        }
-
-        .nav-btn:hover {
-            opacity: 0.9;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .container {
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 40px auto;
             background: var(--card-bg);
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        /* Container where restrictions.js automatically injects Home, Theme, and Download icons */
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
         }
 
         h1 {
@@ -82,7 +73,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
-            background-color: #fff;
+            background-color: var(--card-bg);
         }
 
         th, td {
@@ -101,7 +92,7 @@
         }
 
         tr:hover {
-            background-color: #f1f5f9;
+            background-color: rgba(0, 0, 0, 0.02);
         }
 
         .french-letter {
@@ -116,27 +107,23 @@
             color: #d97706;
         }
 
+        /* Inline Audio Pronunciation Button using listen.png */
         .inline-audio-btn {
-            background: none;
+            background: transparent url('listen.png') no-repeat center;
+            background-size: 20px 20px;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
-            margin-left: 6px;
-            padding: 2px 6px;
-            border-radius: 4px;
-            transition: background 0.2s, transform 0.1s;
-            display: inline-flex;
-            align-items: center;
+            width: 24px;
+            height: 24px;
+            margin-left: 8px;
+            padding: 0;
             vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
         }
 
         .inline-audio-btn:hover {
-            background-color: #e2e8f0;
-            transform: scale(1.1);
-        }
-
-        .inline-audio-btn:active {
-            transform: scale(1);
+            transform: scale(1.15);
         }
 
         @media (max-width: 600px) {
@@ -152,13 +139,10 @@
 </head>
 <body>
 
-<!-- Navigation Bar for Master-Config & Restrictions Integration -->
-<div class="top-nav">
-    <button class="nav-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Change Theme">🎨 Theme</button>
-    <button class="nav-btn" id="downloadBtn" onclick="downloadPage()" title="Download Page">📥 Download</button>
-</div>
-
 <div class="container">
+    <!-- restrictions.js automatically hooks into this class to place the icons -->
+    <div class="theme-switcher"></div>
+
     <h1>French Alphabets</h1>
     <p class="subtitle">French letters with phonetic & Hindi pronunciation (FLA1)</p>
 
@@ -222,23 +206,6 @@
         }
     }
 
-    // Placeholders for configuration functions if not defined in master-config.js
-    function toggleTheme() {
-        if (typeof window.switchTheme === 'function') {
-            window.switchTheme();
-        } else {
-            document.body.style.filter = document.body.style.filter ? '' : 'invert(1)';
-        }
-    }
-
-    function downloadPage() {
-        if (typeof window.triggerDownload === 'function') {
-            window.triggerDownload();
-        } else {
-            window.print();
-        }
-    }
-
     const tbody = document.getElementById('alphabetTable');
 
     alphabetData.forEach(item => {
@@ -249,12 +216,12 @@
             <td class="french-letter">${item.letter}</td>
             <td>
                 ${item.sound}
-                <button class="inline-audio-btn" onclick="playAudio('${item.letter}')" title="Listen to letter">🔊</button>
+                <button class="inline-audio-btn" onclick="playAudio('${item.letter}')" title="Listen to letter"></button>
             </td>
             <td class="hindi-sound">${item.hindi}</td>
             <td>
                 ${item.example}
-                <button class="inline-audio-btn" onclick="playAudio('${cleanExampleWord}')" title="Listen to example">🔊</button>
+                <button class="inline-audio-btn" onclick="playAudio('${cleanExampleWord}')" title="Listen to example"></button>
             </td>
             <td>${item.english}</td>
         `;
