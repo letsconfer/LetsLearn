@@ -15,7 +15,7 @@ window.CV_MASTER_CONFIG = {
     profileImage: "me.jpeg",     // <--- Added missing comma
 
     // 4. Fixed homepage
-    homePage: "./Language.html", // <--- Removed stray '}' and added comma
+    homePage: "../home.html", // <--- Removed stray '}' and added comma
 
     // 5. Favicon Setting
     favicon: "logo1.png"         // Favicon image file path
