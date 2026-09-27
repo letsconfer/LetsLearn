@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLA1 - French Alphabet in Hindi with Audio</title>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .french-letter {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .hindi-sound {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #d97706;
+        }
+
+        .audio-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .audio-btn:hover {
+            background-color: #059669;
+            transform: translateY(-1px);
+        }
+
+        .audio-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+            .french-letter {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>French Alphabets</h1>
+    <p class="subtitle">French letters with phonetic & Hindi pronunciation (FLA1)</p>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Letter</th>
+                    <th>Phonetic Sound</th>
+                    <th>Hindi Sound</th>
+                    <th>Example (French)</th>
+                    <th>English Translation</th>
+                    <th>Listen</th>
+                </tr>
+            </thead>
+            <tbody id="alphabetTable">
+                <!-- JavaScript will generate table rows here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const alphabetData = [
+        { letter: 'A', sound: 'AHH', hindi: 'आ', example: 'Avion (आवियों)', english: 'Aeroplane' },
+        { letter: 'B', sound: 'BAY', hindi: 'बे', example: 'Banane (बनान)', english: 'Banana' },
+        { letter: 'C', sound: 'CAY', hindi: 'से', example: 'Chat', english: 'Cat' },
+        { letter: 'D', sound: 'DAY', hindi: 'दे', example: 'Dauphin', english: 'Dolphin' },
+        { letter: 'E', sound: 'A', hindi: 'अ', example: 'Éléphant', english: 'Elephant' },
+        { letter: 'F', sound: 'F', hindi: 'एफ', example: 'Fleur', english: 'Flower' },
+        { letter: 'G', sound: 'JE', hindi: 'जे', example: 'Gâteau', english: 'Cake' },
+        { letter: 'H', sound: 'ASH', hindi: 'आेश / आश', example: 'Homme', english: 'Man' },
+        { letter: 'I', sound: 'EE', hindi: 'ई', example: 'Image', english: 'Picture' },
+        { letter: 'J', sound: 'JHEE', hindi: 'जी', example: 'Jardin', english: 'Garden' },
+        { letter: 'K', sound: 'KAH', hindi: 'का', example: 'Koala', english: 'Koala' },
+        { letter: 'L', sound: 'L', hindi: 'एल', example: 'Livre', english: 'Book' },
+        { letter: 'M', sound: 'M', hindi: 'एम', example: 'Maison', english: 'House' },
+        { letter: 'N', sound: 'N', hindi: 'एन', example: 'Nuit', english: 'Night' },
+        { letter: 'O', sound: 'O', hindi: 'ओ', example: 'Oiseau', english: 'Bird' },
+        { letter: 'P', sound: 'PAY', hindi: 'पे', example: 'Pomme', english: 'Apple' },
+        { letter: 'Q', sound: 'KEU', hindi: 'क्यु', example: 'Quatre', english: 'Four' },
+        { letter: 'R', sound: 'ERR', hindi: 'एर', example: 'Rouge', english: 'Red' },
+        { letter: 'S', sound: 'ESS', hindi: 'एस', example: 'Soleil', english: 'Sun' },
+        { letter: 'T', sound: 'TAY', hindi: 'ते', example: 'Table', english: 'Table' },
+        { letter: 'U', sound: 'EU', hindi: 'यु', example: 'Un', english: 'One' },
+        { letter: 'V', sound: 'VAY', hindi: 'वे', example: 'Voiture', english: 'Car' },
+        { letter: 'W', sound: 'Double WAY', hindi: 'दुबल वे', example: 'Wagon', english: 'Carriage' },
+        { letter: 'X', sound: 'EXX', hindi: 'इक्स', example: 'Xylophone', english: 'Xylophone' },
+        { letter: 'Y', sound: 'EGRICK', hindi: 'इग्रेक', example: 'Yeux', english: 'Eyes' },
+        { letter: 'Z', sound: 'ZED', hindi: 'ज़ेद', example: 'Zèbre', english: 'Zebra' }
+    ];
+
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel(); // Stop any ongoing speech
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8; // Slightly slower for clear pronunciation
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+
+    const tbody = document.getElementById('alphabetTable');
+
+    alphabetData.forEach(item => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td class="french-letter">${item.letter}</td>
+            <td>${item.sound}</td>
+            <td class="hindi-sound">${item.hindi}</td>
+            <td>${item.example}</td>
+            <td>${item.english}</td>
+            <td>
+                <button class="audio-btn" onclick="playAudio('${item.letter}')">
+                    🔊 Listen
+                </button>
+            </td>
+        `;
+        
+        tbody.appendChild(row);
+    });
+</script>
+
+</body>
+</html>
