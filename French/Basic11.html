@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic.html - Complete French Notes & Rules Masterclass</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --highlight-bg: #d4edda;
+            --highlight-text: #155724;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --highlight-bg: #1e3a29;
+            --highlight-text: #a3e635;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .section-pronunciation {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Column width and explicit background coloring */
+        th:nth-child(1), td:nth-child(1) { width: 18%; }
+        th:nth-child(2), td:nth-child(2) { width: 22%; }
+        
+        th:nth-child(3), td:nth-child(3) { 
+            width: 30%; 
+            background-color: #e8f5e9 !important; /* Explicit Light Green for Correct */
+        }
+        
+        th:nth-child(4), td:nth-child(4) { 
+            width: 30%; 
+            background-color: #ffebee !important; /* Explicit Light Red/Pink for Incorrect */
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        th:nth-child(3) { background-color: #2e7d32 !important; }
+        th:nth-child(4) { background-color: #c62828 !important; }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .incorrect {
+            color: #dc3545;
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+
+    <h1>Complete French Basics Masterclass </h1>
+    <p class="subtitle">Comprehensive Notes, Phonetics, Alphabets, Accents & Grammar Rules Reference</p>
+
+    <!-- SECTION 1: SOUND COMBINATIONS -->
+    <h2>1. Sound Combinations & Suffixes</h2>
+    <div class="section-pronunciation">French: <em>Les Sons</em> <button class="inline-audio-btn" onclick="playAudio('Les Sons')" title="Listen"></button> / Pronunciation: ले सॉँ</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sound Group 1: é / ez / er / ê</strong></td>
+                    <td>Produces an <span class="highlight">ay / eh</span> vowel sound in French words.<br><br><strong>English Comparison:</strong> Equivalent to the English 'ay' diphthong (as in the word *DAY*).<br><strong>Hindi Comparison:</strong> Equivalent to the Hindi vowel sound 'ए' (e.g., 'एक').</td>
+                    <td>
+                        • <em>été</em> <button class="inline-audio-btn" onclick="playAudio('été')" title="Listen"></button> (summer)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ay-tay / एते<br>
+                        • <em>parlez</em> <button class="inline-audio-btn" onclick="playAudio('parlez')" title="Listen"></button> (speak)<br>&nbsp;&nbsp;<em>Pronunciation:</em> par-lay / पार्ले<br>
+                        • <em>parler</em> <button class="inline-audio-btn" onclick="playAudio('parler')" title="Listen"></button> (to speak)<br>&nbsp;&nbsp;<em>Pronunciation:</em> par-lay / पार्ले
+                    </td>
+                    <td>
+                        • <span class="incorrect">ah-tah</span> <button class="inline-audio-btn" onclick="playAudio('ata')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-tah / अता<br>
+                        • <span class="incorrect">par-lez</span> <button class="inline-audio-btn" onclick="playAudio('parlez z')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> par-lez / पार्लेज़<br>
+                        • <span class="incorrect">par-ler</span> <button class="inline-audio-btn" onclick="playAudio('parler r')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> par-ler / पार्लर
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Sound Group 2: an / en / ane</strong></td>
+                    <td>Produces a <span class="highlight">nasal 'ahn'</span> sound through the nose.<br><br><strong>English Comparison:</strong> Similar to a nasalized 'on' or 'an' without pronouncing the final hard consonant.<br><strong>Hindi Comparison:</strong> Equivalent to the nasal sound 'ऑँ' or 'हाँ' (Anunasik).</td>
+                    <td>
+                        • <em>enfant</em> <button class="inline-audio-btn" onclick="playAudio('enfant')" title="Listen"></button> (child)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ahn-fahn / ऑँफ ऑँ<br>
+                        • <em>boulanger</em> <button class="inline-audio-btn" onclick="playAudio('boulanger')" title="Listen"></button> (baker)<br>&nbsp;&nbsp;<em>Pronunciation:</em> bool-ahn-zhay / बुलॉँजे<br>
+                        • <em>dans</em> <button class="inline-audio-btn" onclick="playAudio('dans')" title="Listen"></button> (in)<br>&nbsp;&nbsp;<em>Pronunciation:</em> dahn / ऑँ
+                    </td>
+                    <td>
+                        • <span class="incorrect">an-fant</span> <button class="inline-audio-btn" onclick="playAudio('anfant')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> an-fant / एनफैंट<br>
+                        • <span class="incorrect">bool-an-gair</span> <button class="inline-audio-btn" onclick="playAudio('boolangair')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> bool-an-gair / बुलंगेर<br>
+                        • <span class="incorrect">dan-s</span> <button class="inline-audio-btn" onclick="playAudio('danss')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> dan-s / डान्स
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Sound Group 3: in</strong></td>
+                    <td>Produces a <span class="highlight">nasal 'oiwa / owa'</span> sound.<br><br><strong>English Comparison:</strong> Blended nasal vowel glide.<br><strong>Hindi Comparison:</strong> Similar to combining 'ओ' and 'वा' with a nasal resonance.</td>
+                    <td>
+                        • <em>fin</em> <button class="inline-audio-btn" onclick="playAudio('fin')" title="Listen"></button> (end)<br>&nbsp;&nbsp;<em>Pronunciation:</em> fwa / फ़्वा<br>
+                        • <em>vin</em> <button class="inline-audio-btn" onclick="playAudio('vin')" title="Listen"></button> (wine)<br>&nbsp;&nbsp;<em>Pronunciation:</em> vwa / व्वा<br>
+                        • <em>matin</em> <button class="inline-audio-btn" onclick="playAudio('matin')" title="Listen"></button> (morning)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ma-twa / मत्या
+                    </td>
+                    <td>
+                        • <span class="incorrect">fin-n</span> <button class="inline-audio-btn" onclick="playAudio('finn')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> fin-n / फिन-न<br>
+                        • <span class="incorrect">vin-n</span> <button class="inline-audio-btn" onclick="playAudio('vinn')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> vin-n / विन-न<br>
+                        • <span class="incorrect">ma-tin</span> <button class="inline-audio-btn" onclick="playAudio('matin incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ma-tin / मतिन
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Sound Group 4: au / aux / eau</strong></td>
+                    <td>Always pronounced as a <span class="highlight">long 'auh'</span> sound.<br><br><strong>English Comparison:</strong> Matches the English 'o' sound in *BOAT* or *GO*.<br><strong>Hindi Comparison:</strong> Equivalent to the Hindi sound 'ओ' (e.g., 'ओस').</td>
+                    <td>
+                        • <em>eau</em> <button class="inline-audio-btn" onclick="playAudio('eau')" title="Listen"></button> (water)<br>&nbsp;&nbsp;<em>Pronunciation:</em> oh / ओ<br>
+                        • <em>bureau</em> <button class="inline-audio-btn" onclick="playAudio('bureau')" title="Listen"></button> (office)<br>&nbsp;&nbsp;<em>Pronunciation:</em> byoo-roh / ब्युरो<br>
+                        • <em>cadeau</em> <button class="inline-audio-btn" onclick="playAudio('cadeau')" title="Listen"></button> (gift)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ka-doh / कदो
+                    </td>
+                    <td>
+                        • <span class="incorrect">ee-ou</span> <button class="inline-audio-btn" onclick="playAudio('eeou')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ee-ou / ईउ<br>
+                        • <span class="incorrect">bu-ree-au</span> <button class="inline-audio-btn" onclick="playAudio('burieau')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> bu-ree-au / बुरिऔ<br>
+                        • <span class="incorrect">ca-de-ou</span> <button class="inline-audio-btn" onclick="playAudio('cadeou')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ca-de-ou / कदेऔ
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Sound Group 5: ment</strong></td>
+                    <td>Forms adverbs; pronounced with a <span class="highlight">nasal 'mãh'</span> sound where 't' is silent.<br><br><strong>English Comparison:</strong> Like English adverb suffix '-ly', but ending with a nasalized 'm' and silent 't'.<br><strong>Hindi Comparison:</strong> Similar to ending with nasal 'माँ'.</td>
+                    <td>
+                        • <em>lentement</em> <button class="inline-audio-btn" onclick="playAudio('lentement')" title="Listen"></button> (slowly)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lahnt-mãh / लांमाँ<br>
+                        • <em>facilement</em> <button class="inline-audio-btn" onclick="playAudio('facilement')" title="Listen"></button> (easily)<br>&nbsp;&nbsp;<em>Pronunciation:</em> fa-seel-mãh / पासिल्माँ<br>
+                        • <em>rarement</em> <button class="inline-audio-btn" onclick="playAudio('rarement')" title="Listen"></button> (rarely)<br>&nbsp;&nbsp;<em>Pronunciation:</em> rar-mãh / रार्मॉँ
+                    </td>
+                    <td>
+                        • <span class="incorrect">lentement-t</span> <button class="inline-audio-btn" onclick="playAudio('lentementt')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> lahnt-ment / लांमेंट<br>
+                        • <span class="incorrect">facile-ment</span> <button class="inline-audio-btn" onclick="playAudio('facilement incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> fa-seel-ment / पासिल्मेंट<br>
+                        • <span class="incorrect">rare-ment</span> <button class="inline-audio-btn" onclick="playAudio('rarement incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> rar-ment / रार्मेंट
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Sound Group 6: tion</strong></td>
+                    <td>Pronounced with a <span class="highlight">syou / syohn</span> sound.<br><br><strong>English Comparison:</strong> Unlike English '-shun', French uses '-syohn'.<br><strong>Hindi Comparison:</strong> Equivalent to 'स्यों' rather than 'शन'.</td>
+                    <td>
+                        • <em>action</em> <button class="inline-audio-btn" onclick="playAudio('action')" title="Listen"></button> (action)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ak-syohn / आकस्यों<br>
+                        • <em>nation</em> <button class="inline-audio-btn" onclick="playAudio('nation')" title="Listen"></button> (nation)<br>&nbsp;&nbsp;<em>Pronunciation:</em> nah-syohn / नास्यों<br>
+                        • <em>attention</em> <button class="inline-audio-btn" onclick="playAudio('attention')" title="Listen"></button> (attention)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-tahn-syohn / ऑँतस्यों
+                    </td>
+                    <td>
+                        • <span class="incorrect">ti-on</span> <button class="inline-audio-btn" onclick="playAudio('tion')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> tik-shun / टिक्शन<br>
+                        • <span class="incorrect">na-ti-on</span> <button class="inline-audio-btn" onclick="playAudio('nation incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> na-ti-on / नेशन<br>
+                        • <span class="incorrect">at-ten-ti-on</span> <button class="inline-audio-btn" onclick="playAudio('attention incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> at-ten-ti-on / अटेंशन
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Sound Group 7: ill / il</strong></td>
+                    <td>Produces a <span class="highlight">soft 'i / iy'</span> sound.<br><br><strong>English Comparison:</strong> Soft glide like 'y' in 'yes' or 'ee' in 'feet'.<br><strong>Hindi Comparison:</strong> Equivalent to the vowel sound 'ई'.</td>
+                    <td>
+                        • <em>famille</em> <button class="inline-audio-btn" onclick="playAudio('famille')" title="Listen"></button> (family)<br>&nbsp;&nbsp;<em>Pronunciation:</em> fah-mee / फ़ामी<br>
+                        • <em>fille</em> <button class="inline-audio-btn" onclick="playAudio('fille')" title="Listen"></button> (daughter)<br>&nbsp;&nbsp;<em>Pronunciation:</em> fee / फ़ी<br>
+                        • <em>ville</em> <button class="inline-audio-btn" onclick="playAudio('ville')" title="Listen"></button> (city)<br>&nbsp;&nbsp;<em>Pronunciation:</em> veel / वील
+                    </td>
+                    <td>
+                        • <span class="incorrect">fa-mill-e</span> <button class="inline-audio-btn" onclick="playAudio('famillee')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> fa-mil-ل / मिल-ल<br>
+                        • <span class="incorrect">fill-e</span> <button class="inline-audio-btn" onclick="playAudio('fille incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> fill / फिल्<br>
+                        • <span class="incorrect">vill-e</span> <button class="inline-audio-btn" onclick="playAudio('ville incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> vill / विल्ल
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 2: THE SILENT H RULE -->
+    <h2>2. The Silent 'H' Rule</h2>
+    <div class="section-pronunciation">French: <em>La Règle du H Muet</em> <button class="inline-audio-btn" onclick="playAudio('La Règle du H Muet')" title="Listen"></button> / Pronunciation: ला रेग्ल दू अच म्यूए</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>The Letter 'H'</strong></td>
+                    <td>The letter 'H' is <span class="highlight">always silent</span> if it comes at the start and end of a word.<br><br><strong>English Comparison:</strong> Unlike English where 'H' is strongly aspirated (e.g., *house*), French 'H' is completely unvoiced.<br><strong>Hindi Comparison:</strong> Equivalent to a silent letter or 'मौन वर्ण' (no 'ह' sound is produced).</td>
+                    <td>
+                        • <em>homme</em> <button class="inline-audio-btn" onclick="playAudio('homme')" title="Listen"></button> (man)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ohm / ओम<br>
+                        • <em>habiter</em> <button class="inline-audio-btn" onclick="playAudio('habiter')" title="Listen"></button> (to live)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-bee-tay / आबीते<br>
+                        • <em>heure</em> <button class="inline-audio-btn" onclick="playAudio('heure')" title="Listen"></button> (hour)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ur / उर
+                    </td>
+                    <td>
+                        • <span class="incorrect">hahm</span> <button class="inline-audio-btn" onclick="playAudio('hahm')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> hahm / हाम<br>
+                        • <span class="incorrect">ha-bee-tair</span> <button class="inline-audio-btn" onclick="playAudio('habiter incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ha-bee-tair / हाबीतेर<br>
+                        • <span class="incorrect">hur</span> <button class="inline-audio-btn" onclick="playAudio('hur')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> hur / हुर
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 3: FRENCH ALPHABETS -->
+    <h2>3. French Alphabets</h2>
+    <div class="section-pronunciation">French: <em>L'Alphabet</em> <button class="inline-audio-btn" onclick="playAudio('LAlphabet')" title="Listen"></button> / Pronunciation: लाल्फाबे</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Letter A</strong></td>
+                    <td>French vowel letter A.<br><br><strong>English Comparison:</strong> Broad 'ah' sound unlike English 'ay'.<br><strong>Hindi Comparison:</strong> 'आ' की मात्रा।</td>
+                    <td>
+                        • <em>avion</em> <button class="inline-audio-btn" onclick="playAudio('avion')" title="Listen"></button> (ah-vyohn / आवियों)<br>
+                        • <em>ami</em> <button class="inline-audio-btn" onclick="playAudio('ami')" title="Listen"></button> (ah-mee / आमी)<br>
+                        • <em>ananas</em> <button class="inline-audio-btn" onclick="playAudio('ananas')" title="Listen"></button> (ah-nah-nas / अनानास)
+                    </td>
+                    <td>
+                        • <span class="incorrect">ay</span> <button class="inline-audio-btn" onclick="playAudio('ay')" title="Listen"></button> (ay / ए)<br>
+                        • <span class="incorrect">apple</span> <button class="inline-audio-btn" onclick="playAudio('apple')" title="Listen"></button> (ap-pl / एप्पल)<br>
+                        • <span class="incorrect">ant</span> <button class="inline-audio-btn" onclick="playAudio('ant')" title="Listen"></button> (ant / एन्ट)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter B</strong></td>
+                    <td>French consonant letter B.<br><br><strong>English Comparison:</strong> Pronounced 'bay'.<br><strong>Hindi Comparison:</strong> 'बे'।</td>
+                    <td>
+                        • <em>banane</em> <button class="inline-audio-btn" onclick="playAudio('banane')" title="Listen"></button> (bah-nan / बनान)<br>
+                        • <em>bébé</em> <button class="inline-audio-btn" onclick="playAudio('bébé')" title="Listen"></button> (bay-bay / बेबे)<br>
+                        • <em>boîte</em> <button class="inline-audio-btn" onclick="playAudio('boîte')" title="Listen"></button> (bwaht / ब्वाहत)
+                    </td>
+                    <td>
+                        • <span class="incorrect">bee</span> <button class="inline-audio-btn" onclick="playAudio('bee')" title="Listen"></button> (bee / बी)<br>
+                        • <span class="incorrect">ban-an</span> <button class="inline-audio-btn" onclick="playAudio('banan')" title="Listen"></button> (ban-an / बनन)<br>
+                        • <span class="incorrect">bob</span> <button class="inline-audio-btn" onclick="playAudio('bob')" title="Listen"></button> (bob / बॉब)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter C</strong></td>
+                    <td>French consonant letter C.<br><br><strong>English Comparison:</strong> Pronounced 'say'.<br><strong>Hindi Comparison:</strong> 'से'।</td>
+                    <td>
+                        • <em>chat</em> <button class="inline-audio-btn" onclick="playAudio('chat')" title="Listen"></button> (shah / शा)<br>
+                        • <em>café</em> <button class="inline-audio-btn" onclick="playAudio('café')" title="Listen"></button> (ka-fay / कैफे)<br>
+                        • <em>citron</em> <button class="inline-audio-btn" onclick="playAudio('citron')" title="Listen"></button> (see-trõh / सीत्रॉँ)
+                    </td>
+                    <td>
+                        • <span class="incorrect">see</span> <button class="inline-audio-btn" onclick="playAudio('see')" title="Listen"></button> (see / सी)<br>
+                        • <span class="incorrect">cat</span> <button class="inline-audio-btn" onclick="playAudio('cat')" title="Listen"></button> (cat / कैट)<br>
+                        • <span class="incorrect">cot</span> <button class="inline-audio-btn" onclick="playAudio('cot')" title="Listen"></button> (cot / कॉट)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter D</strong></td>
+                    <td>French consonant letter D.<br><br><strong>English Comparison:</strong> Pronounced 'day'.<br><strong>Hindi Comparison:</strong> 'दे'।</td>
+                    <td>
+                        • <em>dauphin</em> <button class="inline-audio-btn" onclick="playAudio('dauphin')" title="Listen"></button> (doh-fẽh / दोफैं)<br>
+                        • <em>dossier</em> <button class="inline-audio-btn" onclick="playAudio('dossier')" title="Listen"></button> (doh-syay / दोस्ये)<br>
+                        • <em>dîner</em> <button class="inline-audio-btn" onclick="playAudio('dîner')" title="Listen"></button> (dee-nay / दीने)
+                    </td>
+                    <td>
+                        • <span class="incorrect">dee</span> <button class="inline-audio-btn" onclick="playAudio('dee')" title="Listen"></button> (dee / डी)<br>
+                        • <span class="incorrect">dog</span> <button class="inline-audio-btn" onclick="playAudio('dog')" title="Listen"></button> (dog / डॉग)<br>
+                        • <span class="incorrect">dad</span> <button class="inline-audio-btn" onclick="playAudio('dad')" title="Listen"></button> (dad / डैड)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter E</strong></td>
+                    <td>French vowel letter E.<br><br><strong>English Comparison:</strong> Short neutral 'uh'.<br><strong>Hindi Comparison:</strong> 'अ'।</td>
+                    <td>
+                        • <em>éléphant</em> <button class="inline-audio-btn" onclick="playAudio('éléphant')" title="Listen"></button> (ay-lay-fahn / एलेफॉँ)<br>
+                        • <em>école</em> <button class="inline-audio-btn" onclick="playAudio('école')" title="Listen"></button> (ay-kohl / एकोल)<br>
+                        • <em>étudiant</em> <button class="inline-audio-btn" onclick="playAudio('étudiant')" title="Listen"></button> (ay-tyoo-dyahn / एत्युद्याँ)
+                    </td>
+                    <td>
+                        • <span class="incorrect">ee</span> <button class="inline-audio-btn" onclick="playAudio('ee')" title="Listen"></button> (ee / ई)<br>
+                        • <span class="incorrect">elephant</span> <button class="inline-audio-btn" onclick="playAudio('elephant')" title="Listen"></button> (el-e-fant / एलीफेंट)<br>
+                        • <span class="incorrect">egg</span> <button class="inline-audio-btn" onclick="playAudio('egg')" title="Listen"></button> (egg / एग)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter F</strong></td>
+                    <td>French consonant letter F.<br><br><strong>English Comparison:</strong> Pronounced 'effe'.<br><strong>Hindi Comparison:</strong> 'एफ'।</td>
+                    <td>
+                        • <em>fleur</em> <button class="inline-audio-btn" onclick="playAudio('fleur')" title="Listen"></button> (flur / ल्यूर)<br>
+                        • <em>fromage</em> <button class="inline-audio-btn" onclick="playAudio('fromage')" title="Listen"></button> (fro-mahzh / फ़्रोमाझ)<br>
+                        • <em>frère</em> <button class="inline-audio-btn" onclick="playAudio('frère')" title="Listen"></button> (frair / फ्रेर)
+                    </td>
+                    <td>
+                        • <span class="incorrect">ef</span> <button class="inline-audio-btn" onclick="playAudio('ef')" title="Listen"></button> (ef / इफ़)<br>
+                        • <span class="incorrect">flower</span> <button class="inline-audio-btn" onclick="playAudio('flower')" title="Listen"></button> (flow-er / फ्लावर)<br>
+                        • <span class="incorrect">fast</span> <button class="inline-audio-btn" onclick="playAudio('fast')" title="Listen"></button> (fast / फ़ास्ट)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter G</strong></td>
+                    <td>French consonant letter G.<br><br><strong>English Comparison:</strong> Pronounced 'je'.<br><strong>Hindi Comparison:</strong> 'जे'।</td>
+                    <td>
+                        • <em>gâteau</em> <button class="inline-audio-btn" onclick="playAudio('gâteau')" title="Listen"></button> (gah-toh / गातो)<br>
+                        • <em>gare</em> <button class="inline-audio-btn" onclick="playAudio('gare')" title="Listen"></button> (gar / गार)<br>
+                        • <em>girafe</em> <button class="inline-audio-btn" onclick="playAudio('girafe')" title="Listen"></button> (zhi-raf / जिराफ़)
+                    </td>
+                    <td>
+                        • <span class="incorrect">jee</span> <button class="inline-audio-btn" onclick="playAudio('jee')" title="Listen"></button> (jee / जी)<br>
+                        • <span class="incorrect">gate</span> <button class="inline-audio-btn" onclick="playAudio('gate')" title="Listen"></button> (gate / गेट)<br>
+                        • <span class="incorrect">go</span> <button class="inline-audio-btn" onclick="playAudio('go')" title="Listen"></button> (go / गो)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter H</strong></td>
+                    <td>French silent letter H.<br><br><strong>English Comparison:</strong> Pronounced 'ahsh'.<br><strong>Hindi Comparison:</strong> 'आश'।</td>
+                    <td>
+                        • <em>homme</em> <button class="inline-audio-btn" onclick="playAudio('homme')" title="Listen"></button> (ohm / ओम)<br>
+                        • <em>hôtel</em> <button class="inline-audio-btn" onclick="playAudio('hôtel')" title="Listen"></button> (oh-tel / ओतेल)<br>
+                        • <em>hibou</em> <button class="inline-audio-btn" onclick="playAudio('hibou')" title="Listen"></button> (ee-boo / इबू)
+                    </td>
+                    <td>
+                        • <span class="incorrect">aitch</span> <button class="inline-audio-btn" onclick="playAudio('aitch')" title="Listen"></button> (aitch / एच)<br>
+                        • <span class="incorrect">hat</span> <button class="inline-audio-btn" onclick="playAudio('hat')" title="Listen"></button> (hat / हैट)<br>
+                        • <span class="incorrect">house</span> <button class="inline-audio-btn" onclick="playAudio('house')" title="Listen"></button> (house / हाउस)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter I</strong></td>
+                    <td>French vowel letter I.<br><br><strong>English Comparison:</strong> Pronounced 'ii'.<br><strong>Hindi Comparison:</strong> 'ई'।</td>
+                    <td>
+                        • <em>image</em> <button class="inline-audio-btn" onclick="playAudio('image')" title="Listen"></button> (ee-mahzh / इमाझ)<br>
+                        • <em>idée</em> <button class="inline-audio-btn" onclick="playAudio('idée')" title="Listen"></button> (ee-day / ईदे)<br>
+                        • <em>igloo</em> <button class="inline-audio-btn" onclick="playAudio('igloo')" title="Listen"></button> (ee-gloo / इग््लू)
+                    </td>
+                    <td>
+                        • <span class="incorrect">eye</span> <button class="inline-audio-btn" onclick="playAudio('eye')" title="Listen"></button> (eye / आय)<br>
+                        • <span class="incorrect">ig-loo</span> <button class="inline-audio-btn" onclick="playAudio('igloo incorrect')" title="Listen"></button> (ig-loo / इग्लू)<br>
+                        • <span class="incorrect">in</span> <button class="inline-audio-btn" onclick="playAudio('in')" title="Listen"></button> (in / इन)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter J</strong></td>
+                    <td>French consonant letter J.<br><br><strong>English Comparison:</strong> Pronounced 'ji'.<br><strong>Hindi Comparison:</strong> 'जी'।</td>
+                    <td>
+                        • <em>jardin</em> <button class="inline-audio-btn" onclick="playAudio('jardin')" title="Listen"></button> (zhar-dẽh / जार्दै)<br>
+                        • <em>jouer</em> <button class="inline-audio-btn" onclick="playAudio('jouer')" title="Listen"></button> (zhway / ज्वाय)<br>
+                        • <em>jupe</em> <button class="inline-audio-btn" onclick="playAudio('jupe')" title="Listen"></button> (zhoop / झूप्प)
+                    </td>
+                    <td>
+                        • <span class="incorrect">jay</span> <button class="inline-audio-btn" onclick="playAudio('jay')" title="Listen"></button> (jay / जे)<br>
+                        • <span class="incorrect">jar</span> <button class="inline-audio-btn" onclick="playAudio('jar')" title="Listen"></button> (jar / जार)<br>
+                        • <span class="incorrect">jump</span> <button class="inline-audio-btn" onclick="playAudio('jump')" title="Listen"></button> (jump / जंप)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter K</strong></td>
+                    <td>French consonant letter K.<br><br><strong>English Comparison:</strong> Pronounced 'ka'.<br><strong>Hindi Comparison:</strong> 'का'।</td>
+                    <td>
+                        • <em>koala</em> <button class="inline-audio-btn" onclick="playAudio('koala')" title="Listen"></button> (koh-ah-la / कोअला)<br>
+                        • <em>kilo</em> <button class="inline-audio-btn" onclick="playAudio('kilo')" title="Listen"></button> (kee-loh / कीलो)<br>
+                        • <em>kangaroo</em> <button class="inline-audio-btn" onclick="playAudio('kangaroo')" title="Listen"></button> (kahn-gah-roo / कांगारू)
+                    </td>
+                    <td>
+                        • <span class="incorrect">kay</span> <button class="inline-audio-btn" onclick="playAudio('kay')" title="Listen"></button> (kay / के)<br>
+                        • <span class="incorrect">kite</span> <button class="inline-audio-btn" onclick="playAudio('kite')" title="Listen"></button> (kite / काइट)<br>
+                        • <span class="incorrect">king</span> <button class="inline-audio-btn" onclick="playAudio('king')" title="Listen"></button> (king / किंग)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter L</strong></td>
+                    <td>French consonant letter L.<br><br><strong>English Comparison:</strong> Pronounced 'el'.<br><strong>Hindi Comparison:</strong> 'एल'।</td>
+                    <td>
+                        • <em>livre</em> <button class="inline-audio-btn" onclick="playAudio('livre')" title="Listen"></button> (leevr / लीव्र)<br>
+                        • <em>lune</em> <button class="inline-audio-btn" onclick="playAudio('lune')" title="Listen"></button> (lyoon / ल्यून)<br>
+                        • <em>lampe</em> <button class="inline-audio-btn" onclick="playAudio('lampe')" title="Listen"></button> (lahmp / लाँप्)
+                    </td>
+                    <td>
+                        • <span class="incorrect">ell</span> <button class="inline-audio-btn" onclick="playAudio('ell')" title="Listen"></button> (ell / एलएल)<br>
+                        • <span class="incorrect">lion</span> <button class="inline-audio-btn" onclick="playAudio('lion')" title="Listen"></button> (li-on / लायन)<br>
+                        • <span class="incorrect">lamp</span> <button class="inline-audio-btn" onclick="playAudio('lamp')" title="Listen"></button> (lamp / लैंप)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter M</strong></td>
+                    <td>French consonant letter M.<br><br><strong>English Comparison:</strong> Pronounced 'emme'.<br><strong>Hindi Comparison:</strong> 'एम'।</td>
+                    <td>
+                        • <em>maison</em> <button class="inline-audio-btn" onclick="playAudio('maison')" title="Listen"></button> (may-zõh / मेज़ॉँ)<br>
+                        • <em>melon</em> <button class="inline-audio-btn" onclick="playAudio('melon')" title="Listen"></button> (meh-lõh / मेलॉँ)<br>
+                        • <em>merci</em> <button class="inline-audio-btn" onclick="playAudio('merci')" title="Listen"></button> (mair-see / मेर्सी)
+                    </td>
+                    <td>
+                        • <span class="incorrect">em</span> <button class="inline-audio-btn" onclick="playAudio('em')" title="Listen"></button> (em / इएम)<br>
+                        • <span class="incorrect">monkey</span> <button class="inline-audio-btn" onclick="playAudio('monkey')" title="Listen"></button> (monkey / मंकी)<br>
+                        • <span class="incorrect">moon</span> <button class="inline-audio-btn" onclick="playAudio('moon')" title="Listen"></button> (moon / मून)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter N</strong></td>
+                    <td>French consonant letter N.<br><br><strong>English Comparison:</strong> Pronounced 'enne'.<br><strong>Hindi Comparison:</strong> 'एन'।</td>
+                    <td>
+                        • <em>nuit</em> <button class="inline-audio-btn" onclick="playAudio('nuit')" title="Listen"></button> (nwee / न्वी)<br>
+                        • <em>nuage</em> <button class="inline-audio-btn" onclick="playAudio('nuage')" title="Listen"></button> (nwahzh / न्वाझ)<br>
+                        • <em>natation</em> <button class="inline-audio-btn" onclick="playAudio('natation')" title="Listen"></button> (nah-tah-syohn / नातास्यों)
+                    </td>
+                    <td>
+                        • <span class="incorrect">en</span> <button class="inline-audio-btn" onclick="playAudio('en')" title="Listen"></button> (en / इन)<br>
+                        • <span class="incorrect">night</span> <button class="inline-audio-btn" onclick="playAudio('night')" title="Listen"></button> (night / नाईट)<br>
+                        • <span class="incorrect">nest</span> <button class="inline-audio-btn" onclick="playAudio('nest')" title="Listen"></button> (nest / नेस्ट)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter O</strong></td>
+                    <td>French vowel letter O.<br><br><strong>English Comparison:</strong> Pronounced 'o'.<br><strong>Hindi Comparison:</strong> 'ओ'।</td>
+                    <td>
+                        • <em>oiseau</em> <button class="inline-audio-btn" onclick="playAudio('oiseau')" title="Listen"></button> (wah-zoh / वाज़ो)<br>
+                        • <em>orange</em> <button class="inline-audio-btn" onclick="playAudio('orange')" title="Listen"></button> (oh-rahnz / ओरान्झ)<br>
+                        • <em>onze</em> <button class="inline-audio-btn" onclick="playAudio('onze')" title="Listen"></button> (õhz / ऑँझ)
+                    </td>
+                    <td>
+                        • <span class="incorrect">oh</span> <button class="inline-audio-btn" onclick="playAudio('oh')" title="Listen"></button> (oh / ओएच)<br>
+                        • <span class="incorrect">owl</span> <button class="inline-audio-btn" onclick="playAudio('owl')" title="Listen"></button> (owl / आउल)<br>
+                        • <span class="incorrect">ox</span> <button class="inline-audio-btn" onclick="playAudio('ox')" title="Listen"></button> (ox / ऑक्स)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter P</strong></td>
+                    <td>French consonant letter P.<br><br><strong>English Comparison:</strong> Pronounced 'pé'.<br><strong>Hindi Comparison:</strong> 'पे'।</td>
+                    <td>
+                        • <em>pomme</em> <button class="inline-audio-btn" onclick="playAudio('pomme')" title="Listen"></button> (pohm / पोम)<br>
+                        • <em>père</em> <button class="inline-audio-btn" onclick="playAudio('père')" title="Listen"></button> (pair / पेर)<br>
+                        • <em>papier</em> <button class="inline-audio-btn" onclick="playAudio('papier')" title="Listen"></button> (pah-pyay / पापीये)
+                    </td>
+                    <td>
+                        • <span class="incorrect">pee</span> <button class="inline-audio-btn" onclick="playAudio('pee')" title="Listen"></button> (pee / पी)<br>
+                        • <span class="incorrect">pen</span> <button class="inline-audio-btn" onclick="playAudio('pen')" title="Listen"></button> (pen / पेन)<br>
+                        • <span class="incorrect">pig</span> <button class="inline-audio-btn" onclick="playAudio('pig')" title="Listen"></button> (pig / पिग)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter Q</strong></td>
+                    <td>French consonant letter Q.<br><br><strong>English Comparison:</strong> Pronounced 'ku'.<br><strong>Hindi Comparison:</strong> 'क्यु'।</td>
+                    <td>
+                        • <em>quatre</em> <button class="inline-audio-btn" onclick="playAudio('quatre')" title="Listen"></button> (ka-tr / कात्र)<br>
+                        • <em>question</em> <button class="inline-audio-btn" onclick="playAudio('question')" title="Listen"></button> (kes-tyohn / केस्यों)<br>
+                        • <em>quand</em> <button class="inline-audio-btn" onclick="playAudio('quand')" title="Listen"></button> (kahn / कॉँ)
+                    </td>
+                    <td>
+                        • <span class="incorrect">kyoo</span> <button class="inline-audio-btn" onclick="playAudio('kyoo')" title="Listen"></button> (kyoo / क्यू)<br>
+                        • <span class="incorrect">queen</span> <button class="inline-audio-btn" onclick="playAudio('queen')" title="Listen"></button> (queen / क्वीन)<br>
+                        • <span class="incorrect">quick</span> <button class="inline-audio-btn" onclick="playAudio('quick')" title="Listen"></button> (quick / क्विक)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter R</strong></td>
+                    <td>French consonant letter R.<br><br><strong>English Comparison:</strong> Pronounced 'erre' (uvular trill).<br><strong>Hindi Comparison:</strong> 'एर'।</td>
+                    <td>
+                        • <em>rouge</em> <button class="inline-audio-btn" onclick="playAudio('rouge')" title="Listen"></button> (roozh / रूझ)<br>
+                        • <em>rose</em> <button class="inline-audio-btn" onclick="playAudio('rose')" title="Listen"></button> (rohz / रोज़)<br>
+                        • <em>radio</em> <button class="inline-audio-btn" onclick="playAudio('radio')" title="Listen"></button> (rah-dyoh / राद्यो)
+                    </td>
+                    <td>
+                        • <span class="incorrect">ar</span> <button class="inline-audio-btn" onclick="playAudio('ar')" title="Listen"></button> (ar / आर)<br>
+                        • <span class="incorrect">rat</span> <button class="inline-audio-btn" onclick="playAudio('rat')" title="Listen"></button> (rat / रैट)<br>
+                        • <span class="incorrect">red</span> <button class="inline-audio-btn" onclick="playAudio('red')" title="Listen"></button> (red / रेड)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter S</strong></td>
+                    <td>French consonant letter S.<br><br><strong>English Comparison:</strong> Pronounced 'esse'.<br><strong>Hindi Comparison:</strong> 'एस'।</td>
+                    <td>
+                        • <em>soleil</em> <button class="inline-audio-btn" onclick="playAudio('soleil')" title="Listen"></button> (so-lay / सोलेय)<br>
+                        • <em>stylo</em> <button class="inline-audio-btn" onclick="playAudio('stylo')" title="Listen"></button> (stee-loh / स्टीलो)<br>
+                        • <em>sœur</em> <button class="inline-audio-btn" onclick="playAudio('sœur')" title="Listen"></button> (sur / सुर)
+                    </td>
+                    <td>
+                        • <span class="incorrect">es</span> <button class="inline-audio-btn" onclick="playAudio('es')" title="Listen"></button> (es / एसिज़)<br>
+                        • <span class="incorrect">sun</span> <button class="inline-audio-btn" onclick="playAudio('sun')" title="Listen"></button> (sun / सन)<br>
+                        • <span class="incorrect">snake</span> <button class="inline-audio-btn" onclick="playAudio('snake')" title="Listen"></button> (snake / स्नेक)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter T</strong></td>
+                    <td>French consonant letter T.<br><br><strong>English Comparison:</strong> Pronounced 'té'.<br><strong>Hindi Comparison:</strong> 'ते'।</td>
+                    <td>
+                        • <em>table</em> <button class="inline-audio-btn" onclick="playAudio('table')" title="Listen"></button> (tah-bl / ताब्ल)<br>
+                        • <em>train</em> <button class="inline-audio-btn" onclick="playAudio('train')" title="Listen"></button> (trẽh / त्रै)<br>
+                        • <em>télévision</em> <button class="inline-audio-btn" onclick="playAudio('télévision')" title="Listen"></button> (tay-lay-vee-zyohn / तेलेवीस्यों)
+                    </td>
+                    <td>
+                        • <span class="incorrect">tee</span> <button class="inline-audio-btn" onclick="playAudio('tee')" title="Listen"></button> (tee / टी)<br>
+                        • <span class="incorrect">table</span> <button class="inline-audio-btn" onclick="playAudio('table incorrect')" title="Listen"></button> (tay-bl / टेबल)<br>
+                        • <span class="incorrect">tiger</span> <button class="inline-audio-btn" onclick="playAudio('tiger')" title="Listen"></button> (tiger / टाइगर)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter U</strong></td>
+                    <td>French vowel letter U.<br><br><strong>English Comparison:</strong> Pronounced 'iu'.<br><strong>Hindi Comparison:</strong> 'यु'।</td>
+                    <td>
+                        • <em>un</em> <button class="inline-audio-btn" onclick="playAudio('un')" title="Listen"></button> (ẽh / अँ)<br>
+                        • <em>usine</em> <button class="inline-audio-btn" onclick="playAudio('usine')" title="Listen"></button> (yoo-zeen / यूज़ीन)<br>
+                        • <em>utile</em> <button class="inline-audio-btn" onclick="playAudio('utile')" title="Listen"></button> (yoo-teel / यूतील)
+                    </td>
+                    <td>
+                        • <span class="incorrect">yoo</span> <button class="inline-audio-btn" onclick="playAudio('yoo')" title="Listen"></button> (yoo / यू)<br>
+                        • <span class="incorrect">umbrella</span> <button class="inline-audio-btn" onclick="playAudio('umbrella')" title="Listen"></button> (umbrella / अम्ब्रेला)<br>
+                        • <span class="incorrect">urn</span> <button class="inline-audio-btn" onclick="playAudio('urn')" title="Listen"></button> (urn / अर्ने)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter V</strong></td>
+                    <td>French consonant letter V.<br><br><strong>English Comparison:</strong> Pronounced 'vé'.<br><strong>Hindi Comparison:</strong> 'वे'।</td>
+                    <td>
+                        • <em>voiture</em> <button class="inline-audio-btn" onclick="playAudio('voiture')" title="Listen"></button> (vwa-tyoor / व्वात्यूर)<br>
+                        • <em>ville</em> <button class="inline-audio-btn" onclick="playAudio('ville')" title="Listen"></button> (veel / वील)<br>
+                        • <em>vert</em> <button class="inline-audio-btn" onclick="playAudio('vert')" title="Listen"></button> (vair / वेर)
+                    </td>
+                    <td>
+                        • <span class="incorrect">vee</span> <button class="inline-audio-btn" onclick="playAudio('vee')" title="Listen"></button> (vee / वी)<br>
+                        • <span class="incorrect">van</span> <button class="inline-audio-btn" onclick="playAudio('van')" title="Listen"></button> (van / वैन)<br>
+                        • <span class="incorrect">vase</span> <button class="inline-audio-btn" onclick="playAudio('vase')" title="Listen"></button> (vase / वाज़)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter W</strong></td>
+                    <td>French consonant letter W.<br><br><strong>English Comparison:</strong> Pronounced 'double vé'.<br><strong>Hindi Comparison:</strong> 'दुबल वे'।</td>
+                    <td>
+                        • <em>wagon</em> <button class="inline-audio-btn" onclick="playAudio('wagon')" title="Listen"></button> (vah-gõh / वागॉँ)<br>
+                        • <em>watt</em> <button class="inline-audio-btn" onclick="playAudio('watt')" title="Listen"></button> (vaht / वात)<br>
+                        • <em>water-closet</em> <button class="inline-audio-btn" onclick="playAudio('water-closet')" title="Listen"></button> (vah-ter-kloh-zet / वातेर-क्लोझेत)
+                    </td>
+                    <td>
+                        • <span class="incorrect">double-yoo</span> <button class="inline-audio-btn" onclick="playAudio('double-yoo')" title="Listen"></button> (double-yoo / डबल यू)<br>
+                        • <span class="incorrect">watch</span> <button class="inline-audio-btn" onclick="playAudio('watch')" title="Listen"></button> (watch / वॉच)<br>
+                        • <span class="incorrect">water</span> <button class="inline-audio-btn" onclick="playAudio('water')" title="Listen"></button> (water / वॉटर)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter X</strong></td>
+                    <td>French consonant letter X.<br><br><strong>English Comparison:</strong> Pronounced 'eks'.<br><strong>Hindi Comparison:</strong> 'इक्स'।</td>
+                    <td>
+                        • <em>xylophone</em> <button class="inline-audio-btn" onclick="playAudio('xylophone')" title="Listen"></button> (zee-loh-fohn / ज़ीलोफ़ोन)<br>
+                        • <em>xérès</em> <button class="inline-audio-btn" onclick="playAudio('xérès')" title="Listen"></button> (xay-res / ज़ेरेस)<br>
+                        • <em>xenon</em> <button class="inline-audio-btn" onclick="playAudio('xenon')" title="Listen"></button> (gze-nõh / ग्ज़ेनॉँ)
+                    </td>
+                    <td>
+                        • <span class="incorrect">ex</span> <button class="inline-audio-btn" onclick="playAudio('ex')" title="Listen"></button> (ex / एक्सिज़)<br>
+                        • <span class="incorrect">box</span> <button class="inline-audio-btn" onclick="playAudio('box')" title="Listen"></button> (box / बॉक्स)<br>
+                        • <span class="incorrect">fox</span> <button class="inline-audio-btn" onclick="playAudio('fox')" title="Listen"></button> (fox / फ़ॉक्स)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter Y</strong></td>
+                    <td>French vowel/consonant letter Y.<br><br><strong>English Comparison:</strong> Pronounced 'e-gréc'.<br><strong>Hindi Comparison:</strong> 'इग्रेक'।</td>
+                    <td>
+                        • <em>yeux</em> <button class="inline-audio-btn" onclick="playAudio('yeux')" title="Listen"></button> (yuh / य्य़ू)<br>
+                        • <em>yoga</em> <button class="inline-audio-btn" onclick="playAudio('yoga')" title="Listen"></button> (yoh-gah / योगा)<br>
+                        • <em>yaourt</em> <button class="inline-audio-btn" onclick="playAudio('yaourt')" title="Listen"></button> (yah-oor / याऊर)
+                    </td>
+                    <td>
+                        • <span class="incorrect">why</span> <button class="inline-audio-btn" onclick="playAudio('why')" title="Listen"></button> (why / व्हाई)<br>
+                        • <span class="incorrect">yellow</span> <button class="inline-audio-btn" onclick="playAudio('yellow')" title="Listen"></button> (yellow / येलो)<br>
+                        • <span class="incorrect">yes</span> <button class="inline-audio-btn" onclick="playAudio('yes')" title="Listen"></button> (yes / यस)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Letter Z</strong></td>
+                    <td>French consonant letter Z.<br><br><strong>English Comparison:</strong> Pronounced 'zede'.<br><strong>Hindi Comparison:</strong> 'ज़ेद'।</td>
+                    <td>
+                        • <em>zèbre</em> <button class="inline-audio-btn" onclick="playAudio('zèbre')" title="Listen"></button> (zebr / ज़ेब्र)<br>
+                        • <em>zéro</em> <button class="inline-audio-btn" onclick="playAudio('zéro')" title="Listen"></button> (zay-roh / ज़ेरो)<br>
+                        • <em>zone</em> <button class="inline-audio-btn" onclick="playAudio('zone')" title="Listen"></button> (zohn / ज़ोन)
+                    </td>
+                    <td>
+                        • <span class="incorrect">zee</span> <button class="inline-audio-btn" onclick="playAudio('zee')" title="Listen"></button> (zee / ज़ी)<br>
+                        • <span class="incorrect">zoo</span> <button class="inline-audio-btn" onclick="playAudio('zoo')" title="Listen"></button> (zoo / जू)<br>
+                        • <span class="incorrect">zip</span> <button class="inline-audio-btn" onclick="playAudio('zip')" title="Listen"></button> (zip / ज़िप)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 4: FRENCH ACCENTS -->
+    <h2>4. French Accents</h2>
+    <div class="section-pronunciation">French: <em>Les Accents</em> <button class="inline-audio-btn" onclick="playAudio('Les Accents')" title="Listen"></button> / Pronunciation: ले आक्सॉँ</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>L'Accent Aigu ( ´ ) — Acute Accent</strong></td>
+                    <td><strong>Accent Name Pronunciation:</strong><br>English: lahn-sahn eh-goo<br>Hindi: लां-सॉं ए-गू.<br><br><strong>Rule:</strong> Used ONLY on the letter 'e' for a closed 'ay' sound (like English <em>day</em>). Never used before double consonants or final silent consonants.<br><br><strong>English Comparison:</strong> Equivalent to English long 'a'.<br><strong>Hindi Comparison:</strong> Equivalent to vowel sign 'े'.</td>
+                    <td>
+                        • <em>école</em> <button class="inline-audio-btn" onclick="playAudio('école')" title="Listen"></button> (school)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ay-kohl / एकोल<br>
+                        • <em>été</em> <button class="inline-audio-btn" onclick="playAudio('été')" title="Listen"></button> (summer)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ay-tay / एते<br>
+                        • <em>café</em> <button class="inline-audio-btn" onclick="playAudio('café')" title="Listen"></button> (coffee)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ka-fay / कैफे
+                    </td>
+                    <td>
+                        • <span class="incorrect">ah-kohl</span> <button class="inline-audio-btn" onclick="playAudio('ahkohl')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-kohl / अकोल<br>
+                        • <span class="incorrect">ah-tay</span> <button class="inline-audio-btn" onclick="playAudio('ahtay')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-tay / आते<br>
+                        • <span class="incorrect">ca-fah</span> <button class="inline-audio-btn" onclick="playAudio('cafah')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ca-fah / कैफा
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>L'Accent Grave ( ` ) — Grave Accent</strong></td>
+                    <td><strong>Accent Name Pronunciation:</strong><br>English: lahn-sahn grahv<br>Hindi: लां-सॉं ग्राव.<br><br><strong>Rule:</strong> Used on 'e' (open 'eh' sound like <em>bed</em>), and on 'a' or 'u' to distinguish homophones (e.g., <em>à</em> = to vs. <em>a</em> = has).<br><br><strong>English Comparison:</strong> Equivalent to open 'e' in *bed*.<br><strong>Hindi Comparison:</strong> Equivalent to vowel sign 'ै'.</td>
+                    <td>
+                        • <em>frère</em> <button class="inline-audio-btn" onclick="playAudio('frère')" title="Listen"></button> (brother)<br>&nbsp;&nbsp;<em>Pronunciation:</em> frair / फ्रेर<br>
+                        • <em>mère</em> <button class="inline-audio-btn" onclick="playAudio('mère')" title="Listen"></button> (mother)<br>&nbsp;&nbsp;<em>Pronunciation:</em> mair / मेर<br>
+                        • <em>où</em> <button class="inline-audio-btn" onclick="playAudio('où')" title="Listen"></button> (where)<br>&nbsp;&nbsp;<em>Pronunciation:</em> oo / ऊ
+                    </td>
+                    <td>
+                        • <span class="incorrect">freer</span> <button class="inline-audio-btn" onclick="playAudio('freer')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> free-er / फ्रीर<br>
+                        • <span class="incorrect">meer</span> <button class="inline-audio-btn" onclick="playAudio('meer')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> meer / मीर<br>
+                        • <span class="incorrect">ou-h</span> <button class="inline-audio-btn" onclick="playAudio('ouh')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ouh / औह
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>L'Accent Circonflexe ( ^ ) — Circumflex</strong></td>
+                    <td><strong>Accent Name Pronunciation:</strong><br>English: lahn-sahn seer-kohn-fleks<br>Hindi: लां-सॉं सीरकॉन्फ्लेक्स.<br><br><strong>Rule & Diphthong Note:</strong> Used on all vowels. Often marks historical loss of 's' from Old French (<em>feste</em> → <em>fête</em>).<br><br><strong>English Comparison:</strong> Lengthens vowel sound.<br><strong>Hindi Comparison:</strong> Long vowel marker.</td>
+                    <td>
+                        • <em>être</em> <button class="inline-audio-btn" onclick="playAudio('être')" title="Listen"></button> (to be)<br>&nbsp;&nbsp;<em>Pronunciation:</em> et-tr / एत्र<br>
+                        • <em>fête</em> <button class="inline-audio-btn" onclick="playAudio('fête')" title="Listen"></button> (party)<br>&nbsp;&nbsp;<em>Pronunciation:</em> fet / फेत<br>
+                        • <em>tête</em> <button class="inline-audio-btn" onclick="playAudio('tête')" title="Listen"></button> (head)<br>&nbsp;&nbsp;<em>Pronunciation:</em> tet / तेत
+                    </td>
+                    <td>
+                        • <span class="incorrect">ee-tr</span> <button class="inline-audio-btn" onclick="playAudio('eetr')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ee-tr / ईत्र<br>
+                        • <span class="incorrect">fa-et</span> <button class="inline-audio-btn" onclick="playAudio('faet')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> fa-et / फएत<br>
+                        • <span class="incorrect">ta-et</span> <button class="inline-audio-btn" onclick="playAudio('taet')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ta-et / तएत
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>La Cédille ( ç ) — Cedilla</strong></td>
+                    <td><strong>Accent Name Pronunciation:</strong><br>English: lah say-dee-yuh<br>Hindi: ला सेदीयु.<br><br><strong>Rule:</strong> Transforms hard 'c' into a soft 's' sound before 'a', 'o', and 'u'.<br><br><strong>EnglishComparison:</strong> Like 's' in *snake*.<br><strong>Hindi Comparison:</strong> Like 'स'।</td>
+                    <td>
+                        • <em>français</em> <button class="inline-audio-btn" onclick="playAudio('français')" title="Listen"></button> (French)<br>&nbsp;&nbsp;<em>Pronunciation:</em> frahn-say / फ्रांसे<br>
+                        • <em>leçon</em> <button class="inline-audio-btn" onclick="playAudio('leçon')" title="Listen"></button> (lesson)<br>&nbsp;&nbsp;<em>Pronunciation:</em> luh-sõh / ल्सॉँ<br>
+                        • <em>ça</em> <button class="inline-audio-btn" onclick="playAudio('ça')" title="Listen"></button> (that)<br>&nbsp;&nbsp;<em>Pronunciation:</em> sah / सा
+                    </td>
+                    <td>
+                        • <span class="incorrect">frank-ais</span> <button class="inline-audio-btn" onclick="playAudio('frankais')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> frank-ay / फ्रांकाइ<br>
+                        • <span class="incorrect">le-kon</span> <button class="inline-audio-btn" onclick="playAudio('lekon')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> le-kon / लेकॉन<br>
+                        • <span class="incorrect">ka</span> <button class="inline-audio-btn" onclick="playAudio('ka')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ka / का
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Le Tréma ( ï, ë, ü ) — Diaeresis</strong></td>
+                    <td><strong>Accent Name Pronunciation:</strong><br>English: luh tray-mah<br>Hindi: ल त्रेमा.<br><br><strong>Rule:</strong> Indicates that two adjacent vowels must be pronounced separately rather than blending into a diphthong.<br><br><strong>English Comparison:</strong> Separate syllable break.<br><strong>Hindi Comparison:</strong> अलग स्वर उच्चारण।</td>
+                    <td>
+                        • <em>Noël</em> <button class="inline-audio-btn" onclick="playAudio('Noël')" title="Listen"></button> (Christmas)<br>&nbsp;&nbsp;<em>Pronunciation:</em> noh-el / नो-एल<br>
+                        • <em>maïs</em> <button class="inline-audio-btn" onclick="playAudio('maïs')" title="Listen"></button> (corn)<br>&nbsp;&nbsp;<em>Pronunciation:</em> mah-ees / मा-ईस<br>
+                        • <em>haïr</em> <button class="inline-audio-btn" onclick="playAudio('haïr')" title="Listen"></button> (to hate)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-eer / आ-ईर
+                    </td>
+                    <td>
+                        • <span class="incorrect">nwl</span> <button class="inline-audio-btn" onclick="playAudio('nwl')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> nohl / नोल<br>
+                        • <span class="incorrect">mais</span> <button class="inline-audio-btn" onclick="playAudio('mais')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> may / मे<br>
+                        • <span class="incorrect">hair</span> <button class="inline-audio-btn" onclick="playAudio('hair')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> hair / हैर
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 5: VOWELS AND READING RULES -->
+    <h2>5. Vowels & Reading Rules</h2>
+    <div class="section-pronunciation">French: <em>Voyelles & Lecture</em> <button class="inline-audio-btn" onclick="playAudio('Voyelles et Lecture')" title="Listen"></button> / Pronunciation: वोयेल ए लेक्च्युर</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Vowels & Two-Vowel Rule</strong></td>
+                    <td>Vowels: <span class="highlight">A, E, I, O, U + H</span>.<br><em>Rule:</em> When a word has 2 vowels together, the <span class="highlight">Reading Consonant</span> decides whether the vowel theme gives its sound or not.<br><br><strong>English Comparison:</strong> Vowel digraph combinations.<br><strong>Hindi Comparison:</strong> संयुक्त स्वर नियम।</td>
+                    <td>
+                        • <em>avion</em> <button class="inline-audio-btn" onclick="playAudio('avion')" title="Listen"></button> (aeroplane)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-vyohn / आवियों<br>
+                        • <em>oiseau</em> <button class="inline-audio-btn" onclick="playAudio('oiseau')" title="Listen"></button> (bird)<br>&nbsp;&nbsp;<em>Pronunciation:</em> wah-zoh / वाज़ो<br>
+                        • <em>aigu</em> <button class="inline-audio-btn" onclick="playAudio('aigu')" title="Listen"></button> (sharp)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ay-goo / एगू
+                    </td>
+                    <td>
+                        • <span class="incorrect">ay-vi-on</span> <button class="inline-audio-btn" onclick="playAudio('ayvion')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ay-vi-on / एविऑन<br>
+                        • <span class="incorrect">oi-se-au</span> <button class="inline-audio-btn" onclick="playAudio('oiseau incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> oi-se-au / ओइसेओ<br>
+                        • <span class="incorrect">ai-gu</span> <button class="inline-audio-btn" onclick="playAudio('aigu incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ai-gu / ऐगु
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 6: SOUNDED CONSONANTS -->
+    <h2>6. Sounded Consonants</h2>
+    <div class="section-pronunciation">French: <em>Les Consonnes Prononcées</em> <button class="inline-audio-btn" onclick="playAudio('Les Consonnes Prononcées')" title="Listen"></button> / Pronunciation: ले कॉन्सोन प्रोनोंसे</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sounded Consonants: C, R, F, L, Q, D</strong></td>
+                    <td>Unlike most silent ending consonants in French, letters <span class="highlight">C, R, F, L, Q, D</span> are <span class="highlight">sounded</span> at the end of words (remembered via acronym CaReFuL QD).<br><br><strong>English Comparison:</strong> Pronouncing final consonants like in English.<br><strong>Hindi Comparison:</strong> अंत में पूरे व्यंजन का उच्चारण।</td>
+                    <td>
+                        • <em>sac</em> <button class="inline-audio-btn" onclick="playAudio('sac')" title="Listen"></button> (bag)<br>&nbsp;&nbsp;<em>Pronunciation:</em> sak / सैक<br>
+                        • <em>mer</em> <button class="inline-audio-btn" onclick="playAudio('mer')" title="Listen"></button> (sea)<br>&nbsp;&nbsp;<em>Pronunciation:</em> mair / मेर<br>
+                        • <em>chef</em> <button class="inline-audio-btn" onclick="playAudio('chef')" title="Listen"></button> (chef)<br>&nbsp;&nbsp;<em>Pronunciation:</em> shef / शेफ़
+                    </td>
+                    <td>
+                        • <span class="incorrect">sa</span> <button class="inline-audio-btn" onclick="playAudio('sa')" title="Listen"></button> (silent c)<br>&nbsp;&nbsp;<em>Pronunciation:</em> sah / सा<br>
+                        • <span class="incorrect">me</span> <button class="inline-audio-btn" onclick="playAudio('me')" title="Listen"></button> (silent r)<br>&nbsp;&nbsp;<em>Pronunciation:</em> may / मे<br>
+                        • <span class="incorrect">che</span> <button class="inline-audio-btn" onclick="playAudio('che')" title="Listen"></button> (silent f)<br>&nbsp;&nbsp;<em>Pronunciation:</em> shay / शे
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 7: DEFINITE ARTICLES -->
+    <h2>7. Definite Articles</h2>
+    <div class="section-pronunciation">French: <em>Les Articles Définis</em> <button class="inline-audio-btn" onclick="playAudio('Les Articles Définis')" title="Listen"></button> / Pronunciation: ले आर्तिक्ल देफिनी</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Le (Masculine Nouns)</strong></td>
+                    <td>Used exclusively before <span class="highlight">masculine singular nouns</span> starting with a consonant.<br><br><strong>English Comparison:</strong> Equivalent to English 'the'.<br><strong>Hindi Comparison:</strong> Equivalent to definite article 'वह' or masculine pointer.</td>
+                    <td>
+                        • <em>le stylo</em> <button class="inline-audio-btn" onclick="playAudio('le stylo')" title="Listen"></button> (pen)<br>&nbsp;&nbsp;<em>Pronunciation:</em> luh stee-loh / ल स्टीलो<br>
+                        • <em>le livre</em> <button class="inline-audio-btn" onclick="playAudio('le livre')" title="Listen"></button> (book)<br>&nbsp;&nbsp;<em>Pronunciation:</em> luh leevr / ल लीव्र<br>
+                        • <em>le garçon</em> <button class="inline-audio-btn" onclick="playAudio('le garçon')" title="Listen"></button> (boy)<br>&nbsp;&nbsp;<em>Pronunciation:</em> luh gar-sõh / ल गार्सॉँ
+                    </td>
+                    <td>
+                        • <span class="incorrect">le chaise</span> <button class="inline-audio-btn" onclick="playAudio('le chaise')" title="Listen"></button> (incorrect gender)<br>&nbsp;&nbsp;<em>Pronunciation:</em> luh shez / ल शेज़<br>
+                        • <span class="incorrect">le table</span> <button class="inline-audio-btn" onclick="playAudio('le table')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> luh tah-bl / ल ताब्ल<br>
+                        • <span class="incorrect">le fille</span> <button class="inline-audio-btn" onclick="playAudio('le fille')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> luh fee / ल फ़ी
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>La (Feminine Nouns)</strong></td>
+                    <td>Used exclusively before <span class="highlight">feminine singular nouns</span> starting with a consonant.<br><br><strong>English Comparison:</strong> Equivalent to English 'the'.<br><strong>Hindi Comparison:</strong> Equivalent to feminine definite pointer.</td>
+                    <td>
+                        • <em>la chaise</em> <button class="inline-audio-btn" onclick="playAudio('la chaise')" title="Listen"></button> (chair)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lah shez / ला शेज़<br>
+                        • <em>la table</em> <button class="inline-audio-btn" onclick="playAudio('la table')" title="Listen"></button> (table)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lah tah-bl / ला ताब्ल<br>
+                        • <em>la fille</em> <button class="inline-audio-btn" onclick="playAudio('la fille')" title="Listen"></button> (daughter)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lah fee / ला फ़ी
+                    </td>
+                    <td>
+                        • <span class="incorrect">la stylo</span> <button class="inline-audio-btn" onclick="playAudio('la stylo')" title="Listen"></button> (incorrect gender)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lah stee-loh / ला स्टीलो<br>
+                        • <span class="incorrect">la livre</span> <button class="inline-audio-btn" onclick="playAudio('la livre')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> lah leevr / ला लीव्र<br>
+                        • <span class="incorrect">la garçon</span> <button class="inline-audio-btn" onclick="playAudio('la garçon')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> lah gar-sõh / ला गार्सॉँ
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>L' (Vowels & Silent H)</strong></td>
+                    <td>Used before <span class="highlight">any singular noun (masculine or feminine)</span> starting with a vowel (a, e, i, o, u) or a silent 'h'. The vowel of Le or La is dropped and replaced with an apostrophe to avoid vowel clash (Elision).<br><br><strong>English Comparison:</strong> Like using 'the' before words starting with a vowel (though English doesn't drop spelling, like *the apple*).<br><strong>Hindi Comparison:</strong> स्वर से शुरू होने वाले शब्दों के पहले आर्टिकल का संक्षिप्त रूप।</td>
+                    <td>
+                        • <em>l'école</em> <button class="inline-audio-btn" onclick="playAudio('lécole')" title="Listen"></button> (school)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lay-kohl / लेकोल<br>
+                        • <em>l'ami</em> <button class="inline-audio-btn" onclick="playAudio('lami')" title="Listen"></button> (friend)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lah-mee / लामी<br>
+                        • <em>l'homme</em> <button class="inline-audio-btn" onclick="playAudio('lhomme')" title="Listen"></button> (man)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lohm / लोम
+                    </td>
+                    <td>
+                        • <span class="incorrect">le école</span> <button class="inline-audio-btn" onclick="playAudio('le école')" title="Listen"></button> (vowel clash)<br>&nbsp;&nbsp;<em>Pronunciation:</em> luh ay-kohl / ल एकोल<br>
+                        • <span class="incorrect">la ami</span> <button class="inline-audio-btn" onclick="playAudio('la ami')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> lah ah-mee / ला आमी<br>
+                        • <span class="incorrect">le homme</span> <button class="inline-audio-btn" onclick="playAudio('le homme')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> luh ohm / ल ओम
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Les (Plural Nouns)</strong></td>
+                    <td>Used before <span class="highlight">plural nouns</span> regardless of gender.<br><br><strong>English Comparison:</strong> Equivalent to English plural 'the'.<br><strong>HindiComparison:</strong> बहुवचन 'वे'।</td>
+                    <td>
+                        • <em>les stylos</em> <button class="inline-audio-btn" onclick="playAudio('les stylos')" title="Listen"></button> (pens)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lay stee-loh / ले स्टीलो<br>
+                        • <em>les chaises</em> <button class="inline-audio-btn" onclick="playAudio('les chaises')" title="Listen"></button> (chairs)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lay shez / ले शेज़<br>
+                        • <em>les livres</em> <button class="inline-audio-btn" onclick="playAudio('les livres')" title="Listen"></button> (books)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lay leevr / ले लीव्र
+                    </td>
+                    <td>
+                        • <span class="incorrect">le stylos</span> <button class="inline-audio-btn" onclick="playAudio('le stylos')" title="Listen"></button> (wrong article)<br>&nbsp;&nbsp;<em>Pronunciation:</em> luh stee-loh / ल स्टीलो<br>
+                        • <span class="incorrect">la chaises</span> <button class="inline-audio-btn" onclick="playAudio('la chaises')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> lah shez / ला शेज़<br>
+                        • <span class="incorrect">le livres</span> <button class="inline-audio-btn" onclick="playAudio('le livres')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> luh leevr / ल लीव्र
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>
