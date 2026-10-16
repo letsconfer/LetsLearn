@@ -2,7 +2,7 @@
 // RESTRICTIONS & UI CONTROLLER (ROOT)
 // ==========================================
 
-const restrictionMessage = "This action is restricted, please contact admin for more details.";
+const restrictionMessage = "Access Denied";
 let isInternalAction = false;
 
 // Helper to get master config from window.CV_MASTER_CONFIG
