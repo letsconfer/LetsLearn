@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Letter Blends & Phonetics</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --highlight-bg: #d4edda;
+            --highlight-text: #155724;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --highlight-bg: #1e3a29;
+            --highlight-text: #a3e635;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .section-pronunciation {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th:nth-child(1), td:nth-child(1) { width: 18%; }
+        th:nth-child(2), td:nth-child(2) { width: 22%; }
+        
+        th:nth-child(3), td:nth-child(3) { 
+            width: 30%; 
+            background-color: #e8f5e9 !important; 
+        }
+        
+        th:nth-child(4), td:nth-child(4) { 
+            width: 30%; 
+            background-color: #ffebee !important; 
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        th:nth-child(3) { background-color: #2e7d32 !important; }
+        th:nth-child(4) { background-color: #c62828 !important; }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .incorrect {
+            color: #dc3545;
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+
+    <h1>French Letter Blends & Phonetics</h1>
+    <p class="subtitle">Rules for Single Letters (B, C, G, H, J, R, S, X), Two-Letter Blends (CH, GN, ILL, QU) & -ER Endings</p>
+
+    <!-- SECTION 1: LETTER B -->
+    <h2>1. Letter B Pronunciation Rules</h2>
+    <div class="section-pronunciation">French: <em>La Lettre B</em> <button class="inline-audio-btn" onclick="playAudio('La Lettre B')" title="Listen"></button> / Pronunciation: ला लेत्र बे</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sound of B in Reading</strong></td>
+                    <td>The letter <strong>B</strong> is consistently sounded as a standard 'b' (ब) in French words, whether at the start, middle, or end.<br><br><strong>Hindi Comparison:</strong> हिंदी के व्यंजन 'ब' जैसी ध्वनि।</td>
+                    <td>
+                        • <em>bas</em> <button class="inline-audio-btn" onclick="playAudio('bas')" title="Listen"></button> (low) — Pronunciation: ba / बा<br><br>
+                        • <em>bonbon</em> <button class="inline-audio-btn" onclick="playAudio('bonbon')" title="Listen"></button> (candy) — Pronunciation: bon-bon / बोन-बोन<br><br>
+                        • <em>abricot</em> <button class="inline-audio-btn" onclick="playAudio('abricot')" title="Listen"></button> (apricot) — Pronunciation: ah-bree-ko / आबरीका<br><br>
+                        • <em>chambre</em> <button class="inline-audio-btn" onclick="playAudio('chambre')" title="Listen"></button> (bedroom) — Pronunciation: shãh-br / सांबा
+                    </td>
+                    <td>
+                        • <span class="incorrect">bas as 'v'</span> <button class="inline-audio-btn" onclick="playAudio('vas')" title="Listen"></button><br><br>
+                        • <span class="incorrect">bon-bon silent</span> <button class="inline-audio-btn" onclick="playAudio('on on')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 2: LETTER C -->
+    <h2>2. Letter C Pronunciation Rules (Hard K vs Soft S)</h2>
+    <div class="section-pronunciation">French: <em>La Lettre C</em> <button class="inline-audio-btn" onclick="playAudio('La Lettre C')" title="Listen"></button> / Pronunciation: ला लेत्र से</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hard 'K' vs Soft 'S'</strong></td>
+                    <td>• <strong>Soft 'S' (स):</strong> When C is followed by <strong>e, i, y</strong> (e.g., <em>recette</em>, <em>garçon</em>, <em>ici</em>, <em>cyberspace</em>, <em>français</em>).<br>• <strong>Hard 'K' (क):</strong> When C blends with <strong>a, o, u</strong>, appears at the end of a word, or precedes any consonant except H (e.g., <em>Canada</em>, <em>école</em>, <em>rayon</em>, <em>culture</em>, <em>tabac</em>, <em>avec</em>).</td>
+                    <td>
+                        • <em>ici</em> <button class="inline-audio-btn" onclick="playAudio('ici')" title="Listen"></button> (here) — ee-see / ईसी<br><br>
+                        • <em>école</em> <button class="inline-audio-btn" onclick="playAudio('ecole')" title="Listen"></button> (school) — ay-kohl / एकोल<br><br>
+                        • <em>tabac</em> <button class="inline-audio-btn" onclick="playAudio('tabac')" title="Listen"></button> (tobacco) — tah-bah / तबाँ
+                    </td>
+                    <td>
+                        • <span class="incorrect">ici as 'iki'</span> <button class="inline-audio-btn" onclick="playAudio('iki')" title="Listen"></button><br><br>
+                        • <span class="incorrect">ecole as 'esol'</span> <button class="inline-audio-btn" onclick="playAudio('esol')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 3: LETTER G -->
+    <h2>3. Letter G Pronunciation Rules (Hard G vs Soft Zh)</h2>
+    <div class="section-pronunciation">French: <em>La Lettre G</em> <button class="inline-audio-btn" onclick="playAudio('La Lettre G')" title="Listen"></button> / Pronunciation: ला लेत्र जे</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hard 'G' (ग) & Soft 'Zh' (ज/झ)</strong></td>
+                    <td>• <strong>Hard G (ग):</strong> Followed by <strong>a, o, u</strong>, <em>Gu + vowel</em>, or before any consonant except N (e.g., <em>gaspiller</em>, <em>aigu</em>, <em>gourmet</em>, <em>ongle</em>, <em>vague</em>, <em>guide</em>, <em>Guyane</em>).<br>• <strong>Soft Zh (ज/झ):</strong> Followed by <strong>e, i, y</strong> (sound like 's' in treasure) (e.g., <em>rouge</em>, <em>gillet</em>).</td>
+                    <td>
+                        • <em>guide</em> <button class="inline-audio-btn" onclick="playAudio('guide')" title="Listen"></button> (guide) — geed / गीद<br><br>
+                        • <em>rouge</em> <button class="inline-audio-btn" onclick="playAudio('rouge')" title="Listen"></button> (red) — roozh / रूझ<br><br>
+                        • <em>gillet</em> <button class="inline-audio-btn" onclick="playAudio('gillet')" title="Listen"></button> (vest) — zhee-lay / जीले
+                    </td>
+                    <td>
+                        • <span class="incorrect">guide as 'jweed'</span> <button class="inline-audio-btn" onclick="playAudio('jweed')" title="Listen"></button><br><br>
+                        • <span class="incorrect">rouge as 'roug'</span> <button class="inline-audio-btn" onclick="playAudio('roug')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 4: LETTER H -->
+    <h2>4. Letter H Rules (Silent H & Vowel Borrowing)</h2>
+    <div class="section-pronunciation">French: <em>La Lettre H</em> <button class="inline-audio-btn" onclick="playAudio('La Lettre H')" title="Listen"></button> / Pronunciation: ला लेत्र आश</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>The Silent H (*H Muet*)</strong></td>
+                    <td>The letter <strong>H</strong> is usually completely silent if it appears at the start or end of a word.<br><strong>Im Rule:</strong> When a word starts with 'h', it gives the sound of the following vowel and allows elision/liaison (e.g., <em>l'hiver</em>).</td>
+                    <td>
+                        • <em>huit</em> <button class="inline-audio-btn" onclick="playAudio('huit')" title="Listen"></button> (eight) — weet / वीत<br><br>
+                        • <em>Henri</em> <button class="inline-audio-btn" onclick="playAudio('Henri')" title="Listen"></button> (Henry) — ahn-ree / आँरी<br><br>
+                        • <em>l'hiver</em> <button class="inline-audio-btn" onclick="playAudio('lhiver')" title="Listen"></button> (the winter) — lee-vair / लीवेर<br><br>
+                        • <em>horloge</em> <button class="inline-audio-btn" onclick="playAudio('horloge')" title="Listen"></button> (clock) — ohr-lohzh / ओरलोझ
+                    </td>
+                    <td>
+                        • <span class="incorrect">huit with aspirated 'H'</span> <button class="inline-audio-btn" onclick="playAudio('h huit')" title="Listen"></button><br><br>
+                        • <span class="incorrect">Henri with 'H' sound</span> <button class="inline-audio-btn" onclick="playAudio('henri')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 5: LETTER J -->
+    <h2>5. Letter J Pronunciation Rules</h2>
+    <div class="section-pronunciation">French: <em>La Lettre J</em> <button class="inline-audio-btn" onclick="playAudio('La Lettre J')" title="Listen"></button> / Pronunciation: ला लेत्र जी</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sound of 'Zh' (Treasure Sound)</strong></td>
+                    <td>The letter <strong>J</strong> always produces the soft voiced postalveolar fricative sound (like the 's' in English <em>treasure</em>).<br><br><strong>Hindi Comparison:</strong> ज या झ की कोमल ध्वनि।</td>
+                    <td>
+                        • <em>Jacques</em> <button class="inline-audio-btn" onclick="playAudio('Jacques')" title="Listen"></button> (Jack) — Zhaak / झाक<br><br>
+                        • <em>jamais</em> <button class="inline-audio-btn" onclick="playAudio('jamais')" title="Listen"></button> (never) — zhah-may / जामे<br><br>
+                        • <em>joli</em> <button class="inline-audio-btn" onclick="playAudio('joli')" title="Listen"></button> (pretty) — zhoh-lee / जोली<br><br>
+                        • <em>préjugé</em> <button class="inline-audio-btn" onclick="playAudio('prejuge')" title="Listen"></button> (biased) — pray-zhoo-zhay / प्रेजुजे
+                    </td>
+                    <td>
+                        • <span class="incorrect">Jacques as 'ja-kes'</span> <button class="inline-audio-btn" onclick="playAudio('jokes')" title="Listen"></button><br><br>
+                        • <span class="incorrect">jamais as 'ja-mais'</span> <button class="inline-audio-btn" onclick="playAudio('jamais hard')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 6: LETTER R & -ER ENDINGS -->
+    <h2>6. Letter R & -ER Ending Rules</h2>
+    <div class="section-pronunciation">French: <em>La Lettre R et les Verbes en ER</em> <button class="inline-audio-btn" onclick="playAudio('La Lettre R et les Verbes en ER')" title="Listen"></button> / Pronunciation: ला लेत्र एर ए ले वेर्ब ऑँ एर</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Uvular R & -ER Suffix Rule</strong></td>
+                    <td>• <strong>Letter R:</strong> Produced in the throat (r/ev/er sound) (e.g., <em>rarement</em>, <em>la renaissance</em>, <em>la rue</em>, <em>Robert</em>).<br>• <strong>-ER Suffix:</strong> When verbs/nouns end in <strong>-er</strong>, it produces a clear <strong>'ay'</strong> (ए) sound (e.g., <em>chanter</em>, <em>parler</em>, <em>travailler</em>).</td>
+                    <td>
+                        • <em>chanter</em> <button class="inline-audio-btn" onclick="playAudio('chanter')" title="Listen"></button> (to sing) — shahn-tay / शांते<br><br>
+                        • <em>parler</em> <button class="inline-audio-btn" onclick="playAudio('parler')" title="Listen"></button> (to speak) — parl-ay / पार्ले<br><br>
+                        • <em>travailler</em> <button class="inline-audio-btn" onclick="playAudio('travailler')" title="Listen"></button> (to work) — trah-vah-yay / त्रावाये
+                    </td>
+                    <td>
+                        • <span class="incorrect">chanter as 'chan-ter'</span> <button class="inline-audio-btn" onclick="playAudio('chanter hard')" title="Listen"></button><br><br>
+                        • <span class="incorrect">parler as 'par-ler'</span> <button class="inline-audio-btn" onclick="playAudio('parler hard')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 7: LETTER S -->
+    <h2>7. Letter S Pronunciation Rules (Hard S vs Voiced Z)</h2>
+    <div class="section-pronunciation">French: <em>La Lettre S</em> <button class="inline-audio-btn" onclick="playAudio('La Lettre S')" title="Listen"></button> / Pronunciation: ला लेत्र एस</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hard 'S' vs Voiced 'Z' Liaison</strong></td>
+                    <td>• <strong>Hard 'S' (स):</strong> At the start of a word, double <strong>ss</strong>, after consonants, or before consonants (e.g., <em>santé</em>, <em>sportif</em>, <em>bonsoir</em>, <em>dessin</em>, <em>sciences</em>).<br>• <strong>Voiced 'Z' (ज़):</strong> When positioned between two vowels or forming a liaison (e.g., <em>musée</em>, <em>télévision</em>, <em>voisin</em>, <em>elles ont</em>, <em>les animaux</em>).</td>
+                    <td>
+                        • <em>santé</em> <button class="inline-audio-btn" onclick="playAudio('sante')" title="Listen"></button> (health) — sahn-tay / साँते<br><br>
+                        • <em>musée</em> <button class="inline-audio-btn" onclick="playAudio('musee')" title="Listen"></button> (museum) — moo-zay / मुजे<br><br>
+                        • <em>elles ont</em> <button class="inline-audio-btn" onclick="playAudio('elles ont')" title="Listen"></button> (they have) — ell-zohn / एल-ज़ों
+                    </td>
+                    <td>
+                        • <span class="incorrect">musee as 'mu-see'</span> <button class="inline-audio-btn" onclick="playAudio('musee hard')" title="Listen"></button><br><br>
+                        • <span class="incorrect">elles ont unlinked</span> <button class="inline-audio-btn" onclick="playAudio('elles ont unlinked')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 8: LETTER X -->
+    <h2>8. Letter X Pronunciation Rules</h2>
+    <div class="section-pronunciation">French: <em>La Lettre X</em> <button class="inline-audio-btn" onclick="playAudio('La Lettre X')" title="Listen"></button> / Pronunciation: ला लेत्र इक्स</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>'KS' Sound & Silent Endings</strong></td>
+                    <td>• Produces a <strong>'ks'</strong> sound (like the English word <em>tax</em> or <em>taxi</em>).<br>• When it appears at the very end of a word, it is usually <strong>silent</strong> unless liaison occurs.</td>
+                    <td>
+                        • <em>deux</em> <button class="inline-audio-btn" onclick="playAudio('deux')" title="Listen"></button> (two) — duh / दु (silent x)<br><br>
+                        • <em>roux</em> <button class="inline-audio-btn" onclick="playAudio('roux')" title="Listen"></button> (redheaded) — roo / रू (silent x)
+                    </td>
+                    <td>
+                        • <span class="incorrect">deux as 'deuh-ks'</span> <button class="inline-audio-btn" onclick="playAudio('deux ks')" title="Listen"></button><br><br>
+                        • <span class="incorrect">roux as 'rou-ks'</span> <button class="inline-audio-btn" onclick="playAudio('roux ks')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 9: TWO-LETTER BLEND - CH -->
+    <h2>9. Two-Letter Blend: CH</h2>
+    <div class="section-pronunciation">French: <em>Le Son CH</em> <button class="inline-audio-btn" onclick="playAudio('Le Son CH')" title="Listen"></button> / Pronunciation: ल सों से-اش</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>CH Sounds as 'SH'</strong></td>
+                    <td>Unlike English where 'ch' usually sounds like 'tch' (church), in French <strong>CH</strong> always sounds like <strong>'sh'</strong> (श) (similar to the English word <em>machine</em>).</td>
+                    <td>
+                        • <em>chanter</em> <button class="inline-audio-btn" onclick="playAudio('chanter')" title="Listen"></button> (to sing) — shahn-tay / शांते<br><br>
+                        • <em>chien</em> <button class="inline-audio-btn" onclick="playAudio('chien')" title="Listen"></button> (dog) — shee-ẽh / शिएँ<br><br>
+                        • <em>chocolat</em> <button class="inline-audio-btn" onclick="playAudio('chocolat')" title="Listen"></button> (chocolate) — sho-koh-lah / शोकोला
+                    </td>
+                    <td>
+                        • <span class="incorrect">chanter as 'chan-ter'</span> <button class="inline-audio-btn" onclick="playAudio('chanter tch')" title="Listen"></button><br><br>
+                        • <span class="incorrect">chien as 'tchien'</span> <button class="inline-audio-btn" onclick="playAudio('tchien')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 10: TWO-LETTER BLEND - GN -->
+    <h2>10. Two-Letter Blend: GN</h2>
+    <div class="section-pronunciation">French: <em>Le Son GN</em> <button class="inline-audio-btn" onclick="playAudio('Le Son GN')" title="Listen"></button> / Pronunciation: ल सों जे-एन</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>GN Sounds as 'NI'</strong></td>
+                    <td>The combination <strong>G + N</strong> produces a palatal nasal sound equivalent to <strong>'ny' / 'ni'</strong> (similar to the 'ny' in the English word <em>onion</em> or Spanish <em>ñ</em>).</td>
+                    <td>
+                        • <em>compagnie</em> <button class="inline-audio-btn" onclick="playAudio('compagnie')" title="Listen"></button> (company) — kohm-pahn-yee / कोम्पांयी<br><br>
+                        • <em>espagnol</em> <button class="inline-audio-btn" onclick="playAudio('espagnol')" title="Listen"></button> (Spanish) — ehs-pahn-yol / एस्पान्योल<br><br>
+                        • <em>magnifique</em> <button class="inline-audio-btn" onclick="playAudio('magnifique')" title="Listen"></button> (wonderful) — mah-nyee-feek / मायीफीक
+                    </td>
+                    <td>
+                        • <span class="incorrect">compagnie as 'com-pag-ne'</span> <button class="inline-audio-btn" onclick="playAudio('compagnie hard')" title="Listen"></button><br><br>
+                        • <span class="incorrect">espagnol as 'es-pag-nol'</span> <button class="inline-audio-btn" onclick="playAudio('espagnol hard')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 11: TWO-LETTER BLEND - ILL -->
+    <h2>11. Two-Letter Blend: ILL</h2>
+    <div class="section-pronunciation">French: <em>Le Son ILL</em> <button class="inline-audio-btn" onclick="playAudio('Le Son ILL')" title="Listen"></button> / Pronunciation: ल सों इल</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ILL Sounds as 'Y' (with exceptions)</strong></td>
+                    <td>• <strong>Standard Rule:</strong> <strong>ILL</strong> produces a soft <strong>'y'</strong> sound (like <em>yes</em>) (e.g., <em>détail</em>, <em>soleil</em>, <em>famille</em>).<br>• <strong>Exceptions:</strong> Words where ILL sounds like hard <strong>'eel'</strong> (e.g., <em>mille</em>, <em>million</em>, <em>village</em>, <em>tranquille</em>, <em>ville</em>).</td>
+                    <td>
+                        • <em>soleil</em> <button class="inline-audio-btn" onclick="playAudio('soleil')" title="Listen"></button> (sun) — so-lay-yuh / सोलेय<br><br>
+                        • <em>famille</em> <button class="inline-audio-btn" onclick="playAudio('famille')" title="Listen"></button> (family) — fah-mee-yuh / फ़ामिय<br><br>
+                        • <em>mille</em> <button class="inline-audio-btn" onclick="playAudio('mille')" title="Listen"></button> (thousand) — meel / मील (exception)
+                    </td>
+                    <td>
+                        • <span class="incorrect">soleil as 'sol-il'</span> <button class="inline-audio-btn" onclick="playAudio('soleil hard')" title="Listen"></button><br><br>
+                        • <span class="incorrect">mille as 'mil-yuh'</span> <button class="inline-audio-btn" onclick="playAudio('mille soft')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 12: TWO-LETTER BLEND - QU -->
+    <h2>12. Two-Letter Blend: QU</h2>
+    <div class="section-pronunciation">French: <em>Le Son QU</em> <button class="inline-audio-btn" onclick="playAudio('Le Son QU')" title="Listen"></button> / Pronunciation: ल सों कू</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>QU Sounds as 'K' (क)</strong></td>
+                    <td>The letter combination <strong>QU</strong> in French always produces a crisp <strong>'k'</strong> sound (the 'u' is silent, serving only to modify the consonant sound).<br><br><strong>Hindi Comparison:</strong> क की ध्वनि (u मौन रहता है)।</td>
+                    <td>
+                        • <em>Québec</em> <button class="inline-audio-btn" onclick="playAudio('Quebec')" title="Listen"></button> (Quebec) — keh-bek / केबैक<br><br>
+                        • <em>qu'est-ce que c'est</em> <button class="inline-audio-btn" onclick="playAudio('quest ce que c est')" title="Listen"></button> (what is that) — kess-kuh-say / केस्केशै<br><br>
+                        • <em>lequel</em> <button class="inline-audio-btn" onclick="playAudio('lequel')" title="Listen"></button> (which) — luh-kel / लुकेल
+                    </td>
+                    <td>
+                        • <span class="incorrect">Quebec as 'kwe-bek'</span> <button class="inline-audio-btn" onclick="playAudio('quebec kwh')" title="Listen"></button><br><br>
+                        • <span class="incorrect">lequel as 'le-kwel'</span> <button class="inline-audio-btn" onclick="playAudio('lequel kwh')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>
