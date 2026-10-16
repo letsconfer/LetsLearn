@@ -15,7 +15,7 @@ window.CV_MASTER_CONFIG = {
     profileImage: "me.jpeg",     
 
     // 4. Fixed homepage (Points to root home.html)
-    homePage: "./Home.html", 
+    homePage: "./Home.html",  
 
     // 5. Favicon Setting (Root level asset)
     favicon: "logo1.png"         
