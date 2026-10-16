@@ -15,7 +15,7 @@ window.IELTS_MASTER_CONFIG = {
     profileImage: "../me.jpeg",     
 
     // 4. Fixed homepage (Points to root home.html)
-    homePage: "../home.html", 
+    homePage: "../Home.html", 
 
     // 5. Favicon Setting (Points to root asset)
     favicon: "../logo1.png"          
