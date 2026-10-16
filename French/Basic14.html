@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Vowels & Essential Expressions</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --highlight-bg: #d4edda;
+            --highlight-text: #155724;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --highlight-bg: #1e3a29;
+            --highlight-text: #a3e635;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .section-pronunciation {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th:nth-child(1), td:nth-child(1) { width: 18%; }
+        th:nth-child(2), td:nth-child(2) { width: 22%; }
+        
+        th:nth-child(3), td:nth-child(3) { 
+            width: 30%; 
+            background-color: #e8f5e9 !important; 
+        }
+        
+        th:nth-child(4), td:nth-child(4) { 
+            width: 30%; 
+            background-color: #ffebee !important; 
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        th:nth-child(3) { background-color: #2e7d32 !important; }
+        th:nth-child(4) { background-color: #c62828 !important; }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .incorrect {
+            color: #dc3545;
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+
+    <h1>French Vowels & Essential Expressions</h1>
+    <p class="subtitle">Guide to Vowel Sounds (A, E, I, O, U, Y) & Essential Conversational Expressions</p>
+
+    <!-- SECTION 1: VOWEL A, AI, AU -->
+    <h2>1. French Vowels: A, AI, AU</h2>
+    <div class="section-pronunciation">French: <em>Les Voyelles A, AI, AU</em> <button class="inline-audio-btn" onclick="playAudio('Les Voyelles A AI AU')" title="Listen"></button> / Pronunciation: ले वोयेल्ल आ, ए, ओ</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Vowel A & Blends (AI, AU)</strong></td>
+                    <td>• <strong>A:</strong> Pronounced like 'a' in <em>ami</em>.<br>• <strong>AI:</strong> Pronounced like 'e' in <em>lait</em> (milk).<br>• <strong>AU:</strong> Pronounced like <em>eau</em> (ओ).</td>
+                    <td>
+                        • <em>ami</em> <button class="inline-audio-btn" onclick="playAudio('ami')" title="Listen"></button> (friend) — ah-mee / आमी<br><br>
+                        • <em>attaque</em> <button class="inline-audio-btn" onclick="playAudio('attaque')" title="Listen"></button> (attack) — ah-tak / आत्ताक<br><br>
+                        • <em>lait</em> <button class="inline-audio-btn" onclick="playAudio('lait')" title="Listen"></button> (milk) — lay / ले
+                    </td>
+                    <td>
+                        • <span class="incorrect">ami as 'ay-mi'</span> <button class="inline-audio-btn" onclick="playAudio('aymi')" title="Listen"></button><br><br>
+                        • <span class="incorrect">lait as 'lat'</span> <button class="inline-audio-btn" onclick="playAudio('lat')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 2: VOWEL E & EU -->
+    <h2>2. French Vowels: E & EU Blend</h2>
+    <div class="section-pronunciation">French: <em>La Voyelle E et EU</em> <button class="inline-audio-btn" onclick="playAudio('La Voyelle E et EU')" title="Listen"></button> / Pronunciation: ला वोयेल्ल ए ए ओू</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Vowel E & EU Sound</strong></td>
+                    <td>• <strong>E:</strong> Pronounced like 'uh' in English (unless accented) (e.g., <em>fenêtre</em>, <em>te</em>, <em>me</em>, <em>tasse</em>, <em>jupe</em>).<br>• <strong>EU:</strong> Pronounced like 'oo' in <em>bleu</em>.</td>
+                    <td>
+                        • <em>me</em> <button class="inline-audio-btn" onclick="playAudio('me')" title="Listen"></button> (me/myself) — muh / म<br><br>
+                        • <em>tasse</em> <button class="inline-audio-btn" onclick="playAudio('tasse')" title="Listen"></button> (cup) — tas / तास<br><br>
+                        • <em>bleu</em> <button class="inline-audio-btn" onclick="playAudio('bleu')" title="Listen"></button> (blue) — bluh / ब्ल्यू
+                    </td>
+                    <td>
+                        • <span class="incorrect">me as 'mee'</span> <button class="inline-audio-btn" onclick="playAudio('mee')" title="Listen"></button><br><br>
+                        • <span class="incorrect">bleu as 'ble'</span> <button class="inline-audio-btn" onclick="playAudio('ble')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 3: VOWEL I -->
+    <h2>3. French Vowel: I</h2>
+    <div class="section-pronunciation">French: <em>La Voyelle I</em> <button class="inline-audio-btn" onclick="playAudio('La Voyelle I')" title="Listen"></button> / Pronunciation: ला वोयेल्ल ई</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Pronounced as "ee"</strong></td>
+                    <td>The vowel <strong>I</strong> in French is consistently pronounced as a clear <strong>"ee"</strong> (ई) sound.</td>
+                    <td>
+                        • <em>midi</em> <button class="inline-audio-btn" onclick="playAudio('midi')" title="Listen"></button> (noon) — mee-dee / मीदी<br><br>
+                        • <em>lit</em> <button class="inline-audio-btn" onclick="playAudio('lit')" title="Listen"></button> (bed) — lee / ली<br><br>
+                        • <em>livre</em> <button class="inline-audio-btn" onclick="playAudio('livre')" title="Listen"></button> (book) — leevr / लीवर
+                    </td>
+                    <td>
+                        • <span class="incorrect">lit as 'liht'</span> <button class="inline-audio-btn" onclick="playAudio('liht')" title="Listen"></button><br><br>
+                        • <span class="incorrect">livre as 'lyv-re'</span> <button class="inline-audio-btn" onclick="playAudio('lyvre')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 4: VOWEL O & OU -->
+    <h2>4. French Vowels: O & OU Blend</h2>
+    <div class="section-pronunciation">French: <em>La Voyelle O et OU</em> <button class="inline-audio-btn" onclick="playAudio('La Voyelle O et OU')" title="Listen"></button> / Pronunciation: ला वोयेल्ल ओ ए ओू</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Vowel O & OU Sound</strong></td>
+                    <td>• <strong>O:</strong> Pronounced like "oh" or 'o' in <em>escargot</em>, <em>rose</em>, <em>loto</em>, <em>mot</em>, <em>trop</em>.<br>• <strong>OU:</strong> Pronounced like "oo" in <em>cou</em> (neck).</td>
+                    <td>
+                        • <em>rose</em> <button class="inline-audio-btn" onclick="playAudio('rose')" title="Listen"></button> (pink/rose) — rohz / रोज़<br><br>
+                        • <em>trop</em> <button class="inline-audio-btn" onclick="playAudio('trop')" title="Listen"></button> (too much) — troh / त्रो<br><br>
+                        • <em>cou</em> <button class="inline-audio-btn" onclick="playAudio('cou')" title="Listen"></button> (neck) — koo / कू
+                    </td>
+                    <td>
+                        • <span class="incorrect">trop as 'trop-pe'</span> <button class="inline-audio-btn" onclick="playAudio('troppe')" title="Listen"></button><br><br>
+                        • <span class="incorrect">rose as 'ros-e'</span> <button class="inline-audio-btn" onclick="playAudio('rose e')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 5: VOWEL U & Y -->
+    <h2>5. French Vowels: U & Y</h2>
+    <div class="section-pronunciation">French: <em>La Voyelle U et Y</em> <button class="inline-audio-btn" onclick="playAudio('La Voyelle U et Y')" title="Listen"></button> / Pronunciation: ला वोयेल्ल उ ए ई</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Vowel U & Y Sound</strong></td>
+                    <td>• <strong>U:</strong> Pronounced like 'eu' in words like <em>rue</em>, <em>jupe</em>, <em>bus</em>, <em>tu</em>, <em>amuse</em>.<br>• <strong>Y:</strong> Pronounced like "ee".</td>
+                    <td>
+                        • <em>jupe</em> <button class="inline-audio-btn" onclick="playAudio('jupe')" title="Listen"></button> (skirt) — zhoop / जूप<br><br>
+                        • <em>tu</em> <button class="inline-audio-btn" onclick="playAudio('tu')" title="Listen"></button> (you) — too / तू<br><br>
+                        • <em>bus</em> <button class="inline-audio-btn" onclick="playAudio('bus')" title="Listen"></button> (bus) — boos / बूस
+                    </td>
+                    <td>
+                        • <span class="incorrect">tu as 'taw'</span> <button class="inline-audio-btn" onclick="playAudio('taw')" title="Listen"></button><br><br>
+                        • <span class="incorrect">jupe as 'jup'</span> <button class="inline-audio-btn" onclick="playAudio('jup')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 6: ESSENTIAL EXPRESSIONS - GREETINGS & FAREWELLS -->
+    <h2>6. Essential Expressions: Greetings & Farewells</h2>
+    <div class="section-pronunciation">French: <em>Expressions Essentielles - Salutations</em> <button class="inline-audio-btn" onclick="playAudio('Expressions Essentielles Salutations')" title="Listen"></button> / Pronunciation: एस्प्रेस्यो आंसोंस्येल - सालूतास्यो</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>English Expression</th>
+                    <th>French Translation & Pronunciation</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hello / Good Morning</strong></td>
+                    <td>
+                        <em>Bonjour</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour')" title="Listen"></button><br>
+                        (Pronunciation: bon-zhoor / बोनजूर)
+                    </td>
+                    <td><em>Bonjour, comment ça va ?</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour comment ca va')" title="Listen"></button> (Hello, how is it going?)</td>
+                    <td><span class="incorrect">Bon jour (two words)</span> <button class="inline-audio-btn" onclick="playAudio('Bon jour')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Good Afternoon</strong></td>
+                    <td>
+                        <em>Bon après-midi</em> <button class="inline-audio-btn" onclick="playAudio('Bon apres midi')" title="Listen"></button><br>
+                        (Pronunciation: bon ah-preh-mee-dee / बोन आप्रे-मीदी)
+                    </td>
+                    <td><em>Bon après-midi à tous !</em> <button class="inline-audio-btn" onclick="playAudio('Bon apres midi a tous')" title="Listen"></button> (Good afternoon to all!)</td>
+                    <td><span class="incorrect">Good afternoon (English)</span> <button class="inline-audio-btn" onclick="playAudio('Good afternoon')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Good Evening</strong></td>
+                    <td>
+                        <em>Bonsoir</em> <button class="inline-audio-btn" onclick="playAudio('Bonsoir')" title="Listen"></button><br>
+                        (Pronunciation: bon-swahr / बोंस्वार)
+                    </td>
+                    <td><em>Bonsoir madame.</em> <button class="inline-audio-btn" onclick="playAudio('Bonsoir madame')" title="Listen"></button> (Good evening, ma'am.)</td>
+                    <td><span class="incorrect">Bon soir (two words)</span> <button class="inline-audio-btn" onclick="playAudio('Bon soir')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Good Night</strong></td>
+                    <td>
+                        <em>Bonne nuit</em> <button class="inline-audio-btn" onclick="playAudio('Bonne nuit')" title="Listen"></button><br>
+                        (Pronunciation: bon nwee / बोन्न नूई)
+                    </td>
+                    <td><em>Bonne nuit, dors bien.</em> <button class="inline-audio-btn" onclick="playAudio('Bonne nuit dors bien')" title="Listen"></button> (Good night, sleep well.)</td>
+                    <td><span class="incorrect">Bon nuit</span> <button class="inline-audio-btn" onclick="playAudio('Bon nuit')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Hi / Bye (Informal)</strong></td>
+                    <td>
+                        <em>Salut</em> <button class="inline-audio-btn" onclick="playAudio('Salut')" title="Listen"></button><br>
+                        (Pronunciation: sah-lyoo / सालू)
+                    </td>
+                    <td><em>Salut, ça va ?</em> <button class="inline-audio-btn" onclick="playAudio('Salut ca va')" title="Listen"></button> (Hi, how's it going?)</td>
+                    <td><span class="incorrect">Salut formal</span> <button class="inline-audio-btn" onclick="playAudio('Salut formal')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Good-bye</strong></td>
+                    <td>
+                        <em>Au revoir</em> <button class="inline-audio-btn" onclick="playAudio('Au revoir')" title="Listen"></button><br>
+                        (Pronunciation: oh ruh-vwahr / ओ रवार)
+                    </td>
+                    <td><em>Au revoir et à bientôt !</em> <button class="inline-audio-btn" onclick="playAudio('Au revoir et a bientot')" title="Listen"></button> (Goodbye and see you soon!)</td>
+                    <td><span class="incorrect">Orvoir</span> <button class="inline-audio-btn" onclick="playAudio('Orvoir')" title="Listen"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 7: ASKING HOW ARE YOU & RESPONSES -->
+    <h2>7. Essential Expressions: Asking How Are You & Responses</h2>
+    <div class="section-pronunciation">French: <em>Comment ça va et Réponses</em> <button class="inline-audio-btn" onclick="playAudio('Comment ca va et Reponses')" title="Listen"></button> / Pronunciation: कोमाँ सा वा ए रेपोंस</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>English Expression</th>
+                    <th>French Translation & Pronunciation</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>How's it going? / I'm fine</strong></td>
+                    <td>
+                        <em>Comment ça va ? / Ça va</em> <button class="inline-audio-btn" onclick="playAudio('Comment ca va')" title="Listen"></button><br>
+                        (Pronunciation: koh-mãh sah vah / कोमाँ सा वा)
+                    </td>
+                    <td><em>Ça va bien, merci.</em> <button class="inline-audio-btn" onclick="playAudio('Ca va bien merci')" title="Listen"></button> (It's going well, thank you.)</td>
+                    <td><span class="incorrect">Ca va mal (when happy)</span> <button class="inline-audio-btn" onclick="playAudio('Ca va mal')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>How are you? (Familiar)</strong></td>
+                    <td>
+                        <em>Comment vas-tu ?</em> <button class="inline-audio-btn" onclick="playAudio('Comment vas tu')" title="Listen"></button><br>
+                        (Pronunciation: koh-mãh vah too / कोमाँ वा तू)
+                    </td>
+                    <td><em>Salut Paul, comment vas-tu ?</em> <button class="inline-audio-btn" onclick="playAudio('Salut Paul comment vas tu')" title="Listen"></button> (Hi Paul, how are you?)</td>
+                    <td><span class="incorrect">Comment allez-vous to a child</span> <button class="inline-audio-btn" onclick="playAudio('Comment allez vous informal')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>How are you? (Polite)</strong></td>
+                    <td>
+                        <em>Comment allez-vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Comment allez vous')" title="Listen"></button><br>
+                        (Pronunciation: koh-mãh tah-lay voo / कोमाँ आले वू)
+                    </td>
+                    <td><em>Bonjour monsieur, comment allez-vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour monsieur comment allez vous')" title="Listen"></button></td>
+                    <td><span class="incorrect">Comment vas-tu to a boss</span> <button class="inline-audio-btn" onclick="playAudio('Comment vas tu formal')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Very well, thank you</strong></td>
+                    <td>
+                        <em>Très bien, merci</em> <button class="inline-audio-btn" onclick="playAudio('Tres bien merci')" title="Listen"></button><br>
+                        (Pronunciation: tray byãh, mair-see / त्रे बियां, मेर्सी)
+                    </td>
+                    <td><em>Je vais très bien, merci.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais tres bien merci')" title="Listen"></button></td>
+                    <td><span class="incorrect">Tres mal merci</span> <button class="inline-audio-btn" onclick="playAudio('Tres mal merci')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Not bad / So-so</strong></td>
+                    <td>
+                        <em>Pas mal / Comme ci, comme ça</em> <button class="inline-audio-btn" onclick="playAudio('Comme ci comme ca')" title="Listen"></button><br>
+                        (Pronunciation: pah mahl / kom see, kom sah / पा माल / कोम सी, कोम सा)
+                    </td>
+                    <td><em>Ça va, comme ci, comme ça.</em> <button class="inline-audio-btn" onclick="playAudio('Ca va comme ci comme ca')" title="Listen"></button></td>
+                    <td><span class="incorrect">Comme ça comme ci</span> <button class="inline-audio-btn" onclick="playAudio('Com sa com ci')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Super / Fantastic</strong></td>
+                    <td>
+                        <em>Super ou formidable</em> <button class="inline-audio-btn" onclick="playAudio('Super ou formidable')" title="Listen"></button><br>
+                        (Pronunciation: soo-pair / for-mee-dahbl / सुपेर / फोर्मीदाब्ल)
+                    </td>
+                    <td><em>C'est formidable !</em> <button class="inline-audio-btn" onclick="playAudio('C est formidable')" title="Listen"></button> (That's fantastic!)</td>
+                    <td><span class="incorrect">Formidable mal</span> <button class="inline-audio-btn" onclick="playAudio('Formidable mal')" title="Listen"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 8: PERSONAL IDENTITY & BACKGROUND -->
+    <h2>8. Essential Expressions: Personal Identity & Background</h2>
+    <div class="section-pronunciation">French: <em>Identité Personnelle et Origine</em> <button class="inline-audio-btn" onclick="playAudio('Identite Personnelle et Origine')" title="Listen"></button> / Pronunciation: आंदिते पेर्सोनेल ए ओरिजिन</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>English Expression</th>
+                    <th>French Translation & Pronunciation</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>What is your name? (Familiar)</strong></td>
+                    <td>
+                        <em>Comment t'appelles-tu ?</em> <button class="inline-audio-btn" onclick="playAudio('Comment t appelles tu')" title="Listen"></button><br>
+                        (Pronunciation: koh-mãh tah-pel-too / कोमाँ ताप्पेल-तू)
+                    </td>
+                    <td><em>Et toi, comment t'appelles-tu ?</em> <button class="inline-audio-btn" onclick="playAudio('Et toi comment t appelles tu')" title="Listen"></button></td>
+                    <td><span class="incorrect">Comment vous appelles-tu</span> <button class="inline-audio-btn" onclick="playAudio('Comment vous appelles tu')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>What is your name? (Polite)</strong></td>
+                    <td>
+                        <em>Comment vous appelez-vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Comment vous appelez vous')" title="Listen"></button><br>
+                        (Pronunciation: koh-mãh voo zah-pel-voo / कोमाँ वू जाप्ले-वू)
+                    </td>
+                    <td><em>Bonjour, comment vous appelez-vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour comment vous appelez vous')" title="Listen"></button></td>
+                    <td><span class="incorrect">Comment tu appelez-vous</span> <button class="inline-audio-btn" onclick="playAudio('Comment tu appelez vous')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>My name is...</strong></td>
+                    <td>
+                        <em>Je m'appelle...</em> <button class="inline-audio-btn" onclick="playAudio('Je m appelle')" title="Listen"></button><br>
+                        (Pronunciation: zhuh mah-pel / झू मापेल)
+                    </td>
+                    <td><em>Je m'appelle Vikramjeet.</em> <button class="inline-audio-btn" onclick="playAudio('Je m appelle Vikramjeet')" title="Listen"></button></td>
+                    <td><span class="incorrect">Je appelle</span> <button class="inline-audio-btn" onclick="playAudio('Je appelle')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>How old are you?</strong></td>
+                    <td>
+                        <em>Quel âge avez-vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Quel age avez vous')" title="Listen"></button><br>
+                        (Pronunciation: kel ahzh ah-vay-voo / केल आज आवै-वू)
+                    </td>
+                    <td><em>J'ai 40 ans.</em> <button class="inline-audio-btn" onclick="playAudio('J ai quarante ans')" title="Listen"></button> (I am 40 years old.)</td>
+                    <td><span class="incorrect">Je suis 40 ans</span> <button class="inline-audio-btn" onclick="playAudio('Je suis 40 ans')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Where were you born?</strong></td>
+                    <td>
+                        <em>Où êtes-vous né(e) ?</em> <button class="inline-audio-btn" onclick="playAudio('Ou etes vous ne')" title="Listen"></button><br>
+                        (Pronunciation: oo eht-voo nay / ऊ ऐत-वू ने)
+                    </td>
+                    <td><em>Je suis né à Amritsar / Je suis née en 1980.</em> <button class="inline-audio-btn" onclick="playAudio('Je suis ne a Amritsar')" title="Listen"></button></td>
+                    <td><span class="incorrect">Où vous né</span> <button class="inline-audio-btn" onclick="playAudio('Ou vous ne')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Are you married?</strong></td>
+                    <td>
+                        <em>Êtes-vous marié(e) ?</em> <button class="inline-audio-btn" onclick="playAudio('Etes vous marie')" title="Listen"></button><br>
+                        (Pronunciation: eht-voo mah-ryay / ऐत-वू मारिए)
+                    </td>
+                    <td><em>Oui, je suis marié(e).</em> <button class="inline-audio-btn" onclick="playAudio('Oui je suis marie')" title="Listen"></button></td>
+                    <td><span class="incorrect">Tu es marié formal</span> <button class="inline-audio-btn" onclick="playAudio('Tu es marie formal')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Nationality & Residence</strong></td>
+                    <td>
+                        <em>Je suis Indien(ne) / J'habite à Lyon</em> <button class="inline-audio-btn" onclick="playAudio('Je suis Indien J habite a Lyon')" title="Listen"></button><br>
+                        (Pronunciation: zhuh swee zãh-dyen / zhah-beet ah lee-ohn)
+                    </td>
+                    <td><em>Je suis Indien et j'habite à Amritsar.</em> <button class="inline-audio-btn" onclick="playAudio('Je suis Indien et j habite a Amritsar')" title="Listen"></button></td>
+                    <td><span class="incorrect">Je habite (vowel clash)</span> <button class="inline-audio-btn" onclick="playAudio('Je habite')" title="Listen"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 9: FAMILY, WORK & COURTESY TITLES -->
+    <h2>9. Essential Expressions: Family, Work & Titles</h2>
+    <div class="section-pronunciation">French: <em>Famille, Métier et Titres</em> <button class="inline-audio-btn" onclick="playAudio('Famille Metier et Titres')" title="Listen"></button> / Pronunciation: फामिय, मेतिए ए तीत्र</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>English Expression</th>
+                    <th>French Translation & Pronunciation</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Brothers & Sisters</strong></td>
+                    <td>
+                        <em>Est-ce que vous avez des frères et sœurs ?</em> <button class="inline-audio-btn" onclick="playAudio('Est ce que vous avez des freres et soeurs')" title="Listen"></button><br>
+                        (Pronunciation: ehs-skuh voo zah-vay day frair ay suhr)
+                    </td>
+                    <td><em>J'ai une sœur / Je n'ai pas de frères.</em> <button class="inline-audio-btn" onclick="playAudio('J ai une soeur Je n ai pas de freres')" title="Listen"></button></td>
+                    <td><span class="incorrect">J'ai pas frères</span> <button class="inline-audio-btn" onclick="playAudio('J ai pas freres')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Children (Daughter / Son)</strong></td>
+                    <td>
+                        <em>J'ai une fille / un fils</em> <button class="inline-audio-btn" onclick="playAudio('J ai une fille un fils')" title="Listen"></button><br>
+                        (Pronunciation: zhay oon feey / un fees / जे ऊन फीय / अन फिस)
+                    </td>
+                    <td><em>J'ai une fille et un fils.</em> <button class="inline-audio-btn" onclick="playAudio('J ai une fille et un fils')" title="Listen"></button></td>
+                    <td><span class="incorrect">J'ai un fille</span> <button class="inline-audio-btn" onclick="playAudio('J ai un fille')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>What is your job?</strong></td>
+                    <td>
+                        <em>Quel est votre métier ?</em> <button class="inline-audio-btn" onclick="playAudio('Quel est votre metier')" title="Listen"></button><br>
+                        (Pronunciation: kel el votr may-tyay / केल ए votr मेतिए)
+                    </td>
+                    <td><em>Je suis ingénieur / médecin / étudiant(e).</em> <button class="inline-audio-btn" onclick="playAudio('Je suis ingenieur')" title="Listen"></button></td>
+                    <td><span class="incorrect">Quel est ton métier to boss</span> <button class="inline-audio-btn" onclick="playAudio('Quel est ton metier formal')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Phone Number</strong></td>
+                    <td>
+                        <em>Quel est votre numéro de téléphone ?</em> <button class="inline-audio-btn" onclick="playAudio('Quel est votre numero de telephone')" title="Listen"></button><br>
+                        (Pronunciation: kel el votr nyoo-may-ro duh tay-lay-fohn)
+                    </td>
+                    <td><em>Mon numéro est...</em> <button class="inline-audio-btn" onclick="playAudio('Mon numero est')" title="Listen"></button></td>
+                    <td><span class="incorrect">Ma numéro</span> <button class="inline-audio-btn" onclick="playAudio('Ma numero')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Titles (Miss / Mrs. / Mr.)</strong></td>
+                    <td>
+                        <em>Mademoiselle / Madame / Monsieur</em> <button class="inline-audio-btn" onclick="playAudio('Mademoiselle Madame Monsieur')" title="Listen"></button><br>
+                        (Pronunciation: mad-mwah-zel / mah-dam / muh-syuh)
+                    </td>
+                    <td><em>Bonjour, Monsieur Singh.</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour Monsieur Singh')" title="Listen"></button></td>
+                    <td><span class="incorrect">Monsieur Mademoiselle</span> <button class="inline-audio-btn" onclick="playAudio('Monsieur Mademoiselle')" title="Listen"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>
