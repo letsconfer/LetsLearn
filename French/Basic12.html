@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic12.html - Comprehensive French Liaisons, Elisions, Colours & Calendar Masterclass</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --highlight-bg: #d4edda;
+            --highlight-text: #155724;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --highlight-bg: #1e3a29;
+            --highlight-text: #a3e635;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .section-pronunciation {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th:nth-child(1), td:nth-child(1) { width: 18%; }
+        th:nth-child(2), td:nth-child(2) { width: 22%; }
+        
+        th:nth-child(3), td:nth-child(3) { 
+            width: 30%; 
+            background-color: #e8f5e9 !important; 
+        }
+        
+        th:nth-child(4), td:nth-child(4) { 
+            width: 30%; 
+            background-color: #ffebee !important; 
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        th:nth-child(3) { background-color: #2e7d32 !important; }
+        th:nth-child(4) { background-color: #c62828 !important; }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .incorrect {
+            color: #dc3545;
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+
+    <h1>French Advanced Rules Masterclass</h1>
+    <p class="subtitle">Complete Guide to Liaisons, Elisions, Colours, Gender/Number Agreement & Calendar</p>
+
+    <!-- SECTION 1: EXTENSIVE LIAISON RULES -->
+    <h2>1. French Liaison Rules (Liaison & Sound Blends)</h2>
+    <div class="section-pronunciation">French: <em>Les Règles de Liaison</em> <button class="inline-audio-btn" onclick="playAudio('Les Regles de Liaison')" title="Listen"></button> / Pronunciation: ले रेग्ल द लेआस्यों</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. S, X, Z Sounds as "Z"</strong></td>
+                    <td>When a word ends with a silent consonant like <strong>S, X, or Z</strong> and the next word starts with a vowel, the final consonant blends into a crisp <span class="highlight">"Z"</span> sound.<br><br><strong>Hindi Comparison:</strong> अंत के S या X का अगले स्वर के साथ मिलकर 'ज़' की आवाज़ देना।</td>
+                    <td>
+                        • <em>vous appelle</em> <button class="inline-audio-btn" onclick="playAudio('vous appelle')" title="Listen"></button> (you call)<br>&nbsp;&nbsp;<em>Pronunciation:</em> Vous Zappelle / वू ज़ाप्ले<br><br>
+                        • <em>les amis</em> <button class="inline-audio-btn" onclick="playAudio('les amis')" title="Listen"></button> (the friends)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lay-z-ami / ले ज़मी
+                    </td>
+                    <td>
+                        • <span class="incorrect">vous appelle (hard break)</span> <button class="inline-audio-btn" onclick="playAudio('vous ap el')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> vooz-ap-el / वूज़-अपेल (Without fluid spoken liaison)<br><br>
+                        • <span class="incorrect">les amis (unlinked)</span> <button class="inline-audio-btn" onclick="playAudio('lay ami')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> lay-ami / ले आमी
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>2. D, T Sounds as "T" (Crisp T Liaison)</strong></td>
+                    <td>When a word ending in a soft or silent <strong>D or T</strong> connects to a following vowel, it transforms into a clear <span class="highlight">"T"</span> sound.<br><br><strong>Hindi Comparison:</strong> अंत के D या T वर्ण का 'T' जैसा सुनाई पड़ना।</td>
+                    <td>
+                        • <em>un grand arbre</em> <button class="inline-audio-btn" onclick="playAudio('un grand arbre')" title="Listen"></button> (a big tree)<br>&nbsp;&nbsp;<em>Pronunciation:</em> un gran-tarbre / अन ग्रांद ताबर<br><br>
+                        • <em>comment allez-vous</em> <button class="inline-audio-btn" onclick="playAudio('comment allez-vous')" title="Listen"></button> (how are you)<br>&nbsp;&nbsp;<em>Pronunciation:</em> comment tallez-vous / कोमाँ ताले वू
+                    </td>
+                    <td>
+                        • <span class="incorrect">un grand-arbre (hard pause)</span> <button class="inline-audio-btn" onclick="playAudio('un grand ar-bre')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> un grand ar-bre / अन ग्रांड आर्बर<br><br>
+                        • <span class="incorrect">comment allez-vous (broken)</span> <button class="inline-audio-btn" onclick="playAudio('co mah al ay voo')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ko-mãh al-ay-voo / कोमाँ आले वू
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>3. Nasal N Liaison</strong></td>
+                    <td>When a nasal final consonant like <strong>N</strong> links with a following vowel, the nasal sound carries over into the next syllable.<br><br><strong>Hindi Comparison:</strong> अनुनासिक N का अगले स्वर से जुड़ाव।</td>
+                    <td>
+                        • <em>en avion</em> <button class="inline-audio-btn" onclick="playAudio('en avion')" title="Listen"></button> (by plane)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ãh-nav-yohn / ऑँ-नावियों
+                    </td>
+                    <td>
+                        • <span class="incorrect">en-avion (unlinked)</span> <button class="inline-audio-btn" onclick="playAudio('an a vi on')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> an-a-vi-on / एन-एवियोन
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>4. Forbidden Liaisons (Exceptions)</strong></td>
+                    <td>Liaisons are strictly forbidden before words starting with an *h aspiré* (aspirated H), after conjunctions like *et*, and after singular nouns.<br><br><strong>Hindi Comparison:</strong> विशिष्ट शब्दों (जैसे 'et' या 'h aspiré') के बीच liaison नहीं करना।</td>
+                    <td>
+                        • <em>les héros</em> <button class="inline-audio-btn" onclick="playAudio('les heros')" title="Listen"></button> (the heroes - aspirated H, no liaison)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lay eh-ro / ले एरो<br><br>
+                        • <em>Paul et Anne</em> <button class="inline-audio-btn" onclick="playAudio('paul et anne')" title="Listen"></button> (Paul and Anne - no liaison on *et*)<br>&nbsp;&nbsp;<em>Pronunciation:</em> pol-et-an / पोल एत आन
+                    </td>
+                    <td>
+                        • <span class="incorrect">les z-héros</span> <button class="inline-audio-btn" onclick="playAudio('lez eros')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> lez-eh-ro / लेज़ेरो (incorrect liaison)<br><br>
+                        • <span class="incorrect">Paul-t-et Anne</span> <button class="inline-audio-btn" onclick="playAudio('paul tet anne')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> pol-tet-an / पोलतेत आन
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 2: EXTENSIVE ELISION RULES -->
+    <h2>2. French Elision Rules (L'Élision)</h2>
+    <div class="section-pronunciation">French: <em>Les Règles d'Élision</em> <button class="inline-audio-btn" onclick="playAudio('Les Regles d Elision')" title="Listen"></button> / Pronunciation: ले रेग्ल देलियों</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic Details / Definition</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Vowel Elision with Apostrophe (')</strong></td>
+                    <td>Elision is the dropping of a final unstressed vowel (<strong>le, la, de, je, ne, que, se, jusque, puisque, quoique</strong>) before a word starting with a vowel or mute 'h'. The vowel is replaced by an apostrophe to prevent vowel clash.<br><br><strong>Hindi Comparison:</strong> स्वर टकराव रोकने के लिए अंतिम स्वर को हटाकर apostrophe (') लगाना।</td>
+                    <td>
+                        • <em>l'école</em> <button class="inline-audio-btn" onclick="playAudio('lecole')" title="Listen"></button> (the school)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lay-kohl / लेकोल (le + école)<br><br>
+                        • <em>l'homme</em> <button class="inline-audio-btn" onclick="playAudio('lhomme')" title="Listen"></button> (the man)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lohm / लोम (le + homme)<br><br>
+                        • <em>j'aime</em> <button class="inline-audio-btn" onclick="playAudio('jaime')" title="Listen"></button> (I love)<br>&nbsp;&nbsp;<em>Pronunciation:</em> jem / जेम (je + aime)
+                    </td>
+                    <td>
+                        • <span class="incorrect">le école</span> <button class="inline-audio-btn" onclick="playAudio('le ecole')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> luh ay-kohl / ल एकोल (vowel clash)<br><br>
+                        • <span class="incorrect">le homme</span> <button class="inline-audio-btn" onclick="playAudio('le homme')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> luh ohm / ल ओम<br><br>
+                        • <span class="incorrect">je aime</span> <button class="inline-audio-btn" onclick="playAudio('je aime')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> zhuh aim / झूह एम
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 3: COLOURS - INDIVIDUAL ROWS -->
+    <h2>3. French Colours (Les Couleurs) & Individual Pronunciations</h2>
+    <div class="section-pronunciation">French: <em>Les Couleurs Individuelles</em> <button class="inline-audio-btn" onclick="playAudio('Les Couleurs Individuelles')" title="Listen"></button> / Pronunciation: ले कूलूर आंदिविदुएल</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Colour Name</th>
+                    <th>Phonetic Pronunciation & Meaning</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage / Error</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Bleu</strong></td>
+                    <td>bluh / ब्लू (Blue) <button class="inline-audio-btn" onclick="playAudio('bluh')" title="Listen"></button></td>
+                    <td><em>un stylo bleu</em> <button class="inline-audio-btn" onclick="playAudio('un stylo bleu')" title="Listen"></button> (a blue pen)</td>
+                    <td><span class="incorrect">bleuh-e</span> <button class="inline-audio-btn" onclick="playAudio('bleuh e')" title="Listen"></button> (incorrect masculine ending)</td>
+                </tr>
+                <tr>
+                    <td><strong>Orange</strong></td>
+                    <td>oh-ranzh / ओरान्झ (Orange - invariable) <button class="inline-audio-btn" onclick="playAudio('oh ranzh')" title="Listen"></button></td>
+                    <td><em>un livre orange</em> <button class="inline-audio-btn" onclick="playAudio('un livre orange')" title="Listen"></button> (an orange book)</td>
+                    <td><span class="incorrect">un livre oranges</span> <button class="inline-audio-btn" onclick="playAudio('livre oranges')" title="Listen"></button> (invariable colour plural error)</td>
+                </tr>
+                <tr>
+                    <td><strong>Gris</strong></td>
+                    <td>gree / ग्री (Grey) <button class="inline-audio-btn" onclick="playAudio('gree')" title="Listen"></button></td>
+                    <td><em>un chat gris</em> <button class="inline-audio-btn" onclick="playAudio('un chat gris')" title="Listen"></button> (a grey cat)</td>
+                    <td><span class="incorrect">un chat gri</span> <button class="inline-audio-btn" onclick="playAudio('chat gri')" title="Listen"></button> (missing silent s)</td>
+                </tr>
+                <tr>
+                    <td><strong>Rouge</strong></td>
+                    <td>roozh / रूझ (Red) <button class="inline-audio-btn" onclick="playAudio('roozh')" title="Listen"></button></td>
+                    <td><em>une pomme rouge</em> <button class="inline-audio-btn" onclick="playAudio('une pomme rouge')" title="Listen"></button> (a red apple)</td>
+                    <td><span class="incorrect">une pomme rouj</span> <button class="inline-audio-btn" onclick="playAudio('pomme rouj')" title="Listen"></button> (phonetic misspelling)</td>
+                </tr>
+                <tr>
+                    <td><strong>Rose</strong></td>
+                    <td>rohz / रोज़ (Pink) <button class="inline-audio-btn" onclick="playAudio('rohz')" title="Listen"></button></td>
+                    <td><em>une fleur rose</em> <button class="inline-audio-btn" onclick="playAudio('une fleur rose')" title="Listen"></button> (a pink flower)</td>
+                    <td><span class="incorrect">une fleur roz</span> <button class="inline-audio-btn" onclick="playAudio('fleur roz')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Vert</strong></td>
+                    <td>vair / वेर (Green) <button class="inline-audio-btn" onclick="playAudio('vair')" title="Listen"></button></td>
+                    <td><em>un cahier vert</em> <button class="inline-audio-btn" onclick="playAudio('un cahier vert')" title="Listen"></button> (a green notebook)</td>
+                    <td><span class="incorrect">un cahier ver</span> <button class="inline-audio-btn" onclick="playAudio('cahier ver')" title="Listen"></button> (silent 't' omitted)</td>
+                </tr>
+                <tr>
+                    <td><strong>Argent</strong></td>
+                    <td>ar-zhãh / आर्झाँ (Silver) <button class="inline-audio-btn" onclick="playAudio('ar zhah')" title="Listen"></button></td>
+                    <td><em>une voiture argent</em> <button class="inline-audio-btn" onclick="playAudio('une voiture argent')" title="Listen"></button> (a silver car)</td>
+                    <td><span class="incorrect">une voiture argente</span> <button class="inline-audio-btn" onclick="playAudio('voiture argente')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Noir</strong></td>
+                    <td>nwar / न्वार (Black) <button class="inline-audio-btn" onclick="playAudio('nwar')" title="Listen"></button></td>
+                    <td><em>un chien noir</em> <button class="inline-audio-btn" onclick="playAudio('un chien noir')" title="Listen"></button> (a black dog)</td>
+                    <td><span class="incorrect">un chien nor</span> <button class="inline-audio-btn" onclick="playAudio('chien nor')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Brun</strong></td>
+                    <td>brẽh / ब्रैं (Brown) <button class="inline-audio-btn" onclick="playAudio('breh')" title="Listen"></button></td>
+                    <td><em>un manteau brun</em> <button class="inline-audio-btn" onclick="playAudio('un manteau brun')" title="Listen"></button> (a brown coat)</td>
+                    <td><span class="incorrect">un manteau brunn</span> <button class="inline-audio-btn" onclick="playAudio('manteau brunn')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>Blanc</strong></td>
+                    <td>blahn / ब्लाँ (White) <button class="inline-audio-btn" onclick="playAudio('blahn')" title="Listen"></button></td>
+                    <td><em>un mur blanc</em> <button class="inline-audio-btn" onclick="playAudio('un mur blanc')" title="Listen"></button> (a white wall)</td>
+                    <td><span class="incorrect">un mur blanch</span> <button class="inline-audio-btn" onclick="playAudio('mur blanch')" title="Listen"></button> (incorrect spelling)</td>
+                </tr>
+                <tr>
+                    <td><strong>Jaune</strong></td>
+                    <td>zhohn / ज़ोन (Yellow) <button class="inline-audio-btn" onclick="playAudio('zhohn')" title="Listen"></button></td>
+                    <td><em>un soleil jaune</em> <button class="inline-audio-btn" onclick="playAudio('un soleil jaune')" title="Listen"></button> (a yellow sun)</td>
+                    <td><span class="incorrect">un soleil jaun</span> <button class="inline-audio-btn" onclick="playAudio('soleil jaun')" title="Listen"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 4: GENDER & NUMBER AGREEMENT (COLOURS) -->
+    <h2>4. Gender & Number Agreement (Singular/Plural Forms for Colours)</h2>
+    <div class="section-pronunciation">French: <em>L'Accord en Genre et Nombre des Couleurs</em> <button class="inline-audio-btn" onclick="playAudio('L Accord en Genre et Nombre des Couleurs')" title="Listen"></button> / Pronunciation: लाकोर आं झाँत्रे नोम्ब्र दे कूलूर</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Colour Name</th>
+                    <th>Singular/Plural Forms (Masc / Fem)</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Blanc</strong> (White)</td>
+                    <td>
+                        • Masculine Singular: <em>blanc</em> <button class="inline-audio-btn" onclick="playAudio('blanc')" title="Listen"></button><br>
+                        • Feminine Singular: <em>blanche</em> <button class="inline-audio-btn" onclick="playAudio('blanche')" title="Listen"></button><br>
+                        • Masculine Plural: <em>blancs</em> <button class="inline-audio-btn" onclick="playAudio('blancs')" title="Listen"></button><br>
+                        • Feminine Plural: <em>blanches</em> <button class="inline-audio-btn" onclick="playAudio('blanches')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un chat blanc</em> <button class="inline-audio-btn" onclick="playAudio('Un chat blanc')" title="Listen"></button> (A white cat — masculine singular)<br>
+                        • <em>Une maison blanche</em> <button class="inline-audio-btn" onclick="playAudio('Une maison blanche')" title="Listen"></button> (A white house — feminine singular)<br>
+                        • <em>Des chiens blancs</em> <button class="inline-audio-btn" onclick="playAudio('Des chiens blancs')" title="Listen"></button> (White dogs — masculine plural)<br>
+                        • <em>Des fleurs blanches</em> <button class="inline-audio-btn" onclick="playAudio('Des fleurs blanches')" title="Listen"></button> (White flowers — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Un chat blanche</span> <button class="inline-audio-btn" onclick="playAudio('Un chat blanche')" title="Listen"></button><br>
+                        • <span class="incorrect">Des chien blanc</span> <button class="inline-audio-btn" onclick="playAudio('Des chien blanc')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>2. Bleu</strong> (Blue)</td>
+                    <td>
+                        • Masculine Singular: <em>bleu</em> <button class="inline-audio-btn" onclick="playAudio('bleu')" title="Listen"></button><br>
+                        • Feminine Singular: <em>bleue</em> <button class="inline-audio-btn" onclick="playAudio('bleue')" title="Listen"></button><br>
+                        • Masculine Plural: <em>bleus</em> <button class="inline-audio-btn" onclick="playAudio('bleus')" title="Listen"></button><br>
+                        • Feminine Plural: <em>bleues</em> <button class="inline-audio-btn" onclick="playAudio('bleues')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un stylo bleu</em> <button class="inline-audio-btn" onclick="playAudio('Un stylo bleu')" title="Listen"></button> (A blue pen — masculine singular)<br>
+                        • <em>Une chemise bleue</em> <button class="inline-audio-btn" onclick="playAudio('Une chemise bleue')" title="Listen"></button> (A blue shirt — feminine singular)<br>
+                        • <em>Des stylos bleus</em> <button class="inline-audio-btn" onclick="playAudio('Des stylos bleus')" title="Listen"></button> (Blue pens — masculine plural)<br>
+                        • <em>Des chemises bleues</em> <button class="inline-audio-btn" onclick="playAudio('Des chemises bleues')" title="Listen"></button> (Blue shirts — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Un stylo bleue</span> <button class="inline-audio-btn" onclick="playAudio('Un stylo bleue')" title="Listen"></button><br>
+                        • <span class="incorrect">Des stylos bleu</span> <button class="inline-audio-btn" onclick="playAudio('Des stylos bleu')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>3. Orange</strong> (Orange — Invariable)</td>
+                    <td>
+                        • Masculine Singular: <em>orange</em> <button class="inline-audio-btn" onclick="playAudio('orange')" title="Listen"></button><br>
+                        • Feminine Singular: <em>orange</em> <button class="inline-audio-btn" onclick="playAudio('orange')" title="Listen"></button><br>
+                        • Masculine Plural: <em>orange</em> <button class="inline-audio-btn" onclick="playAudio('orange')" title="Listen"></button><br>
+                        • Feminine Plural: <em>orange</em> <button class="inline-audio-btn" onclick="playAudio('orange')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un livre orange</em> <button class="inline-audio-btn" onclick="playAudio('Un livre orange')" title="Listen"></button> (An orange book — masculine singular)<br>
+                        • <em>Une robe orange</em> <button class="inline-audio-btn" onclick="playAudio('Une robe orange')" title="Listen"></button> (An orange dress — feminine singular)<br>
+                        • <em>Des livres orange</em> <button class="inline-audio-btn" onclick="playAudio('Des livres orange')" title="Listen"></button> (Orange books — masculine plural)<br>
+                        • <em>Des robes orange</em> <button class="inline-audio-btn" onclick="playAudio('Des robes orange')" title="Listen"></button> (Orange dresses — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Des livres oranges</span> <button class="inline-audio-btn" onclick="playAudio('Des livres oranges')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>4. Gris</strong> (Grey)</td>
+                    <td>
+                        • Masculine Singular: <em>gris</em> <button class="inline-audio-btn" onclick="playAudio('gris')" title="Listen"></button><br>
+                        • Feminine Singular: <em>grise</em> <button class="inline-audio-btn" onclick="playAudio('grise')" title="Listen"></button><br>
+                        • Masculine Plural: <em>gris</em> <button class="inline-audio-btn" onclick="playAudio('gris')" title="Listen"></button><br>
+                        • Feminine Plural: <em>grises</em> <button class="inline-audio-btn" onclick="playAudio('grises')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un chat gris</em> <button class="inline-audio-btn" onclick="playAudio('Un chat gris')" title="Listen"></button> (A grey cat — masculine singular)<br>
+                        • <em>Une voiture grise</em> <button class="inline-audio-btn" onclick="playAudio('Une voiture grise')" title="Listen"></button> (A grey car — feminine singular)<br>
+                        • <em>Des chats gris</em> <button class="inline-audio-btn" onclick="playAudio('Des chats gris')" title="Listen"></button> (Grey cats — masculine plural)<br>
+                        • <em>Des voitures grises</em> <button class="inline-audio-btn" onclick="playAudio('Des voitures grises')" title="Listen"></button> (Grey cars — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Une voiture gris</span> <button class="inline-audio-btn" onclick="playAudio('Une voiture gris')" title="Listen"></button><br>
+                        • <span class="incorrect">Des voitures gris</span> <button class="inline-audio-btn" onclick="playAudio('Des voitures gris')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>5. Rouge</strong> (Red)</td>
+                    <td>
+                        • Masculine Singular: <em>rouge</em> <button class="inline-audio-btn" onclick="playAudio('rouge')" title="Listen"></button><br>
+                        • Feminine Singular: <em>rouge</em> <button class="inline-audio-btn" onclick="playAudio('rouge')" title="Listen"></button><br>
+                        • Masculine Plural: <em>rouges</em> <button class="inline-audio-btn" onclick="playAudio('rouges')" title="Listen"></button><br>
+                        • Feminine Plural: <em>rouges</em> <button class="inline-audio-btn" onclick="playAudio('rouges')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un crayon rouge</em> <button class="inline-audio-btn" onclick="playAudio('Un crayon rouge')" title="Listen"></button> (A red pencil — masculine singular)<br>
+                        • <em>Une pomme rouge</em> <button class="inline-audio-btn" onclick="playAudio('Une pomme rouge')" title="Listen"></button> (A red apple — feminine singular)<br>
+                        • <em>Des crayons rouges</em> <button class="inline-audio-btn" onclick="playAudio('Des crayons rouges')" title="Listen"></button> (Red pencils — masculine plural)<br>
+                        • <em>Des pommes rouges</em> <button class="inline-audio-btn" onclick="playAudio('Des pommes rouges')" title="Listen"></button> (Red apples — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Des crayon rouge</span> <button class="inline-audio-btn" onclick="playAudio('Des crayon rouge')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>6. Rose</strong> (Pink)</td>
+                    <td>
+                        • Masculine Singular: <em>rose</em> <button class="inline-audio-btn" onclick="playAudio('rose')" title="Listen"></button><br>
+                        • Feminine Singular: <em>rose</em> <button class="inline-audio-btn" onclick="playAudio('rose')" title="Listen"></button><br>
+                        • Masculine Plural: <em>roses</em> <button class="inline-audio-btn" onclick="playAudio('roses')" title="Listen"></button><br>
+                        • Feminine Plural: <em>roses</em> <button class="inline-audio-btn" onclick="playAudio('roses')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un flamant rose</em> <button class="inline-audio-btn" onclick="playAudio('Un flamant rose')" title="Listen"></button> (A pink flamingo — masculine singular)<br>
+                        • <em>Une fleur rose</em> <button class="inline-audio-btn" onclick="playAudio('Une fleur rose')" title="Listen"></button> (A pink flower — feminine singular)<br>
+                        • <em>Des flamants roses</em> <button class="inline-audio-btn" onclick="playAudio('Des flamants roses')" title="Listen"></button> (Pink flamingos — masculine plural)<br>
+                        • <em>Des fleurs roses</em> <button class="inline-audio-btn" onclick="playAudio('Des fleurs roses')" title="Listen"></button> (Pink flowers — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Des fleur rose</span> <button class="inline-audio-btn" onclick="playAudio('Des fleur rose')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>7. Vert</strong> (Green)</td>
+                    <td>
+                        • Masculine Singular: <em>vert</em> <button class="inline-audio-btn" onclick="playAudio('vert')" title="Listen"></button><br>
+                        • Feminine Singular: <em>verte</em> <button class="inline-audio-btn" onclick="playAudio('verte')" title="Listen"></button><br>
+                        • Masculine Plural: <em>verts</em> <button class="inline-audio-btn" onclick="playAudio('verts')" title="Listen"></button><br>
+                        • Feminine Plural: <em>vertes</em> <button class="inline-audio-btn" onclick="playAudio('vertes')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un cahier vert</em> <button class="inline-audio-btn" onclick="playAudio('Un cahier vert')" title="Listen"></button> (A green notebook — masculine singular)<br>
+                        • <em>Une table verte</em> <button class="inline-audio-btn" onclick="playAudio('Une table verte')" title="Listen"></button> (A green table — feminine singular)<br>
+                        • <em>Des cahiers verts</em> <button class="inline-audio-btn" onclick="playAudio('Des cahiers verts')" title="Listen"></button> (Green notebooks — masculine plural)<br>
+                        • <em>Des tables vertes</em> <button class="inline-audio-btn" onclick="playAudio('Des tables vertes')" title="Listen"></button> (Green tables — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Une table vert</span> <button class="inline-audio-btn" onclick="playAudio('Une table vert')" title="Listen"></button><br>
+                        • <span class="incorrect">Des cahier vert</span> <button class="inline-audio-btn" onclick="playAudio('Des cahier vert')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>8. Argent</strong> (Silver — Invariable)</td>
+                    <td>
+                        • Masculine Singular: <em>argent</em> <button class="inline-audio-btn" onclick="playAudio('argent')" title="Listen"></button><br>
+                        • Feminine Singular: <em>argent</em> <button class="inline-audio-btn" onclick="playAudio('argent')" title="Listen"></button><br>
+                        • Masculine Plural: <em>argent</em> <button class="inline-audio-btn" onclick="playAudio('argent')" title="Listen"></button><br>
+                        • Feminine Plural: <em>argent</em> <button class="inline-audio-btn" onclick="playAudio('argent')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un bracelet argent</em> <button class="inline-audio-btn" onclick="playAudio('Un bracelet argent')" title="Listen"></button> (A silver bracelet — masculine singular)<br>
+                        • <em>Une voiture argent</em> <button class="inline-audio-btn" onclick="playAudio('Une voiture argent')" title="Listen"></button> (A silver car — feminine singular)<br>
+                        • <em>Des bracelets argent</em> <button class="inline-audio-btn" onclick="playAudio('Des bracelets argent')" title="Listen"></button> (Silver bracelets — masculine plural)<br>
+                        • <em>Des voitures argent</em> <button class="inline-audio-btn" onclick="playAudio('Des voitures argent')" title="Listen"></button> (Silver cars — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Une voiture argente</span> <button class="inline-audio-btn" onclick="playAudio('Une voiture argente')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>9. Noir</strong> (Black)</td>
+                    <td>
+                        • Masculine Singular: <em>noir</em> <button class="inline-audio-btn" onclick="playAudio('noir')" title="Listen"></button><br>
+                        • Feminine Singular: <em>noire</em> <button class="inline-audio-btn" onclick="playAudio('noire')" title="Listen"></button><br>
+                        • Masculine Plural: <em>noirs</em> <button class="inline-audio-btn" onclick="playAudio('noirs')" title="Listen"></button><br>
+                        • Feminine Plural: <em>noires</em> <button class="inline-audio-btn" onclick="playAudio('noires')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un chien noir</em> <button class="inline-audio-btn" onclick="playAudio('Un chien noir')" title="Listen"></button> (A black dog — masculine singular)<br>
+                        • <em>Une table noire</em> <button class="inline-audio-btn" onclick="playAudio('Une table noire')" title="Listen"></button> (A black table — feminine singular)<br>
+                        • <em>Des chiens noirs</em> <button class="inline-audio-btn" onclick="playAudio('Des chiens noirs')" title="Listen"></button> (Black dogs — masculine plural)<br>
+                        • <em>Des tables noires</em> <button class="inline-audio-btn" onclick="playAudio('Des tables noires')" title="Listen"></button> (Black tables — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Une table noir</span> <button class="inline-audio-btn" onclick="playAudio('Une table noir')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>10. Brun</strong> (Brown)</td>
+                    <td>
+                        • Masculine Singular: <em>brun</em> <button class="inline-audio-btn" onclick="playAudio('brun')" title="Listen"></button><br>
+                        • Feminine Singular: <em>brune</em> <button class="inline-audio-btn" onclick="playAudio('brune')" title="Listen"></button><br>
+                        • Masculine Plural: <em>bruns</em> <button class="inline-audio-btn" onclick="playAudio('bruns')" title="Listen"></button><br>
+                        • Feminine Plural: <em>brunes</em> <button class="inline-audio-btn" onclick="playAudio('brunes')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un manteau brun</em> <button class="inline-audio-btn" onclick="playAudio('Un manteau brun')" title="Listen"></button> (A brown coat — masculine singular)<br>
+                        • <em>Une chaise brune</em> <button class="inline-audio-btn" onclick="playAudio('Une chaise brune')" title="Listen"></button> (A brown chair — feminine singular)<br>
+                        • <em>Des manteaux bruns</em> <button class="inline-audio-btn" onclick="playAudio('Des manteaux bruns')" title="Listen"></button> (Brown coats — masculine plural)<br>
+                        • <em>Des chaises brunes</em> <button class="inline-audio-btn" onclick="playAudio('Des chaises brunes')" title="Listen"></button> (Brown chairs — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Une chaise brun</span> <button class="inline-audio-btn" onclick="playAudio('Une chaise brun')" title="Listen"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>11. Jaune</strong> (Yellow)</td>
+                    <td>
+                        • Masculine Singular: <em>jaune</em> <button class="inline-audio-btn" onclick="playAudio('jaune')" title="Listen"></button><br>
+                        • Feminine Singular: <em>jaune</em> <button class="inline-audio-btn" onclick="playAudio('jaune')" title="Listen"></button><br>
+                        • Masculine Plural: <em>jaunes</em> <button class="inline-audio-btn" onclick="playAudio('jaunes')" title="Listen"></button><br>
+                        • Feminine Plural: <em>jaunes</em> <button class="inline-audio-btn" onclick="playAudio('jaunes')" title="Listen"></button>
+                    </td>
+                    <td>
+                        • <em>Un soleil jaune</em> <button class="inline-audio-btn" onclick="playAudio('Un soleil jaune')" title="Listen"></button> (A yellow sun — masculine singular)<br>
+                        • <em>Une banane jaune</em> <button class="inline-audio-btn" onclick="playAudio('Une banane jaune')" title="Listen"></button> (A yellow banana — feminine singular)<br>
+                        • <em>Des soleils jaunes</em> <button class="inline-audio-btn" onclick="playAudio('Des soleils jaunes')" title="Listen"></button> (Yellow suns — masculine plural)<br>
+                        • <em>Des bananes jaunes</em> <button class="inline-audio-btn" onclick="playAudio('Des bananes jaunes')" title="Listen"></button> (Yellow bananas — feminine plural)
+                    </td>
+                    <td>
+                        • <span class="incorrect">Des banane jaune</span> <button class="inline-audio-btn" onclick="playAudio('Des banane jaune')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 5: GENDER & NUMBER AGREEMENT FOR DAYS & MONTHS -->
+    <h2>5. Gender & Number Agreement (Masc/Fem Singular & Plural for Days & Months)</h2>
+    <div class="section-pronunciation">French: <em>L'Accord des Jours et des Mois</em> <button class="inline-audio-btn" onclick="playAudio('L Accord des Jours et des Mois')" title="Listen"></button> / Pronunciation: लाकोर दे जूर ए दे मो</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Rules, Logics & Pronunciation</th>
+                    <th>Correct Examples</th>
+                    <th>Incorrect Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Days of the Week (Les Jours)</strong></td>
+                    <td>All days of the week in French are <span class="highlight">masculine singular</span> (preceded by *le*). When indicating recurring habit, add an 's' for plural (*les lundis* = on Mondays).<br><br><strong>Hindi Comparison:</strong> सप्ताह के सभी दिन पुल्लिंग (masculine) होते हैं।</td>
+                    <td>
+                        • <em>le lundi</em> <button class="inline-audio-btn" onclick="playAudio('le lundi')" title="Listen"></button> (Monday - Masc. Singular)<br>
+                        • <em>les lundis</em> <button class="inline-audio-btn" onclick="playAudio('les lundis')" title="Listen"></button> (On Mondays - Masc. Plural)<br>
+                        • <em>le mercredi</em> <button class="inline-audio-btn" onclick="playAudio('le mercredi')" title="Listen"></button> (Wednesday)
+                    </td>
+                    <td>
+                        • <span class="incorrect">la lundi</span> <button class="inline-audio-btn" onclick="playAudio('la lundi')" title="Listen"></button> (incorrect feminine article)<br>
+                        • <span class="incorrect">le lundis</span> <button class="inline-audio-btn" onclick="playAudio('le lundis')" title="Listen"></button> (article-noun plural mismatch)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Months of the Year (Les Mois)</strong></td>
+                    <td>All months of the year in French are <span class="highlight">masculine singular</span>. They are typically preceded by prepositions *en* or *au mois de* (in January, in February). They do not take feminine agreement.<br><br><strong>Hindi Comparison:</strong> वर्ष के सभी महीने पुल्लिंग होते हैं और इनमें 'en' का प्रयोग होता है।</td>
+                    <td>
+                        • <em>en janvier</em> <button class="inline-audio-btn" onclick="playAudio('en janvier')" title="Listen"></button> (in January - Masc. Singular)<br>
+                        • <em>le mois de mars</em> <button class="inline-audio-btn" onclick="playAudio('le mois de mars')" title="Listen"></button> (the month of March)<br>
+                        • <em>en août</em> <button class="inline-audio-btn" onclick="playAudio('en aout')" title="Listen"></button> (in August)
+                    </td>
+                    <td>
+                        • <span class="incorrect">la janvier</span> <button class="inline-audio-btn" onclick="playAudio('la janvier')" title="Listen"></button> (incorrect feminine article)<br>
+                        • <span class="incorrect">une janvier</span> <button class="inline-audio-btn" onclick="playAudio('une janvier')" title="Listen"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 6: DAYS OF THE WEEK -->
+    <h2>6. Days of the Week (Les Jours de la Semaine)</h2>
+    <div class="section-pronunciation">French: <em>Les Jours de la Semaine</em> <button class="inline-audio-btn" onclick="playAudio('Les Jours de la Semaine')" title="Listen"></button> / Pronunciation: ले जूर द ला समैन</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Day / Category</th>
+                    <th>Pronunciation & Meaning</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>lundi</strong></td>
+                    <td>luh-dee / लुंदी (Monday)<br><button class="inline-audio-btn" onclick="playAudio('luh-dee')" title="Listen"></button></td>
+                    <td><em>Je travaille lundi.</em> <button class="inline-audio-btn" onclick="playAudio('Je travaille lundi')" title="Listen"></button> (I work on Monday)</td>
+                    <td><span class="incorrect">Lundi (Capitalized mid-sentence)</span> <button class="inline-audio-btn" onclick="playAudio('Lundi')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>mardi</strong></td>
+                    <td>mar-dee / मार्दी (Tuesday)<br><button class="inline-audio-btn" onclick="playAudio('mar-dee')" title="Listen"></button></td>
+                    <td><em>C'est mardi.</em> <button class="inline-audio-btn" onclick="playAudio('C est mardi')" title="Listen"></button> (It is Tuesday)</td>
+                    <td><span class="incorrect">marda</span> <button class="inline-audio-btn" onclick="playAudio('marda')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>mercredi</strong></td>
+                    <td>mair-cruh-dee / मेर्क्रेदी (Wednesday)<br><button class="inline-audio-btn" onclick="playAudio('mair-cruh-dee')" title="Listen"></button></td>
+                    <td><em>Le magasin ouvre mercredi.</em> <button class="inline-audio-btn" onclick="playAudio('Le magasin ouvre mercredi')" title="Listen"></button></td>
+                    <td><span class="incorrect">mercredy</span> <button class="inline-audio-btn" onclick="playAudio('mercredy')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>jeudi</strong></td>
+                    <td>zhuh-dee / ज्यूदी (Thursday)<br><button class="inline-audio-btn" onclick="playAudio('zhuh-dee')" title="Listen"></button></td>
+                    <td><em>À jeudi !</em> <button class="inline-audio-btn" onclick="playAudio('A jeudi')" title="Listen"></button> (See you Thursday!)</td>
+                    <td><span class="incorrect">judy</span> <button class="inline-audio-btn" onclick="playAudio('judy')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>vendredi</strong></td>
+                    <td>vahn-druh-dee / वूंद्रेदी (Friday)<br><button class="inline-audio-btn" onclick="playAudio('vahn-druh-dee')" title="Listen"></button></td>
+                    <td><em>Bon vendredi !</em> <button class="inline-audio-btn" onclick="playAudio('Bon vendredi')" title="Listen"></button></td>
+                    <td><span class="incorrect">vendredy</span> <button class="inline-audio-btn" onclick="playAudio('vendredy')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>samedi</strong></td>
+                    <td>sam-dee / सामदी (Saturday)<br><button class="inline-audio-btn" onclick="playAudio('sam-dee')" title="Listen"></button></td>
+                    <td><em>Samedi, je me repose.</em> <button class="inline-audio-btn" onclick="playAudio('Samedi je me repose')" title="Listen"></button></td>
+                    <td><span class="incorrect">sam-dy</span> <button class="inline-audio-btn" onclick="playAudio('sam dy')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>dimanche</strong></td>
+                    <td>dee-mahnsh / दिमांष (Sunday)<br><button class="inline-audio-btn" onclick="playAudio('dee-mahnsh')" title="Listen"></button></td>
+                    <td><em>Dimanche est calme.</em> <button class="inline-audio-btn" onclick="playAudio('Dimanche est calme')" title="Listen"></button></td>
+                    <td><span class="incorrect">dimanch</span> <button class="inline-audio-btn" onclick="playAudio('dimanch')" title="Listen"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 7: MONTHS OF THE YEAR -->
+    <h2>7. Months of the Year (Les Mois de l'Année)</h2>
+    <div class="section-pronunciation">French: <em>Les Mois de l'Année</em> <button class="inline-audio-btn" onclick="playAudio('Les Mois de l Annee')" title="Listen"></button> / Pronunciation: ले मो द लाने</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Month / Category</th>
+                    <th>Pronunciation & Meaning</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>janvier</strong></td>
+                    <td>zhahn-vyay / जांविए (January)<br><button class="inline-audio-btn" onclick="playAudio('zhahn-vyay')" title="Listen"></button></td>
+                    <td><em>en janvier</em> <button class="inline-audio-btn" onclick="playAudio('en janvier')" title="Listen"></button> (in January)</td>
+                    <td><span class="incorrect">Janvier (Capitalized)</span> <button class="inline-audio-btn" onclick="playAudio('Janvier')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>février</strong></td>
+                    <td>fay-vree-ay / फेव्रिए (February)<br><button class="inline-audio-btn" onclick="playAudio('fay-vree-ay')" title="Listen"></button></td>
+                    <td><em>en février</em> <button class="inline-audio-btn" onclick="playAudio('en fevrier')" title="Listen"></button> (in February)</td>
+                    <td><span class="incorrect">fevryer</span> <button class="inline-audio-btn" onclick="playAudio('fevryer')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>mars</strong></td>
+                    <td>mars / मार्स (March)<br><button class="inline-audio-btn" onclick="playAudio('mars')" title="Listen"></button></td>
+                    <td><em>en mars</em> <button class="inline-audio-btn" onclick="playAudio('en mars')" title="Listen"></button> (in March)</td>
+                    <td><span class="incorrect">mar</span> <button class="inline-audio-btn" onclick="playAudio('mar')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>avril</strong></td>
+                    <td>ah-vreel / आव्रिल (April)<br><button class="inline-audio-btn" onclick="playAudio('ah-vreel')" title="Listen"></button></td>
+                    <td><em>en avril</em> <button class="inline-audio-btn" onclick="playAudio('en avril')" title="Listen"></button> (in April)</td>
+                    <td><span class="incorrect">avril-le</span> <button class="inline-audio-btn" onclick="playAudio('avril le')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>mai</strong></td>
+                    <td>may / मे (May)<br><button class="inline-audio-btn" onclick="playAudio('may')" title="Listen"></button></td>
+                    <td><em>en mai</em> <button class="inline-audio-btn" onclick="playAudio('en mai')" title="Listen"></button> (in May)</td>
+                    <td><span class="incorrect">maye</span> <button class="inline-audio-btn" onclick="playAudio('maye')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>juin</strong></td>
+                    <td>zhwẽh / ज्वाँ (June)<br><button class="inline-audio-btn" onclick="playAudio('zhweh')" title="Listen"></button></td>
+                    <td><em>en juin</em> <button class="inline-audio-btn" onclick="playAudio('en juin')" title="Listen"></button> (in June)</td>
+                    <td><span class="incorrect">juin-n</span> <button class="inline-audio-btn" onclick="playAudio('juin n')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>juillet</strong></td>
+                    <td>zhwee-ay / ज्यूये (July)<br><button class="inline-audio-btn" onclick="playAudio('zhwee-ay')" title="Listen"></button></td>
+                    <td><em>en juillet</em> <button class="inline-audio-btn" onclick="playAudio('en juillet')" title="Listen"></button> (in July)</td>
+                    <td><span class="incorrect">juilet</span> <button class="inline-audio-btn" onclick="playAudio('juilet')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>août</strong></td>
+                    <td>oot / ऊत (August)<br><button class="inline-audio-btn" onclick="playAudio('oot')" title="Listen"></button></td>
+                    <td><em>en août</em> <button class="inline-audio-btn" onclick="playAudio('en aout')" title="Listen"></button> (in August)</td>
+                    <td><span class="incorrect">a-out</span> <button class="inline-audio-btn" onclick="playAudio('a out')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>septembre</strong></td>
+                    <td>sep-tãh-br / सेप्तॉँब्र (September)<br><button class="inline-audio-btn" onclick="playAudio('sep-tah-br')" title="Listen"></button></td>
+                    <td><em>en septembre</em> <button class="inline-audio-btn" onclick="playAudio('en septembre')" title="Listen"></button> (in September)</td>
+                    <td><span class="incorrect">september</span> <button class="inline-audio-btn" onclick="playAudio('september')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>octobre</strong></td>
+                    <td>ok-toh-br / ओक्तोब्र (October)<br><button class="inline-audio-btn" onclick="playAudio('ok-toh-br')" title="Listen"></button></td>
+                    <td><em>en octobre</em> <button class="inline-audio-btn" onclick="playAudio('en octobre')" title="Listen"></button> (in October)</td>
+                    <td><span class="incorrect">octobr</span> <button class="inline-audio-btn" onclick="playAudio('octobr')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>novembre</strong></td>
+                    <td>noh-vãh-br / नोवॉँब्र (November)<br><button class="inline-audio-btn" onclick="playAudio('noh-vah-br')" title="Listen"></button></td>
+                    <td><em>en novembre</em> <button class="inline-audio-btn" onclick="playAudio('en novembre')" title="Listen"></button> (in November)</td>
+                    <td><span class="incorrect">novembr</span> <button class="inline-audio-btn" onclick="playAudio('novembr')" title="Listen"></button></td>
+                </tr>
+                <tr>
+                    <td><strong>décembre</strong></td>
+                    <td>day-sãh-br / देसैंब्र (December)<br><button class="inline-audio-btn" onclick="playAudio('day-sah-br')" title="Listen"></button></td>
+                    <td><em>en décembre</em> <button class="inline-audio-btn" onclick="playAudio('en decembre')" title="Listen"></button> (in December)</td>
+                    <td><span class="incorrect">december</span> <button class="inline-audio-btn" onclick="playAudio('december')" title="Listen"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>
