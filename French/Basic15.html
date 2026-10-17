@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Conversational Expressions</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .section-pronunciation {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th:nth-child(1), td:nth-child(1) { width: 18%; }
+        
+        th:nth-child(2), td:nth-child(2) { 
+            width: 28%; 
+            background-color: #e3f2fd !important; 
+        }
+        
+        th:nth-child(3), td:nth-child(3) { 
+            width: 27%; 
+            background-color: #e8f5e9 !important; 
+        }
+        
+        th:nth-child(4), td:nth-child(4) { 
+            width: 27%; 
+            background-color: #ffebee !important; 
+        }
+
+        [data-theme="dark"] th:nth-child(2), [data-theme="dark"] td:nth-child(2) { 
+            background-color: #1e293b !important; 
+        }
+
+        [data-theme="dark"] th:nth-child(3), [data-theme="dark"] td:nth-child(3) { 
+            background-color: #1e3a29 !important; 
+        }
+        
+        [data-theme="dark"] th:nth-child(4), [data-theme="dark"] td:nth-child(4) { 
+            background-color: #3a1e1e !important; 
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        th:nth-child(2) { background-color: #1565c0 !important; }
+        th:nth-child(3) { background-color: #2e7d32 !important; }
+        th:nth-child(4) { background-color: #c62828 !important; }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .incorrect {
+            color: #dc3545;
+            text-decoration: line-through;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .example-detail {
+            display: block;
+            font-size: 0.85rem;
+            color: #495057;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        [data-theme="dark"] .example-detail {
+            color: #cbd5e1;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+
+    <h1>French Conversational Expressions</h1>
+    <p class="subtitle">Conversational Guide with Uniform Detailed Breakdown</p>
+
+    <!-- SECTION 1 -->
+    <h2>1. Greetings, Farewells & Social Wishes</h2>
+    <div class="section-pronunciation">French: <em>Salutations, Adieux et Vœux Sociaux</em> <button class="inline-audio-btn" onclick="playAudio('Salutations Adieux et Voeux Sociaux')" title="Listen"></button> / Pronunciation: सालूतास्यो, अदियो ए वो सोस्यो</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>English Expression</th>
+                    <th>French Translation & Pronunciation</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hello / Good Morning</strong></td>
+                    <td>
+                        <em>Bonjour</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Hello / Good Morning<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोनजूर<br>
+                            <strong>English:</strong> bon-zhoor
+                        </span>
+                    </td>
+                    <td>
+                        <em>Bonjour, comment ça va ?</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour comment ca va')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Hello, how is it going?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोंजूर, कोमाँ सा वा?<br>
+                            <strong>English:</strong> bon-zhoor, koh-mãh sah vah?
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Bon jour (two words)</span> <button class="inline-audio-btn" onclick="playAudio('Bon jour')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good day (incorrectly spaced)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोन जूर<br>
+                            <strong>English:</strong> bon zhoor
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Good Afternoon</strong></td>
+                    <td>
+                        <em>Bon après-midi</em> <button class="inline-audio-btn" onclick="playAudio('Bon apres midi')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good Afternoon<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोन आप्रे-मीदी<br>
+                            <strong>English:</strong> bon ah-preh-mee-dee
+                        </span>
+                    </td>
+                    <td>
+                        <em>Bon après-midi à tous !</em> <button class="inline-audio-btn" onclick="playAudio('Bon apres midi a tous')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good afternoon to all!<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोन आप्रे-मीदी आ तू!<br>
+                            <strong>English:</strong> bon ah-preh-mee-dee ah toos!
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Good afternoon (English)</span> <button class="inline-audio-btn" onclick="playAudio('Good afternoon')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good afternoon (English phrase)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> गुड आफ्टरनून<br>
+                            <strong>English:</strong> good ah-ter-noon
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Good Evening</strong></td>
+                    <td>
+                        <em>Bonsoir</em> <button class="inline-audio-btn" onclick="playAudio('Bonsoir')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good Evening<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोंस्वार<br>
+                            <strong>English:</strong> bon-swahr
+                        </span>
+                    </td>
+                    <td>
+                        <em>Bonsoir madame.</em> <button class="inline-audio-btn" onclick="playAudio('Bonsoir madame')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good evening, ma'am.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोंस्वार मादाम。<br>
+                            <strong>English:</strong> bon-swahr mah-dam.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Bon soir (two words)</span> <button class="inline-audio-btn" onclick="playAudio('Bon soir')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good evening (incorrectly spaced)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोन स्वार<br>
+                            <strong>English:</strong> bon swahr
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Good Night</strong></td>
+                    <td>
+                        <em>Bonne nuit</em> <button class="inline-audio-btn" onclick="playAudio('Bonne nuit')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good Night<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोन्न नूई<br>
+                            <strong>English:</strong> bon nwee
+                        </span>
+                    </td>
+                    <td>
+                        <em>Bonne nuit, dors bien.</em> <button class="inline-audio-btn" onclick="playAudio('Bonne nuit dors bien')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good night, sleep well.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोन्न नूई, दोर बियां。<br>
+                            <strong>English:</strong> bon nwee, dohr byãh.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Bon nuit</span> <button class="inline-audio-btn" onclick="playAudio('Bon nuit')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good night (incorrect gender/spelling)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोन नूई<br>
+                            <strong>English:</strong> bon nwee
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Hi / Bye (Informal)</strong></td>
+                    <td>
+                        <em>Salut / Coucou</em> <button class="inline-audio-btn" onclick="playAudio('Salut Coucou')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Hi / Bye (Informal)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> सालू / कुकू<br>
+                            <strong>English:</strong> sah-lyoo / koo-koo
+                        </span>
+                    </td>
+                    <td>
+                        <em>Coucou ! Salut, ça va ?</em> <button class="inline-audio-btn" onclick="playAudio('Coucou Salut ca va')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Hey! Hi, how's it going?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कुकू! सालू, सा वा?<br>
+                            <strong>English:</strong> koo-koo! sah-lyoo, sah vah?
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Coucou to corporate interviewer</span> <button class="inline-audio-btn" onclick="playAudio('Coucou formal')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Using informal greeting formally<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कॉरपोरेट इंटरव्यूअर के लिए कुकू<br>
+                            <strong>English:</strong> koo-koo to kor-po-rate
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Good-bye / See you soon</strong></td>
+                    <td>
+                        <em>Au revoir / À bientôt</em> <button class="inline-audio-btn" onclick="playAudio('Au revoir A bientot')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good-bye / See you soon<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ओ रवार / आ बियांतो<br>
+                            <strong>English:</strong> oh ruh-vwahr / ah byãh-toh
+                        </span>
+                    </td>
+                    <td>
+                        <em>Au revoir et à bientôt !</em> <button class="inline-audio-btn" onclick="playAudio('Au revoir et a bientot')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Goodbye and see you soon!<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ओ रवार ए आ बियांतो!<br>
+                            <strong>English:</strong> oh ruh-vwahr ay ah byãh-toh!
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Orvoir</span> <button class="inline-audio-btn" onclick="playAudio('Orvoir')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Goodbye (misspelled)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ओरवार<br>
+                            <strong>English:</strong> or-vwahr
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>See you tomorrow</strong></td>
+                    <td>
+                        <em>À demain</em> <button class="inline-audio-btn" onclick="playAudio('A demain')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> See you tomorrow<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> आ दुमां<br>
+                            <strong>English:</strong> ah duh-mãh
+                        </span>
+                    </td>
+                    <td>
+                        <em>Merci pour tout, à demain !</em> <button class="inline-audio-btn" onclick="playAudio('Merci pour tout a demain')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Thanks for everything, see you tomorrow!<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मेर्सी पूर तू, आ दुमां!<br>
+                            <strong>English:</strong> mair-see poor too, ah duh-mãh!
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">À demain evening</span> <button class="inline-audio-btn" onclick="playAudio('A demain evening')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> See you tomorrow evening (mixed languages)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> आ दुमां ईवनिंग<br>
+                            <strong>English:</strong> ah duh-mãh ee-vning
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Have a good day / evening</strong></td>
+                    <td>
+                        <em>Bonne journée / Bonne soirée</em> <button class="inline-audio-btn" onclick="playAudio('Bonne journee Bonne soiree')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Have a good day / evening<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोन जूर्ने / बोन स्वारै<br>
+                            <strong>English:</strong> bon zhoor-nay / bon swah-ray
+                        </span>
+                    </td>
+                    <td>
+                        <em>Passez une bonne journée !</em> <button class="inline-audio-btn" onclick="playAudio('Passez une bonne journee')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Have a good day!<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> पासे ऊन बोन्न जूर्ने!<br>
+                            <strong>English:</strong> pah-say oon bon zhoor-nay!
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Bon journée</span> <button class="inline-audio-btn" onclick="playAudio('Bon journee')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good day (incorrect gender)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोन जूर्ने<br>
+                            <strong>English:</strong> bon zhoor-nay
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Nice to meet you</strong></td>
+                    <td>
+                        <em>Ravi(e) de vous rencontrer</em> <button class="inline-audio-btn" onclick="playAudio('Ravi de vous rencontrer')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Nice to meet you<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> रावी दु वू राकोंत्रे<br>
+                            <strong>English:</strong> rah-vee duh voo rah-kohn-tray
+                        </span>
+                    </td>
+                    <td>
+                        <em>Enchanté, ravi de vous rencontrer.</em> <button class="inline-audio-btn" onclick="playAudio('Enchante ravi de vous rencontrer')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Delighted, nice to meet you.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> आंशान्ते, रावी दु वू राकोंत्रे。<br>
+                            <strong>English:</strong> ahn-shahn-tay, rah-vee duh voo rah-kohn-tray.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Ravi vous rencontrer</span> <button class="inline-audio-btn" onclick="playAudio('Ravi vous rencontrer')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Nice to meet you (missing preposition)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> रावी वू राकोंत्रे<br>
+                            <strong>English:</strong> rah-vee voo rah-kohn-tray
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 2 -->
+    <h2>2. Asking How Are You & Polite Responses</h2>
+    <div class="section-pronunciation">French: <em>Comment ça va, Réponses et Politesse</em> <button class="inline-audio-btn" onclick="playAudio('Comment ca va Reponses et Politesse')" title="Listen"></button> / Pronunciation: कोमाँ सा वा, रेपोंस ए पोलितेस</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>English Expression</th>
+                    <th>French Translation & Pronunciation</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>How's it going? / I'm fine</strong></td>
+                    <td>
+                        <em>Comment ça va ? / Ça va</em> <button class="inline-audio-btn" onclick="playAudio('Comment ca va')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> How's it going? / I'm fine<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कोमाँ सा वा / सा वा<br>
+                            <strong>English:</strong> koh-mãh sah vah / sah vah
+                        </span>
+                    </td>
+                    <td>
+                        <em>Ça va bien, merci.</em> <button class="inline-audio-btn" onclick="playAudio('Ca va bien merci')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> It's going well, thank you.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> सा वा बियां, मेर्सी。<br>
+                            <strong>English:</strong> sah vah byãh, mair-see.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Ca va mal (when happy)</span> <button class="inline-audio-btn" onclick="playAudio('Ca va mal')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> It's going badly (used inappropriately)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> सा वा माल<br>
+                            <strong>English:</strong> sah vah mahl
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>How are you? (Familiar)</strong></td>
+                    <td>
+                        <em>Comment vas-tu ?</em> <button class="inline-audio-btn" onclick="playAudio('Comment vas tu')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> How are you? (Familiar)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कोमाँ वा तू?<br>
+                            <strong>English:</strong> koh-mãh vah too?
+                        </span>
+                    </td>
+                    <td>
+                        <em>Salut Paul, comment vas-tu ?</em> <button class="inline-audio-btn" onclick="playAudio('Salut Paul comment vas tu')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Hi Paul, how are you?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> सालू पोल, कोमाँ वा तू?<br>
+                            <strong>English:</strong> sah-lyoo pohl, koh-mãh vah too?
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Comment allez-vous to a child</span> <button class="inline-audio-btn" onclick="playAudio('Comment allez vous informal')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Using formal greeting to a child<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कोमाँ आले वू<br>
+                            <strong>English:</strong> koh-mãh tah-lay voo
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>How are you? (Polite)</strong></td>
+                    <td>
+                        <em>Comment allez-vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Comment allez vous')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> How are you? (Polite)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कोमाँ आले वू?<br>
+                            <strong>English:</strong> koh-mãh tah-lay voo?
+                        </span>
+                    </td>
+                    <td>
+                        <em>Bonjour monsieur, comment allez-vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour monsieur comment allez vous')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good morning sir, how are you?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोंजूर मस्ये, कोमाँ आले वू?<br>
+                            <strong>English:</strong> bon-zhoor muh-syuh, koh-mãh tah-lay voo?
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Comment vas-tu to a boss</span> <button class="inline-audio-btn" onclick="playAudio('Comment vas tu formal')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Using informal greeting to a boss<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कोमाँ वा तू<br>
+                            <strong>English:</strong> koh-mãh vah too
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Very well, thank you (and you?)</strong></td>
+                    <td>
+                        <em>Je vais très bien, merci, et vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Je vais tres bien merci et vous')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Very well, thank you (and you?)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह वे त्रे बियां, मेर्सी, ए वू?<br>
+                            <strong>English:</strong> zhuh vay tray byãh, mair-see, ay voo?
+                        </span>
+                    </td>
+                    <td>
+                        <em>Je vais très bien, merci, et vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Je vais tres bien merci et vous example')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I am very well, thank you, and you?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह वे त्रे बियां, मेर्सी, ए वू?<br>
+                            <strong>English:</strong> zhuh vay tray byãh, mair-see, ay voo?
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Et toi to a stranger</span> <button class="inline-audio-btn" onclick="playAudio('Et toi formal')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Using informal 'and you' to a stranger<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ए त्वा<br>
+                            <strong>English:</strong> ay twah
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Not bad / So-so</strong></td>
+                    <td>
+                        <em>Pas mal / Comme ci, comme ça</em> <button class="inline-audio-btn" onclick="playAudio('Comme ci comme ca')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Not bad / So-so<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> पा माल / कोम सी, कोम सा<br>
+                            <strong>English:</strong> pah mahl / kom see, kom sah
+                        </span>
+                    </td>
+                    <td>
+                        <em>Ça va, comme ci, comme ça.</em> <button class="inline-audio-btn" onclick="playAudio('Ca va comme ci comme ca')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> It's going so-so.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> सा वा, कोम सी, कोम सा。<br>
+                            <strong>English:</strong> sah vah, kom see, kom sah.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Comme ça comme ci</span> <button class="inline-audio-btn" onclick="playAudio('Com sa com ci')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> So-so (incorrect word order)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कोम सा कोम सी<br>
+                            <strong>English:</strong> kom sah kom see
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Super / Fantastic</strong></td>
+                    <td>
+                        <em>Super ou formidable</em> <button class="inline-audio-btn" onclick="playAudio('Super ou formidable')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Super / Fantastic<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> सुपेर ओ फोर्मीदाब्ल<br>
+                            <strong>English:</strong> soo-pair oo for-mee-dahbl
+                        </span>
+                    </td>
+                    <td>
+                        <em>C'est formidable !</em> <button class="inline-audio-btn" onclick="playAudio('C est formidable')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> That's fantastic!<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> से फोर्मीदाब्ल!<br>
+                            <strong>English:</strong> seh for-mee-dahbl!
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Formidable mal</span> <button class="inline-audio-btn" onclick="playAudio('Formidable mal')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Fantastic badly (incorrect combination)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> फोर्मीदाब्ल माल<br>
+                            <strong>English:</strong> for-mee-dahbl mahl
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Thank you / You're welcome</strong></td>
+                    <td>
+                        <em>Merci / De rien</em> <button class="inline-audio-btn" onclick="playAudio('Merci De rien')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Thank you / You're welcome<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मेर्सी / दु रियां<br>
+                            <strong>English:</strong> mair-see / duh ryẽh
+                        </span>
+                    </td>
+                    <td>
+                        <em>Merci beaucoup ! — De rien.</em> <button class="inline-audio-btn" onclick="playAudio('Merci beaucoup De rien')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Thank you very much! — You're welcome.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मेर्सी बोकू! — दु रियां。<br>
+                            <strong>English:</strong> mair-see boh-koo! — duh ryẽh.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">De rien as 'no problem' formally</span> <button class="inline-audio-btn" onclick="playAudio('De rien error')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Using informal 'de rien' formally<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> दे रियां<br>
+                            <strong>English:</strong> duh ryẽh
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 3 -->
+    <h2>3. Personal Identity, Introductions & Background</h2>
+    <div class="section-pronunciation">French: <em>Identité Personnelle et Présentation Étendue</em> <button class="inline-audio-btn" onclick="playAudio('Identite Personnelle et Presentation Etendue')" title="Listen"></button> / Pronunciation: आंदिते पेर्सोनेल ए प्रेज़ोंतास्यो एतोंदू</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>English Expression</th>
+                    <th>French Translation & Pronunciation</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>What is your name? (Familiar)</strong></td>
+                    <td>
+                        <em>Comment t'appelles-tu ?</em> <button class="inline-audio-btn" onclick="playAudio('Comment t appelles tu Tu t appelles comment')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> What is your name? (Familiar)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कोमाँ तापेल-तू?<br>
+                            <strong>English:</strong> koh-mãh tah-pel-too?
+                        </span>
+                    </td>
+                    <td>
+                        <em>Tu t'appelles comment ? — Moi, Vikramjit.</em> <button class="inline-audio-btn" onclick="playAudio('Tu t appelles comment Moi Vikramjit')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> What's your name? — Me, Vikramjit.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> तू तापेल कोमाँ? — म्वा, विक्रमजीत。<br>
+                            <strong>English:</strong> too tah-pel koh-mãh? — mwah, vikramjit.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Tu appelle comment</span> <button class="inline-audio-btn" onclick="playAudio('Tu appelle comment')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> You call how (missing reflexive pronoun)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> तू आपेल कोमाँ<br>
+                            <strong>English:</strong> too ah-pel koh-mãh
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>What is your name? (Polite)</strong></td>
+                    <td>
+                        <em>Comment vous appelez-vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Comment vous appelez vous')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> What is your name? (Polite)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कोमाँ वू जाप्ले-वू?<br>
+                            <strong>English:</strong> koh-mãh voo zah-pel-voo?
+                        </span>
+                    </td>
+                    <td>
+                        <em>Bonjour, comment vous appelez-vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour comment vous appelez vous')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Hello, what is your name?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोंजूर, कोमाँ वू जाप्ले-वू?<br>
+                            <strong>English:</strong> bon-zhoor, koh-mãh voo zah-pel-voo?
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Comment tu appelez-vous</span> <button class="inline-audio-btn" onclick="playAudio('Comment tu appelez vous')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Mixed informal and formal pronouns<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> कोमाँ तू आप्रेले-वू<br>
+                            <strong>English:</strong> koh-mãh too ah-pel-voo
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>My name is... / Me, [Name]</strong></td>
+                    <td>
+                        <em>Je m'appelle... / Moi, [Nom]</em> <button class="inline-audio-btn" onclick="playAudio('Je m appelle Moi')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> My name is... / Me, [Name]<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह माпель... / म्वा<br>
+                            <strong>English:</strong> zhuh mah-pel... / mwah
+                        </span>
+                    </td>
+                    <td>
+                        <em>Je m'appelle Vikramjit, et vous ?</em> <button class="inline-audio-btn" onclick="playAudio('Je m appelle Vikramjit et vous')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> My name is Vikramjit, and you?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह माпель विक्रमजीत, ए वू?<br>
+                            <strong>English:</strong> zhuh mah-pel vikramjit, ay voo?
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je appelle</span> <button class="inline-audio-btn" onclick="playAudio('Je appelle')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I call (missing reflexive pronoun 'm'')<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह आपेल<br>
+                            <strong>English:</strong> zhuh ah-pel
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>I present to you... (Formal)</strong></td>
+                    <td>
+                        <em>Je vous présente [Nom]</em> <button class="inline-audio-btn" onclick="playAudio('Je vous presente')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I present to you... (Formal)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह वू प्रेज़ांत<br>
+                            <strong>English:</strong> zhuh voo pray-zahnt
+                        </span>
+                    </td>
+                    <td>
+                        <em>Bonjour, je vous présente Marie.</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour je vous presente Marie')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Hello, I present Marie to you.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोंजूर, झूह वू प्रेज़ांत मारी。<br>
+                            <strong>English:</strong> bon-zhoor, zhuh voo pray-zahnt mah-ree.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je vous présente de Marie</span> <button class="inline-audio-btn" onclick="playAudio('Je vous presente de Marie')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I present of Marie (incorrect preposition)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह वू प्रेज़ांत दु मारी<br>
+                            <strong>English:</strong> zhuh voo pray-zahnt duh mah-ree
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>How old are you?</strong></td>
+                    <td>
+                        <em>Quel âge avez-vous ? / Tu as quel âge ?</em> <button class="inline-audio-btn" onclick="playAudio('Quel age avez vous Tu as quel age')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> How old are you?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> केल आझ आवे-वू? / तू आ केल आझ?<br>
+                            <strong>English:</strong> kel ahzh ah-vay-voo? / too ah kel ahzh?
+                        </span>
+                    </td>
+                    <td>
+                        <em>Tu as quel âge ? — J'ai 42 ans, et toi ?</em> <button class="inline-audio-btn" onclick="playAudio('Tu as quel age J ai quarante deux ans et toi')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> How old are you? — I am 42 years old, and you?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> तू आ केल आझ? — जे कारांत-दू आं, ए त्वा?<br>
+                            <strong>English:</strong> too ah kel ahzh? — zhay kahr-ant-doo ahn, ay twah?
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je suis 42 ans</span> <button class="inline-audio-btn" onclick="playAudio('Je suis 42 ans')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I am 42 years (incorrect verb usage)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह स्वी कारांत-दू आं<br>
+                            <strong>English:</strong> zhuh swee kahr-ant-doo ahn
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Where were you born & grew up?</strong></td>
+                    <td>
+                        <em>Je suis né(e) à... mais j'ai grandi à...</em> <button class="inline-audio-btn" onclick="playAudio('Je suis ne a mais j ai grandi a')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Where were you born & grew up?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह स्वी ने आ... मे जे ग्रांदी आ...<br>
+                            <strong>English:</strong> zhuh swee nay ah... may zhay grahn-dee ah...
+                        </span>
+                    </td>
+                    <td>
+                        <em>Je suis née à Paris mais j'ai grandi à Marseille.</em> <button class="inline-audio-btn" onclick="playAudio('Je suis nee a Paris mais j ai grandi a Marseille')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I was born in Paris but I grew up in Marseille.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह स्वी ने आ पारी मे जे ग्रांदी आ मार्सेय。<br>
+                            <strong>English:</strong> zhuh swee nay ah pah-ree may zhay grahn-dee ah mahr-say.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">J'ai né</span> <button class="inline-audio-btn" onclick="playAudio('J ai ne')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I have born (incorrect auxiliary verb)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> जे ने<br>
+                            <strong>English:</strong> zhay nay
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Nationality & Residence</strong></td>
+                    <td>
+                        <em>Je suis Indien(ne) / J'habite à Lyon</em> <button class="inline-audio-btn" onclick="playAudio('Je suis Indien J habite a Lyon')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Nationality & Residence<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह स्वी आंदियां / जाबीत आ ल्यों<br>
+                            <strong>English:</strong> zhuh swee zãh-dyen / zhah-beet ah lee-ohn
+                        </span>
+                    </td>
+                    <td>
+                        <em>Je suis Indien et j'habite à Amritsar.</em> <button class="inline-audio-btn" onclick="playAudio('Je suis Indien et j habite a Amritsar')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I am Indian and I live in Amritsar.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह स्वी आंदियां ए जाबीत आ अमृतसर。<br>
+                            <strong>English:</strong> zhuh swee zãh-dyen ay zhah-beet ah amritsar.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je habite (vowel clash)</span> <button class="inline-audio-btn" onclick="playAudio('Je habite')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I live (failure to elide 'e' to 'j'')<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह आबीत<br>
+                            <strong>English:</strong> zhuh ah-beet
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 4 -->
+    <h2>4. Family Background, Professions & Relationships</h2>
+    <div class="section-pronunciation">French: <em>Famille, Professions et Statut Marital</em> <button class="inline-audio-btn" onclick="playAudio('Famille Professions et Statut Marital')" title="Listen"></button> / Pronunciation: फामिय, प्रोफेस्यो ए स्तातू मारिताल</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>English Expression</th>
+                    <th>French Translation & Pronunciation</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Married for... years / Family size</strong></td>
+                    <td>
+                        <em>Nous sommes mariés depuis... ans</em> <button class="inline-audio-btn" onclick="playAudio('Nous sommes maries depuis C est une grande famille')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Married for... years / Family size<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> नू सोम्ल मारिये दपुई... आं<br>
+                            <strong>English:</strong> noo som mah-ryay duh-pwee... ahn
+                        </span>
+                    </td>
+                    <td>
+                        <em>Ils sont mariés depuis 35 ans ; c'est une grande famille !</em> <button class="inline-audio-btn" onclick="playAudio('Ils sont maries depuis trente cinq ans')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> They have been married for 35 years; it's a big family!<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ईलसों मारिये दपुई त्रोन्त-सैंक आं; से ऊन ग्रांद फामीय!<br>
+                            <strong>English:</strong> eel sohn mah-ryay duh-pwee trãht-sãhk ahn; seh oon grahnd fah-meey!
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Marié pour 35 ans</span> <button class="inline-audio-btn" onclick="playAudio('Marie pour 35 ans')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Married for 35 years (incorrect preposition)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मारिये पूर त्रांत-सैंक आं<br>
+                            <strong>English:</strong> mah-ryay poor trãht-sãhk ahn
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Parents & Spouse Jobs</strong></td>
+                    <td>
+                        <em>Mon père est [job] / Ma mère est [job]</em> <button class="inline-audio-btn" onclick="playAudio('Mon pere est Ma mere est')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Parents & Spouse Jobs<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मों पैर ए... / मा मैर ए...<br>
+                            <strong>English:</strong> mohn pair eh... / mah mair eh...
+                        </span>
+                    </td>
+                    <td>
+                        <em>Mon père est ingénieur et ma mère est avocate.</em> <button class="inline-audio-btn" onclick="playAudio('Mon pere est ingenieur et ma mere est avocate')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> My father is an engineer and my mother is a lawyer.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मों पैर ए आंजिनियेर ए मा मैर ए आवोकात。<br>
+                            <strong>English:</strong> mohn pair eh ahn-zhin-yur ay mah mair eh ah-voh-kaht.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Mon père est un ingénieur</span> <button class="inline-audio-btn" onclick="playAudio('Mon pere est un ingenieur')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> My father is an engineer (unnecessary article)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मों पैर ए अं आंजिनियेर<br>
+                            <strong>English:</strong> mohn pair eh ãh ahn-zhin-yur
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Brothers & Sisters</strong></td>
+                    <td>
+                        <em>Est-ce que vous avez des frères et sœurs ?</em> <button class="inline-audio-btn" onclick="playAudio('Est ce que vous avez des freres et soeurs')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Brothers & Sisters<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> एस्क वू जावे दे फ्रैस ए सुहर?<br>
+                            <strong>English:</strong> ehs-skuh voo zah-vay day frair ay suhr?
+                        </span>
+                    </td>
+                    <td>
+                        <em>J'ai deux frères et cinq sœurs.</em> <button class="inline-audio-btn" onclick="playAudio('J ai deux freres et cinq soeurs')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I have two brothers and five sisters.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> जे दू फ्रैस ए सैंक सुहर。<br>
+                            <strong>English:</strong> zhay duh frair ay sãhk suhr.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">J'ai pas de frères</span> <button class="inline-audio-btn" onclick="playAudio('J ai pas de freres')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I have no brothers (missing 'ne')<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> जे पा दु फ्रैस<br>
+                            <strong>English:</strong> zhay pah duh frair
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Children (Daughter / Son)</strong></td>
+                    <td>
+                        <em>Nous avons trois filles et deux fils</em> <button class="inline-audio-btn" onclick="playAudio('Nous avons trois filles et deux fils')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Children (Daughter / Son)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> नू जावों त्रोइ फीय ए दू फीस<br>
+                            <strong>English:</strong> noo zah-vohn trwah feey ay duh fees
+                        </span>
+                    </td>
+                    <td>
+                        <em>Mon mari est pompier et nous avons trois filles et deux fils.</em> <button class="inline-audio-btn" onclick="playAudio('Mon mari est pompier et nous avons trois filles')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> My husband is a firefighter and we have three daughters and two sons.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मों मारी ए पोंपिये ए नू जावों त्रोइ फीय ए दू फीस。<br>
+                            <strong>English:</strong> mohn mah-ree eh pohn-pyay ay noo zah-vohn trwah feey ay duh fees.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Deux fils pronounced as 'fee-y'</span> <button class="inline-audio-btn" onclick="playAudio('Deux fils error')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Two sons (incorrect pronunciation)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> दू फीस<br>
+                            <strong>English:</strong> duh fees
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>What is your job?</strong></td>
+                    <td>
+                        <em>Quel est votre métier ?</em> <button class="inline-audio-btn" onclick="playAudio('Quel est votre metier')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> What is your job?<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> केल ए votr मेतिए?<br>
+                            <strong>English:</strong> kel el votr may-tyay?
+                        </span>
+                    </td>
+                    <td>
+                        <em>Je suis ingénieur / médecin.</em> <button class="inline-audio-btn" onclick="playAudio('Je suis ingenieur')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I am an engineer / doctor.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह स्वी आंजिनियेर / मेदसां。<br>
+                            <strong>English:</strong> zhuh swee ahn-zhin-yur / med-sãh.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Quel est ton métier to boss</span> <button class="inline-audio-btn" onclick="playAudio('Quel est ton metier formal')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Asking informally to a boss<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> केल ए तोन मेतिए<br>
+                            <strong>English:</strong> kel el tohn may-tyay
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Phone Number</strong></td>
+                    <td>
+                        <em>Quel est votre numéro de téléphone ?</em> <button class="inline-audio-btn" onclick="playAudio('Quel est votre numero de telephone')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Phone Number<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> केल ए votr नूमेरो द तेलेफोन?<br>
+                            <strong>English:</strong> kel el votr nyoo-may-ro duh tay-lay-fohn?
+                        </span>
+                    </td>
+                    <td>
+                        <em>Mon numéro de téléphone est le...</em> <button class="inline-audio-btn" onclick="playAudio('Mon numero de telephone est le')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> My telephone number is...<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मों नूमेरो द तेलेफोन ए लृ...<br>
+                            <strong>English:</strong> mohn nyoo-may-ro duh tay-lay-fohn eh luh...
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Ma numéro</span> <button class="inline-audio-btn" onclick="playAudio('Ma numero')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> My number (incorrect gender)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मा नूमेरो<br>
+                            <strong>English:</strong> mah nyoo-may-ro
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Titles (Miss / Mrs. / Mr.)</strong></td>
+                    <td>
+                        <em>Mademoiselle / Madame / Monsieur</em> <button class="inline-audio-btn" onclick="playAudio('Mademoiselle Madame Monsieur')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Titles (Miss / Mrs. / Mr.)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मादमोज़ेल / मादाम / मस्ये<br>
+                            <strong>English:</strong> mad-mwah-zel / mah-dam / muh-syuh
+                        </span>
+                    </td>
+                    <td>
+                        <em>Bonjour, Monsieur Singh.</em> <button class="inline-audio-btn" onclick="playAudio('Bonjour Monsieur Singh')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Good morning, Mr. Singh.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बोंजूर, मस्ये सिंह。<br>
+                            <strong>English:</strong> bon-zhoor, muh-syuh singh.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Monsieur Mademoiselle</span> <button class="inline-audio-btn" onclick="playAudio('Monsieur Mademoiselle')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Sir Miss (contradictory titles)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मस्ये मादमोज़ेल<br>
+                            <strong>English:</strong> muh-syuh mad-mwah-zel
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 5 -->
+    <h2>5. Daily Routines, Personal Interests & Travel Expressions</h2>
+    <div class="section-pronunciation">French: <em>Routines Quotidiennes, Intérêts et Voyages</em> <button class="inline-audio-btn" onclick="playAudio('Routines Quotidiennes Interets et Voyages')" title="Listen"></button> / Pronunciation: रूतीन कोतीदियेन, आंतेरे ए वायाज</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>English Expression</th>
+                    <th>French Translation & Pronunciation</th>
+                    <th>Correct Usage Example</th>
+                    <th>Incorrect Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>I'm going to school / work</strong></td>
+                    <td>
+                        <em>Je vais à l'école / au travail</em> <button class="inline-audio-btn" onclick="playAudio('Je vais a l ecole au travail')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I'm going to school / work<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह वे आ लेकोल / ओ त्रावै<br>
+                            <strong>English:</strong> zhuh vay ah lay-kol / oh trah-vay
+                        </span>
+                    </td>
+                    <td>
+                        <em>Le matin, je vais à l'école.</em> <button class="inline-audio-btn" onclick="playAudio('Le matin je vais a l ecole')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> In the morning, I go to school.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ल मातें, झूह वे आ लेकोल。<br>
+                            <strong>English:</strong> luh mah-tãh, zhuh vay ah lay-kol.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je vais à le travail</span> <button class="inline-audio-btn" onclick="playAudio('Je vais a le travail')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I go to the work (incorrect contraction)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह वे आ ल त्रावै<br>
+                            <strong>English:</strong> zhuh vay ah luh trah-vay
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>I am making a phone call</strong></td>
+                    <td>
+                        <em>Je téléphone</em> <button class="inline-audio-btn" onclick="playAudio('Je telephone')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I am making a phone call<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह तेलेफोन<br>
+                            <strong>English:</strong> zhuh tay-lay-fohn
+                        </span>
+                    </td>
+                    <td>
+                        <em>Attends un moment, je téléphone.</em> <button class="inline-audio-btn" onclick="playAudio('Attends un moment je telephone')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Wait a moment, I am calling.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> आतांद अं मोमाँ, झूह तेलेफोन。<br>
+                            <strong>English:</strong> ah-tãh-dzuh moh-mãh, zhuh tay-lay-fohn.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je fais un téléphone</span> <button class="inline-audio-btn" onclick="playAudio('Je fais un telephone')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I make a telephone (incorrect verb)<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह फे अं तेलेफोन<br>
+                            <strong>English:</strong> zhuh fay ãh tay-lay-fohn
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>I'm sleeping / drinking coffee</strong></td>
+                    <td>
+                        <em>Je dors / Je bois un café</em> <button class="inline-audio-btn" onclick="playAudio('Je dors Je bois un cafe')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I'm sleeping / drinking coffee<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह दोर / झूह ब्वा अं काफे<br>
+                            <strong>English:</strong> zhuh dohr / zhuh bwah zõh kah-fay
+                        </span>
+                    </td>
+                    <td>
+                        <em>Je bois un café au restaurant.</em> <button class="inline-audio-btn" onclick="playAudio('Je bois un cafe au restaurant')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I am drinking coffee at the restaurant.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह ब्वा अं काफे ओ रेस्तारां。<br>
+                            <strong>English:</strong> zhuh bwah zõh kah-fay oh res-tah-rãh.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je buvez un café</span> <button class="inline-audio-btn" onclick="playAudio('Je buvez un cafe')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Incorrect pronoun-verb conjugation<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह बूवे अं काफे<br>
+                            <strong>English:</strong> zhuh boo-vay ãh kah-fay
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>I really like to travel</strong></td>
+                    <td>
+                        <em>J'aime beaucoup voyager</em> <button class="inline-audio-btn" onclick="playAudio('J aime beaucoup voyager')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I really like to travel<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> जे बोकू व्वायाझय<br>
+                            <strong>English:</strong> zhem boh-koo vwah-yah-zhay
+                        </span>
+                    </td>
+                    <td>
+                        <em>J'aime beaucoup voyager en Europe.</em> <button class="inline-audio-btn" onclick="playAudio('J aime beaucoup voyager en Europe')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I really like traveling in Europe.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> जे बोकू व्वायाझय आं युरोप。<br>
+                            <strong>English:</strong> zhem boh-koo vwah-yah-zhay ahn yoo-rop.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">J'aime voyager beaucoup</span> <button class="inline-audio-btn" onclick="playAudio('J aime voyager beaucoup')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Awkward word order placement<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> जे व्वायाझय बोकू<br>
+                            <strong>English:</strong> zhem vwah-yah-zhay boh-koo
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>I speak Spanish and English</strong></td>
+                    <td>
+                        <em>Je parle espagnol et anglais</em> <button class="inline-audio-btn" onclick="playAudio('Je parle espagnol et anglais')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I speak Spanish and English<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह पार्ल एस्पाणोल ए आंग्ले<br>
+                            <strong>English:</strong> zhuh parl ehs-pah-nyohl ay ahn-gleh
+                        </span>
+                    </td>
+                    <td>
+                        <em>Je parle espagnol, anglais et un peu français.</em> <button class="inline-audio-btn" onclick="playAudio('Je parle espagnol anglais et un peu francais')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I speak Spanish, English and a little French.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह पार्ल एस्पाणोल, आंग्ले ए अं पु फ्रांसे。<br>
+                            <strong>English:</strong> zhuh parl ehs-pah-nyohl, ahn-gleh ay ãh puh frahn-say.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je parle l'espagnol</span> <button class="inline-audio-btn" onclick="playAudio('Je parle l espagnol')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Unnecessary definite article with languages<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह पार्ल लेस्पाणोल<br>
+                            <strong>English:</strong> zhuh parl les-pah-nyohl
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>I just returned from [City]</strong></td>
+                    <td>
+                        <em>Je viens de rentrer de [Ville]</em> <button class="inline-audio-btn" onclick="playAudio('Je viens de rentrer de')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I just returned from [City]<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह वियें दु रांत्रे दु...<br>
+                            <strong>English:</strong> zhuh vyẽh duh rah-ntray duh...
+                        </span>
+                    </td>
+                    <td>
+                        <em>Je viens de rentrer de Lyon hier soir.</em> <button class="inline-audio-btn" onclick="playAudio('Je viens de rentrer de Lyon hier soir')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> I just returned from Lyon yesterday evening.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह वियें दु रांत्रे दु ल्यों इयेर स्वार。<br>
+                            <strong>English:</strong> zhuh vyẽh duh rah-ntray duh lee-ohn iyeer swahr.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je viens rentrer de</span> <button class="inline-audio-btn" onclick="playAudio('Je viens rentrer de')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Missing preposition 'de'<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह वियें रांत्रे दु<br>
+                            <strong>English:</strong> zhuh vyẽh rah-ntray duh
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Next year, I am going to visit...</strong></td>
+                    <td>
+                        <em>L'année prochaine, je vais visiter...</em> <button class="inline-audio-btn" onclick="playAudio('L annee prochaine je vais visiter')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Next year, I am going to visit...<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ला ने प्रोशेन, झूह वे विजीते...<br>
+                            <strong>English:</strong> lah-nay proh-shen, zhuh vay vee-zee-tay...
+                        </span>
+                    </td>
+                    <td>
+                        <em>L'année prochaine, je vais visiter le Portugal.</em> <button class="inline-audio-btn" onclick="playAudio('L annee prochaine je vais visiter le Portugal')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Next year, I am going to visit Portugal.<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ला ने प्रोशेन, झूह वे विजीते ल पोर्तुगाल。<br>
+                            <strong>English:</strong> lah-nay proh-shen, zhuh vay vee-zee-tay luh poh-toor-gahl.
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">L'année prochaine going to</span> <button class="inline-audio-btn" onclick="playAudio('L annee prochaine incorrect')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Mixing French and English grammar<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ला ने प्रोशेन गोईंग टू<br>
+                            <strong>English:</strong> lah-nay proh-shen goh-ing too
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Of course, I must work...</strong></td>
+                    <td>
+                        <em>Bien sûr, je dois travailler...</em> <button class="inline-audio-btn" onclick="playAudio('Bien sur je dois travailler comme tout le monde')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Of course, I must work...<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> बियां सूत, झूह द्वाद त्रावाये...<br>
+                            <strong>English:</strong> byẽh soor, zhuh dwah trah-vah-yay...
+                        </span>
+                    </td>
+                    <td>
+                        <em>Mais bien sûr, je dois travailler, comme tout le monde !</em> <button class="inline-audio-btn" onclick="playAudio('Mais bien sur je dois travailler')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> But of course, I have to work, like everyone else!<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> मे बियां सूत, झूह द्वाद त्रावाये, कोम तू ल मोन्द!<br>
+                            <strong>English:</strong> may byẽh soor, zhuh dwah trah-vah-yay, kom too luh mohnd!
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">Je dois travail</span> <button class="inline-audio-btn" onclick="playAudio('Je dois travail')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Using noun instead of verb<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> झूह द्वाद त्रावै<br>
+                            <strong>English:</strong> zhuh dwah trah-vahy
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>It's the 1st / 5th time I visit Paris</strong></td>
+                    <td>
+                        <em>C'est la première / cinquième fois...</em> <button class="inline-audio-btn" onclick="playAudio('C est la premiere cinquieme fois que je visite Paris')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> It's the 1st / 5th time I visit Paris<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> से ला प्रमिए / सैंकियेम फवा...<br>
+                            <strong>English:</strong> seh lah pruh-myair / sãh-kyem fwah...
+                        </span>
+                    </td>
+                    <td>
+                        <em>Aujourd'hui c'est mon anniversaire, c'est la cinquième fois que je visite Paris !</em> <button class="inline-audio-btn" onclick="playAudio('Aujourd hui c est mon anniversaire c est la cinquieme fois')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Today is my birthday, it's the fifth time I visit Paris!<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> ओझूर्दूई से मों आनिवेर्सैर, से ला सैंकियेम फवा कु झूह विजीते पारी!<br>
+                            <strong>English:</strong> oh-zhoor-dwee seh mohn ah-nee-vair-sair, seh lah sãh-kyem fwah kuh zhuh vee-zeet pah-ree!
+                        </span>
+                    </td>
+                    <td>
+                        <span class="incorrect">C'est le premier fois</span> <button class="inline-audio-btn" onclick="playAudio('C est le premier fois')" title="Listen"></button>
+                        <span class="example-detail">
+                            <strong>English:</strong> Incorrect masculine article with feminine noun<br>
+                            <strong>Pronunciation:</strong><br>
+                            <strong>Hindi:</strong> से ल प्रमिए फवा<br>
+                            <strong>English:</strong> seh luh pruh-myay fwah
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>

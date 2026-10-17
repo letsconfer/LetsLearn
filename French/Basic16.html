@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic16.html - French Beginner Conversational Guide (Formal vs. Informal)</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .usage-note {
+            background-color: #e3f2fd;
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        [data-theme="dark"] .usage-note {
+            background-color: #1e293b;
+            border-color: #3b82f6;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th:nth-child(1), td:nth-child(1) { width: 18%; font-weight: 600; }
+        
+        th:nth-child(2), td:nth-child(2) { 
+            width: 41%; 
+            background-color: #e8f5e9 !important; 
+        }
+        
+        th:nth-child(3), td:nth-child(3) { 
+            width: 41%; 
+            background-color: #e3f2fd !important; 
+        }
+
+        [data-theme="dark"] th:nth-child(2), [data-theme="dark"] td:nth-child(2) { 
+            background-color: #1e3a29 !important; 
+        }
+        
+        [data-theme="dark"] th:nth-child(3), [data-theme="dark"] td:nth-child(3) { 
+            background-color: #1e293b !important; 
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        th:nth-child(2) { background-color: #2e7d32 !important; }
+        th:nth-child(3) { background-color: #1565c0 !important; }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .conv-block {
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .conv-block:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .french-text {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .example-detail {
+            display: block;
+            font-size: 0.85rem;
+            color: #495057;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        [data-theme="dark"] .example-detail {
+            color: #cbd5e1;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+
+    <h1>French Beginner Conversational Guide</h1>
+    <p class="subtitle">Complete Formal vs. Informal Conversations with Questions, Answers, and Pronunciation Guides</p>
+    
+    <div class="usage-note">
+        <strong>How to use this guide:</strong> Use <strong>Formal (vous)</strong> with strangers, elders, or professionals. Use <strong>Informal (tu)</strong> with friends, family, and peers. Both questions and conversational answers are provided for every topic.
+    </div>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Category / Topic</th>
+                    <th>Formal (Polite / Professional)</th>
+                    <th>Informal (Casual / Friends)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 1. Greeting -->
+                <tr>
+                    <td><strong>1. Greeting & How are you</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Bonjour, comment allez-vous ?</span> <button class="inline-audio-btn" onclick="playAudio('Bonjour comment allez vous')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Hello, how are you?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> बों-झूर, को-मां ता-ले वू?<br>
+                                <strong>English:</strong> Bon-zhoor, ko-mah tah-lay voo?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Je vais bien, merci. Et vous ?</span> <button class="inline-audio-btn" onclick="playAudio('Je vais bien merci Et vous')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I am doing well, thank you. And you?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> जावे व्यान, मेर्सी। ए वू?<br>
+                                <strong>English:</strong> Zha vay byan, mehr-see. Ey voo?
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Salut, ça va ?</span> <button class="inline-audio-btn" onclick="playAudio('Salut ca va')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Hi, how is it going?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> सलू, सा वा?<br>
+                                <strong>English:</strong> Sahlü, sah vah?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Ça va bien, et toi ?</span> <button class="inline-audio-btn" onclick="playAudio('Ca va bien et toi')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> It's going well, and you?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> सा वा ब्यान, ए त्वा?<br>
+                                <strong>English:</strong> Sah vah byan, ey twa?
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 2. Asking Name -->
+                <tr>
+                    <td><strong>2. Asking Name</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Comment vous appelez-vous ?</span> <button class="inline-audio-btn" onclick="playAudio('Comment vous appelez vous')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What is your name?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> को-मां वू-ज़ा-प्ले वू?<br>
+                                <strong>English:</strong> Ko-mah voo-za-play voo?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Je m'appelle [Votre Nom]. Et vous ?</span> <button class="inline-audio-btn" onclick="playAudio('Je m appelle Votre Nom Et vous')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> My name is [Your Name]. And you?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ज मा-पेल [वो-त्र नोम]। ए वू?<br>
+                                <strong>English:</strong> Zhe ma-pel [vo-tre nom]. Ey voo?
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu t'appelles comment ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu t appelles comment')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What's your name?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू ता-पेल को-मा?<br>
+                                <strong>English:</strong> Tü ta-pel ko-mah?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Moi, c'est [Prénom]. Et toi ?</span> <button class="inline-audio-btn" onclick="playAudio('Moi c est Prenom Et toi')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Me, it's [First Name]. And you?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> म्वा, से [प्रे-नोम]। ए त्वा?<br>
+                                <strong>English:</strong> Mwa, sey [pray-nom]. Ey twa?
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 3. Asking Age -->
+                <tr>
+                    <td><strong>3. Asking Age</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Quel âge avez-vous ?</span> <button class="inline-audio-btn" onclick="playAudio('Quel age avez vous')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> How old are you?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> केल आज़ आ-वे वू?<br>
+                                <strong>English:</strong> Kel ahzh ah-vay voo?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: J'ai [Nombre] ans.</span> <button class="inline-audio-btn" onclick="playAudio('J ai Nombre ans')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I am [Number] years old.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> झे [नम्बे] आं。<br>
+                                <strong>English:</strong> Zhay [nom-brə] ahn.
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu as quel âge ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu as quel age')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> How old are you?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू आ केल आज़?<br>
+                                <strong>English:</strong> Tü ah kel ahzh?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: J'ai [Nombre] ans.</span> <button class="inline-audio-btn" onclick="playAudio('J ai Nombre ans')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I am [Number] years old.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> झे [नम्बे] आं。<br>
+                                <strong>English:</strong> Zhay [nom-brə] ahn.
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 4. Nationality -->
+                <tr>
+                    <td><strong>4. Nationality</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Quelle est votre nationalité ?</span> <button class="inline-audio-btn" onclick="playAudio('Quelle est votre nationalite')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What is your nationality?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> केल एह वो-त्र नास्यो-नालि-ते?<br>
+                                <strong>English:</strong> Kel eh vo-tra na-syo-na-li-tay?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Je suis [votre nationalité].</span> <button class="inline-audio-btn" onclick="playAudio('Je suis votre nationalite')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I am [your nationality].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ज स्वी [नास्यो-नालि-ते]।<br>
+                                <strong>English:</strong> Zhe swee [na-syo-na-li-tay].
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu es de quelle nationalité ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu es de quelle nationalite')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What nationality are you?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू एह द केल नास्यो-नालि-ते?<br>
+                                <strong>English:</strong> Tü eh da kel na-syo-na-li-tay?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Je suis [votre nationalité].</span> <button class="inline-audio-btn" onclick="playAudio('Je suis votre nationalite')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I am [your nationality].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ज स्वी [नास्यो-नालि-ते]।<br>
+                                <strong>English:</strong> Zhe swee [na-syo-na-li-tay].
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 5. Hometown / Origin -->
+                <tr>
+                    <td><strong>5. Hometown / Origin</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: D'où venez-vous ?</span> <button class="inline-audio-btn" onclick="playAudio('Dou venez vous')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Where do you come from?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> दूवू-ने वू?<br>
+                                <strong>English:</strong> Doo və-nay voo?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Je viens de [Votre Ville/Pays].</span> <button class="inline-audio-btn" onclick="playAudio('Je viens de Votre Ville Pays')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I come from [Your City/Country].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ज विएन द [विल/पेई]।<br>
+                                <strong>English:</strong> Zhe vyen de [veel/pay-ee].
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu viens d'où ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu viens dou')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Where do you come from?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू विएन दू?<br>
+                                <strong>English:</strong> Tū vyen doo?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Je viens de [Votre Ville/Pays].</span> <button class="inline-audio-btn" onclick="playAudio('Je viens de Votre Ville Pays')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I come from [Your City/Country].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ज विएन द [विल/पेई]।<br>
+                                <strong>English:</strong> Zha vyen de [veel/pay-ee].
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 6. Profession / Work -->
+                <tr>
+                    <td><strong>6. Profession / Work</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Quelle est votre profession ?</span> <button class="inline-audio-btn" onclick="playAudio('Quelle est votre profession')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What is your profession?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> केल एह वो-त्र प्रोफेस्योन?<br>
+                                <strong>English:</strong> Kel eh vo-tra pro-fey-syon?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Je suis [votre profession].</span> <button class="inline-audio-btn" onclick="playAudio('Je suis votre profession')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I am a [your profession].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ज स्वी [प्रोफेस्योन]।<br>
+                                <strong>English:</strong> Zhe swee [pro-fey-syon].
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu fais quoi dans la vie ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu fais quoi dans la vie')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What do you do for a living?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू फै क्वा दान ला वी?<br>
+                                <strong>English:</strong> Tü fay kwa dah-lah vee?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Je suis [votre profession].</span> <button class="inline-audio-btn" onclick="playAudio('Je suis votre profession')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I am a [your profession].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ज स्वी [प्रोफेस्योन]।<br>
+                                <strong>English:</strong> Zhe swee [pro-fey-syon].
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 7. Telephone Number -->
+                <tr>
+                    <td><strong>7. Telephone Number</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Quel est votre numéro ?</span> <button class="inline-audio-btn" onclick="playAudio('Quel est votre numero')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What is your phone number?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> केल एह वो-त्र नू-मेरो?<br>
+                                <strong>English:</strong> Kel eh vo-tre nü-may-ro?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Mon numéro est le [Numéro].</span> <button class="inline-audio-btn" onclick="playAudio('Mon numero est le Numero')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> My number is [Number].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> मो नू-मेरो ए ल [नू-मेरो]।<br>
+                                <strong>English:</strong> Moh nü-may-ro ey la [nü-may-ro].
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: C'est quoi ton numéro ?</span> <button class="inline-audio-btn" onclick="playAudio('C est quoi ton numero')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What's your phone number?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> से क्या तोन नू-मेरो?<br>
+                                <strong>English:</strong> Sey kwa toh nü-may-ro?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: C'est le [Numéro].</span> <button class="inline-audio-btn" onclick="playAudio('C est le Numero')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> It's [Number].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> से ल [नू-मेरो]।<br>
+                                <strong>English:</strong> Sey le [nü-may-ro].
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 8. Siblings (Family) -->
+                <tr>
+                    <td><strong>8. Siblings (Family)</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Avez-vous des frères et sœurs ?</span> <button class="inline-audio-btn" onclick="playAudio('Avez vous des freres et soeurs')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Do you have siblings?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> आ-वे वू दे फेर ए सर?<br>
+                                <strong>English:</strong> Ah-vay voo dey freyr ey scar?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Oui, j'ai [un frère / une sœur].</span> <button class="inline-audio-btn" onclick="playAudio('Oui jai un frere une soeur')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Yes, I have [a brother/sister].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> वी, झे [फ्रेर / सर]।<br>
+                                <strong>English:</strong> Wee, zhay [freyr / sær].
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu as des frères et sœurs ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu as des freres et soeurs')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Do you have siblings?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू आ दे फेर ए सर?<br>
+                                <strong>English:</strong> Tu ah dey freyr ey soær?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Non, je suis enfant unique.</span> <button class="inline-audio-btn" onclick="playAudio('Non je suis enfant unique')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> No, I am an only child.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> नो, ज स्वी आं-फान ज्यू-नीक।<br>
+                                <strong>English:</strong> Noh, zhe swee ahn-fahn zü-neek.
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 9. Place of Residence -->
+                <tr>
+                    <td><strong>9. Place of Residence</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Où habitez-vous ?</span> <button class="inline-audio-btn" onclick="playAudio('Ou habitez vous')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Where do you live?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ऊ आबि-ते वू?<br>
+                                <strong>English:</strong> Oo abi-tay voo?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: J'habite à [Votre Ville].</span> <button class="inline-audio-btn" onclick="playAudio('J habite a Votre Ville')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I live in [Your City].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> जा-बित आ [बिल]।<br>
+                                <strong>English:</strong> Zhabit -ah [veel].
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu habites où ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu habites ou')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Where do you live?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू आबित ऊ?<br>
+                                <strong>English:</strong> Tu a-bit oo?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: J'habite à [Votre Ville].</span> <button class="inline-audio-btn" onclick="playAudio('J habite a Votre Ville')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I live in [Your City].<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> जा-बित आ [बिल]।<br>
+                                <strong>English:</strong> Zhabit -ah [veel].
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 10. Marital Status -->
+                <tr>
+                    <td><strong>10. Marital Status</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Êtes-vous marié(e) ?</span> <button class="inline-audio-btn" onclick="playAudio('Etes vous marie')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Are you married?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> एत वू मारिए?<br>
+                                <strong>English:</strong> Eyt voo ma-ryay?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Oui, je suis marié(e).</span> <button class="inline-audio-btn" onclick="playAudio('Oui je suis marie')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Yes, I am married.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> वी, ज स्वी मारिए।<br>
+                                <strong>English:</strong> Wee, zha swee ma-ryay.
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu es marié(e) ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu es marie')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Are you married?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू ए मारिए?<br>
+                                <strong>English:</strong> Tü eh ma-ryay?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Non, je suis célibataire.</span> <button class="inline-audio-btn" onclick="playAudio('Non je suis celibataire')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> No, I am single.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> नो, ज स्वी सेलिबातेर।<br>
+                                <strong>English:</strong> Noh, zhe swee say-li-ba-ter.
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 11. Languages Spoken -->
+                <tr>
+                    <td><strong>11. Languages Spoken</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Parlez-vous anglais ?</span> <button class="inline-audio-btn" onclick="playAudio('Parlez vous anglais')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Do you speak English?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> पार-ले वू आंग-ग्ले?<br>
+                                <strong>English:</strong> Par-lay voo ahng-glay?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Oui, je parle anglais.</span> <button class="inline-audio-btn" onclick="playAudio('Oui je parle anglais')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Yes, I speak English.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> वी, ज पार्ले आंग-ग्ले।<br>
+                                <strong>English:</strong> Wee, zhe parl ahng-glay.
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu parles anglais ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu parles anglais')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Do you speak English?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू पार्ल आंग-ग्ले?<br>
+                                <strong>English:</strong> Tü parl ahng-glay?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Un peu, oui.</span> <button class="inline-audio-btn" onclick="playAudio('Un peu oui')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> A little bit, yes.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> अं प्व, वी।<br>
+                                <strong>English:</strong> Ahn poe, wee.
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 12. Hobbies / Free Time -->
+                <tr>
+                    <td><strong>12. Hobbies / Free Time</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Que faites-vous pour vos loisirs ?</span> <button class="inline-audio-btn" onclick="playAudio('Que faites vous pour vos loisirs')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What do you do in free time?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> क फेते वू पोर वो व्याज़ीर?<br>
+                                <strong>English:</strong> Ke fet voo poor vo vwa-zeer?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: J'aime lire et voyager.</span> <button class="inline-audio-btn" onclick="playAudio('J aime lire et voyager')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I like reading and traveling.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> झेम लीर ए व्वाया-झाय।<br>
+                                <strong>English:</strong> Zhem leer ey vwa-ya-zhay.
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Tu fais quoi dans ton temps libre ?</span> <button class="inline-audio-btn" onclick="playAudio('Tu fais quoi dans ton temps libre')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What do you do in free time?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> तू फै क्वा दान ला तोन ता लीब?<br>
+                                <strong>English:</strong> Tu fay kwa dah-lah toh tahm lee-bra?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: J'écoute de la musique.</span> <button class="inline-audio-btn" onclick="playAudio('J ecoute de la musique')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> I listen to music.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> झे-कूट द ला म्यूजीक।<br>
+                                <strong>English:</strong> Zhey-koot də lah mü-zeek.
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 13. Asking the Time -->
+                <tr>
+                    <td><strong>13. Asking the Time</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Pourriez-vous me dire l'heure ?</span> <button class="inline-audio-btn" onclick="playAudio('Pourriez vous me dire l heure')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Could you tell me the time?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> पूरी-ये वूम दीर लूर?<br>
+                                <strong>English:</strong> Poo-ryay voo me deer lær?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Bien sûr, il est [14] heures.</span> <button class="inline-audio-btn" onclick="playAudio('Bien sur il est heures')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Sure, it is [2] o'clock.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ब्यान सूर, इल ए [लूर]।<br>
+                                <strong>English:</strong> Byan sür, il ey [œr].
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Quelle heure il est ?</span> <button class="inline-audio-btn" onclick="playAudio('Quelle heure il est')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> What time is it?<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> केल लूर ईल ए?<br>
+                                <strong>English:</strong> Kel ær eel ey?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Il est [14] heures.</span> <button class="inline-audio-btn" onclick="playAudio('Il est heures')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> It is [2] o'clock.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> इल ए [लूर]।<br>
+                                <strong>English:</strong> Il ey [œr].
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 14. Meeting Someone -->
+                <tr>
+                    <td><strong>14. Meeting Someone</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Enchanté(e) de faire connaissance.</span> <button class="inline-audio-btn" onclick="playAudio('Enchante de faire connaissance')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Pleased to meet you.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> आंग-शांते द फेर कोने-सास?<br>
+                                <strong>English:</strong> Ahng-shahn-tay de fehr ko-nay-sahns?
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Enchanté(e) de même.</span> <button class="inline-audio-btn" onclick="playAudio('Enchante de meme')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Pleased as well.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> आंग-शां-ते द मेम。<br>
+                                <strong>English:</strong> Ahng-shahn-tay də meym.
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Enchanté(e) !</span> <button class="inline-audio-btn" onclick="playAudio('Enchante')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Nice to meet you!<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> आंग-शां-ते!<br>
+                                <strong>English:</strong> Ahng-shahn-tay!
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Enchanté(e) !</span> <button class="inline-audio-btn" onclick="playAudio('Enchante')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Nice to meet you too!<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> आंग-शां-ते!<br>
+                                <strong>English:</strong> Ahng-shahn-tay!
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 15. Saying Goodbye -->
+                <tr>
+                    <td><strong>15. Saying Goodbye</strong></td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Au revoir, bonne journée.</span> <button class="inline-audio-btn" onclick="playAudio('Au revoir bonne journee')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Goodbye, have a good day.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ओ र-व्वार, बोन झूर-ने。<br>
+                                <strong>English:</strong> Oh ra-vwar, bon zhoor-nay.
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Au revoir, merci à vous aussi.</span> <button class="inline-audio-btn" onclick="playAudio('Au revoir merci a vous aussi')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Goodbye, thank you too.<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> ओ र-व्वार, मेर्सी आ दू ओसी。<br>
+                                <strong>English:</strong> Oh revwar, mehr-see ah voo oh-see.
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="conv-block">
+                            <span class="french-text">Q: Salut, à plus !</span> <button class="inline-audio-btn" onclick="playAudio('Salut a plus')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Bye, see you later!<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> सलू, आ प्लू!<br>
+                                <strong>English:</strong> Salu, ah plü!
+                            </span>
+                        </div>
+                        <div class="conv-block">
+                            <span class="french-text">A: Salut, à plus tard !</span> <button class="inline-audio-btn" onclick="playAudio('Salut a plus tard')" title="Listen"></button>
+                            <span class="example-detail">
+                                <strong>English:</strong> Bye, see you later!<br>
+                                <strong>Pronunciation:</strong><br>
+                                <strong>Hindi:</strong> सलु, आ प्लु-तार!<br>
+                                <strong>English:</strong> Salü, ah plü-tar!
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>
