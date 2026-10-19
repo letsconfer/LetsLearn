@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic11.html - Complete French Notes & Rules Masterclass</title>
+    <title>Complete French Basics Masterclass</title>
     <script src="master-config.js"></script>
     <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
     <style>
         :root {
             --primary-color: #0055A5;
@@ -52,6 +54,36 @@
             top: 15px;
             right: 15px;
             z-index: 10;
+        }
+
+        /* 2-Column Layout Wrapper (Main Content + Sidebar) */
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
         }
 
         h1 {
@@ -102,7 +134,7 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* 3-Column Layout: Expanded space for Column 2 */
+        /* 3-Column Table Layout */
         th:nth-child(1), td:nth-child(1) { width: 22%; }
         th:nth-child(2), td:nth-child(2) { width: 48%; }
         th:nth-child(3), td:nth-child(3) { width: 30%; }
@@ -187,788 +219,804 @@
 
 <div class="container">
     <div class="theme-switcher"></div>
+    
+    <!-- Header container rendered via includes.js -->
+    <div id="header-container"></div>
 
-    <h1>French Basics</h1>
-    <p class="subtitle">Phonetics, Alphabets, Accents & Articles</p>
+    <!-- 2-Column Layout Wrapper (Main Content Left, Quick Links Sidebar Right) -->
+    <div class="main-layout-wrapper">
+        <!-- Left Main Content Area -->
+        <div class="main-content-area">
+            <h1>Complete French Basics Masterclass</h1>
+            <p class="subtitle">Comprehensive Notes, Phonetics, Alphabets, Accents & Grammar Rules Reference</p>
 
-    <!-- SECTION 1: SOUND COMBINATIONS -->
-    <h2>1. Sound Combinations & Suffixes</h2>
-    <div class="section-pronunciation">French: <em>Les Sons</em> <button class="inline-audio-btn" onclick="playAudio('Les Sons')" title="Listen"></button> / Pronunciation: ले सॉँ</div>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Topic Details / Definition</th>
-                    <th>Rules, Logics & Pronunciation</th>
-                    <th>Examples (Correct & Incorrect)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Sound Group 1: é / ez / er / ê</strong></td>
-                    <td>
-                        Produces an <span class="highlight">ay / eh</span> vowel sound in French words.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        In French spelling, multiple distinct written forms share this exact sound:<br>
-                        • <strong>é</strong> always produces a clear "ay" sound (e.g., <em>été</em>).<br>
-                        • <strong>-ez</strong> at the end of words (like verb conjugations for <em>vous</em>) has a silent <em>z</em>, making it sound identical to <em>é</em> (e.g., <em>parlez</em>).<br>
-                        • <strong>-er</strong> at the end of words (like 1st group infinitive verbs) has a silent <em>r</em>, making it also sound identical to <em>é</em> (e.g., <em>parler</em>).<br>
-                        • <strong>ê</strong> (circumflex) shares a close front-vowel quality in many foundational teaching frameworks to help learners recognize that different written letters in French often share the same spoken sound.<br><br>
-                        <em>French writing is notorious for having multiple ways to spell the exact same spoken sound, which is why teachers group these spelling variations together under one sound rule.</em><br><br>
-                        <strong>English Comparison:</strong> Equivalent to the English 'ay' diphthong (as in <em>DAY</em>).<br>
-                        <strong>Hindi Comparison:</strong> Equivalent to 'ए' (e.g., 'एक').
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>été</em> <button class="inline-audio-btn" onclick="playAudio('été')" title="Listen"></button> (summer)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ay-tay / एते<br>
-                            • <em>parlez</em> <button class="inline-audio-btn" onclick="playAudio('parlez')" title="Listen"></button> (speak)<br>&nbsp;&nbsp;<em>Pronunciation:</em> par-lay / पार्ले<br>
-                            • <em>parler</em> <button class="inline-audio-btn" onclick="playAudio('parler')" title="Listen"></button> (to speak)<br>&nbsp;&nbsp;<em>Pronunciation:</em> par-lay / पार्ले
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">ah-tah</span> <button class="inline-audio-btn" onclick="playAudio('ata')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-tah / अता<br>
-                            • <span class="incorrect">par-lez</span> <button class="inline-audio-btn" onclick="playAudio('parlez z')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> par-lez / पार्लेज़<br>
-                            • <span class="incorrect">par-ler</span> <button class="inline-audio-btn" onclick="playAudio('parler r')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> par-ler / पार्लर
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sound Group 2: an / en / ane</strong></td>
-                    <td>
-                        Produces a <span class="highlight">nasal 'ahn'</span> sound through the nose.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • <strong>an</strong> and <strong>en</strong> produce a nasal 'ahn' sound when followed by a consonant or positioned within a nasal syllable.<br>
-                        • Adding a silent final <strong>-e</strong> (as in <em>ane</em>) does not alter the nasal vowel quality itself but modifies grammatical gender or syllable division.<br>
-                        • French nasal vowels require expelling air simultaneously through the nose and mouth without pronouncing the trailing hard consonant.<br><br>
-                        <strong>English Comparison:</strong> Similar to a nasalized 'on' or 'an' without pronouncing the final hard consonant.<br>
-                        <strong>Hindi Comparison:</strong> Equivalent to the nasal sound 'ऑँ' or 'हाँ' (Anunasik).
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>enfant</em> <button class="inline-audio-btn" onclick="playAudio('enfant')" title="Listen"></button> (child)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ahn-fahn / ऑँफ ऑँ<br>
-                            • <em>boulanger</em> <button class="inline-audio-btn" onclick="playAudio('boulanger')" title="Listen"></button> (baker)<br>&nbsp;&nbsp;<em>Pronunciation:</em> bool-ahn-zhay / बुलॉँजे<br>
-                            • <em>dans</em> <button class="inline-audio-btn" onclick="playAudio('dans')" title="Listen"></button> (in)<br>&nbsp;&nbsp;<em>Pronunciation:</em> dahn / ऑँ
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">an-fant</span> <button class="inline-audio-btn" onclick="playAudio('anfant')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> an-fant / एनफैंट<br>
-                            • <span class="incorrect">bool-an-gair</span> <button class="inline-audio-btn" onclick="playAudio('boolangair')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> bool-an-gair / बुलंगेर
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sound Group 3: on</strong></td>
-                    <td>
-                        Produces a <span class="highlight">nasal 'ohn'</span> sound through the nose.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • <strong>on</strong> represents a distinct back nasal vowel sound.<br>
-                        • When a double consonant follows (such as <em>-nn</em> in feminine derivations like <em>bonne</em>), the nasal quality is broken, and a standard oral 'n' sound is pronounced.<br>
-                        • Recognizing this spelling distinction prevents over-nasalizing words where the consonant is doubled.<br><br>
-                        <strong>English Comparison:</strong> Nasalized 'on'.<br>
-                        <strong>Hindi Comparison:</strong> अनुनासिक 'ऑँ'।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>bon</em> <button class="inline-audio-btn" onclick="playAudio('bon')" title="Listen"></button> (good)<br>&nbsp;&nbsp;<em>Pronunciation:</em> bohn / बॉँ<br>
-                            • <em>nom</em> <button class="inline-audio-btn" onclick="playAudio('nom')" title="Listen"></button> (name)<br>&nbsp;&nbsp;<em>Pronunciation:</em> nõh / नॉँ
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">bon-n</span> <button class="inline-audio-btn" onclick="playAudio('bonn')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> bon-n / बोन
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sound Group 4: in / ain</strong></td>
-                    <td>
-                        Produces a <span class="highlight">nasal 'eh'</span> sound through the nose.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • Both <strong>in</strong> and <strong>ain</strong> share the identical nasal front-vowel sound.<br>
-                        • The presence of the letter 'i' combined with 'n' or 'in' creates this nasal resonance.<br>
-                        • Adding a trailing vowel or double letter breaks the nasal glide back into a hard consonant sound.<br><br>
-                        <strong>English Comparison:</strong> Nasalized 'eh' / 'an'.<br>
-                        <strong>Hindi Comparison:</strong> अनुनासिक 'ऐं'।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>pain</em> <button class="inline-audio-btn" onclick="playAudio('pain')" title="Listen"></button> (bread)<br>&nbsp;&nbsp;<em>Pronunciation:</em> peh / पैं<br>
-                            • <em>fin</em> <button class="inline-audio-btn" onclick="playAudio('fin')" title="Listen"></button> (end)<br>&nbsp;&nbsp;<em>Pronunciation:</em> fẽh / फैं
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">pain-n</span> <button class="inline-audio-btn" onclick="playAudio('painn')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> pain-n / पेन-न
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sound Group 5: un</strong></td>
-                    <td>
-                        Produces a <span class="highlight">nasal 'uhn'</span> sound through the nose.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • <strong>un</strong> represents a rounded nasal vowel.<br>
-                        • While modern Parisian French increasingly merges <em>un</em> with the <em>in/ain</em> sound, formal French maintains a distinct rounded nasal pronunciation.<br><br>
-                        <strong>English Comparison:</strong> Nasalized 'uhn'.<br>
-                        <strong>Hindi Comparison:</strong> अनुनासिक 'अं'।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>brun</em> <button class="inline-audio-btn" onclick="playAudio('brun')" title="Listen"></button> (brown)<br>&nbsp;&nbsp;<em>Pronunciation:</em> bruhn / ब्रुँ<br>
-                            • <em>un</em> <button class="inline-audio-btn" onclick="playAudio('un')" title="Listen"></button> (one/a)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ẽh / अँ
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">un-n</span> <button class="inline-audio-btn" onclick="playAudio('unn')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> un-n / अन-न
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sound Group 6: au / aux / eau</strong></td>
-                    <td>
-                        Always pronounced as a <span class="highlight">long 'auh'</span> sound.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • <strong>au</strong> and <strong>eau</strong> are multi-vowel letter combinations that always produce a pure long 'oh' sound.<br>
-                        • <strong>-aux</strong> represents the plural form of words ending in <em>-al</em> (e.g., <em>travail</em> to <em>travaux</em>), where the final 'x' is entirely silent and the sound remains 'oh'.<br><br>
-                        <strong>English Comparison:</strong> Matches the English 'o' sound in *BOAT* or *GO*.<br>
-                        <strong>Hindi Comparison:</strong> Equivalent to 'ओ'.
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>eau</em> <button class="inline-audio-btn" onclick="playAudio('eau')" title="Listen"></button> (water)<br>&nbsp;&nbsp;<em>Pronunciation:</em> oh / ओ<br>
-                            • <em>bureau</em> <button class="inline-audio-btn" onclick="playAudio('bureau')" title="Listen"></button> (office)<br>&nbsp;&nbsp;<em>Pronunciation:</em> byoo-roh / ब्युरो<br>
-                            • <em>chaud</em> <button class="inline-audio-btn" onclick="playAudio('chaud')" title="Listen"></button> (hot)<br>&nbsp;&nbsp;<em>Pronunciation:</em> shoh / शो
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">ee-ou</span> <button class="inline-audio-btn" onclick="playAudio('eeou')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ee-ou / ईउ
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sound Group 7: oi</strong></td>
-                    <td>
-                        Produces a <span class="highlight">'wa'</span> sound (as in water).<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • The vowel digraph <strong>oi</strong> fuses 'o' and 'i' into a rapid 'wa' diphthong.<br>
-                        • It appears frequently across foundational French words, functioning as a single inseparable phonetic unit.<br><br>
-                        <strong>English Comparison:</strong> 'wa' glide.<br>
-                        <strong>Hindi Comparison:</strong> 'वा'।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>moi</em> <button class="inline-audio-btn" onclick="playAudio('moi')" title="Listen"></button> (me)<br>&nbsp;&nbsp;<em>Pronunciation:</em> mwa / म्वा<br>
-                            • <em>voilà</em> <button class="inline-audio-btn" onclick="playAudio('voilà')" title="Listen"></button> (there is)<br>&nbsp;&nbsp;<em>Pronunciation:</em> vwa-lah / व्वाला
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">oy</span> <button class="inline-audio-btn" onclick="playAudio('oy')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> oy / ओय
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sound Group 8: ment</strong></td>
-                    <td>
-                        Forms adverbs; pronounced with a <span class="highlight">nasal 'mãh'</span> sound where 't' is silent.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • <strong>-ment</strong> is the standard French adverbial suffix equivalent to English '-ly'.<br>
-                        • Following French suffix rules, the final 't' is silent, and the preceding 'en' creates a nasalized 'mãh' sound.<br><br>
-                        <strong>English Comparison:</strong> Adverb suffix '-ly' with silent 't'.<br>
-                        <strong>Hindi Comparison:</strong> 'माँ'।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>lentement</em> <button class="inline-audio-btn" onclick="playAudio('lentement')" title="Listen"></button> (slowly)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lahnt-mãh / लांमाँ<br>
-                            • <em>vraiment</em> <button class="inline-audio-btn" onclick="playAudio('vraiment')" title="Listen"></button> (truly/really)<br>&nbsp;&nbsp;<em>Pronunciation:</em> vray-mah / व्रय-मा
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">lentement-t</span> <button class="inline-audio-btn" onclick="playAudio('lentementt')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> lahnt-ment / लांमेंट
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sound Group 9: tion</strong></td>
-                    <td>
-                        Pronounced with a <span class="highlight">syou / syohn</span> sound.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • <strong>-tion</strong> is pronounced with a 'syohn' sound rather than the English '-shun'.<br>
-                        • The letter 't' retains a soft 's' friction before the 'ion' vowel glide.<br><br>
-                        <strong>English Comparison:</strong> French '-syohn' instead of English '-shun'.<br>
-                        <strong>Hindi Comparison:</strong> 'स्यों'।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>action</em> <button class="inline-audio-btn" onclick="playAudio('action')" title="Listen"></button> (action)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ak-syohn / आकस्यों<br>
-                            • <em>attention</em> <button class="inline-audio-btn" onclick="playAudio('attention')" title="Listen"></button> (attention)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-tahn-syohn / ऑँतस्यों
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">ti-on</span> <button class="inline-audio-btn" onclick="playAudio('tion')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> tik-shun / टिक्शन
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sound Group 10: ill / gn</strong></td>
-                    <td>
-                        Produces <span class="highlight">soft 'i / iy'</span> for 'ill' and <span class="highlight">'ny'</span> for 'gn'.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • <strong>ill</strong> after vowels creates a soft glide (e.g., <em>fille</em>).<br>
-                        • <strong>gn</strong> produces a palatal nasal sound similar to 'ny' in canyon (e.g., <em>gagne</em>).<br><br>
-                        <strong>English Comparison:</strong> 'y' in yes or 'ny' in canyon.<br>
-                        <strong>Hindi Comparison:</strong> 'य' या 'न्य'।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>fille</em> <button class="inline-audio-btn" onclick="playAudio('fille')" title="Listen"></button> (daughter/girl)<br>&nbsp;&nbsp;<em>Pronunciation:</em> fee / फ़ी<br>
-                            • <em>gagne</em> <button class="inline-audio-btn" onclick="playAudio('gagne')" title="Listen"></button> (wins/earns)<br>&nbsp;&nbsp;<em>Pronunciation:</em> gany / गान्य
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">fill-e</span> <button class="inline-audio-btn" onclick="playAudio('fille incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> fill / फिल्
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            <!-- SECTION 1: SOUND COMBINATIONS -->
+            <h2>1. Sound Combinations & Suffixes</h2>
+            <div class="section-pronunciation">French: <em>Les Sons</em> <button class="inline-audio-btn" onclick="playAudio('Les Sons')" title="Listen"></button> / Pronunciation: ले सॉँ</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Topic Details / Definition</th>
+                            <th>Rules, Logics & Pronunciation</th>
+                            <th>Examples (Correct & Incorrect)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Sound Group 1: é / ez / er / ê</strong></td>
+                            <td>
+                                Produces an <span class="highlight">ay / eh</span> vowel sound in French words.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • In French spelling, multiple distinct written forms share this exact sound:<br>
+                                • <strong>é</strong> always produces a clear "ay" sound (e.g., <em>été</em>).<br>
+                                • <strong>-ez</strong> at the end of words (like verb conjugations for <em>vous</em>) has a silent <em>z</em>, making it sound identical to <em>é</em> (e.g., <em>parlez</em>).<br>
+                                • <strong>-er</strong> at the end of words (like 1st group infinitive verbs) has a silent <em>r</em>, making it also sound identical to <em>é</em> (e.g., <em>parler</em>).<br>
+                                • <strong>ê</strong> (circumflex) shares a close front-vowel quality in many foundational teaching frameworks to help learners recognize that different written letters in French often share the same spoken sound.<br><br>
+                                <em>French writing is notorious for having multiple ways to spell the exact same spoken sound, which is why teachers group these spelling variations together under one sound rule.</em><br><br>
+                                <strong>English Comparison:</strong> Equivalent to the English 'ay' diphthong (as in <em>DAY</em>).<br>
+                                <strong>Hindi Comparison:</strong> Equivalent to 'ए' (e.g., 'एक').
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>été</em> <button class="inline-audio-btn" onclick="playAudio('été')" title="Listen"></button> (summer)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ay-tay / एते<br>
+                                    • <em>parlez</em> <button class="inline-audio-btn" onclick="playAudio('parlez')" title="Listen"></button> (speak)<br>&nbsp;&nbsp;<em>Pronunciation:</em> par-lay / पार्ले<br>
+                                    • <em>parler</em> <button class="inline-audio-btn" onclick="playAudio('parler')" title="Listen"></button> (to speak)<br>&nbsp;&nbsp;<em>Pronunciation:</em> par-lay / पार्ले
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">ah-tah</span> <button class="inline-audio-btn" onclick="playAudio('ata')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-tah / अता<br>
+                                    • <span class="incorrect">par-lez</span> <button class="inline-audio-btn" onclick="playAudio('parlez z')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> par-lez / पार्लेज़<br>
+                                    • <span class="incorrect">par-ler</span> <button class="inline-audio-btn" onclick="playAudio('parler r')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> par-ler / पार्लर
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sound Group 2: an / en / ane</strong></td>
+                            <td>
+                                Produces a <span class="highlight">nasal 'ahn'</span> sound through the nose.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • <strong>an</strong> and <strong>en</strong> produce a nasal 'ahn' sound when followed by a consonant or positioned within a nasal syllable.<br>
+                                • Adding a silent final <strong>-e</strong> (as in <em>ane</em>) does not alter the nasal vowel quality itself but modifies grammatical gender or syllable division.<br>
+                                • French nasal vowels require expelling air simultaneously through the nose and mouth without pronouncing the trailing hard consonant.<br><br>
+                                <strong>English Comparison:</strong> Similar to a nasalized 'on' or 'an' without pronouncing the final hard consonant.<br>
+                                <strong>Hindi Comparison:</strong> Equivalent to the nasal sound 'ऑँ' or 'हाँ' (Anunasik).
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>enfant</em> <button class="inline-audio-btn" onclick="playAudio('enfant')" title="Listen"></button> (child)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ahn-fahn / ऑँफ ऑँ<br>
+                                    • <em>boulanger</em> <button class="inline-audio-btn" onclick="playAudio('boulanger')" title="Listen"></button> (baker)<br>&nbsp;&nbsp;<em>Pronunciation:</em> bool-ahn-zhay / बुलॉँजे<br>
+                                    • <em>dans</em> <button class="inline-audio-btn" onclick="playAudio('dans')" title="Listen"></button> (in)<br>&nbsp;&nbsp;<em>Pronunciation:</em> dahn / ऑँ
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">an-fant</span> <button class="inline-audio-btn" onclick="playAudio('anfant')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> an-fant / एनफैंट<br>
+                                    • <span class="incorrect">bool-an-gair</span> <button class="inline-audio-btn" onclick="playAudio('boolangair')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> bool-an-gair / बुलंगेर
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sound Group 3: on</strong></td>
+                            <td>
+                                Produces a <span class="highlight">nasal 'ohn'</span> sound through the nose.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • <strong>on</strong> represents a distinct back nasal vowel sound.<br>
+                                • When a double consonant follows (such as <em>-nn</em> in feminine derivations like <em>bonne</em>), the nasal quality is broken, and a standard oral 'n' sound is pronounced.<br>
+                                • Recognizing this spelling distinction prevents over-nasalizing words where the consonant is doubled.<br><br>
+                                <strong>English Comparison:</strong> Nasalized 'on'.<br>
+                                <strong>Hindi Comparison:</strong> अनुनासिक 'ऑँ'।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>bon</em> <button class="inline-audio-btn" onclick="playAudio('bon')" title="Listen"></button> (good)<br>&nbsp;&nbsp;<em>Pronunciation:</em> bohn / बॉँ<br>
+                                    • <em>nom</em> <button class="inline-audio-btn" onclick="playAudio('nom')" title="Listen"></button> (name)<br>&nbsp;&nbsp;<em>Pronunciation:</em> nõh / नॉँ
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">bon-n</span> <button class="inline-audio-btn" onclick="playAudio('bonn')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> bon-n / बोन
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sound Group 4: in / ain</strong></td>
+                            <td>
+                                Produces a <span class="highlight">nasal 'eh'</span> sound through the nose.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • Both <strong>in</strong> and <strong>ain</strong> share the identical nasal front-vowel sound.<br>
+                                • The presence of the letter 'i' combined with 'n' or 'in' creates this nasal resonance.<br>
+                                • Adding a trailing vowel or double letter breaks the nasal glide back into a hard consonant sound.<br><br>
+                                <strong>English Comparison:</strong> Nasalized 'eh' / 'an'.<br>
+                                <strong>Hindi Comparison:</strong> अनुनासिक 'ऐं'।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>pain</em> <button class="inline-audio-btn" onclick="playAudio('pain')" title="Listen"></button> (bread)<br>&nbsp;&nbsp;<em>Pronunciation:</em> pahn / पैं<br>
+                                    • <em>fin</em> <button class="inline-audio-btn" onclick="playAudio('fin')" title="Listen"></button> (end)<br>&nbsp;&nbsp;<em>Pronunciation:</em> fẽh / फैं
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">pain-n</span> <button class="inline-audio-btn" onclick="playAudio('painn')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> pain-n / पेन-न
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sound Group 5: un</strong></td>
+                            <td>
+                                Produces a <span class="highlight">nasal 'uhn'</span> sound through the nose.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • <strong>un</strong> represents a rounded nasal vowel.<br>
+                                • While modern Parisian French increasingly merges <em>un</em> with the <em>in/ain</em> sound, formal French maintains a distinct rounded nasal pronunciation.<br><br>
+                                <strong>English Comparison:</strong> Nasalized 'uhn'.<br>
+                                <strong>Hindi Comparison:</strong> अनुनासिक 'अं'।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>brun</em> <button class="inline-audio-btn" onclick="playAudio('brun')" title="Listen"></button> (brown)<br>&nbsp;&nbsp;<em>Pronunciation:</em> bruhn / ब्रुँ<br>
+                                    • <em>un</em> <button class="inline-audio-btn" onclick="playAudio('un')" title="Listen"></button> (one/a)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ẽh / अँ
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">un-n</span> <button class="inline-audio-btn" onclick="playAudio('unn')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> un-n / अन-न
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sound Group 6: au / aux / eau</strong></td>
+                            <td>
+                                Always pronounced as a <span class="highlight">long 'auh'</span> sound.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • <strong>au</strong> and <strong>eau</strong> are multi-vowel letter combinations that always produce a pure long 'oh' sound.<br>
+                                • <strong>-aux</strong> represents the plural form of words ending in <em>-al</em> (e.g., <em>travail</em> to <em>travaux</em>), where the final 'x' is entirely silent and the sound remains 'oh'.<br><br>
+                                <strong>English Comparison:</strong> Matches the English 'o' sound in *BOAT* or *GO*.<br>
+                                <strong>Hindi Comparison:</strong> Equivalent to 'ओ'.
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>eau</em> <button class="inline-audio-btn" onclick="playAudio('eau')" title="Listen"></button> (water)<br>&nbsp;&nbsp;<em>Pronunciation:</em> oh / ओ<br>
+                                    • <em>bureau</em> <button class="inline-audio-btn" onclick="playAudio('bureau')" title="Listen"></button> (office)<br>&nbsp;&nbsp;<em>Pronunciation:</em> byoo-roh / ब्युरो<br>
+                                    • <em>chaud</em> <button class="inline-audio-btn" onclick="playAudio('chaud')" title="Listen"></button> (hot)<br>&nbsp;&nbsp;<em>Pronunciation:</em> shoh / शो
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">ee-ou</span> <button class="inline-audio-btn" onclick="playAudio('eeou')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> ee-ou / ईउ
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sound Group 7: oi</strong></td>
+                            <td>
+                                Produces a <span class="highlight">'wa'</span> sound (as in water).<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • The vowel digraph <strong>oi</strong> fuses 'o' and 'i' into a rapid 'wa' diphthong.<br>
+                                • It appears frequently across foundational French words, functioning as a single inseparable phonetic unit.<br><br>
+                                <strong>English Comparison:</strong> 'wa' glide.<br>
+                                <strong>Hindi Comparison:</strong> 'वा'।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>moi</em> <button class="inline-audio-btn" onclick="playAudio('moi')" title="Listen"></button> (me)<br>&nbsp;&nbsp;<em>Pronunciation:</em> mwa / म्वा<br>
+                                    • <em>voilà</em> <button class="inline-audio-btn" onclick="playAudio('voilà')" title="Listen"></button> (there is)<br>&nbsp;&nbsp;<em>Pronunciation:</em> vwa-lah / व्वाला
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">oy</span> <button class="inline-audio-btn" onclick="playAudio('oy')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> oy / ओय
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sound Group 8: ment</strong></td>
+                            <td>
+                                Forms adverbs; pronounced with a <span class="highlight">nasal 'mãh'</span> sound where 't' is silent.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • <strong>-ment</strong> is the standard French adverbial suffix equivalent to English '-ly'.<br>
+                                • Following French suffix rules, the final 't' is silent, and the preceding 'en' creates a nasalized 'mãh' sound.<br><br>
+                                <strong>English Comparison:</strong> Adverb suffix '-ly' with silent 't'.<br>
+                                <strong>Hindi Comparison:</strong> 'माँ'।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>lentement</em> <button class="inline-audio-btn" onclick="playAudio('lentement')" title="Listen"></button> (slowly)<br>&nbsp;&nbsp;<em>Pronunciation:</em> lahnt-mãh / लांमाँ<br>
+                                    • <em>vraiment</em> <button class="inline-audio-btn" onclick="playAudio('vraiment')" title="Listen"></button> (truly/really)<br>&nbsp;&nbsp;<em>Pronunciation:</em> vray-mah / व्रय-मा
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">lentement-t</span> <button class="inline-audio-btn" onclick="playAudio('lentementt')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> lahnt-ment / लांमेंट
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sound Group 9: tion</strong></td>
+                            <td>
+                                Pronounced with a <span class="highlight">syou / syohn</span> sound.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • <strong>-tion</strong> is pronounced with a 'syohn' sound rather than the English '-shun'.<br>
+                                • The letter 't' retains a soft 's' friction before the 'ion' vowel glide.<br><br>
+                                <strong>English Comparison:</strong> French '-syohn' instead of English '-shun'.<br>
+                                <strong>Hindi Comparison:</strong> 'स्यों'।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>action</em> <button class="inline-audio-btn" onclick="playAudio('action')" title="Listen"></button> (action)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ak-syohn / आकस्यों<br>
+                                    • <em>attention</em> <button class="inline-audio-btn" onclick="playAudio('attention')" title="Listen"></button> (attention)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ah-tahn-syohn / ऑँतस्यों
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">ti-on</span> <button class="inline-audio-btn" onclick="playAudio('tion')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> tik-shun / टिक्शन
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sound Group 10: ill / gn</strong></td>
+                            <td>
+                                Produces <span class="highlight">soft 'i / iy'</span> for 'ill' and <span class="highlight">'ny'</span> for 'gn'.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • <strong>ill</strong> after vowels creates a soft glide (e.g., <em>fille</em>).<br>
+                                • <strong>gn</strong> produces a palatal nasal sound similar to 'ny' in canyon (e.g., <em>gagne</em>).<br><br>
+                                <strong>English Comparison:</strong> 'y' in yes or 'ny' in canyon.<br>
+                                <strong>Hindi Comparison:</strong> 'य' या 'न्य'।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>fille</em> <button class="inline-audio-btn" onclick="playAudio('fille')" title="Listen"></button> (daughter/girl)<br>&nbsp;&nbsp;<em>Pronunciation:</em> fee / फ़ी<br>
+                                    • <em>gagne</em> <button class="inline-audio-btn" onclick="playAudio('gagne')" title="Listen"></button> (wins/earns)<br>&nbsp;&nbsp;<em>Pronunciation:</em> gany / गान्य
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">fill-e</span> <button class="inline-audio-btn" onclick="playAudio('fille incorrect')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> fill / फिल्
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 2: THE SILENT H & CONSONANTS RULE -->
+            <h2>2. Silent Rules & Sounded Consonants</h2>
+            <div class="section-pronunciation">French: <em>Les Règles Muettes & Consonnes</em> <button class="inline-audio-btn" onclick="playAudio('Les Règles Muettes')" title="Listen"></button> / Pronunciation: ले रेग्ल म्यूएत</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Topic Details / Definition</th>
+                            <th>Rules, Logics & Pronunciation</th>
+                            <th>Examples (Correct & Incorrect)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>The Letter 'H'</strong></td>
+                            <td>
+                                The letter 'H' is <span class="highlight">always completely silent</span> in French.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • French divides 'h' into two categories: <em>h muet</em> (mute h, which permits elision like <em>l'homme</em> and liaison) and <em>h aspiré</em> (aspirated h, which blocks elision like <em>le héros</em>).<br>
+                                • In both cases, the letter 'h' itself is never pronounced as an English aspirate sound.<br><br>
+                                <strong>English Comparison:</strong> Unaspirated unlike English *house*.<br>
+                                <strong>Hindi Comparison:</strong> मून वर्ण (कोई 'ह' नहीं)।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>homme</em> <button class="inline-audio-btn" onclick="playAudio('homme')" title="Listen"></button> (man)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ohm / ओम<br>
+                                    • <em>hôtel</em> <button class="inline-audio-btn" onclick="playAudio('hôtel')" title="Listen"></button> (hotel)<br>&nbsp;&nbsp;<em>Pronunciation:</em> oh-tel / ओतेल
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">hahm</span> <button class="inline-audio-btn" onclick="playAudio('hahm')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> hahm / हाम
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Final Silent Consonants</strong></td>
+                            <td>
+                                Final consonants like <span class="highlight">-s, -t, -x, -z, -d, -p</span> are generally <span class="highlight">silent</span> at the end of words.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • Unless modified by liaison or part of the CaReFuL QD rule, ending consonants are dropped in standard pronunciation.<br><br>
+                                <strong>English Comparison:</strong> Dropping final hard sounds.<br>
+                                <strong>Hindi Comparison:</strong> अंतिम व्यंजन मूक।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>petit</em> <button class="inline-audio-btn" onclick="playAudio('petit')" title="Listen"></button> (small/little)<br>&nbsp;&nbsp;<em>Pronunciation:</em> puh-tee / पुती
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">puh-teet</span> <button class="inline-audio-btn" onclick="playAudio('petitt')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> puh-teet / पुतीत
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sounded Consonants (CaReFuL QD)</strong></td>
+                            <td>
+                                Letters <span class="highlight">C, R, F, L, Q, D</span> are <span class="highlight">sounded</span> at the end of words.<br><br>
+                                <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+                                • Memorized via the mnemonic acronym <strong>CaReFuL QD</strong> (C, R, F, L, Q, D).<br>
+                                • These specific final consonants break the general rule of silent endings and must be articulated fully.<br><br>
+                                <strong>English Comparison:</strong> Pronouncing final hard consonants.<br>
+                                <strong>Hindi Comparison:</strong> अंत में पूरे व्यंजन का उच्चारण।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>sac</em> <button class="inline-audio-btn" onclick="playAudio('sac')" title="Listen"></button> (bag) — <em>Pronunciation:</em> sak / सैक<br>
+                                    • <em>mer</em> <button class="inline-audio-btn" onclick="playAudio('mer')" title="Listen"></button> (sea) — <em>Pronunciation:</em> mair / मेर
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">sa</span> <button class="inline-audio-btn" onclick="playAudio('sa')" title="Listen"></button> (silent c)
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 3: FRENCH ALPHABETS -->
+            <h2>3. French Alphabets</h2>
+            <div class="section-pronunciation">French: <em>L'Alphabet</em> <button class="inline-audio-btn" onclick="playAudio('LAlphabet')" title="Listen"></button> / Pronunciation: लाल्फाबे</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Topic Details / Definition</th>
+                            <th>Rules, Logics & Pronunciation</th>
+                            <th>Examples (Correct & Incorrect)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Letter A</strong></td>
+                            <td>French vowel letter A.<br><br><strong>English Comparison:</strong> Broad 'ah' sound unlike English 'ay'.<br><strong>Hindi Comparison:</strong> 'आ' की मात्रा।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>avion</em> (ah-vyohn / आवियों) • <em>ami</em> (ah-mee / आमी) • <em>ananas</em> (ah-nah-nas / अनानास)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ay</span> (ए) • <span class="incorrect">apple</span> (एप्पल)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter B</strong></td>
+                            <td>French consonant letter B.<br><br><strong>English Comparison:</strong> Pronounced 'bay'.<br><strong>Hindi Comparison:</strong> 'बे'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>banane</em> (bah-nan / बनान) • <em>bébé</em> (bay-bay / बेबे) • <em>boîte</em> (bwaht / ब्वाहत)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">bee</span> (बी)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter C</strong></td>
+                            <td>French consonant letter C.<br><br><strong>English Comparison:</strong> Pronounced 'say'.<br><strong>Hindi Comparison:</strong> 'से'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>chat</em> (shah / शा) • <em>café</em> (ka-fay / कैफे) • <em>citron</em> (see-trõh / सीत्रॉँ)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">see</span> (सी) • <span class="incorrect">cat</span> (कैट)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter D</strong></td>
+                            <td>French consonant letter D.<br><br><strong>English Comparison:</strong> Pronounced 'day'.<br><strong>Hindi Comparison:</strong> 'दे'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>dauphin</em> (doh-fẽh / दोफैं) • <em>dossier</em> (doh-syay / दोस्ये) • <em>dîner</em> (dee-nay / दीने)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">dee</span> (डी)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter E</strong></td>
+                            <td>French vowel letter E.<br><br><strong>English Comparison:</strong> Short neutral 'uh'.<br><strong>Hindi Comparison:</strong> 'अ'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>éléphant</em> (ay-lay-fahn / एलेफॉँ) • <em>école</em> (ay-kohl / एकोल) • <em>étudiant</em> (ay-tyoo-dyahn / एत्युद्याँ)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ee</span> (ई)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter F</strong></td>
+                            <td>French consonant letter F.<br><br><strong>English Comparison:</strong> Pronounced 'effe'.<br><strong>Hindi Comparison:</strong> 'एफ'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>fleur</em> (flur / ल्यूर) • <em>fromage</em> (fro-mahzh / फ़्रोमाझ) • <em>frère</em> (frair / फ्रेर)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ef</span> (इफ़)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter G</strong></td>
+                            <td>French consonant letter G.<br><br><strong>English Comparison:</strong> Pronounced 'je'.<br><strong>Hindi Comparison:</strong> 'जे'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>gâteau</em> (gah-toh / गातो) • <em>gare</em> (gar / गार) • <em>girafe</em> (zhi-raf / जिराफ़)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">jee</span> (जी)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter H</strong></td>
+                            <td>French silent letter H.<br><br><strong>English Comparison:</strong> Pronounced 'ahsh'.<br><strong>Hindi Comparison:</strong> 'आश'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>homme</em> (ohm / ओम) • <em>hôtel</em> (oh-tel / ओतेल) • <em>hibou</em> (ee-boo / इबू)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">aitch</span> (एच)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter I</strong></td>
+                            <td>French vowel letter I.<br><br><strong>English Comparison:</strong> Pronounced 'ii'.<br><strong>Hindi Comparison:</strong> 'ई'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>image</em> (ee-mahzh / इमाझ) • <em>idée</em> (ee-day / ईदे) • <em>igloo</em> (ee-gloo / इग््लू)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">eye</span> (आय)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter J</strong></td>
+                            <td>French consonant letter J.<br><br><strong>English Comparison:</strong> Pronounced 'ji'.<br><strong>Hindi Comparison:</strong> 'जी'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>jardin</em> (zhar-dẽh / जार्दै) • <em>jouer</em> (zhway / ज्वाय) • <em>jupe</em> (zhoop / झूप्प)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">jay</span> (जे)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter K</strong></td>
+                            <td>French consonant letter K.<br><br><strong>English Comparison:</strong> Pronounced 'ka'.<br><strong>Hindi Comparison:</strong> 'का'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>koala</em> (koh-ah-la / कोअला) • <em>kilo</em> (kee-loh / कीलो) • <em>kangaroo</em> (kahn-gah-roo / कांगारू)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">kay</span> (के)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter L</strong></td>
+                            <td>French consonant letter L.<br><br><strong>English Comparison:</strong> Pronounced 'el'.<br><strong>Hindi Comparison:</strong> 'एल'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>livre</em> (leevr / लीव्र) • <em>lune</em> (lyoon / ल्यून) • <em>lampe</em> (lahmp / लाँप्)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ell</span> (एलएल)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter M</strong></td>
+                            <td>French consonant letter M.<br><br><strong>English Comparison:</strong> Pronounced 'emme'.<br><strong>Hindi Comparison:</strong> 'एम'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>maison</em> (may-zõh / मेज़ॉँ) • <em>melon</em> (meh-lõh / मेलॉँ) • <em>merci</em> (mair-see / मेर्सी)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">em</span> (इएम)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter N</strong></td>
+                            <td>French consonant letter N.<br><br><strong>English Comparison:</strong> Pronounced 'enne'.<br><strong>Hindi Comparison:</strong> 'एन'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>nuit</em> (nwee / न्वी) • <em>nuage</em> (nwahzh / न्वाझ) • <em>natation</em> (nah-tah-syohn / नातास्यों)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">en</span> (इन)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter O</strong></td>
+                            <td>French vowel letter O.<br><br><strong>English Comparison:</strong> Pronounced 'o'.<br><strong>Hindi Comparison:</strong> 'ओ'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>oiseau</em> (wah-zoh / वाज़ो) • <em>orange</em> (oh-rahnz / ओरान्झ) • <em>onze</em> (õhz / ऑँझ)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">oh</span> (ओएच)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter P</strong></td>
+                            <td>French consonant letter P.<br><br><strong>English Comparison:</strong> Pronounced 'pé'.<br><strong>Hindi Comparison:</strong> 'पे'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>pomme</em> (pohm / पोम) • <em>père</em> (pair / पेर) • <em>papier</em> (pah-pyay / पापीये)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">pee</span> (पी)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter Q</strong></td>
+                            <td>French consonant letter Q.<br><br><strong>English Comparison:</strong> Pronounced 'ku'.<br><strong>Hindi Comparison:</strong> 'क्यु'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>quatre</em> (ka-tr / कात्र) • <em>question</em> (kes-tyohn / केस्यों) • <em>quand</em> (kahn / कॉँ)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">kyoo</span> (क्यू)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter R</strong></td>
+                            <td>French consonant letter R.<br><br><strong>English Comparison:</strong> Pronounced 'erre'.<br><strong>Hindi Comparison:</strong> 'एर'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>rouge</em> (roozh / रूझ) • <em>rose</em> (rohz / रोज़) • <em>radio</em> (rah-dyoh / राद्यो)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ar</span> (आर)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter S</strong></td>
+                            <td>French consonant letter S.<br><br><strong>English Comparison:</strong> Pronounced 'esse'.<br><strong>Hindi Comparison:</strong> 'एस'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>soleil</em> (so-lay / सोलेय) • <em>stylo</em> (stee-loh / स्टीलो) • <em>sœur</em> (sur / सुर)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">es</span> (एसिज़)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter T</strong></td>
+                            <td>French consonant letter T.<br><br><strong>English Comparison:</strong> Pronounced 'té'.<br><strong>Hindi Comparison:</strong> 'ते'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>table</em> (tah-bl / ताब्ल) • <em>train</em> (trẽh / त्रै) • <em>télévision</em> (tay-lay-vee-zyohn / तेलेवीस्यों)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">tee</span> (टी)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter U</strong></td>
+                            <td>French vowel letter U.<br><br><strong>English Comparison:</strong> Pronounced 'iu'.<br><strong>Hindi Comparison:</strong> 'यु'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>un</em> (ẽh / अँ) • <em>usine</em> (yoo-zeen / यूज़ीन) • <em>utile</em> (yoo-teel / यूतील)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">yoo</span> (यू)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter V</strong></td>
+                            <td>French consonant letter V.<br><br><strong>English Comparison:</strong> Pronounced 'vé'.<br><strong>Hindi Comparison:</strong> 'वे'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>voiture</em> (vwa-tyoor / व्वात्यूर) • <em>ville</em> (veel / वील) • <em>vert</em> (vair / वेर)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">vee</span> (वी)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter W</strong></td>
+                            <td>French consonant letter W.<br><br><strong>English Comparison:</strong> Pronounced 'double vé'.<br><strong>Hindi Comparison:</strong> 'दुबल वे'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>wagon</em> (vah-gõh / वागॉँ) • <em>watt</em> (vaht / वात) • <em>water-closet</em> (vah-ter-kloh-zet / वातेर-क्लोझेत)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">double-yoo</span> (डबल यू)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter X</strong></td>
+                            <td>French consonant letter X.<br><br><strong>English Comparison:</strong> Pronounced 'eks'.<br><strong>Hindi Comparison:</strong> 'इक्स'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>xylophone</em> (zee-loh-fohn / ज़ीलोफ़ोन) • <em>xérès</em> (xay-res / ज़ेरेस) • <em>xenon</em> (gze-nõh / ग्ज़ेनॉँ)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ex</span> (एक्सिज़)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter Y</strong></td>
+                            <td>French vowel/consonant letter Y.<br><br><strong>English Comparison:</strong> Pronounced 'e-gréc'.<br><strong>Hindi Comparison:</strong> 'इग्रेक'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>yeux</em> (yuh / य्य़ू) • <em>yoga</em> (yoh-gah / योगा) • <em>yaourt</em> (yah-oor / याऊर)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">why</span> (व्हाई)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Letter Z</strong></td>
+                            <td>French consonant letter Z.<br><br><strong>English Comparison:</strong> Pronounced 'zede'.<br><strong>Hindi Comparison:</strong> 'ज़ेद'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>zèbre</em> (zebr / ज़ेब्र) • <em>zéro</em> (zay-roh / ज़ेरो) • <em>zone</em> (zohn / ज़ोन)</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">zee</span> (ज़ी)</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 4: FRENCH ACCENTS -->
+            <h2>4. French Accents</h2>
+            <div class="section-pronunciation">French: <em>Les Accents</em> <button class="inline-audio-btn" onclick="playAudio('Les Accents')" title="Listen"></button> / Pronunciation: ले आक्सॉँ</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Topic Details / Definition</th>
+                            <th>Rules, Logics & Pronunciation</th>
+                            <th>Examples (Correct & Incorrect)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>L'Accent Aigu ( ´ ) — Acute Accent</strong></td>
+                            <td>
+                                <strong>Accent Name Pronunciation:</strong><br>
+                                English: lahn-sahn eh-goo<br>
+                                Hindi: लां-सॉं ए-गू.<br><br>
+                                <strong>Rule:</strong> Used ONLY on 'e' for a closed 'ay' sound (like English <em>day</em>). Never used before double consonants or final silent consonants.<br><br>
+                                <strong>English Comparison:</strong> Equivalent to English long 'a'.<br>
+                                <strong>Hindi Comparison:</strong> Equivalent to vowel sign 'े'.
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>école</em> (school) — ay-kohl / एकोल<br>
+                                    • <em>été</em> (summer) — ay-tay / एते<br>
+                                    • <em>café</em> (coffee) — ka-fay / कैफे
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">ah-kohl</span> (अकोल)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>L'Accent Grave ( ` ) — Grave Accent</strong></td>
+                            <td>
+                                <strong>Accent Name Pronunciation:</strong><br>
+                                English: lahn-sahn grahv<br>
+                                Hindi: लां-सॉं ग्राव.<br><br>
+                                <strong>Rule:</strong> Used on 'e' (open 'eh' sound like <em>bed</em>), and on 'a' or 'u' to distinguish homophones (e.g., <em>à</em> = to vs. <em>a</em> = has).<br><br>
+                                <strong>English Comparison:</strong> Equivalent to open 'e' in <em>bed</em>.<br>
+                                <strong>Hindi Comparison:</strong> Equivalent to vowel sign 'ै'.
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>frère</em> (brother) — frair / फ्रेर<br>
+                                    • <em>mère</em> (mother) — mair / मेर<br>
+                                    • <em>où</em> (where) — oo / ऊ
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">freer</span> (फ्रीर)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>L'Accent Circonflexe ( ^ ) — Circumflex</strong></td>
+                            <td>
+                                <strong>Accent Name Pronunciation:</strong><br>
+                                English: lahn-sahn seer-kohn-fleks<br>
+                                Hindi: लां-सॉं सीरकॉन्फ्लेक्स.<br><br>
+                                <strong>Rule:</strong> Used on all vowels. Often marks historical loss of 's' from Old French (<em>feste</em> → <em>fête</em>).<br><br>
+                                <strong>English Comparison:</strong> Lengthens vowel sound.<br>
+                                <strong>Hindi Comparison:</strong> Long vowel marker (दीर्घ स्वर).
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>être</em> (to be) — et-tr / एत्र<br>
+                                    • <em>fête</em> (party) — fet / फेत<br>
+                                    • <em>tête</em> (head) — tet / तेत
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">ee-tr</span> (ईत्र)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>La Cédille ( ç ) — Cedilla</strong></td>
+                            <td>
+                                <strong>Accent Name Pronunciation:</strong><br>
+                                English: lah say-dee-yuh<br>
+                                Hindi: ला सेदीयु.<br><br>
+                                <strong>Rule:</strong> Transforms hard 'c' into a soft 's' sound before 'a', 'o', and 'u'.<br><br>
+                                <strong>English Comparison:</strong> Like 's' in <em>snake</em>.<br>
+                                <strong>Hindi Comparison:</strong> Like 'स'.
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>français</em> (French) — frahn-say / फ्रांसे<br>
+                                    • <em>leçon</em> (lesson) — luh-sõh / ल्सॉँ<br>
+                                    • <em>ça</em> (that) — sah / सा
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">frank-ais</span> (फ्रांकाइ)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Le Tréma ( ï, ë, ü ) — Diaeresis</strong></td>
+                            <td>
+                                <strong>Accent Name Pronunciation:</strong><br>
+                                English: luh tray-mah<br>
+                                Hindi: ल त्रेमा.<br><br>
+                                <strong>Rule:</strong> Indicates that two adjacent vowels must be pronounced separately rather than blending into a diphthong.<br><br>
+                                <strong>English Comparison:</strong> Separate syllable break.<br>
+                                <strong>Hindi Comparison:</strong> अलग स्वर उच्चारण।
+                            </td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Correct Examples:</strong><br>
+                                    • <em>Noël</em> (Christmas) — noh-el / नो-एल<br>
+                                    • <em>maïs</em> (corn) — mah-ees / मा-ईस<br>
+                                    • <em>haïr</em> (to hate) — ah-eer / आ-ईर
+                                </div>
+                                <div class="example-box-incorrect">
+                                    <strong>Incorrect Examples:</strong><br>
+                                    • <span class="incorrect">nwl</span> (नोल)
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 5: DEFINITE ARTICLES -->
+            <h2>5. Definite Articles</h2>
+            <div class="section-pronunciation">French: <em>Les Articles Définis</em> <button class="inline-audio-btn" onclick="playAudio('Les Articles Définis')" title="Listen"></button> / Pronunciation: ले आर्तिक्ल देफिनी</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Topic Details / Definition</th>
+                            <th>Rules, Logics & Pronunciation</th>
+                            <th>Examples (Correct & Incorrect)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Le (Masculine Singular)</strong></td>
+                            <td>Used before masculine singular nouns starting with a consonant. (English: *the*)</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>le stylo</em> (pen) — luh stee-loh / ल स्टीलो</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">le table</span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>La (Feminine Singular)</strong></td>
+                            <td>Used before feminine singular nouns starting with a consonant. (English: *the*)</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>la table</em> (table) — lah tah-bl / ला ताब्ल</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">la stylo</span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>L' (Vowels & Silent H)</strong></td>
+                            <td>Used before any singular noun starting with a vowel (a, e, i, o, u) or silent 'h' (Elision).</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>l'école</em> (school) — lay-kohl / लेकोल</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">le école</span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Les (Plural Nouns)</strong></td>
+                            <td>Used before plural nouns regardless of gender.</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>les stylos</em> (pens) — lay stee-loh / ले स्टीलो</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">le stylos</span></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 6: INDEFINITE ARTICLES -->
+            <h2>6. Indefinite Articles</h2>
+            <div class="section-pronunciation">French: <em>Les Articles Indéfinis</em> <button class="inline-audio-btn" onclick="playAudio('Les Articles Indéfinis')" title="Listen"></button> / Pronunciation: ले आर्तिक्ल आंदेफिनी</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Topic Details / Definition</th>
+                            <th>Rules, Logics & Pronunciation</th>
+                            <th>Examples (Correct & Incorrect)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Un (Masculine Singular)</strong></td>
+                            <td>Used before <span class="highlight">masculine singular nouns</span>.<br><br><strong>English Comparison:</strong> Equivalent to English 'a / an'.<br><strong>Hindi Comparison:</strong> 'एक' (पुल्लिंग)।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>un livre</em> (a book) — ẽh leevr / अँ लीव्र</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">un fille</span> (wrong gender)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Une (Feminine Singular)</strong></td>
+                            <td>Used before <span class="highlight">feminine singular nouns</span>.<br><br><strong>English Comparison:</strong> Equivalent to English 'a / an'.<br><strong>Hindi Comparison:</strong> 'एक' (स्त्रीलिंग)।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>une fille</em> (a girl) — oon fee / ऊन फ़ी</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">une livre</span> (wrong gender)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Des (Plural Nouns)</strong></td>
+                            <td>Used before <span class="highlight">plural nouns</span> (both masculine and feminine).<br><br><strong>English Comparison:</strong> Equivalent to English 'some'.<br><strong>Hindi Comparison:</strong> 'कुछ / कई'।</td>
+                            <td>
+                                <div class="example-box-correct"><strong>Correct:</strong> • <em>des livres</em> (some books) — day leevr / डे लीव्र</div>
+                                <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">un livres</span> (singular article for plural)</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Right Sidebar Quick Links Container -->
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
     </div>
 
-    <!-- SECTION 2: THE SILENT H & CONSONANTS RULE -->
-    <h2>2. Silent Rules & Sounded Consonants</h2>
-    <div class="section-pronunciation">French: <em>Les Règles Muettes & Consonnes</em> <button class="inline-audio-btn" onclick="playAudio('Les Règles Muettes')" title="Listen"></button> / Pronunciation: ले रेग्ल म्यूएत</div>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Topic Details / Definition</th>
-                    <th>Rules, Logics & Pronunciation</th>
-                    <th>Examples (Correct & Incorrect)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>The Letter 'H'</strong></td>
-                    <td>
-                        The letter 'H' is <span class="highlight">always completely silent</span> in French.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • French divides 'h' into two categories: <em>h muet</em> (mute h, which permits elision like <em>l'homme</em> and liaison) and <em>h aspiré</em> (aspirated h, which blocks elision like <em>le héros</em>).<br>
-                        • In both cases, the letter 'h' itself is never pronounced as an English aspirate sound.<br><br>
-                        <strong>English Comparison:</strong> Unaspirated unlike English *house*.<br>
-                        <strong>Hindi Comparison:</strong> मून वर्ण (कोई 'ह' नहीं)।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>homme</em> <button class="inline-audio-btn" onclick="playAudio('homme')" title="Listen"></button> (man)<br>&nbsp;&nbsp;<em>Pronunciation:</em> ohm / ओम<br>
-                            • <em>hôtel</em> <button class="inline-audio-btn" onclick="playAudio('hôtel')" title="Listen"></button> (hotel)<br>&nbsp;&nbsp;<em>Pronunciation:</em> oh-tel / ओतेल
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">hahm</span> <button class="inline-audio-btn" onclick="playAudio('hahm')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> hahm / हाम
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Final Silent Consonants</strong></td>
-                    <td>
-                        Final consonants like <span class="highlight">-s, -t, -x, -z, -d, -p</span> are generally <span class="highlight">silent</span> at the end of words.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • Unless modified by liaison or part of the CaReFuL QD rule, ending consonants are dropped in standard pronunciation.<br><br>
-                        <strong>English Comparison:</strong> Dropping final hard sounds.<br>
-                        <strong>Hindi Comparison:</strong> अंतिम व्यंजन मूक।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>petit</em> <button class="inline-audio-btn" onclick="playAudio('petit')" title="Listen"></button> (small/little)<br>&nbsp;&nbsp;<em>Pronunciation:</em> puh-tee / पुती
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">puh-teet</span> <button class="inline-audio-btn" onclick="playAudio('petitt')" title="Listen"></button><br>&nbsp;&nbsp;<em>Pronunciation:</em> puh-teet / पुतीत
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Sounded Consonants (CaReFuL QD)</strong></td>
-                    <td>
-                        Letters <span class="highlight">C, R, F, L, Q, D</span> are <span class="highlight">sounded</span> at the end of words.<br><br>
-                        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
-                        • Memorized via the mnemonic acronym <strong>CaReFuL QD</strong> (C, R, F, L, Q, D).<br>
-                        • These specific final consonants break the general rule of silent endings and must be articulated fully.<br><br>
-                        <strong>English Comparison:</strong> Pronouncing final hard consonants.<br>
-                        <strong>Hindi Comparison:</strong> अंत में पूरे व्यंजन का उच्चारण।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>sac</em> <button class="inline-audio-btn" onclick="playAudio('sac')" title="Listen"></button> (bag) — <em>Pronunciation:</em> sak / सैक<br>
-                            • <em>mer</em> <button class="inline-audio-btn" onclick="playAudio('mer')" title="Listen"></button> (sea) — <em>Pronunciation:</em> mair / मेर
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">sa</span> <button class="inline-audio-btn" onclick="playAudio('sa')" title="Listen"></button> (silent c)
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- SECTION 3: FRENCH ALPHABETS (FULL A-Z RESTORED) -->
-    <h2>3. French Alphabets</h2>
-    <div class="section-pronunciation">French: <em>L'Alphabet</em> <button class="inline-audio-btn" onclick="playAudio('LAlphabet')" title="Listen"></button> / Pronunciation: लाल्फाबे</div>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Topic Details / Definition</th>
-                    <th>Rules, Logics & Pronunciation</th>
-                    <th>Examples (Correct & Incorrect)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Letter A</strong></td>
-                    <td>French vowel letter A.<br><br><strong>English Comparison:</strong> Broad 'ah' sound unlike English 'ay'.<br><strong>Hindi Comparison:</strong> 'आ' की मात्रा।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>avion</em> (ah-vyohn / आवियों) • <em>ami</em> (ah-mee / आमी) • <em>ananas</em> (ah-nah-nas / अनानास)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ay</span> (ए) • <span class="incorrect">apple</span> (एप्पल)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter B</strong></td>
-                    <td>French consonant letter B.<br><br><strong>English Comparison:</strong> Pronounced 'bay'.<br><strong>Hindi Comparison:</strong> 'बे'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>banane</em> (bah-nan / बनान) • <em>bébé</em> (bay-bay / बेबे) • <em>boîte</em> (bwaht / ब्वाहत)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">bee</span> (बी)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter C</strong></td>
-                    <td>French consonant letter C.<br><br><strong>English Comparison:</strong> Pronounced 'say'.<br><strong>Hindi Comparison:</strong> 'से'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>chat</em> (shah / शा) • <em>café</em> (ka-fay / कैफे) • <em>citron</em> (see-trõh / सीत्रॉँ)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">see</span> (सी) • <span class="incorrect">cat</span> (कैट)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter D</strong></td>
-                    <td>French consonant letter D.<br><br><strong>English Comparison:</strong> Pronounced 'day'.<br><strong>Hindi Comparison:</strong> 'दे'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>dauphin</em> (doh-fẽh / दोफैं) • <em>dossier</em> (doh-syay / दोस्ये) • <em>dîner</em> (dee-nay / दीने)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">dee</span> (डी)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter E</strong></td>
-                    <td>French vowel letter E.<br><br><strong>English Comparison:</strong> Short neutral 'uh'.<br><strong>Hindi Comparison:</strong> 'अ'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>éléphant</em> (ay-lay-fahn / एलेफॉँ) • <em>école</em> (ay-kohl / एकोल) • <em>étudiant</em> (ay-tyoo-dyahn / एत्युद्याँ)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ee</span> (ई)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter F</strong></td>
-                    <td>French consonant letter F.<br><br><strong>English Comparison:</strong> Pronounced 'effe'.<br><strong>Hindi Comparison:</strong> 'एफ'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>fleur</em> (flur / ल्यूर) • <em>fromage</em> (fro-mahzh / फ़्रोमाझ) • <em>frère</em> (frair / फ्रेर)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ef</span> (इफ़)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter G</strong></td>
-                    <td>French consonant letter G.<br><br><strong>English Comparison:</strong> Pronounced 'je'.<br><strong>Hindi Comparison:</strong> 'जे'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>gâteau</em> (gah-toh / गातो) • <em>gare</em> (gar / गार) • <em>girafe</em> (zhi-raf / जिराफ़)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">jee</span> (जी)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter H</strong></td>
-                    <td>French silent letter H.<br><br><strong>English Comparison:</strong> Pronounced 'ahsh'.<br><strong>Hindi Comparison:</strong> 'आश'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>homme</em> (ohm / ओम) • <em>hôtel</em> (oh-tel / ओतेल) • <em>hibou</em> (ee-boo / इबू)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">aitch</span> (एच)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter I</strong></td>
-                    <td>French vowel letter I.<br><br><strong>English Comparison:</strong> Pronounced 'ii'.<br><strong>Hindi Comparison:</strong> 'ई'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>image</em> (ee-mahzh / इमाझ) • <em>idée</em> (ee-day / ईदे) • <em>igloo</em> (ee-gloo / इग््लू)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">eye</span> (आय)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter J</strong></td>
-                    <td>French consonant letter J.<br><br><strong>English Comparison:</strong> Pronounced 'ji'.<br><strong>Hindi Comparison:</strong> 'जी'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>jardin</em> (zhar-dẽh / जार्दै) • <em>jouer</em> (zhway / ज्वाय) • <em>jupe</em> (zhoop / झूप्प)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">jay</span> (जे)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter K</strong></td>
-                    <td>French consonant letter K.<br><br><strong>English Comparison:</strong> Pronounced 'ka'.<br><strong>Hindi Comparison:</strong> 'का'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>koala</em> (koh-ah-la / कोअला) • <em>kilo</em> (kee-loh / कीलो) • <em>kangaroo</em> (kahn-gah-roo / कांगारू)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">kay</span> (के)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter L</strong></td>
-                    <td>French consonant letter L.<br><br><strong>English Comparison:</strong> Pronounced 'el'.<br><strong>Hindi Comparison:</strong> 'एल'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>livre</em> (leevr / लीव्र) • <em>lune</em> (lyoon / ल्यून) • <em>lampe</em> (lahmp / लाँप्)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ell</span> (एलएल)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter M</strong></td>
-                    <td>French consonant letter M.<br><br><strong>English Comparison:</strong> Pronounced 'emme'.<br><strong>Hindi Comparison:</strong> 'एम'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>maison</em> (may-zõh / मेज़ॉँ) • <em>melon</em> (meh-lõh / मेलॉँ) • <em>merci</em> (mair-see / मेर्सी)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">em</span> (इएम)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter N</strong></td>
-                    <td>French consonant letter N.<br><br><strong>English Comparison:</strong> Pronounced 'enne'.<br><strong>Hindi Comparison:</strong> 'एन'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>nuit</em> (nwee / न्वी) • <em>nuage</em> (nwahzh / न्वाझ) • <em>natation</em> (nah-tah-syohn / नातास्यों)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">en</span> (इन)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter O</strong></td>
-                    <td>French vowel letter O.<br><br><strong>English Comparison:</strong> Pronounced 'o'.<br><strong>Hindi Comparison:</strong> 'ओ'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>oiseau</em> (wah-zoh / वाज़ो) • <em>orange</em> (oh-rahnz / ओरान्झ) • <em>onze</em> (õhz / ऑँझ)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">oh</span> (ओएच)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter P</strong></td>
-                    <td>French consonant letter P.<br><br><strong>English Comparison:</strong> Pronounced 'pé'.<br><strong>Hindi Comparison:</strong> 'पे'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>pomme</em> (pohm / पोम) • <em>père</em> (pair / पेर) • <em>papier</em> (pah-pyay / पापीये)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">pee</span> (पी)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter Q</strong></td>
-                    <td>French consonant letter Q.<br><br><strong>English Comparison:</strong> Pronounced 'ku'.<br><strong>Hindi Comparison:</strong> 'क्यु'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>quatre</em> (ka-tr / कात्र) • <em>question</em> (kes-tyohn / केस्यों) • <em>quand</em> (kahn / कॉँ)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">kyoo</span> (क्यू)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter R</strong></td>
-                    <td>French consonant letter R.<br><br><strong>English Comparison:</strong> Pronounced 'erre'.<br><strong>Hindi Comparison:</strong> 'एर'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>rouge</em> (roozh / रूझ) • <em>rose</em> (rohz / रोज़) • <em>radio</em> (rah-dyoh / राद्यो)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ar</span> (आर)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter S</strong></td>
-                    <td>French consonant letter S.<br><br><strong>English Comparison:</strong> Pronounced 'esse'.<br><strong>Hindi Comparison:</strong> 'एस'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>soleil</em> (so-lay / सोलेय) • <em>stylo</em> (stee-loh / स्टीलो) • <em>sœur</em> (sur / सुर)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">es</span> (एसिज़)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter T</strong></td>
-                    <td>French consonant letter T.<br><br><strong>English Comparison:</strong> Pronounced 'té'.<br><strong>Hindi Comparison:</strong> 'ते'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>table</em> (tah-bl / ताब्ल) • <em>train</em> (trẽh / त्रै) • <em>télévision</em> (tay-lay-vee-zyohn / तेलेवीस्यों)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">tee</span> (टी)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter U</strong></td>
-                    <td>French vowel letter U.<br><br><strong>English Comparison:</strong> Pronounced 'iu'.<br><strong>Hindi Comparison:</strong> 'यु'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>un</em> (ẽh / अँ) • <em>usine</em> (yoo-zeen / यूज़ीन) • <em>utile</em> (yoo-teel / यूतील)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">yoo</span> (यू)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter V</strong></td>
-                    <td>French consonant letter V.<br><br><strong>English Comparison:</strong> Pronounced 'vé'.<br><strong>Hindi Comparison:</strong> 'वे'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>voiture</em> (vwa-tyoor / व्वात्यूर) • <em>ville</em> (veel / वील) • <em>vert</em> (vair / वेर)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">vee</span> (वी)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter W</strong></td>
-                    <td>French consonant letter W.<br><br><strong>English Comparison:</strong> Pronounced 'double vé'.<br><strong>Hindi Comparison:</strong> 'दुबल वे'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>wagon</em> (vah-gõh / वागॉँ) • <em>watt</em> (vaht / वात) • <em>water-closet</em> (vah-ter-kloh-zet / वातेर-क्लोझेत)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">double-yoo</span> (डबल यू)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter X</strong></td>
-                    <td>French consonant letter X.<br><br><strong>English Comparison:</strong> Pronounced 'eks'.<br><strong>Hindi Comparison:</strong> 'इक्स'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>xylophone</em> (zee-loh-fohn / ज़ीलोफ़ोन) • <em>xérès</em> (xay-res / ज़ेरेस) • <em>xenon</em> (gze-nõh / ग्ज़ेनॉँ)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">ex</span> (एक्सिज़)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter Y</strong></td>
-                    <td>French vowel/consonant letter Y.<br><br><strong>English Comparison:</strong> Pronounced 'e-gréc'.<br><strong>Hindi Comparison:</strong> 'इग्रेक'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>yeux</em> (yuh / य्य़ू) • <em>yoga</em> (yoh-gah / योगा) • <em>yaourt</em> (yah-oor / याऊर)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">why</span> (व्हाई)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Letter Z</strong></td>
-                    <td>French consonant letter Z.<br><br><strong>English Comparison:</strong> Pronounced 'zede'.<br><strong>Hindi Comparison:</strong> 'ज़ेद'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>zèbre</em> (zebr / ज़ेब्र) • <em>zéro</em> (zay-roh / ज़ेरो) • <em>zone</em> (zohn / ज़ोन)</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">zee</span> (ज़ी)</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- SECTION 4: FRENCH ACCENTS -->
-    <h2>4. French Accents</h2>
-    <div class="section-pronunciation">French: <em>Les Accents</em> <button class="inline-audio-btn" onclick="playAudio('Les Accents')" title="Listen"></button> / Pronunciation: ले आक्सॉँ</div>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Topic Details / Definition</th>
-                    <th>Rules, Logics & Pronunciation</th>
-                    <th>Examples (Correct & Incorrect)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>L'Accent Aigu ( ´ ) — Acute Accent</strong></td>
-                    <td>
-                        <strong>Accent Name Pronunciation:</strong><br>
-                        English: lahn-sahn eh-goo<br>
-                        Hindi: लां-सॉं ए-गू.<br><br>
-                        <strong>Rule:</strong> Used ONLY on 'e' for a closed 'ay' sound (like English <em>day</em>). Never used before double consonants or final silent consonants.<br><br>
-                        <strong>English Comparison:</strong> Equivalent to English long 'a'.<br>
-                        <strong>Hindi Comparison:</strong> Equivalent to vowel sign 'े'.
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>école</em> (school) — ay-kohl / एकोल<br>
-                            • <em>été</em> (summer) — ay-tay / एते<br>
-                            • <em>café</em> (coffee) — ka-fay / कैफे
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">ah-kohl</span> (अकोल)
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>L'Accent Grave ( ` ) — Grave Accent</strong></td>
-                    <td>
-                        <strong>Accent Name Pronunciation:</strong><br>
-                        English: lahn-sahn grahv<br>
-                        Hindi: लां-सॉं ग्राव.<br><br>
-                        <strong>Rule:</strong> Used on 'e' (open 'eh' sound like <em>bed</em>), and on 'a' or 'u' to distinguish homophones (e.g., <em>à</em> = to vs. <em>a</em> = has).<br><br>
-                        <strong>English Comparison:</strong> Equivalent to open 'e' in <em>bed</em>.<br>
-                        <strong>Hindi Comparison:</strong> Equivalent to vowel sign 'ै'.
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>frère</em> (brother) — frair / फ्रेर<br>
-                            • <em>mère</em> (mother) — mair / मेर<br>
-                            • <em>où</em> (where) — oo / ऊ
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">freer</span> (फ्रीर)
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>L'Accent Circonflexe ( ^ ) — Circumflex</strong></td>
-                    <td>
-                        <strong>Accent Name Pronunciation:</strong><br>
-                        English: lahn-sahn seer-kohn-fleks<br>
-                        Hindi: लां-सॉं सीरकॉन्फ्लेक्स.<br><br>
-                        <strong>Rule:</strong> Used on all vowels. Often marks historical loss of 's' from Old French (<em>feste</em> → <em>fête</em>).<br><br>
-                        <strong>English Comparison:</strong> Lengthens vowel sound.<br>
-                        <strong>Hindi Comparison:</strong> Long vowel marker (दीर्घ स्वर).
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>être</em> (to be) — et-tr / एत्र<br>
-                            • <em>fête</em> (party) — fet / फेत<br>
-                            • <em>tête</em> (head) — tet / तेत
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">ee-tr</span> (ईत्र)
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>La Cédille ( ç ) — Cedilla</strong></td>
-                    <td>
-                        <strong>Accent Name Pronunciation:</strong><br>
-                        English: lah say-dee-yuh<br>
-                        Hindi: ला सेदीयु.<br><br>
-                        <strong>Rule:</strong> Transforms hard 'c' into a soft 's' sound before 'a', 'o', and 'u'.<br><br>
-                        <strong>English Comparison:</strong> Like 's' in <em>snake</em>.<br>
-                        <strong>Hindi Comparison:</strong> Like 'स'.
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>français</em> (French) — frahn-say / फ्रांसे<br>
-                            • <em>leçon</em> (lesson) — luh-sõh / ल्सॉँ<br>
-                            • <em>ça</em> (that) — sah / सा
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">frank-ais</span> (फ्रांकाइ)
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Le Tréma ( ï, ë, ü ) — Diaeresis</strong></td>
-                    <td>
-                        <strong>Accent Name Pronunciation:</strong><br>
-                        English: luh tray-mah<br>
-                        Hindi: ल त्रेमा.<br><br>
-                        <strong>Rule:</strong> Indicates that two adjacent vowels must be pronounced separately rather than blending into a diphthong.<br><br>
-                        <strong>English Comparison:</strong> Separate syllable break.<br>
-                        <strong>Hindi Comparison:</strong> अलग स्वर उच्चारण।
-                    </td>
-                    <td>
-                        <div class="example-box-correct">
-                            <strong>Correct Examples:</strong><br>
-                            • <em>Noël</em> (Christmas) — noh-el / नो-एल<br>
-                            • <em>maïs</em> (corn) — mah-ees / मा-ईस<br>
-                            • <em>haïr</em> (to hate) — ah-eer / आ-ईर
-                        </div>
-                        <div class="example-box-incorrect">
-                            <strong>Incorrect Examples:</strong><br>
-                            • <span class="incorrect">nwl</span> (नोल)
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- SECTION 5: DEFINITE ARTICLES -->
-    <h2>5. Definite Articles</h2>
-    <div class="section-pronunciation">French: <em>Les Articles Définis</em> <button class="inline-audio-btn" onclick="playAudio('Les Articles Définis')" title="Listen"></button> / Pronunciation: ले आर्तिक्ल देफिनी</div>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Topic Details / Definition</th>
-                    <th>Rules, Logics & Pronunciation</th>
-                    <th>Examples (Correct & Incorrect)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Le (Masculine Singular)</strong></td>
-                    <td>Used before masculine singular nouns starting with a consonant. (English: *the*)</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>le stylo</em> (pen) — luh stee-loh / ल स्टीलो</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">le table</span></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>La (Feminine Singular)</strong></td>
-                    <td>Used before feminine singular nouns starting with a consonant. (English: *the*)</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>la table</em> (table) — lah tah-bl / ला ताब्ल</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">la stylo</span></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>L' (Vowels & Silent H)</strong></td>
-                    <td>Used before any singular noun starting with a vowel (a, e, i, o, u) or silent 'h' (Elision).</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>l'école</em> (school) — lay-kohl / लेकोल</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">le école</span></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Les (Plural Nouns)</strong></td>
-                    <td>Used before plural nouns regardless of gender.</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>les stylos</em> (pens) — lay stee-loh / ले स्टीलो</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">le stylos</span></div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- SECTION 6: INDEFINITE ARTICLES -->
-    <h2>6. Indefinite Articles</h2>
-    <div class="section-pronunciation">French: <em>Les Articles Indéfinis</em> <button class="inline-audio-btn" onclick="playAudio('Les Articles Indéfinis')" title="Listen"></button> / Pronunciation: ले आर्तिक्ल आंदेफिनी</div>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Topic Details / Definition</th>
-                    <th>Rules, Logics & Pronunciation</th>
-                    <th>Examples (Correct & Incorrect)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Un (Masculine Singular)</strong></td>
-                    <td>Used before <span class="highlight">masculine singular nouns</span>.<br><br><strong>English Comparison:</strong> Equivalent to English 'a / an'.<br><strong>Hindi Comparison:</strong> 'एक' (पुल्लिंग)।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>un livre</em> (a book) — ẽh leevr / अँ लीव्र</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">un fille</span> (wrong gender)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Une (Feminine Singular)</strong></td>
-                    <td>Used before <span class="highlight">feminine singular nouns</span>.<br><br><strong>English Comparison:</strong> Equivalent to English 'a / an'.<br><strong>Hindi Comparison:</strong> 'एक' (स्त्रीलिंग)।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>une fille</em> (a girl) — oon fee / ऊन फ़ी</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">une livre</span> (wrong gender)</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Des (Plural Nouns)</strong></td>
-                    <td>Used before <span class="highlight">plural nouns</span> (both masculine and feminine).<br><br><strong>English Comparison:</strong> Equivalent to English 'some'.<br><strong>Hindi Comparison:</strong> 'कुछ / कई'।</td>
-                    <td>
-                        <div class="example-box-correct"><strong>Correct:</strong> • <em>des livres</em> (some books) — day leevr / डे लीव्र</div>
-                        <div class="example-box-incorrect"><strong>Incorrect:</strong> • <span class="incorrect">un livres</span> (singular article for plural)</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
+    <!-- Footer container rendered via includes.js -->
+    <div id="footer-container"></div>
 </div>
 
 <script>
@@ -985,6 +1033,6 @@
         }
     }
 </script>
-
+ 
 </body>
 </html>

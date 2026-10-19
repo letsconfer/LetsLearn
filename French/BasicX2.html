@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Gender Rules & Vocabulary</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        .section-rule-box {
+            background-color: #f1f3f5;
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        [data-theme="dark"] .section-rule-box {
+            background-color: #1e293b;
+            border-color: #3b82f6;
+            color: #cbd5e1;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th:nth-child(1), td:nth-child(1) { width: 8%; text-align: center; font-weight: 600; }
+        th:nth-child(2), td:nth-child(2) { width: 35%; }
+        th:nth-child(3), td:nth-child(3) { width: 32%; background-color: #f1f8e9 !important; }
+        th:nth-child(4), td:nth-child(4) { width: 25%; background-color: #e3f2fd !important; }
+
+        [data-theme="dark"] th:nth-child(3), [data-theme="dark"] td:nth-child(3) { 
+            background-color: #1e3a29 !important; 
+        }
+        
+        [data-theme="dark"] th:nth-child(4), [data-theme="dark"] td:nth-child(4) { 
+            background-color: #1e293b !important; 
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        th:nth-child(3) { background-color: #2e7d32 !important; }
+        th:nth-child(4) { background-color: #1565c0 !important; }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .french-term {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .example-detail {
+            display: block;
+            font-size: 0.85rem;
+            color: #495057;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        [data-theme="dark"] .example-detail {
+            color: #cbd5e1;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+
+    <!-- Header container rendered via includes.js -->
+        <div id="header-container"></div>
+
+    <h1>French Gender Rules & Vocabulary</h1>
+    <p class="subtitle">Guide with Detailed Orthography Logic and Pronunciation Breakdown</p>
+
+    <!-- GROUP 1 -->
+    <h2>GROUP 1: -TION / -SION = ALWAYS LA</h2>
+    <div class="section-rule-box">
+        <strong>Rule:</strong> Nouns ending in -tion or -sion are consistently feminine (La).<br>
+        Forms abstract/action nouns; pronounced with a nasal '-syon' / '-zyon' sound.<br><br>
+        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+        - -tion and -sion suffixes indicate feminine gender in French nouns.<br>
+        - The 't' in -tion is pronounced as an 's' sound followed by a nasal 'on', while -sion produces a '-zyon' sound.<br>
+        - English Comparison: Suffixes '-tion' and '-sion' (e.g., nation, television).<br>
+        - Hindi Comparison: '-स्योन' / '-जीयोन'।
+    </div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>French Term & Audio</th>
+                    <th>Pronunciation (Hindi & English)</th>
+                    <th>Meaning & Rule Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><span class="french-term">La nation</span> <button class="inline-audio-btn" onclick="playAudio('La nation')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला नास्योन<br><strong>English:</strong> [la na-syon]</span></td>
+                    <td>Nation hamesha LA</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><span class="french-term">La éducation</span> <button class="inline-audio-btn" onclick="playAudio('La education')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला ए-द्यु-कास्योन<br><strong>English:</strong> [la e-dyu-ka-syon]</span></td>
+                    <td>Maa deti hai = LA</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><span class="french-term">La information</span> <button class="inline-audio-btn" onclick="playAudio('La information')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला आं-फोर-मास्योन<br><strong>English:</strong> [la en-for-ma-syon]</span></td>
+                    <td>Info = LA</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><span class="french-term">La décision</span> <button class="inline-audio-btn" onclick="playAudio('La decision')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला दे-सी-जीयोन<br><strong>English:</strong> [la de-si-zyon]</span></td>
+                    <td>Decision lene wali = LA</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><span class="french-term">La télévision</span> <button class="inline-audio-btn" onclick="playAudio('La television')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला ते-ले-वी-जीयोन<br><strong>English:</strong> [la te-le-vi-zyon]</span></td>
+                    <td>TV dekhne wali = LA</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><span class="french-term">La question</span> <button class="inline-audio-btn" onclick="playAudio('La question')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला केस-त्योन<br><strong>English:</strong> [la kes-tyon]</span></td>
+                    <td>Sawaal = LA</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><span class="french-term">La solution</span> <button class="inline-audio-btn" onclick="playAudio('La solution')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला सो-ल्यु-स्योन<br><strong>English:</strong> [la so-lyu-syon]</span></td>
+                    <td>Solution = LA</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><span class="french-term">La profession</span> <button class="inline-audio-btn" onclick="playAudio('La profession')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला प्रो-फेस्योन<br><strong>English:</strong> [la pro-fe-syon]</span></td>
+                    <td>Profession = LA</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><span class="french-term">La conversation</span> <button class="inline-audio-btn" onclick="playAudio('La conversation')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला कोन-वेर-सास्योन<br><strong>English:</strong> [la kon-ver-sa-syon]</span></td>
+                    <td>Baatein = LA</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><span class="french-term">La situation</span> <button class="inline-audio-btn" onclick="playAudio('La situation')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला सी-त्यु-आस्योन<br><strong>English:</strong> [la si-tyu-a-syon]</span></td>
+                    <td>Situation = LA</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td><span class="french-term">La traduction</span> <button class="inline-audio-btn" onclick="playAudio('La traduction')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला त्रा-द्यिक-स्योन<br><strong>English:</strong> [la tra-dyk-syon]</span></td>
+                    <td>Translation = LA</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><span class="french-term">La réservation</span> <button class="inline-audio-btn" onclick="playAudio('La reservation')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला रे-जेर-वास्योन<br><strong>English:</strong> [la re-zer-va-syon]</span></td>
+                    <td>Booking = LA</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><span class="french-term">La passion</span> <button class="inline-audio-btn" onclick="playAudio('La passion')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला पास्योन<br><strong>English:</strong> [la pa-syon]</span></td>
+                    <td>Feel wali = LA</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td><span class="french-term">La permission</span> <button class="inline-audio-btn" onclick="playAudio('La permission')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला पेर-मीस्योन<br><strong>English:</strong> [la per-mi-syon]</span></td>
+                    <td>Permission = LA</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td><span class="french-term">La discussion</span> <button class="inline-audio-btn" onclick="playAudio('La discussion')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला दिस-क्य-स्योन<br><strong>English:</strong> [la dis-ky-syon]</span></td>
+                    <td>Discussion = LA</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td><span class="french-term">La organisation</span> <button class="inline-audio-btn" onclick="playAudio('La organisation')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला ओर-गा-नी-जास्योन<br><strong>English:</strong> [la or-ga-ni-za-syon]</span></td>
+                    <td>Organization = LA</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td><span class="french-term">La attention</span> <button class="inline-audio-btn" onclick="playAudio('La attention')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला आ-तां-स्योन<br><strong>English:</strong> [la a-tan-syon]</span></td>
+                    <td>Attention mangti = LA</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><span class="french-term">La action</span> <button class="inline-audio-btn" onclick="playAudio('La action')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला आक-स्योन<br><strong>English:</strong> [la ak-syon]</span></td>
+                    <td>Action = LA</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td><span class="french-term">La version</span> <button class="inline-audio-btn" onclick="playAudio('La version')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला वेर-स्योन<br><strong>English:</strong> [la ver-syon]</span></td>
+                    <td>Version = LA</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><span class="french-term">La conclusion</span> <button class="inline-audio-btn" onclick="playAudio('La conclusion')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला कोन-क्ली-जीयोन<br><strong>English:</strong> [la kon-kly-zyon]</span></td>
+                    <td>Khatam karne wali = LA</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td><span class="french-term">La impression</span> <button class="inline-audio-btn" onclick="playAudio('La impression')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला एम्-प्रेस्योन<br><strong>English:</strong> [la em-pre-syon]</span></td>
+                    <td>Impression = LA</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td><span class="french-term">La expression</span> <button class="inline-audio-btn" onclick="playAudio('La expression')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला एक्स-प्रेस्योन<br><strong>English:</strong> [la eks-pre-syon]</span></td>
+                    <td>Expression = LA</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td><span class="french-term">La intention</span> <button class="inline-audio-btn" onclick="playAudio('La intention')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला आं-तां-स्योन<br><strong>English:</strong> [la en-tan-syon]</span></td>
+                    <td>Niyat = LA</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td><span class="french-term">La association</span> <button class="inline-audio-btn" onclick="playAudio('La association')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला आ-सो-स्या-स्योन<br><strong>English:</strong> [la a-so-sya-syon]</span></td>
+                    <td>Association = LA</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td><span class="french-term">La préparation</span> <button class="inline-audio-btn" onclick="playAudio('La preparation')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला प्रे-पा-रास्योन<br><strong>English:</strong> [la pre-pa-ra-syon]</span></td>
+                    <td>Taiyari = LA</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- GROUP 2 -->
+    <h2>GROUP 2: -MENT = ALWAYS LE</h2>
+    <div class="section-rule-box">
+        <strong>Rule:</strong> Nouns ending in -ment are consistently masculine (Le).<br>
+        Forms masculine nouns/adverbs; pronounced with a nasal 'man' / 'mãh' sound where 't' is silent.<br><br>
+        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+        - -ment is the standard French suffix equivalent to English noun/adverb formations.<br>
+        - Following French suffix rules, the final 't' is silent, and the preceding 'en' creates a nasalized 'man' / 'mãh' sound.<br>
+        - English Comparison: Adverb/noun suffixes with silent ending letters.<br>
+        - Hindi Comparison: '-मान' / 'माँ'।
+    </div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>French Term & Audio</th>
+                    <th>Pronunciation (Hindi & English)</th>
+                    <th>Meaning & Rule Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>26</td>
+                    <td><span class="french-term">Le logement</span> <button class="inline-audio-btn" onclick="playAudio('Le logement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल लोझ-मान<br><strong>English:</strong> [luh lozh-man]</span></td>
+                    <td>Ghar = Ladka = LE</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td><span class="french-term">Le gouvernement</span> <button class="inline-audio-btn" onclick="playAudio('Le gouvernement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल गू-वेर-नुह-मान<br><strong>English:</strong> [luh goo-ver-nuh-man]</span></td>
+                    <td>Sarkar = LE</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td><span class="french-term">Le moment</span> <button class="inline-audio-btn" onclick="playAudio('Le moment')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल मो-मान<br><strong>English:</strong> [luh mo-man]</span></td>
+                    <td>Moment = LE</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td><span class="french-term">Le médicament</span> <button class="inline-audio-btn" onclick="playAudio('Le medicament')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल मे-दी-का-मान<br><strong>English:</strong> [luh me-di-ka-man]</span></td>
+                    <td>Dawa = LE</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td><span class="french-term">Le appartement</span> <button class="inline-audio-btn" onclick="playAudio('Le appartement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल आ-पार-तुह-मान<br><strong>English:</strong> [luh a-par-tuh-man]</span></td>
+                    <td>Flat = LE</td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td><span class="french-term">Le document</span> <button class="inline-audio-btn" onclick="playAudio('Le document')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल दो-क्यु-मान<br><strong>English:</strong> [luh do-kyu-man]</span></td>
+                    <td>Kaagaz = LE</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td><span class="french-term">Le vêtement</span> <button class="inline-audio-btn" onclick="playAudio('Le vetement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल वेत-मान<br><strong>English:</strong> [luh vet-man]</span></td>
+                    <td>Kapda = LE</td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td><span class="french-term">Le sentiment</span> <button class="inline-audio-btn" onclick="playAudio('Le sentiment')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल सां-ति-मान<br><strong>English:</strong> [luh san-ti-man]</span></td>
+                    <td>Feeling = LE</td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td><span class="french-term">Le changement</span> <button class="inline-audio-btn" onclick="playAudio('Le changement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल शांझ-मान<br><strong>English:</strong> [luh shanzh-man]</span></td>
+                    <td>Change = LE</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td><span class="french-term">Le paiement</span> <button class="inline-audio-btn" onclick="playAudio('Le paiement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल पे-मान<br><strong>English:</strong> [luh pe-man]</span></td>
+                    <td>Payment = LE</td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td><span class="french-term">Le équipement</span> <button class="inline-audio-btn" onclick="playAudio('Le equipement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल ए-कीप-मान<br><strong>English:</strong> [luh e-keep-man]</span></td>
+                    <td>Equipment = LE</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td><span class="french-term">Le engagement</span> <button class="inline-audio-btn" onclick="playAudio('Le engagement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल आं-गांझ-मान<br><strong>English:</strong> [luh an-gazh-man]</span></td>
+                    <td>Commitment = LE</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td><span class="french-term">Le enseignement</span> <button class="inline-audio-btn" onclick="playAudio('Le enseignement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल आं-सेन-युह-मान<br><strong>English:</strong> [luh an-sen-yuh-man]</span></td>
+                    <td>Teaching = LE</td>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td><span class="french-term">Le environnement</span> <button class="inline-audio-btn" onclick="playAudio('Le environnement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल आं-वी-रोन-मान<br><strong>English:</strong> [luh an-vi-ron-man]</span></td>
+                    <td>Environment = LE</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td><span class="french-term">Le événement</span> <button class="inline-audio-btn" onclick="playAudio('Le evenement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल ए-वेन-मान<br><strong>English:</strong> [luh e-ven-man]</span></td>
+                    <td>Event = LE</td>
+                </tr>
+                <tr>
+                    <td>41</td>
+                    <td><span class="french-term">Le traitement</span> <button class="inline-audio-btn" onclick="playAudio('Le traitement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल त्रेत-मान<br><strong>English:</strong> [luh tret-man]</span></td>
+                    <td>Treatment = LE</td>
+                </tr>
+                <tr>
+                    <td>42</td>
+                    <td><span class="french-term">Le mouvement</span> <button class="inline-audio-btn" onclick="playAudio('Le mouvement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल मून-मान<br><strong>English:</strong> [luh moov-man]</span></td>
+                    <td>Movement = LE</td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td><span class="french-term">Le abonnement</span> <button class="inline-audio-btn" onclick="playAudio('Le abonnement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल आ-बोन-मान<br><strong>English:</strong> [luh a-bon-man]</span></td>
+                    <td>Subscription = LE</td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td><span class="french-term">Le jugement</span> <button class="inline-audio-btn" onclick="playAudio('Le jugement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल झूझ-मान<br><strong>English:</strong> [luh zhoozh-man]</span></td>
+                    <td>Judgement = LE</td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td><span class="french-term">Le commencement</span> <button class="inline-audio-btn" onclick="playAudio('Le commencement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल को-मान्स-मान<br><strong>English:</strong> [luh ko-mans-man]</span></td>
+                    <td>Start = LE</td>
+                </tr>
+                <tr>
+                    <td>46</td>
+                    <td><span class="french-term">Le comportement</span> <button class="inline-audio-btn" onclick="playAudio('Le comportement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल कोम-পোর-तुह-मान<br><strong>English:</strong> [luh kom-por-tuh-man]</span></td>
+                    <td>Behaviour = LE</td>
+                </tr>
+                <tr>
+                    <td>47</td>
+                    <td><span class="french-term">Le divertissement</span> <button class="inline-audio-btn" onclick="playAudio('Le divertissement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल दी-वेर-टीस-मान<br><strong>English:</strong> [luh di-ver-tees-man]</span></td>
+                    <td>Entertainment = LE</td>
+                </tr>
+                <tr>
+                    <td>48</td>
+                    <td><span class="french-term">Le développement</span> <button class="inline-audio-btn" onclick="playAudio('Le developpement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल देव-लोप-मान<br><strong>English:</strong> [luh dev-lop-man]</span></td>
+                    <td>Development = LE</td>
+                </tr>
+                <tr>
+                    <td>49</td>
+                    <td><span class="french-term">Le supplément</span> <button class="inline-audio-btn" onclick="playAudio('Le supplement')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल सि-प्ले-मान<br><strong>English:</strong> [luh sy-ple-man]</span></td>
+                    <td>Extra = LE</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td><span class="french-term">Le sentiment (repeat for memory)</span> <button class="inline-audio-btn" onclick="playAudio('Le sentiment')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल सां-ति-मान<br><strong>English:</strong> [luh san-ti-man]</span></td>
+                    <td>Same</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- GROUP 3 -->
+    <h2>GROUP 3: -URE / -ENCE / -ANCE = 80% LA</h2>
+    <div class="section-rule-box">
+        <strong>Rule:</strong> Nouns ending in -ure, -ence, or -ance are mostly feminine (80% La).<br>
+        Forms abstract and state nouns; pronounced with oral '-tyur' or nasal/oral '-ans' sounds.<br><br>
+        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+        - -ure, -ence, and -ance endings predominantly denote feminine gender (approx. 80% rule).<br>
+        - -ure is pronounced '-tyur' with a clear 'r', while -ence and -ance use '-ans' sounds.<br>
+        - English Comparison: Cognates ending in '-ure', '-ence', and '-ance' (culture, difference, chance).<br>
+        - Hindi Comparison: '-त्युर' / '-रान्स' / '-सान्स'।
+    </div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>French Term & Audio</th>
+                    <th>Pronunciation (Hindi & English)</th>
+                    <th>Meaning & Rule Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>51</td>
+                    <td><span class="french-term">La voiture</span> <button class="inline-audio-btn" onclick="playAudio('La voiture')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला वुआ-त्युर<br><strong>English:</strong> [la vua-tyur]</span></td>
+                    <td>Gaadi = LA</td>
+                </tr>
+                <tr>
+                    <td>52</td>
+                    <td><span class="french-term">La culture</span> <button class="inline-audio-btn" onclick="playAudio('La culture')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला किल-त्युर<br><strong>English:</strong> [la kyl-tyur]</span></td>
+                    <td>Culture = LA</td>
+                </tr>
+                <tr>
+                    <td>53</td>
+                    <td><span class="french-term">La nature</span> <button class="inline-audio-btn" onclick="playAudio('La nature')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला ना-त्युर<br><strong>English:</strong> [la na-tyur]</span></td>
+                    <td>Nature = Maa = LA</td>
+                </tr>
+                <tr>
+                    <td>54</td>
+                    <td><span class="french-term">La lecture</span> <button class="inline-audio-btn" onclick="playAudio('La lecture')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला लेक-त्युर<br><strong>English:</strong> [la lek-tyur]</span></td>
+                    <td>Reading = LA</td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td><span class="french-term">La peinture</span> <button class="inline-audio-btn" onclick="playAudio('La peinture')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला पान्-त्युर<br><strong>English:</strong> [la pan-tyur]</span></td>
+                    <td>Painting = LA</td>
+                </tr>
+                <tr>
+                    <td>56</td>
+                    <td><span class="french-term">La nourriture</span> <button class="inline-audio-btn" onclick="playAudio('La nourriture')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला नू-री-त्युर<br><strong>English:</strong> [la noo-ri-tyur]</span></td>
+                    <td>Khana = LA</td>
+                </tr>
+                <tr>
+                    <td>57</td>
+                    <td><span class="french-term">La couverture</span> <button class="inline-audio-btn" onclick="playAudio('La couverture')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला कू-वेर-त्युर<br><strong>English:</strong> [la koo-ver-tyur]</span></td>
+                    <td>Chadar = LA</td>
+                </tr>
+                <tr>
+                    <td>58</td>
+                    <td><span class="french-term">La aventure</span> <button class="inline-audio-btn" onclick="playAudio('La aventure')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला आ-वान-त्युर<br><strong>English:</strong> [la a-van-tyur]</span></td>
+                    <td>Adventure wali = LA</td>
+                </tr>
+                <tr>
+                    <td>59</td>
+                    <td><span class="french-term">La différence</span> <button class="inline-audio-btn" onclick="playAudio('La difference')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला दी-फे-रान्स<br><strong>English:</strong> [la di-fe-rans]</span></td>
+                    <td>Fark = LA</td>
+                </tr>
+                <tr>
+                    <td>60</td>
+                    <td><span class="french-term">La expérience</span> <button class="inline-audio-btn" onclick="playAudio('La experience')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला एक्स-पे-र्यान्स<br><strong>English:</strong> [la eks-pe-ryans]</span></td>
+                    <td>Anubhav = LA</td>
+                </tr>
+                <tr>
+                    <td>61</td>
+                    <td><span class="french-term">La science</span> <button class="inline-audio-btn" onclick="playAudio('La science')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला स्यान्स<br><strong>English:</strong> [la syans]</span></td>
+                    <td>Science = LA</td>
+                </tr>
+                <tr>
+                    <td>62</td>
+                    <td><span class="french-term">La patience</span> <button class="inline-audio-btn" onclick="playAudio('La patience')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला पा-स्यान्स<br><strong>English:</strong> [la pa-syans]</span></td>
+                    <td>Sabar = LA</td>
+                </tr>
+                <tr>
+                    <td>63</td>
+                    <td><span class="french-term">La vacances</span> <button class="inline-audio-btn" onclick="playAudio('La vacances')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला वा-कान्स<br><strong>English:</strong> [la va-kans]</span></td>
+                    <td>Chuttiyaan = LA</td>
+                </tr>
+                <tr>
+                    <td>64</td>
+                    <td><span class="french-term">La importance</span> <button class="inline-audio-btn" onclick="playAudio('La importance')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला एम्-পোর-तान्स<br><strong>English:</strong> [la em-por-tans]</span></td>
+                    <td>Importance = LA</td>
+                </tr>
+                <tr>
+                    <td>65</td>
+                    <td><span class="french-term">La chance</span> <button class="inline-audio-btn" onclick="playAudio('La chance')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला शान्स<br><strong>English:</strong> [la shans]</span></td>
+                    <td>Kismat = LA</td>
+                </tr>
+                <tr>
+                    <td>66</td>
+                    <td><span class="french-term">La assurance</span> <button class="inline-audio-btn" onclick="playAudio('La assurance')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला आ-सी-रान्स<br><strong>English:</strong> [la a-sy-rans]</span></td>
+                    <td>Insurance = LA</td>
+                </tr>
+                <tr>
+                    <td>67</td>
+                    <td><span class="french-term">La distance</span> <button class="inline-audio-btn" onclick="playAudio('La distance')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला दीस-तान्स<br><strong>English:</strong> [la dees-tans]</span></td>
+                    <td>Doori = LA</td>
+                </tr>
+                <tr>
+                    <td>68</td>
+                    <td><span class="french-term">La préférence</span> <button class="inline-audio-btn" onclick="playAudio('La preference')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला प्रे-फे-रान्स<br><strong>English:</strong> [la pre-fe-rans]</span></td>
+                    <td>Pasand = LA</td>
+                </tr>
+                <tr>
+                    <td>69</td>
+                    <td><span class="french-term">La référence</span> <button class="inline-audio-btn" onclick="playAudio('La reference')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला रे-फे-रान्स<br><strong>English:</strong> [la re-fe-rans]</span></td>
+                    <td>Reference = LA</td>
+                </tr>
+                <tr>
+                    <td>70</td>
+                    <td><span class="french-term">La connaissance</span> <button class="inline-audio-btn" onclick="playAudio('La connaissance')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला को-ने-सान्स<br><strong>English:</strong> [la ko-ne-sans]</span></td>
+                    <td>Knowledge = LA</td>
+                </tr>
+                <tr>
+                    <td>71</td>
+                    <td><span class="french-term">La existence</span> <button class="inline-audio-btn" onclick="playAudio('La existence')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला एग्-जीस-तान्स<br><strong>English:</strong> [la eg-zees-tans]</span></td>
+                    <td>Existence = LA</td>
+                </tr>
+                <tr>
+                    <td>72</td>
+                    <td><span class="french-term">La performance</span> <button class="inline-audio-btn" onclick="playAudio('La performance')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला पेर-फोर-मान्स<br><strong>English:</strong> [la per-for-mans]</span></td>
+                    <td>Performance = LA</td>
+                </tr>
+                <tr>
+                    <td>73</td>
+                    <td><span class="french-term">La ambiance</span> <button class="inline-audio-btn" onclick="playAudio('La ambiance')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला आं-ब्यान्स<br><strong>English:</strong> [la am-byans]</span></td>
+                    <td>Mahol = LA</td>
+                </tr>
+                <tr>
+                    <td>74</td>
+                    <td><span class="french-term">La conférence</span> <button class="inline-audio-btn" onclick="playAudio('La conference')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला कोन-फे-रान्स<br><strong>English:</strong> [la kon-fe-rans]</span></td>
+                    <td>Conference = LA</td>
+                </tr>
+                <tr>
+                    <td>75</td>
+                    <td><span class="french-term">La apparence</span> <button class="inline-audio-btn" onclick="playAudio('La apparence')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला आ-पा-रान्स<br><strong>English:</strong> [la a-pa-rans]</span></td>
+                    <td>Look = LA</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- GROUP 4 -->
+    <h2>GROUP 4: DAILY USE - MUST KNOW</h2>
+    <div class="section-rule-box">
+        <strong>Rule:</strong> Essential everyday vocabulary containing mixed genders and key exceptions.<br>
+        Forms high-frequency foundational nouns; features elisions (L'eau, L'école) and unique gender exceptions.<br><br>
+        <strong>Detailed Spelling Rules & Orthography Logic:</strong><br>
+        - High-frequency daily words that require direct memorization or follow core irregular patterns.<br>
+        - Vowel elisions occur before words starting with vowels (e.g., L'eau, L'école).<br>
+        - English/Hindi Comparison: Direct semantic equivalents and familiar phonetic mappings.
+    </div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>French Term & Audio</th>
+                    <th>Pronunciation (Hindi & English)</th>
+                    <th>Meaning & Rule Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>76</td>
+                    <td><span class="french-term">Le livre</span> <button class="inline-audio-btn" onclick="playAudio('Le livre')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल लीव्र<br><strong>English:</strong> [luh leevr]</span></td>
+                    <td>Kitaab but LE hai!</td>
+                </tr>
+                <tr>
+                    <td>77</td>
+                    <td><span class="french-term">La table</span> <button class="inline-audio-btn" onclick="playAudio('La table')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला ताब्ल<br><strong>English:</strong> [la tabl]</span></td>
+                    <td>Table = LA (Hindi jaisa)</td>
+                </tr>
+                <tr>
+                    <td>78</td>
+                    <td><span class="french-term">Le temps</span> <button class="inline-audio-btn" onclick="playAudio('Le temps')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल तां<br><strong>English:</strong> [luh tan]</span></td>
+                    <td>Time = LE</td>
+                </tr>
+                <tr>
+                    <td>79</td>
+                    <td><span class="french-term">La vie</span> <button class="inline-audio-btn" onclick="playAudio('La vie')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला वी<br><strong>English:</strong> [la vi]</span></td>
+                    <td>Zindagi = LA</td>
+                </tr>
+                <tr>
+                    <td>80</td>
+                    <td><span class="french-term">Le travail</span> <button class="inline-audio-btn" onclick="playAudio('Le travail')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल त्रा-वै<br><strong>English:</strong> [luh tra-vai]</span></td>
+                    <td>Kaam = LE</td>
+                </tr>
+                <tr>
+                    <td>81</td>
+                    <td><span class="french-term">La maison</span> <button class="inline-audio-btn" onclick="playAudio('La maison')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला मे-जोन<br><strong>English:</strong> [la me-zon]</span></td>
+                    <td>Ghar = LA</td>
+                </tr>
+                <tr>
+                    <td>82</td>
+                    <td><span class="french-term">Le pain</span> <button class="inline-audio-btn" onclick="playAudio('Le pain')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल पां<br><strong>English:</strong> [luh pan]</span></td>
+                    <td>Bread = LE</td>
+                </tr>
+                <tr>
+                    <td>83</td>
+                    <td><span class="french-term">L'eau</span> <button class="inline-audio-btn" onclick="playAudio('L eau')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> लो<br><strong>English:</strong> [lo]</span></td>
+                    <td>Paani = LA</td>
+                </tr>
+                <tr>
+                    <td>84</td>
+                    <td><span class="french-term">Le fromage</span> <button class="inline-audio-btn" onclick="playAudio('Le fromage')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल फ्रो-माझ<br><strong>English:</strong> [luh fro-mazh]</span></td>
+                    <td>Cheese = LE</td>
+                </tr>
+                <tr>
+                    <td>85</td>
+                    <td><span class="french-term">La famille</span> <button class="inline-audio-btn" onclick="playAudio('La famille')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला फा-मी<br><strong>English:</strong> [la fa-mee]</span></td>
+                    <td>Family = Maa = LA</td>
+                </tr>
+                <tr>
+                    <td>86</td>
+                    <td><span class="french-term">Le café</span> <button class="inline-audio-btn" onclick="playAudio('Le cafe')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल का-फे<br><strong>English:</strong> [luh ka-fe]</span></td>
+                    <td>Coffee = LE</td>
+                </tr>
+                <tr>
+                    <td>87</td>
+                    <td><span class="french-term">L'école</span> <button class="inline-audio-btn" onclick="playAudio('L ecole')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ले-कोल<br><strong>English:</strong> [la e-kol]</span></td>
+                    <td>School = LA</td>
+                </tr>
+                <tr>
+                    <td>88</td>
+                    <td><span class="french-term">Le problème</span> <button class="inline-audio-btn" onclick="playAudio('Le probleme')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल प्रो-ब्लेम<br><strong>English:</strong> [luh pro-blem]</span></td>
+                    <td>Exception = LE!</td>
+                </tr>
+                <tr>
+                    <td>89</td>
+                    <td><span class="french-term">La photo</span> <button class="inline-audio-btn" onclick="playAudio('La photo')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला फो-तो<br><strong>English:</strong> [la fo-to]</span></td>
+                    <td>Exception = LA!</td>
+                </tr>
+                <tr>
+                    <td>90</td>
+                    <td><span class="french-term">Le métro</span> <button class="inline-audio-btn" onclick="playAudio('Le metro')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल मे-त्रो<br><strong>English:</strong> [luh me-tro]</span></td>
+                    <td>Metro = LE</td>
+                </tr>
+                <tr>
+                    <td>91</td>
+                    <td><span class="french-term">La boulangerie</span> <button class="inline-audio-btn" onclick="playAudio('La boulangerie')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला बू-लान्झ-री<br><strong>English:</strong> [la boo-lanzh-ri]</span></td>
+                    <td>Bakery = LA</td>
+                </tr>
+                <tr>
+                    <td>92</td>
+                    <td><span class="french-term">Le marché</span> <button class="inline-audio-btn" onclick="playAudio('Le marche')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल मार-शे<br><strong>English:</strong> [luh mar-she]</span></td>
+                    <td>Market = LE</td>
+                </tr>
+                <tr>
+                    <td>93</td>
+                    <td><span class="french-term">La journée</span> <button class="inline-audio-btn" onclick="playAudio('La journee')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला झूर-ने<br><strong>English:</strong> [la zhoor-ne]</span></td>
+                    <td>Poora din = LA</td>
+                </tr>
+                <tr>
+                    <td>94</td>
+                    <td><span class="french-term">Le jour</span> <button class="inline-audio-btn" onclick="playAudio('Le jour')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल झूर<br><strong>English:</strong> [luh zhoor]</span></td>
+                    <td>Ek din = LE</td>
+                </tr>
+                <tr>
+                    <td>95</td>
+                    <td><span class="french-term">La nuit</span> <button class="inline-audio-btn" onclick="playAudio('La nuit')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला नूई<br><strong>English:</strong> [la nwee]</span></td>
+                    <td>Raat = LA</td>
+                </tr>
+                <tr>
+                    <td>96</td>
+                    <td><span class="french-term">Le rêve</span> <button class="inline-audio-btn" onclick="playAudio('Le reve')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल रेव<br><strong>English:</strong> [luh rev]</span></td>
+                    <td>Sapna = LE</td>
+                </tr>
+                <tr>
+                    <td>97</td>
+                    <td><span class="french-term">La réponse</span> <button class="inline-audio-btn" onclick="playAudio('La reponse')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला रे-पोंस<br><strong>English:</strong> [la re-pons]</span></td>
+                    <td>Jawaab = LA</td>
+                </tr>
+                <tr>
+                    <td>98</td>
+                    <td><span class="french-term">Le cœur</span> <button class="inline-audio-btn" onclick="playAudio('Le coeur')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल केर<br><strong>English:</strong> [luh keur]</span></td>
+                    <td>Dil = LE</td>
+                </tr>
+                <tr>
+                    <td>99</td>
+                    <td><span class="french-term">Le français</span> <button class="inline-audio-btn" onclick="playAudio('Le francais')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ल फ्रां-से<br><strong>English:</strong> [luh fran-se]</span></td>
+                    <td>French = LE</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td><span class="french-term">La langue</span> <button class="inline-audio-btn" onclick="playAudio('La langue')" title="Listen"></button></td>
+                    <td><span class="example-detail"><strong>Hindi:</strong> ला लांग<br><strong>English:</strong> [la lang]</span></td>
+                    <td>Bhasha = LA</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer container rendered via includes.js -->
+    <div id="footer-container"></div>
+    </div>
+
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>

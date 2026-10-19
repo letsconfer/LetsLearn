@@ -1,53 +1,46 @@
 :root {
-    --app-bg: #EBF3FA;
-    --container-bg: #FFFFFF;
-    --text-color: #1A1A1A;
-    --border-color: #D0D7DE;
-    --muted-color: #57606A;
+    --primary-color: #0055A5;
+    --secondary-color: #EF4135;
+    --app-bg: #f8f9fa;
+    --container-bg: #ffffff;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    --muted-color: #6c757d;
 }
 
 [data-theme="dark"] {
-    --app-bg: #121212;
-    --container-bg: #1E1E1E;
-    --text-color: #E0E0E0;
-    --border-color: #333333;
-    --muted-color: #8B949E;
+    --primary-color: #3b82f6;
+    --app-bg: #0f172a;
+    --container-bg: #1e293b;
+    --text-color: #f8fafc;
+    --border-color: #334155;
+    --muted-color: #94a3b8;
 }
 
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--app-bg);
     color: var(--text-color);
-    font-family: Arial, Calibri, sans-serif;
-    font-size: 9.5pt;
-    line-height: 1.12;
     margin: 0;
-    padding: 20px 10px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.cv-container {
+.cv-container, .container {
+    max-width: 1400px;
+    margin: 40px auto;
+    background: var(--container-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     position: relative;
-    background-color: var(--container-bg);
-    color: var(--text-color);
-    padding: 0.5in;
-    max-width: 850px;
-    width: 100%;
     box-sizing: border-box;
-    margin: 0 auto;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .theme-switcher {
     position: absolute;
     top: 15px;
     right: 15px;
-    margin: 0;
-    text-align: right;
     z-index: 10;
     display: flex;
     gap: 8px;
@@ -64,41 +57,48 @@ body {
     justify-content: center;
 }
 
-.cv-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 8pt;
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.6rem;
 }
 
-.profile-img {
-    width: 80px;
-    height: 90px;
-    border-radius: 4px;
-    object-fit: cover;
-    object-position: top center;
-    border: 2px solid var(--border-color);
-    flex-shrink: 0;
-    display: block;
+.subtitle {
+    text-align: center;
+    color: var(--muted-color);
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-top: 40px;
+    font-size: 1.25rem;
+}
+
+h3 {
+    color: inherit;
+    margin: 0 !important;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+h4 {
+    color: inherit;
+    margin: 0 !important;
+    font-size: 0.95rem;
+    font-weight: bold;
 }
 
 p, li, span, div {
-    font-family: Arial, Calibri, sans-serif;
-    font-size: 9.5pt;
-    line-height: 1.12;
-    margin-bottom: 2.5pt;
-}
-
-h1, h2, h3 {
-    font-family: Arial, Calibri, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
-    margin-top: 8pt;
-    margin-bottom: 4pt;
 }
-
-h1 { font-size: 16pt; margin-top: 0; }
-h2 { font-size: 11.5pt; border-bottom: 1px solid var(--border-color); padding-bottom: 2px; }
-h3 { font-size: 10pt; font-weight: bold; }
 
 ul {
     margin-top: 1pt;
@@ -109,32 +109,7 @@ ul {
 hr {
     border: 0;
     border-top: 1px solid var(--border-color);
-    margin: 8pt 0;
-}
-
-@page {
-    size: A4;
-    margin: 8mm;
-}
-
-@media print {
-    body { 
-        background: white !important; 
-        padding: 0 !important;
-        -webkit-user-select: auto !important;
-        user-select: auto !important;
-    }
-    .theme-switcher { 
-        display: none !important; 
-    }
-    .cv-container { 
-        border: none !important; 
-        box-shadow: none !important; 
-        padding: 0 !important; 
-        margin: 0 !important;
-        max-width: 100% !important;
-        width: 100% !important;
-    }
+    margin: 15px 0;
 }
 
 /* ==========================================
@@ -147,18 +122,26 @@ hr {
     margin-bottom: 8pt;
     flex-wrap: wrap;
 }
+
 .resources-column {
     flex: 1;
     min-width: 250px;
 }
 
+@media (max-width: 600px) {
+    .resources-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 /* ==========================================
-   MAIN ACCORDION STYLES (BLUE PALETTE & LIGHT WINE HOVER)
+   MAIN ACCORDION STYLES (PARENT BLOCKS)
    ========================================== */
 details.accordion-section {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: var(--container-bg);
     overflow: hidden;
     transition: border-color 0.2s ease;
@@ -171,11 +154,11 @@ details.accordion-section[open] {
 details.accordion-section summary {
     list-style: none;
     cursor: pointer;
-    padding: 10px 12px;
+    padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #BFDBFE; /* Rich blue shade for main parent headers */
+    background-color: #BFDBFE;
     color: #1E3A8A;
     user-select: none;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -186,16 +169,15 @@ details.accordion-section summary {
     color: #BFDBFE;
 }
 
-/* Light Wine color on hover/focus for main parent */
 details.accordion-section summary:hover,
 details.accordion-section summary:focus {
-    background-color: #D47A86 !important; /* Light wine / dusty rose */
+    background-color: #D47A86 !important;
     color: #FFFFFF !important;
 }
 
 [data-theme="dark"] details.accordion-section summary:hover,
 [data-theme="dark"] details.accordion-section summary:focus {
-    background-color: #B85B67 !important; /* Adjusted light wine for dark mode */
+    background-color: #B85B67 !important;
     color: #FFFFFF !important;
 }
 
@@ -214,17 +196,11 @@ details.accordion-section[open] summary::after {
     transform: rotate(90deg);
 }
 
-details.accordion-section summary h3 {
-    margin: 0 !important;
-    display: inline-block;
-    color: inherit;
-}
-
 /* ==========================================
-   NESTED SUB-ACCORDION STYLES (LIGHTER BLUE & LIGHT WINE HOVER)
+   NESTED SUB-ACCORDION STYLES (CHILD BLOCKS)
    ========================================== */
 .accordion-content {
-    padding: 8px 12px;
+    padding: 12px;
     background-color: var(--container-bg);
     display: flex;
     flex-direction: column;
@@ -242,12 +218,12 @@ details.accordion-sub {
 details.accordion-sub summary {
     list-style: none;
     cursor: pointer;
-    padding: 8px 10px;
+    padding: 10px 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 9.5pt;
-    background-color: #EFF6FF; /* Lighter blue shade from same family for child headers */
+    background-color: #EFF6FF;
     color: #1E40AF;
     user-select: none;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -258,10 +234,9 @@ details.accordion-sub summary {
     color: #93C5FD;
 }
 
-/* Light Wine color on hover/focus for child sub-headers */
 details.accordion-sub summary:hover,
 details.accordion-sub summary:focus {
-    background-color: #D47A86 !important; /* Light wine / dusty rose */
+    background-color: #D47A86 !important;
     color: #FFFFFF !important;
 }
 
@@ -286,16 +261,148 @@ details.accordion-sub[open] summary::after {
     transform: rotate(90deg);
 }
 
-details.accordion-sub summary h4 {
-    margin: 0 !important;
-    font-size: 9.5pt;
-    font-weight: bold;
-    color: inherit;
-    display: inline-block;
-}
-
 details.accordion-sub ul {
     padding: 6px 10px 10px 15px !important;
     margin: 0 !important;
     background-color: var(--container-bg);
+}
+
+/* ==========================================
+   TABLES & RULE BOXES (FOR MASTERCLASS PAGES)
+   ========================================== */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: var(--container-bg);
+}
+
+th, td {
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.section-rule-box, .section-pronunciation {
+    background-color: #f1f3f5;
+    border-left: 4px solid var(--primary-color);
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+[data-theme="dark"] .section-rule-box, [data-theme="dark"] .section-pronunciation {
+    background-color: #1e293b;
+    border-color: #3b82f6;
+    color: #cbd5e1;
+}
+
+.incorrect {
+    color: #dc3545;
+    text-decoration: line-through;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.example-detail {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted-color);
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+[data-theme="dark"] .example-detail {
+    color: #cbd5e1;
+}
+
+.inline-audio-btn {
+    background: transparent url('Listen.png') no-repeat center;
+    background-size: 16px 16px;
+    border: none;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    margin-left: 4px;
+    padding: 0;
+    vertical-align: middle;
+    transition: transform 0.1s;
+    display: inline-block;
+}
+
+.inline-audio-btn:hover {
+    transform: scale(1.15);
+}
+
+@page {
+    size: A4;
+    margin: 8mm;
+}
+
+@media print {
+    body { 
+        background: white !important; 
+        padding: 0 !important;
+    }
+    .theme-switcher { 
+        display: none !important; 
+    }
+    .cv-container, .container { 
+        border: none !important; 
+        box-shadow: none !important; 
+        padding: 0 !important; 
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+/* Layout with Right-Hand Sidebar */
+.main-layout-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.main-content-area {
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar-area {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+}
+
+@media (max-width: 992px) {
+    .main-layout-wrapper {
+        flex-direction: column;
+    }
+    .sidebar-area {
+        width: 100%;
+        position: static;
+    }
+}    
 }
