@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 - French Numbers Masterclass (1 to Billions)</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --highlight-bg: #d4edda;
+            --highlight-text: #155724;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --highlight-bg: #1e3a29;
+            --highlight-text: #a3e635;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        /* 2-Column Layout Wrapper */
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .section-pronunciation {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .rule-card {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <!-- Header container rendered via includes.js -->
+    <div id="header-container"></div>
+
+    <!-- 2-Column Layout Wrapper -->
+    <div class="main-layout-wrapper">
+        <!-- Left Main Content Area -->
+        <div class="main-content-area">
+            <h1>Day 2 - French Numbers Masterclass (1 to Billions)</h1>
+            <p class="subtitle">Complete Sequential Reference, Phonetics, Grammar Formulas & Large Scale Numbers</p>
+
+            <!-- SECTION 1: NUMBERS 1 TO 20 -->
+            <h2>1. Primary Numbers (1 to 20)</h2>
+            <div class="section-pronunciation">French: <em>Les Nombres de 1 à 20</em> <button class="inline-audio-btn" onclick="playAudio('Les Nombres de un à vingt')" title="Listen"></button> / Pronunciation: ले नॉँब्र द अँ आ वैं</div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>French Word</th>
+                            <th>Phonetics & Pronunciation</th>
+                            <th>Hindi Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td><strong>un</strong></td><td>ẽh / अँ <button class="inline-audio-btn" onclick="playAudio('un')" title="Listen"></button></td><td>एक</td></tr>
+                        <tr><td>2</td><td><strong>deux</strong></td><td>duh / दु <button class="inline-audio-btn" onclick="playAudio('deux')" title="Listen"></button></td><td>दो</td></tr>
+                        <tr><td>3</td><td><strong>trois</strong></td><td>trwah / त्वा <button class="inline-audio-btn" onclick="playAudio('trois')" title="Listen"></button></td><td>तीन</td></tr>
+                        <tr><td>4</td><td><strong>quatre</strong></td><td>katr / कात्र <button class="inline-audio-btn" onclick="playAudio('quatre')" title="Listen"></button></td><td>चार</td></tr>
+                        <tr><td>5</td><td><strong>cinq</strong></td><td>sẽhk / सैंक <button class="inline-audio-btn" onclick="playAudio('cinq')" title="Listen"></button></td><td>पाँच</td></tr>
+                        <tr><td>6</td><td><strong>six</strong></td><td>sees / सीस <button class="inline-audio-btn" onclick="playAudio('six')" title="Listen"></button></td><td>छह</td></tr>
+                        <tr><td>7</td><td><strong>sept</strong></td><td>set / सेत <button class="inline-audio-btn" onclick="playAudio('sept')" title="Listen"></button></td><td>सात</td></tr>
+                        <tr><td>8</td><td><strong>huit</strong></td><td>weet / वीत <button class="inline-audio-btn" onclick="playAudio('huit')" title="Listen"></button></td><td>आठ</td></tr>
+                        <tr><td>9</td><td><strong>neuf</strong></td><td>nuf / नुफ़ <button class="inline-audio-btn" onclick="playAudio('neuf')" title="Listen"></button></td><td>नौ</td></tr>
+                        <tr><td>10</td><td><strong>dix</strong></td><td>dees / दीस <button class="inline-audio-btn" onclick="playAudio('dix')" title="Listen"></button></td><td>दस</td></tr>
+                        <tr><td>11</td><td><strong>onze</strong></td><td>õhz / ऑँज़ <button class="inline-audio-btn" onclick="playAudio('onze')" title="Listen"></button></td><td>ग्यारह</td></tr>
+                        <tr><td>12</td><td><strong>douze</strong></td><td>dooz / दूज़ <button class="inline-audio-btn" onclick="playAudio('douze')" title="Listen"></button></td><td>बारह</td></tr>
+                        <tr><td>13</td><td><strong>treize</strong></td><td>trez / त्रेज़ <button class="inline-audio-btn" onclick="playAudio('treize')" title="Listen"></button></td><td>तेरह</td></tr>
+                        <tr><td>14</td><td><strong>quatorze</strong></td><td>kah-torz / कातोर्ज़ <button class="inline-audio-btn" onclick="playAudio('quatorze')" title="Listen"></button></td><td>चौदह</td></tr>
+                        <tr><td>15</td><td><strong>quinze</strong></td><td>kẽhz / कैंज़ <button class="inline-audio-btn" onclick="playAudio('quinze')" title="Listen"></button></td><td>पंद्रह</td></tr>
+                        <tr><td>16</td><td><strong>seize</strong></td><td>sez / सेज़ <button class="inline-audio-btn" onclick="playAudio('seize')" title="Listen"></button></td><td>सोलह</td></tr>
+                        <tr><td>17</td><td><strong>dix-sept</strong></td><td>dees-set / दीस-सेत <button class="inline-audio-btn" onclick="playAudio('dix-sept')" title="Listen"></button></td><td>सत्रह</td></tr>
+                        <tr><td>18</td><td><strong>dix-huit</strong></td><td>deez-weet / दीज़-वीत <button class="inline-audio-btn" onclick="playAudio('dix-huit')" title="Listen"></button></td><td>अठारह</td></tr>
+                        <tr><td>19</td><td><strong>dix-neuf</strong></td><td>dees-nuf / दीस-नुफ़ <button class="inline-audio-btn" onclick="playAudio('dix-neuf')" title="Listen"></button></td><td>उन्नीस</td></tr>
+                        <tr><td>20</td><td><strong>vingt</strong></td><td>vẽh / वैं <button class="inline-audio-btn" onclick="playAudio('vingt')" title="Listen"></button></td><td>बीस</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 2: NUMBERS 21 TO 80 -->
+            <h2>2. Sequential Expansion (21 to 80)</h2>
+            <div class="section-pronunciation">French: <em>Les Nombres de 21 à 80</em> <button class="inline-audio-btn" onclick="playAudio('Les Nombres de vingt et un à quatre-vingts')" title="Listen"></button> / Pronunciation: ले नॉँब्र द वैं ए अँ आ कात्र-वैं</div>
+            
+            <div class="rule-card">
+                <strong>Grammar Rule (-et-un):</strong> For numbers ending in 1 up to 71 (21, 31, 41, 51, 61, 71), connect using <em>"et"</em> (e.g., <em>vingt-et-un</em>). For all other unit numbers (22-29, 32-39, etc.), use a hyphen (e.g., <em>vingt-deux</em>).
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>French Word</th><th>Pronunciation</th><th>#</th><th>French Word</th><th>Pronunciation</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>21</td><td>vingt-et-un <button class="inline-audio-btn" onclick="playAudio('vingt-et-un')" title="Listen"></button></td><td>वैंत-ए-अँ</td><td>51</td><td>cinquante-et-un <button class="inline-audio-btn" onclick="playAudio('cinquante-et-un')" title="Listen"></button></td><td>सैंकांत-ए-अँ</td></tr>
+                        <tr><td>22</td><td>vingt-deux <button class="inline-audio-btn" onclick="playAudio('vingt-deux')" title="Listen"></button></td><td>वैंत-दु</td><td>52</td><td>cinquante-deux <button class="inline-audio-btn" onclick="playAudio('cinquante-deux')" title="Listen"></button></td><td>सैंकांत-दु</td></tr>
+                        <tr><td>23</td><td>vingt-trois <button class="inline-audio-btn" onclick="playAudio('vingt-trois')" title="Listen"></button></td><td>वैंत-त्वा</td><td>53</td><td>cinquante-trois <button class="inline-audio-btn" onclick="playAudio('cinquante-trois')" title="Listen"></button></td><td>सैंकांत-त्वा</td></tr>
+                        <tr><td>24</td><td>vingt-quatre <button class="inline-audio-btn" onclick="playAudio('vingt-quatre')" title="Listen"></button></td><td>वैंत-कात्र</td><td>54</td><td>cinquante-quatre <button class="inline-audio-btn" onclick="playAudio('cinquante-quatre')" title="Listen"></button></td><td>सैंकांत-कात्र</td></tr>
+                        <tr><td>25</td><td>vingt-cinq <button class="inline-audio-btn" onclick="playAudio('vingt-cinq')" title="Listen"></button></td><td>वैंत-सैंक</td><td>55</td><td>cinquante-cinq <button class="inline-audio-btn" onclick="playAudio('cinquante-cinq')" title="Listen"></button></td><td>सैंकांत-सैंक</td></tr>
+                        <tr><td>26</td><td>vingt-six <button class="inline-audio-btn" onclick="playAudio('vingt-six')" title="Listen"></button></td><td>वैंत-सीस</td><td>56</td><td>cinquante-six <button class="inline-audio-btn" onclick="playAudio('cinquante-six')" title="Listen"></button></td><td>सैंकांत-सीस</td></tr>
+                        <tr><td>27</td><td>vingt-sept <button class="inline-audio-btn" onclick="playAudio('vingt-sept')" title="Listen"></button></td><td>वैंत-सेत</td><td>57</td><td>cinquante-sept <button class="inline-audio-btn" onclick="playAudio('cinquante-sept')" title="Listen"></button></td><td>सैंकांत-सेत</td></tr>
+                        <tr><td>28</td><td>vingt-huit <button class="inline-audio-btn" onclick="playAudio('vingt-huit')" title="Listen"></button></td><td>वैंत-वीत</td><td>58</td><td>cinquante-huit <button class="inline-audio-btn" onclick="playAudio('cinquante-huit')" title="Listen"></button></td><td>सैंकांत-वीत</td></tr>
+                        <tr><td>29</td><td>vingt-neuf <button class="inline-audio-btn" onclick="playAudio('vingt-neuf')" title="Listen"></button></td><td>वैंत-नुफ़</td><td>59</td><td>cinquante-neuf <button class="inline-audio-btn" onclick="playAudio('cinquante-neuf')" title="Listen"></button></td><td>सैंकांत-नुफ़</td></tr>
+                        <tr><td>30</td><td><strong>trente</strong> <button class="inline-audio-btn" onclick="playAudio('trente')" title="Listen"></button></td><td>त्रांत</td><td>60</td><td><strong>soixante</strong> <button class="inline-audio-btn" onclick="playAudio('soixante')" title="Listen"></button></td><td>स्वासांत</td></tr>
+                        <tr><td>31</td><td>trente-et-un <button class="inline-audio-btn" onclick="playAudio('trente-et-un')" title="Listen"></button></td><td>त्रांत-ए-अँ</td><td>61</td><td>soixante-et-un <button class="inline-audio-btn" onclick="playAudio('soixante-et-un')" title="Listen"></button></td><td>स्वासांत-ए-अँ</td></tr>
+                        <tr><td>32</td><td>trente-deux <button class="inline-audio-btn" onclick="playAudio('trente-deux')" title="Listen"></button></td><td>त्रांत-दु</td><td>62</td><td>soixante-deux <button class="inline-audio-btn" onclick="playAudio('soixante-deux')" title="Listen"></button></td><td>स्वासांत-दु</td></tr>
+                        <tr><td>33</td><td>trente-trois <button class="inline-audio-btn" onclick="playAudio('trente-trois')" title="Listen"></button></td><td>त्रांत-त्वा</td><td>63</td><td>soixante-trois <button class="inline-audio-btn" onclick="playAudio('soixante-trois')" title="Listen"></button></td><td>स्वासांत-त्वा</td></tr>
+                        <tr><td>34</td><td>trente-quatre <button class="inline-audio-btn" onclick="playAudio('trente-quatre')" title="Listen"></button></td><td>त्रांत-कात्र</td><td>64</td><td>soixante-quatre <button class="inline-audio-btn" onclick="playAudio('soixante-quatre')" title="Listen"></button></td><td>स्वासांत-कात्र</td></tr>
+                        <tr><td>35</td><td>trente-cinq <button class="inline-audio-btn" onclick="playAudio('trente-cinq')" title="Listen"></button></td><td>त्रांत-सैंक</td><td>65</td><td>soixante-cinq <button class="inline-audio-btn" onclick="playAudio('soixante-cinq')" title="Listen"></button></td><td>स्वासांत-सैंक</td></tr>
+                        <tr><td>36</td><td>trente-six <button class="inline-audio-btn" onclick="playAudio('trente-six')" title="Listen"></button></td><td>त्रांत-सीस</td><td>66</td><td>soixante-six <button class="inline-audio-btn" onclick="playAudio('soixante-six')" title="Listen"></button></td><td>स्वासांत-सीस</td></tr>
+                        <tr><td>37</td><td>trente-sept <button class="inline-audio-btn" onclick="playAudio('trente-sept')" title="Listen"></button></td><td>त्रांत-सेत</td><td>67</td><td>soixante-sept <button class="inline-audio-btn" onclick="playAudio('soixante-sept')" title="Listen"></button></td><td>स्वासांत-सेत</td></tr>
+                        <tr><td>38</td><td>trente-huit <button class="inline-audio-btn" onclick="playAudio('trente-huit')" title="Listen"></button></td><td>त्रांत-वीत</td><td>68</td><td>soixante-huit <button class="inline-audio-btn" onclick="playAudio('soixante-huit')" title="Listen"></button></td><td>स्वासांत-वीt</td></tr>
+                        <tr><td>39</td><td>trente-neuf <button class="inline-audio-btn" onclick="playAudio('trente-neuf')" title="Listen"></button></td><td>त्रांत-नुफ़</td><td>69</td><td>soixante-neuf <button class="inline-audio-btn" onclick="playAudio('soixante-neuf')" title="Listen"></button></td><td>स्वासांत-नुफ़</td></tr>
+                        <tr><td>40</td><td><strong>quarante</strong> <button class="inline-audio-btn" onclick="playAudio('quarante')" title="Listen"></button></td><td>काारांत</td><td>70</td><td><strong>soixante-dix</strong> <button class="inline-audio-btn" onclick="playAudio('soixante-dix')" title="Listen"></button></td><td>स्वासांत-दीस</td></tr>
+                        <tr><td>41</td><td>quarante-et-un <button class="inline-audio-btn" onclick="playAudio('quarante-et-un')" title="Listen"></button></td><td>कारान्त-ए-अँ</td><td>71</td><td>soixante-et-onze <button class="inline-audio-btn" onclick="playAudio('soixante-et-onze')" title="Listen"></button></td><td>स्वासांत-ए-ऑँज़</td></tr>
+                        <tr><td>42</td><td>quarante-deux <button class="inline-audio-btn" onclick="playAudio('quarante-deux')" title="Listen"></button></td><td>कारान्त-दु</td><td>72</td><td>soixante-douze <button class="inline-audio-btn" onclick="playAudio('soixante-douze')" title="Listen"></button></td><td>स्वासांत-दूज़</td></tr>
+                        <tr><td>43</td><td>quarante-trois <button class="inline-audio-btn" onclick="playAudio('quarante-trois')" title="Listen"></button></td><td>कारान्त-त्वा</td><td>73</td><td>soixante-treize <button class="inline-audio-btn" onclick="playAudio('soixante-treize')" title="Listen"></button></td><td>स्वासांत-त्रेज़</td></tr>
+                        <tr><td>44</td><td>quarante-quatre <button class="inline-audio-btn" onclick="playAudio('quarante-quatre')" title="Listen"></button></td><td>कारान्त-कात्र</td><td>74</td><td>soixante-quatorze <button class="inline-audio-btn" onclick="playAudio('soixante-quatorze')" title="Listen"></button></td><td>स्वासांत-कातोर्ज़</td></tr>
+                        <tr><td>45</td><td>quarante-cinq <button class="inline-audio-btn" onclick="playAudio('quarante-cinq')" title="Listen"></button></td><td>कारान्त-सैंक</td><td>75</td><td>soixante-quinze <button class="inline-audio-btn" onclick="playAudio('soixante-quinze')" title="Listen"></button></td><td>स्वासांत-कैंज़</td></tr>
+                        <tr><td>46</td><td>quarante-six <button class="inline-audio-btn" onclick="playAudio('quarante-six')" title="Listen"></button></td><td>कारान्त-सीस</td><td>76</td><td>soixante-seize <button class="inline-audio-btn" onclick="playAudio('soixante-seize')" title="Listen"></button></td><td>स्वासांत-सेज़</td></tr>
+                        <tr><td>47</td><td>quarante-sept <button class="inline-audio-btn" onclick="playAudio('quarante-sept')" title="Listen"></button></td><td>कारान्त-सेत</td><td>77</td><td>soixante-dix-sept <button class="inline-audio-btn" onclick="playAudio('soixante-dix-sept')" title="Listen"></button></td><td>स्वासांत-दीस-सेत</td></tr>
+                        <tr><td>48</td><td>quarante-huit <button class="inline-audio-btn" onclick="playAudio('quarante-huit')" title="Listen"></button></td><td>कारान्त-वीत</td><td>78</td><td>soixante-dix-huit <button class="inline-audio-btn" onclick="playAudio('soixante-dix-huit')" title="Listen"></button></td><td>स्वासांत-दीज़-वीत</td></tr>
+                        <tr><td>49</td><td>quarante-neuf <button class="inline-audio-btn" onclick="playAudio('quarante-neuf')" title="Listen"></button></td><td>कारान्त-नुफ़</td><td>79</td><td>soixante-dix-neuf <button class="inline-audio-btn" onclick="playAudio('soixante-dix-neuf')" title="Listen"></button></td><td>स्वासांत-दीस-नुफ़</td></tr>
+                        <tr><td>50</td><td><strong>cinquante</strong> <button class="inline-audio-btn" onclick="playAudio('cinquante')" title="Listen"></button></td><td>सैंकांत</td><td>80</td><td><strong>quatre-vingts</strong> <button class="inline-audio-btn" onclick="playAudio('quatre-vingts')" title="Listen"></button></td><td>कात्र-वैं</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 3: NUMBERS 81 TO 100 -->
+            <h2>3. Complex Base-20 Numbers (81 to 100)</h2>
+            <div class="section-pronunciation">French: <em>Les Nombres de 81 à 100</em> <button class="inline-audio-btn" onclick="playAudio('Les Nombres de quatre-vingt-un à cent')" title="Listen"></button> / Pronunciation: ले नॉँब्र द कात्र-वैं-अँ आ सॉँ</div>
+            
+            <div class="rule-card">
+                <strong>Vigesimal Formula (Base-20 Structure):</strong><br>
+                • <strong>80 = quatre-vingts</strong> (4 × 20). Note the plural "s" on <em>vingts</em> when standalone.<br>
+                • <strong>81-89:</strong> Drop the "s" from <em>vingt</em> and add unit numbers (e.g., 81 = <em>quatre-vingt-un</em> [four-twenty-one]). Do NOT use <em>et</em> for 81.<br>
+                • <strong>90-99:</strong> Combine <em>quatre-vingt</em> with 10-19 (e.g., 90 = <em>quatre-vingt-dix</em> [four-twenty-ten], 91 = <em>quatre-vingt-onze</em> [four-twenty-eleven]).
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>French Word</th>
+                            <th>Literal Breakdown</th>
+                            <th>Phonetics & Pronunciation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>81</td><td><strong>quatre-vingt-un</strong></td><td>four-twenty-one</td><td>katr-vẽh-ẽh / कात्र-वैं-अँ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-un')" title="Listen"></button></td></tr>
+                        <tr><td>82</td><td><strong>quatre-vingt-deux</strong></td><td>four-twenty-two</td><td>katr-vẽh-duh / कात्र-वैं-दु <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-deux')" title="Listen"></button></td></tr>
+                        <tr><td>83</td><td><strong>quatre-vingt-trois</strong></td><td>four-twenty-three</td><td>katr-vẽh-trwah / कात्र-वैं-त्वा <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-trois')" title="Listen"></button></td></tr>
+                        <tr><td>84</td><td><strong>quatre-vingt-quatre</strong></td><td>four-twenty-four</td><td>katr-vẽh-katr / कात्र-वैं-कात्र <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-quatre')" title="Listen"></button></td></tr>
+                        <tr><td>85</td><td><strong>quatre-vingt-cinq</strong></td><td>four-twenty-five</td><td>katr-vẽh-sẽhk / कात्र-वैं-सैंक <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-cinq')" title="Listen"></button></td></tr>
+                        <tr><td>86</td><td><strong>quatre-vingt-six</strong></td><td>four-twenty-six</td><td>katr-vẽh-sees / कात्र-वैं-सीस <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-six')" title="Listen"></button></td></tr>
+                        <tr><td>87</td><td><strong>quatre-vingt-sept</strong></td><td>four-twenty-seven</td><td>katr-vẽh-set / कात्र-वैं-सेत <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-sept')" title="Listen"></button></td></tr>
+                        <tr><td>88</td><td><strong>quatre-vingt-huit</strong></td><td>four-twenty-eight</td><td>katr-vẽh-weet / कात्र-वैं-वीत <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-huit')" title="Listen"></button></td></tr>
+                        <tr><td>89</td><td><strong>quatre-vingt-neuf</strong></td><td>four-twenty-nine</td><td>katr-vẽh-nuf / कात्र-वैं-नुफ़ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-neuf')" title="Listen"></button></td></tr>
+                        <tr><td>90</td><td><strong>quatre-vingt-dix</strong></td><td>four-twenty-ten</td><td>katr-vẽh-dees / कात्र-वैं-दीस <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-dix')" title="Listen"></button></td></tr>
+                        <tr><td>91</td><td><strong>quatre-vingt-onze</strong></td><td>four-twenty-eleven</td><td>katr-vẽh-õhz / कात्र-वैं-ऑँज़ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-onze')" title="Listen"></button></td></tr>
+                        <tr><td>92</td><td><strong>quatre-vingt-douze</strong></td><td>four-twenty-twelve</td><td>katr-vẽh-dooz / कात्र-वैं-दूज़ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-douze')" title="Listen"></button></td></tr>
+                        <tr><td>93</td><td><strong>quatre-vingt-treize</strong></td><td>four-twenty-thirteen</td><td>katr-vẽh-trez / कात्र-वैं-त्रेज़ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-treize')" title="Listen"></button></td></tr>
+                        <tr><td>94</td><td><strong>quatre-vingt-quatorze</strong></td><td>four-twenty-fourteen</td><td>katr-vẽh-kah-torz / कात्र-वैं-कातोर्ज़ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-quatorze')" title="Listen"></button></td></tr>
+                        <tr><td>95</td><td><strong>quatre-vingt-quinze</strong></td><td>four-twenty-fifteen</td><td>katr-vẽh-kẽhz / कात्र-वैं-कैंज़ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-quinze')" title="Listen"></button></td></tr>
+                        <tr><td>96</td><td><strong>quatre-vingt-seize</strong></td><td>four-twenty-sixteen</td><td>katr-vẽh-sez / कात्र-वैं-सेज़ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-seize')" title="Listen"></button></td></tr>
+                        <tr><td>97</td><td><strong>quatre-vingt-dix-sept</strong></td><td>four-twenty-seventeen</td><td>katr-vẽh-dees-set / कात्र-वैं-दीस-सेत <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-dix-sept')" title="Listen"></button></td></tr>
+                        <tr><td>98</td><td><strong>quatre-vingt-dix-huit</strong></td><td>four-twenty-eighteen</td><td>katr-vẽh-deez-weet / कात्र-वैं-दीज़-वीत <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-dix-huit')" title="Listen"></button></td></tr>
+                        <tr><td>99</td><td><strong>quatre-vingt-dix-neuf</strong></td><td>four-twenty-nineteen</td><td>katr-vẽh-dees-nuf / कात्र-वैं-दीस-नुफ़ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-dix-neuf')" title="Listen"></button></td></tr>
+                        <tr><td>100</td><td><strong>cent</strong></td><td>one hundred</td><td>sahn / सॉँ <button class="inline-audio-btn" onclick="playAudio('cent')" title="Listen"></button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 4: HUNDREDS -->
+            <h2>4. Hundreds Structure (200 to 900)</h2>
+            <div class="section-pronunciation">French: <em>Les Centaines</em> <button class="inline-audio-btn" onclick="playAudio('Les Centaines')" title="Listen"></button> / Pronunciation: ले सॉँतेन</div>
+            
+            <div class="rule-card">
+                <strong>Plural Rule for Cent:</strong><br>
+                • Multiple exact hundreds take a plural "s" (e.g., 200 = <em>deux cents</em>, 300 = <em>trois cents</em>, 400 = <em>quatre cents</em>).<br>
+                • If another number follows, drop the "s" from <em>cent</em> (e.g., 202 = <em>deux cent deux</em>, 301 = <em>trois cent un</em>).
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>French Word</th>
+                            <th>Phonetics & Pronunciation</th>
+                            <th>Hindi Translation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>200</td><td><strong>deux cents</strong></td><td>duh sahn / दु सॉँ <button class="inline-audio-btn" onclick="playAudio('deux cents')" title="Listen"></button></td><td>दो सौ</td></tr>
+                        <tr><td>201</td><td><strong>deux cent un</strong></td><td>duh sahn ẽh / दु सॉँ अँ <button class="inline-audio-btn" onclick="playAudio('deux cent un')" title="Listen"></button></td><td>दो सौ एक</td></tr>
+                        <tr><td>202</td><td><strong>deux cent deux</strong></td><td>duh sahn duh / दु सॉँ दु <button class="inline-audio-btn" onclick="playAudio('deux cent deux')" title="Listen"></button></td><td>दो सौ दो</td></tr>
+                        <tr><td>210</td><td><strong>deux cent dix</strong></td><td>duh sahn dees / दु सॉँ दीस <button class="inline-audio-btn" onclick="playAudio('deux cent dix')" title="Listen"></button></td><td>दो सौ दस</td></tr>
+                        <tr><td>220</td><td><strong>deux cent vingt</strong></td><td>duh sahn vẽh / दु सॉँ वैं <button class="inline-audio-btn" onclick="playAudio('deux cent vingt')" title="Listen"></button></td><td>दो सौ बीस</td></tr>
+                        <tr><td>300</td><td><strong>trois cents</strong></td><td>trwah sahn / त्वा सॉँ <button class="inline-audio-btn" onclick="playAudio('trois cents')" title="Listen"></button></td><td>तीन सौ</td></tr>
+                        <tr><td>301</td><td><strong>trois cent un</strong></td><td>trwah sahn ẽh / त्वा सॉँ अँ <button class="inline-audio-btn" onclick="playAudio('trois cent un')" title="Listen"></button></td><td>तीन सौ एक</td></tr>
+                        <tr><td>302</td><td><strong>trois cent deux</strong></td><td>trwah sahn duh / त्वा सॉँ दु <button class="inline-audio-btn" onclick="playAudio('trois cent deux')" title="Listen"></button></td><td>तीन सौ दो</td></tr>
+                        <tr><td>303</td><td><strong>trois cent trois</strong></td><td>trwah sahn trwah / त्वा सॉँ त्वा <button class="inline-audio-btn" onclick="playAudio('trois cent trois')" title="Listen"></button></td><td>तीन सौ तीन</td></tr>
+                        <tr><td>351</td><td><strong>trois cent cinquante-et-un</strong></td><td>trwah sahn sãh-kahnt-ay-ẽh / त्वा सॉँ सैंकांत-ए-अँ <button class="inline-audio-btn" onclick="playAudio('trois cent cinquante-et-un')" title="Listen"></button></td><td>तीन सौ एकयावन</td></tr>
+                        <tr><td>400</td><td><strong>quatre cents</strong></td><td>katr sahn / कात्र सॉँ <button class="inline-audio-btn" onclick="playAudio('quatre cents')" title="Listen"></button></td><td>चार सौ</td></tr>
+                        <tr><td>444</td><td><strong>quatre cent quarante-quatre</strong></td><td>katr sahn kah-rahnt-katr / कात्र सॉँ कारान्त-कात्र <button class="inline-audio-btn" onclick="playAudio('quatre cent quarante-quatre')" title="Listen"></button></td><td>चार सौ चवालिस</td></tr>
+                        <tr><td>500</td><td><strong>cinq cents</strong></td><td>sẽhk sahn / सैंक सॉँ <button class="inline-audio-btn" onclick="playAudio('cinq cents')" title="Listen"></button></td><td>पाँच सौ</td></tr>
+                        <tr><td>600</td><td><strong>six cents</strong></td><td>see sahn / सी सॉँ <button class="inline-audio-btn" onclick="playAudio('six cents')" title="Listen"></button></td><td>छह सौ</td></tr>
+                        <tr><td>700</td><td><strong>sept cents</strong></td><td>set sahn / सेत सॉँ <button class="inline-audio-btn" onclick="playAudio('sept cents')" title="Listen"></button></td><td>सात सौ</td></tr>
+                        <tr><td>800</td><td><strong>huit cents</strong></td><td>weet sahn / वीत सॉँ <button class="inline-audio-btn" onclick="playAudio('huit cents')" title="Listen"></button></td><td>आठ सौ</td></tr>
+                        <tr><td>899</td><td><strong>huit cent quatre-vingt-dix-neuf</strong></td><td>weet sahn katr-vẽh-dees-nuf / वीत सॉँ कात्र-वैं-दीस-नुफ़ <button class="inline-audio-btn" onclick="playAudio('huit cent quatre-vingt-dix-neuf')" title="Listen"></button></td><td>आठ सौ निन्यानवे</td></tr>
+                        <tr><td>900</td><td><strong>neuf cents</strong></td><td>nuf sahn / नुफ़ सॉँ <button class="inline-audio-btn" onclick="playAudio('neuf cents')" title="Listen"></button></td><td>नौ सौ</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 5: THOUSANDS & TEN THOUSANDS -->
+            <h2>5. Thousands & Higher Scale Numbers</h2>
+            <div class="section-pronunciation">French: <em>Les Milliers et Plus</em> <button class="inline-audio-btn" onclick="playAudio('Les Milliers et Plus')" title="Listen"></button> / Pronunciation: ले मीलीये ए प्ल्यु</div>
+            
+            <div class="rule-card">
+                <strong>Grammar Rule for Mille (1,000):</strong><br>
+                • <strong>Mille is completely invariant:</strong> It NEVER takes an "s" in the plural (e.g., 2,000 = <em>deux mille</em>, NEVER <em>deux milles</em>).<br>
+                • <strong>Million & Milliard are nouns:</strong> They DO take an "s" in the plural (e.g., 2,000,000 = <em>deux millions</em>).
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Numeric</th>
+                            <th>French Word</th>
+                            <th>Phonetics & Pronunciation</th>
+                            <th>Hindi Translation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1,000</td><td><strong>mille</strong></td><td>meel / मील <button class="inline-audio-btn" onclick="playAudio('mille')" title="Listen"></button></td><td>एक हज़ार</td></tr>
+                        <tr><td>1,001</td><td><strong>mille un</strong></td><td>meel ẽh / मील अँ <button class="inline-audio-btn" onclick="playAudio('mille un')" title="Listen"></button></td><td>एक हज़ार एक</td></tr>
+                        <tr><td>1,002</td><td><strong>mille deux</strong></td><td>meel duh / मील दु <button class="inline-audio-btn" onclick="playAudio('mille deux')" title="Listen"></button></td><td>एक हज़ार दो</td></tr>
+                        <tr><td>2,000</td><td><strong>deux mille</strong></td><td>duh meel / दु मील <button class="inline-audio-btn" onclick="playAudio('deux mille')" title="Listen"></button></td><td>दो हज़ार</td></tr>
+                        <tr><td>5,899</td><td><strong>cinq mille huit cent quatre-vingt-dix-neuf</strong></td><td>sẽhk meel weet sahn katr-vẽh-dees-nuf / सैंक मील वीत सॉँ कात्र-वैं-दीस-नुफ़ <button class="inline-audio-btn" onclick="playAudio('cinq mille huit cent quatre-vingt-dix-neuf')" title="Listen"></button></td><td>पाँच हज़ार आठ सौ निन्यानवे</td></tr>
+                        <tr><td>9,999</td><td><strong>neuf mille neuf cent quatre-vingt-dix-neuf</strong></td><td>nuf meel nuf sahn katr-vẽh-dees-nuf / नुफ़ मील नुफ़ सॉँ कात्र-वैं-दीस-नुफ़ <button class="inline-audio-btn" onclick="playAudio('neuf mille neuf cent quatre-vingt-dix-neuf')" title="Listen"></button></td><td>नौ हज़ार नौ सौ निन्यानवे</td></tr>
+                        <tr><td>10,598</td><td><strong>dix mille cinq cent quatre-vingt-dix-huit</strong></td><td>dees meel sẽhk sahn katr-vẽh-deez-weet / दीस मील सैंक सॉँ कात्र-वैं-दीज़-वीत <button class="inline-audio-btn" onclick="playAudio('dix mille cinq cent quatre-vingt-dix-huit')" title="Listen"></button></td><td>दस हज़ार पाँच सौ अन्ठानवे</td></tr>
+                        <tr><td>15,689</td><td><strong>quinze mille six cent quatre-vingt-neuf</strong></td><td>kẽhz meel see sahn katr-vẽh-nuf / कैंज़ मील सी सॉँ कात्र-वैं-नुफ़ <button class="inline-audio-btn" onclick="playAudio('quinze mille six cent quatre-vingt-neuf')" title="Listen"></button></td><td>पंद्रह हज़ार छह सौ नवासी</td></tr>
+                        <tr><td>88,888</td><td><strong>quatre-vingt-huit mille huit cent quatre-vingt-huit</strong></td><td>katr-vẽh-weet meel weet sahn katr-vẽh-weet / कात्र-वैं-वीत मील वीत सॉँ कात्र-वैं-वीत <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-huit mille huit cent quatre-vingt-huit')" title="Listen"></button></td><td>अ्ठासी हज़ार आठ सौ अ्ठासी</td></tr>
+                        <tr><td>99,999</td><td><strong>quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuf</strong></td><td>katr-vẽh-dees-nuf meel nuf sahn katr-vẽh-dees-nuf / कात्र-वैं-दीस-नुफ़ मील नुफ़ सॉँ कात्र-वैं-दीस-नुफ़ <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuf')" title="Listen"></button></td><td>निन्यानवे हज़ार नौ सौ निन्यानवे</td></tr>
+                        <tr><td>100,000 (1 Lakh)</td><td><strong>cent mille</strong></td><td>sahn meel / सॉँ मील <button class="inline-audio-btn" onclick="playAudio('cent mille')" title="Listen"></button></td><td>एक लाख (सौ हज़ार)</td></tr>
+                        <tr><td>1,000,000 (1 Million)</td><td><strong>un million</strong></td><td>ẽh mee-lyohn / अँ मीलियों <button class="inline-audio-btn" onclick="playAudio('un million')" title="Listen"></button></td><td>दस लाख (1 मिलियन)</td></tr>
+                        <tr><td>2,000,000 (2 Million)</td><td><strong>deux millions</strong></td><td>duh mee-lyohn / दु मीलियों <button class="inline-audio-btn" onclick="playAudio('deux millions')" title="Listen"></button></td><td>बीस लाख (2 मिलियन)</td></tr>
+                        <tr><td>1,000,000,000 (1 Billion)</td><td><strong>un milliard</strong></td><td>ẽh mee-lyar / अँ मीलियार <button class="inline-audio-btn" onclick="playAudio('un milliard')" title="Listen"></button></td><td>एक अरब (1 बिलियन)</td></tr>
+                        <tr><td>1,000,000,000,000 (1 Trillion)</td><td><strong>un billion</strong></td><td>ẽh bee-lyohn / अँ बीलियों <button class="inline-audio-btn" onclick="playAudio('un billion')" title="Listen"></button></td><td>दस खरब (1 ट्रिलियन)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Right Sidebar Quick Links Container -->
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
+    </div>
+
+    <!-- Footer container rendered via includes.js -->
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>

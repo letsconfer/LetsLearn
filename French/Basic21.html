@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Nouns Gender & Plural Rules Masterclass</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --highlight-bg: #d4edda;
+            --highlight-text: #155724;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --highlight-bg: #1e3a29;
+            --highlight-text: #a3e635;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        /* 2-Column Layout Wrapper (Main Content + Sidebar) */
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .section-pronunciation {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th:nth-child(1), td:nth-child(1) { width: 25%; }
+        th:nth-child(2), td:nth-child(2) { width: 45%; }
+        th:nth-child(3), td:nth-child(3) { width: 30%; }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .example-box-correct {
+            background-color: #e8f5e9;
+            padding: 8px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 4px solid #2e7d32;
+        }
+
+        [data-theme="dark"] .example-box-correct {
+            background-color: #1e3a29;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <!-- Header container rendered via includes.js -->
+    <div id="header-container"></div>
+
+    <!-- 2-Column Layout Wrapper -->
+    <div class="main-layout-wrapper">
+        <!-- Left Main Content Area -->
+        <div class="main-content-area">
+            <h1>French Nouns Gender & Plural Rules Masterclass</h1>
+            <p class="subtitle">Comprehensive Masterclass on Noun Genders, Suffix Rules, and Pluralization Formulas</p>
+
+            <!-- SECTION 1: GENDER OF NOUNS -->
+            <h2>1. Gender of Nouns (Le Genre des Noms)</h2>
+            <div class="section-pronunciation">French: <em>Le Genre des Noms</em> <button class="inline-audio-btn" onclick="playAudio('Le Genre des Noms')" title="Listen"></button> / Pronunciation: ल जँर दे नॉँ</div>
+            <p>The biggest differences between French and English are the use of gender; each noun in French has a feminine or masculine gender. We can divide it into three categories of gender, masculine, feminine, and Neuter, but French has only two: masculine and feminine.</p>
+            <p>Please don't get confused about the concept of gender in French; it refers only to the noun as a word. Although in many instances when referring to a person the gender will correspond to that person's gender in general, in grammatical concerns it has nothing to do with the biological sex of the object or a person in the world. For example, <em>un professeur</em> <button class="inline-audio-btn" onclick="playAudio('un professeur')" title="Listen"></button> can be either a male or female teacher, but the word itself is linguistically masculine.</p>
+            <p>It is very important to judge the gender of a noun so as to know how the word will be used and how other words are used along with it. There are no strict rules about determining the gender of nouns, but the majority of French words follow a consistent gender pattern. In addition to the noun's article, the ending can sometimes help you determine the proper gender; for example, most of the time the nouns ending with "e" are found feminine, but exceptions are there. We can judge through some general pointers, but in the end the advice is always the same: memorize the gender of a word as you learn it.</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category / Concept</th>
+                            <th>Rules & Grammatical Logic</th>
+                            <th>Examples, Pronunciation & Translation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Human & Family Pairs</strong></td>
+                            <td>Animated objects and family relations follow specific assigned gender patterns or natural matches.</td>
+                            <td>
+                                <div class="example-box-correct">
+                                    <strong>Masculine (पुल्लिंग / Masculine):</strong><br>
+                                    • Man: <em>l'homme</em> <button class="inline-audio-btn" onclick="playAudio('lhomme')" title="Listen"></button> — ohm / ओम (आदमी)<br>
+                                    • Boy: <em>Le Garçon</em> <button class="inline-audio-btn" onclick="playAudio('Le Garçon')" title="Listen"></button> — luh gar-sõh / ल गार्सॉँ (लड़का)<br>
+                                    • Father: <em>Le Père</em> <button class="inline-audio-btn" onclick="playAudio('Le Père')" title="Listen"></button> — luh pair / ल पेर (पिता)<br>
+                                    • Husband: <em>Le Mari</em> <button class="inline-audio-btn" onclick="playAudio('Le Mari')" title="Listen"></button> — luh mah-ree / ल मारी (पति)<br>
+                                    • Cousin: <em>Le Cousin</em> <button class="inline-audio-btn" onclick="playAudio('Le Cousin')" title="Listen"></button> — luh koo-zẽh / ल कूजैं (कजिन)
+                                </div>
+                                <div class="example-box-correct">
+                                    <strong>Feminine (स्त्रीलिंग / Feminine):</strong><br>
+                                    • Women: <em>La femme</em> <button class="inline-audio-btn" onclick="playAudio('La femme')" title="Listen"></button> — lah fam / ला फेम (महिला)<br>
+                                    • Mother-in-law: <em>La belle-mère</em> <button class="inline-audio-btn" onclick="playAudio('La bellemère')" title="Listen"></button> — lah bel-mair / ला बेल-मेर (सास)<br>
+                                    • Sister: <em>La Sœur</em> <button class="inline-audio-btn" onclick="playAudio('La Sœur')" title="Listen"></button> — lah sur / ला सुर (बहन)<br>
+                                    • Aunt: <em>la tante</em> <button class="inline-audio-btn" onclick="playAudio('la tante')" title="Listen"></button> — lah tahnt / ला ताँत (चाची/मौसी)<br>
+                                    • Girl: <em>La Fille</em> <button class="inline-audio-btn" onclick="playAudio('La Fille')" title="Listen"></button> — lah feel / ला फ़ील (लड़की)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Masculine Suffixes</strong></td>
+                            <td>Sometimes gender may be recognised by the suffix; nouns ending in <span class="highlight">-age, -ier, -ion, -ment, -oir</span> are masculine.</td>
+                            <td>
+                                <div class="example-box-correct">
+                                    • <em>Voyage</em> <button class="inline-audio-btn" onclick="playAudio('voyage')" title="Listen"></button> — vwa-zhahzh / व्वाजाझ (Travel / यात्रा)<br>
+                                    • <em>Avion</em> <button class="inline-audio-btn" onclick="playAudio('avion')" title="Listen"></button> — ah-vyohn / आवियों (Aeroplane / हवाई जहाज)<br>
+                                    • <em>Bâtiment</em> <button class="inline-audio-btn" onclick="playAudio('bâtiment')" title="Listen"></button> — baht-ee-mah / बातीमा (Building / इमारत)<br>
+                                    • <em>Encrier</em> <button class="inline-audio-btn" onclick="playAudio('encrier')" title="Listen"></button> — ah-kree-ay / ऑँक्रीये (Inkpot / दवात)<br>
+                                    • <em>Miroir</em> <button class="inline-audio-btn" onclick="playAudio('miroir')" title="Listen"></button> — meer-wahr / मीरव्हार (Mirror / शीशा)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Feminine Suffixes</strong></td>
+                            <td>Nouns that end in <span class="highlight">-ade, -aison, -tion (-sion), -ance, -erie, -ise, -tude, -te, -ure, -ale, -aix, -oire</span> belong to the feminine group.</td>
+                            <td>
+                                <div class="example-box-correct">
+                                    • <em>Nation</em> <button class="inline-audio-btn" onclick="playAudio('nation')" title="Listen"></button> — nah-syohn / नास्यों (Nation / राष्ट्र)<br>
+                                    • <em>Substance</em> <button class="inline-audio-btn" onclick="playAudio('substance')" title="Listen"></button> — sub-stahn-s / सुब्स्तांस (Substance / पदार्थ)<br>
+                                    • <em>Maison</em> <button class="inline-audio-btn" onclick="playAudio('maison')" title="Listen"></button> — may-zõh / मेज़ॉँ (House / घर)<br>
+                                    • <em>Bêtise</em> <button class="inline-audio-btn" onclick="playAudio('bêtise')" title="Listen"></button> — bay-teez / बेतीज़ (Nonsense / मूर्खता)<br>
+                                    • <em>Paix</em> <button class="inline-audio-btn" onclick="playAudio('paix')" title="Listen"></button> — peh / पे (Peace / शांति)
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 2: PLURAL FORMS OF NOUNS -->
+            <h2>2. Plural Forms of Nouns (Le Pluriel des Noms)</h2>
+            <div class="section-pronunciation">French: <em>Le Pluriel des Noms</em> <button class="inline-audio-btn" onclick="playAudio('Le Pluriel des Noms')" title="Listen"></button> / Pronunciation: ल प्लुरिएल दे नॉँ</div>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plural Rule Category</th>
+                            <th>Rule Description & Logic</th>
+                            <th>Examples, Pronunciation & Translation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>General Rule</strong></td>
+                            <td>Most of the nouns are made plural by just adding an "s" to them.</td>
+                            <td>
+                                <div class="example-box-correct">
+                                    • <em>Un ami</em> → <em>des amis</em> <button class="inline-audio-btn" onclick="playAudio('un ami des amis')" title="Listen"></button> — डे ज़मी (A friend → Some friends / एक मित्र → कई मित्र)<br>
+                                    • <em>Un Famille</em> → <em>des Familles</em> <button class="inline-audio-btn" onclick="playAudio('un famille des familles')" title="Listen"></button> — डे फमीय (A family → Families / एक परिवार → परिवार)<br>
+                                    • <em>Une ville</em> → <em>des Villes</em> <button class="inline-audio-btn" onclick="playAudio('une ville des villes')" title="Listen"></button> — डे वील (A city → Cities / एक शहर → शहर)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Invariant Endings (-s, -x, -z)</strong></td>
+                            <td>Nouns that end in S, X, and Z do not change in the plural form.</td>
+                            <td>
+                                <div class="example-box-correct">
+                                    • <em>Un autobus</em> → <em>des autobus</em> <button class="inline-audio-btn" onclick="playAudio('un autobus des autobus')" title="Listen"></button> — डे ओतोबुस (Bus / बसें)<br>
+                                    • <em>Un Nez</em> → <em>des nez</em> <button class="inline-audio-btn" onclick="playAudio('un nez des nez')" title="Listen"></button> — डे ने (Nose / नाक)<br>
+                                    • <em>Un prix</em> → <em>des prix</em> <button class="inline-audio-btn" onclick="playAudio('un prix des prix')" title="Listen"></button> — डे प्री (Price / कीमत)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nouns ending in "-al"</strong></td>
+                            <td>Nouns that end in "-al" change to "aux" in the plural form.</td>
+                            <td>
+                                <div class="example-box-correct">
+                                    • <em>Un Journal</em> → <em>des journaux</em> <button class="inline-audio-btn" onclick="playAudio('un journal des journaux')" title="Listen"></button> — डे जूर्नो (Newspaper → Newspapers / अखबार)<br>
+                                    • <em>Un animal</em> → <em>des animaux</em> <button class="inline-audio-btn" onclick="playAudio('un animal des animaux')" title="Listen"></button> — डे आनीमो (Animal → Animals / जानवर)<br>
+                                    • <em>Un signal</em> → <em>des Signaux</em> <button class="inline-audio-btn" onclick="playAudio('un signal des signaux')" title="Listen"></button> — डे सीग्नो (Signal → Signals / संकेत)<br>
+                                    <strong>Exceptions (take -s):</strong> <em>Un Carnaval</em> → <em>des carnavals</em> (कारनिवल), <em>Un bal</em> → <em>des bals</em> (डांस पार्टी), <em>Un festival</em> → <em>des Festivals</em> (त्योहार).
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nouns ending in "-ail"</strong></td>
+                            <td>Nouns that end in "-ail" change to "aux" in the plural form.</td>
+                            <td>
+                                <div class="example-box-correct">
+                                    • <em>Un travail</em> → <em>des travaux</em> <button class="inline-audio-btn" onclick="playAudio('un travail des travaux')" title="Listen"></button> — डे त्रावो (Work → Labors/Works / काम)<br>
+                                    <strong>Exceptions (take -s):</strong> <em>Un détail</em> → <em>des details</em> (विवरण), <em>Un bail</em> → <em>des bailes</em> (लीज).
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nouns ending in "-ou, -eau, -eu, -au"</strong></td>
+                            <td>Nouns that end in "ou", "eau", "eu", "au" take X in the plural form.</td>
+                            <td>
+                                <div class="example-box-correct">
+                                    • <em>Un chou</em> → <em>des Choux</em> <button class="inline-audio-btn" onclick="playAudio('un chou des choux')" title="Listen"></button> — डे शू (Cabbage → Cabbages / गोभी)<br>
+                                    • <em>Un Feu</em> → <em>des Feux</em> <button class="inline-audio-btn" onclick="playAudio('un feu des feux')" title="Listen"></button> — डे फू (Fire → Fires / आग)<br>
+                                    • <em>Un genou</em> → <em>des genoux</em> <button class="inline-audio-btn" onclick="playAudio('un genou des genoux')" title="Listen"></button> — डे झनू (Knee → Knees / घुटना)<br>
+                                    <strong>Exceptions (take -s):</strong> <em>Un Cou</em> → <em>des cous</em> (गर्दन), <em>Un trou</em> → <em>des trous</em> (छेद).
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Right Sidebar Quick Links Container -->
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
+    </div>
+
+    <!-- Footer container rendered via includes.js -->
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>
