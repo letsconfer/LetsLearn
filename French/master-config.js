@@ -10,6 +10,7 @@ window.French_MASTER_CONFIG = {
     // 2. Toolbar Icon Controls
     showDownloadIcon: true,      // true = Show PDF download icon, false = Hidden
     showThemeIcon: true,         // true = Show Theme toggle icon, false = Hidden
+    showQuickLinks: false,        // true = Show Quick Links sidebar, false = Hide sidebar & expand layout
     
     // 3. Profile Image Setting (Points to root asset)
     profileImage: "../me.jpeg",     
@@ -35,6 +36,18 @@ window.French_MASTER_CONFIG = {
         }
     }
 })();
+
+// ==========================================
+// AUTOMATIC QUICK LINKS TOGGLER
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.French_MASTER_CONFIG && window.French_MASTER_CONFIG.showQuickLinks === false) {
+        const sidebar = document.querySelector('.sidebar-area');
+        if (sidebar) {
+            sidebar.style.display = 'none'; // Hides the sidebar container
+        }
+    }
+});
 
 // ==========================================
 // GLOBAL ACCORDION BUILDER FUNCTION
