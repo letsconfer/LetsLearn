@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Ordinal Numbers, Dates, Time & Mobile Numbers</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --highlight-bg: #d4edda;
+            --highlight-text: #155724;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --highlight-bg: #1e3a29;
+            --highlight-text: #a3e635;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        /* 2-Column Layout Wrapper */
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--text-color);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .section-pronunciation {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .rule-card {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .example-box {
+            background-color: #e8f5e9;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2e7d32;
+        }
+
+        [data-theme="dark"] .example-box {
+            background-color: #1e3a29;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <!-- Header container rendered via includes.js -->
+    <div id="header-container"></div>
+
+    <!-- 2-Column Layout Wrapper -->
+    <div class="main-layout-wrapper">
+        <!-- Left Main Content Area -->
+        <div class="main-content-area">
+            <h1>French Ordinal Numbers, Dates, Time & Mobile Numbers</h1>
+            <p class="subtitle">Mastering Ordinal Numbers, Date Formats, Telling Time & Phone Number Formats</p>
+
+            <!-- SECTION 1: ORDINAL NUMBERS LOGIC -->
+            <h2>1. Ordinal Numbers (Les Nombres Ordinaux)</h2>
+            <div class="section-pronunciation">French: <em>Les Nombres Ordinaux</em> <button class="inline-audio-btn" onclick="playAudio('Les Nombres Ordinaux')" title="Listen"></button> / Pronunciation: ले नॉँब्र ओर्दीनो</div>
+            
+            <p><strong>Definition:</strong> Ordinal numbers indicate position or order in a series (e.g., 1st, 2nd, 3rd / पहला, दूसरा, तीसरा).</p>
+
+            <div class="rule-card">
+                <strong>How to Form Ordinal Numbers from Cardinal Numbers:</strong><br>
+                • <strong>General Rule (+ième):</strong> Add the suffix <strong>-ième</strong> to the cardinal number (e.g., <em>deux</em> → <em>deuxième</em>, <em>trois</em> → <em>troisième</em>).<br>
+                • <strong>Words ending in 'e':</strong> Drop the final '-e' before adding '-ième' (e.g., <em>quatre</em> → <em>quatrième</em>, <em>seize</em> → <em>seizième</em>, <em>trente</em> → <em>trentième</em>).<br>
+                • <strong>Spelling Adjustment for 5 (cinq):</strong> Insert a 'u' before adding '-ième' → <strong>cinquième</strong>.<br>
+                • <strong>Spelling Adjustment for 9 (neuf):</strong> Change 'f' to 'v' before adding '-ième' → <strong>neuvième</strong>.<br>
+                • <strong>Special Rule for 1st:</strong> 1st uses unique words with gender distinction: <strong>premier</strong> (masculine) and <strong>première</strong> (feminine). From 2nd onwards, ordinal numbers are gender-neutral.<br>
+                • <strong>Compound Numbers ending in 1:</strong> 21st = <em>vingt-et-unième</em>, 31st = <em>trente-et-unième</em>, 41st = <em>quarante-et-unième</em> (do NOT use <em>premier</em> in compounds).
+            </div>
+
+            <!-- ORDINAL TABLE 0 TO 100 -->
+            <h3>Sequential Ordinal List (0th to 100th)</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>French Ordinal</th>
+                            <th>Pronunciation</th>
+                            <th>Hindi Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0th</td><td><strong>zéroième</strong></td><td>ज़ेरोयैम <button class="inline-audio-btn" onclick="playAudio('zéroième')" title="Listen"></button></td><td>शून्य-वाँ</td></tr>
+                        <tr><td>1st</td><td><strong>premier (m.) / première (f.)</strong></td><td>प्रमिये / प्रमिएर <button class="inline-audio-btn" onclick="playAudio('premier première')" title="Listen"></button></td><td>पहला / पहली</td></tr>
+                        <tr><td>2nd</td><td><strong>deuxième</strong></td><td>दुज़िएम <button class="inline-audio-btn" onclick="playAudio('deuxième')" title="Listen"></button></td><td>दूसरा</td></tr>
+                        <tr><td>3rd</td><td><strong>troisième</strong></td><td>त्वाज़िएम <button class="inline-audio-btn" onclick="playAudio('troisième')" title="Listen"></button></td><td>तीसरा</td></tr>
+                        <tr><td>4th</td><td><strong>quatrième</strong></td><td>कात्रिएम <button class="inline-audio-btn" onclick="playAudio('quatrième')" title="Listen"></button></td><td>चौथा</td></tr>
+                        <tr><td>5th</td><td><strong>cinquième</strong></td><td>सैंकिएम <button class="inline-audio-btn" onclick="playAudio('cinquième')" title="Listen"></button></td><td>पाँचवाँ</td></tr>
+                        <tr><td>6th</td><td><strong>sixième</strong></td><td>सीज़िएम <button class="inline-audio-btn" onclick="playAudio('sixième')" title="Listen"></button></td><td>छठा</td></tr>
+                        <tr><td>7th</td><td><strong>septième</strong></td><td>सेतिएम <button class="inline-audio-btn" onclick="playAudio('septième')" title="Listen"></button></td><td>सातवाँ</td></tr>
+                        <tr><td>8th</td><td><strong>huitième</strong></td><td>वीतिएम <button class="inline-audio-btn" onclick="playAudio('huitième')" title="Listen"></button></td><td>आठवाँ</td></tr>
+                        <tr><td>9th</td><td><strong>neuvième</strong></td><td>नुविएम <button class="inline-audio-btn" onclick="playAudio('neuvième')" title="Listen"></button></td><td>नौवाँ</td></tr>
+                        <tr><td>10th</td><td><strong>dixième</strong></td><td>दीज़िएम <button class="inline-audio-btn" onclick="playAudio('dixième')" title="Listen"></button></td><td>दसवाँ</td></tr>
+                        <tr><td>11th</td><td><strong>onzième</strong></td><td>ऑँज़िएम <button class="inline-audio-btn" onclick="playAudio('onzième')" title="Listen"></button></td><td>ग्यारहवाँ</td></tr>
+                        <tr><td>12th</td><td><strong>douzième</strong></td><td>दूज़िएम <button class="inline-audio-btn" onclick="playAudio('douzième')" title="Listen"></button></td><td>बारहवाँ</td></tr>
+                        <tr><td>13th</td><td><strong>treizième</strong></td><td>त्रेज़िएम <button class="inline-audio-btn" onclick="playAudio('treizième')" title="Listen"></button></td><td>तेरहवाँ</td></tr>
+                        <tr><td>14th</td><td><strong>quatorzième</strong></td><td>कातोर्ज़िएम <button class="inline-audio-btn" onclick="playAudio('quatorzième')" title="Listen"></button></td><td>चौदहवाँ</td></tr>
+                        <tr><td>15th</td><td><strong>quinzième</strong></td><td>कैंज़िएम <button class="inline-audio-btn" onclick="playAudio('quinzième')" title="Listen"></button></td><td>पंद्रहवाँ</td></tr>
+                        <tr><td>16th</td><td><strong>seizième</strong></td><td>सेज़िएम <button class="inline-audio-btn" onclick="playAudio('seizième')" title="Listen"></button></td><td>सोलहवाँ</td></tr>
+                        <tr><td>17th</td><td><strong>dix-septième</strong></td><td>दीस-सेतिएम <button class="inline-audio-btn" onclick="playAudio('dix-septième')" title="Listen"></button></td><td>सत्रहवाँ</td></tr>
+                        <tr><td>18th</td><td><strong>dix-huitième</strong></td><td>दीज़-वीतिएम <button class="inline-audio-btn" onclick="playAudio('dix-huitième')" title="Listen"></button></td><td>अठारहवाँ</td></tr>
+                        <tr><td>19th</td><td><strong>dix-neuvième</strong></td><td>दीस-नुविएम <button class="inline-audio-btn" onclick="playAudio('dix-neuvième')" title="Listen"></button></td><td>उन्नीसवाँ</td></tr>
+                        <tr><td>20th</td><td><strong>vingtième</strong></td><td>वैंतिएम <button class="inline-audio-btn" onclick="playAudio('vingtième')" title="Listen"></button></td><td>बीसवाँ</td></tr>
+                        <tr><td>21st</td><td><strong>vingt-et-unième</strong></td><td>वैंत-ए-उनिएम <button class="inline-audio-btn" onclick="playAudio('vingt-et-unième')" title="Listen"></button></td><td>इक्कीसवाँ</td></tr>
+                        <tr><td>22nd</td><td><strong>vingt-deuxième</strong></td><td>वैंत-दुज़िएम <button class="inline-audio-btn" onclick="playAudio('vingt-deuxième')" title="Listen"></button></td><td>बाईसवाँ</td></tr>
+                        <tr><td>23rd</td><td><strong>vingt-troisième</strong></td><td>वैंत-त्वाज़िएम <button class="inline-audio-btn" onclick="playAudio('vingt-troisième')" title="Listen"></button></td><td>तेईसवाँ</td></tr>
+                        <tr><td>24th</td><td><strong>vingt-quatrième</strong></td><td>वैंत-कात्रिएम <button class="inline-audio-btn" onclick="playAudio('vingt-quatrième')" title="Listen"></button></td><td>चौबीसवाँ</td></tr>
+                        <tr><td>25th</td><td><strong>vingt-cinquième</strong></td><td>वैंत-सैंकिएम <button class="inline-audio-btn" onclick="playAudio('vingt-cinquième')" title="Listen"></button></td><td>पच्चीसवाँ</td></tr>
+                        <tr><td>26th</td><td><strong>vingt-sixième</strong></td><td>वैंत-सीज़िएम <button class="inline-audio-btn" onclick="playAudio('vingt-sixième')" title="Listen"></button></td><td>छब्बीसवाँ</td></tr>
+                        <tr><td>27th</td><td><strong>vingt-septième</strong></td><td>वैंत-सेतिएम <button class="inline-audio-btn" onclick="playAudio('vingt-septième')" title="Listen"></button></td><td>सत्ताईसवाँ</td></tr>
+                        <tr><td>28th</td><td><strong>vingt-huitième</strong></td><td>वैंत-वीतिएम <button class="inline-audio-btn" onclick="playAudio('vingt-huitième')" title="Listen"></button></td><td>अट्ठाईसवाँ</td></tr>
+                        <tr><td>29th</td><td><strong>vingt-neuvième</strong></td><td>वैंत-नुविएम <button class="inline-audio-btn" onclick="playAudio('vingt-neuvième')" title="Listen"></button></td><td>उनतीसवाँ</td></tr>
+                        <tr><td>30th</td><td><strong>trentième</strong></td><td>त्रांतिएम <button class="inline-audio-btn" onclick="playAudio('trentième')" title="Listen"></button></td><td>तीसवाँ</td></tr>
+                        <tr><td>31st</td><td><strong>trente-et-unième</strong></td><td>त्रांत-ए-उनिएम <button class="inline-audio-btn" onclick="playAudio('trente-et-unième')" title="Listen"></button></td><td>इकतलीसवाँ</td></tr>
+                        <tr><td>40th</td><td><strong>quarantième</strong></td><td>कारान्तिएम <button class="inline-audio-btn" onclick="playAudio('quarantième')" title="Listen"></button></td><td>चालीसवाँ</td></tr>
+                        <tr><td>41st</td><td><strong>quarante-et-unième</strong></td><td>कारान्त-ए-उनिएम <button class="inline-audio-btn" onclick="playAudio('quarante-et-unième')" title="Listen"></button></td><td>इकतालीसवाँ</td></tr>
+                        <tr><td>45th</td><td><strong>quarante-cinquième</strong></td><td>कारान्त-सैंकिएम <button class="inline-audio-btn" onclick="playAudio('quarante-cinquième')" title="Listen"></button></td><td>पैंतालीसवाँ</td></tr>
+                        <tr><td>50th</td><td><strong>cinquantième</strong></td><td>सैंकांतिएम <button class="inline-audio-btn" onclick="playAudio('cinquantième')" title="Listen"></button></td><td>पचासवाँ</td></tr>
+                        <tr><td>60th</td><td><strong>soixantième</strong></td><td>स्वासांतिएम <button class="inline-audio-btn" onclick="playAudio('soixantième')" title="Listen"></button></td><td>साठवाँ</td></tr>
+                        <tr><td>65th</td><td><strong>soixante-cinquième</strong></td><td>स्वासांत-सैंकिएम <button class="inline-audio-btn" onclick="playAudio('soixante-cinquième')" title="Listen"></button></td><td>पैंसठवाँ</td></tr>
+                        <tr><td>70th</td><td><strong>soixante-dixième</strong></td><td>स्वासांत-दीज़िएम <button class="inline-audio-btn" onclick="playAudio('soixante-dixième')" title="Listen"></button></td><td>सत्तरवाँ</td></tr>
+                        <tr><td>75th</td><td><strong>soixante-quinzième</strong></td><td>स्वासांत-कैंज़िएम <button class="inline-audio-btn" onclick="playAudio('soixante-quinzième')" title="Listen"></button></td><td>पचहत्तरवाँ</td></tr>
+                        <tr><td>80th</td><td><strong>quatre-vingtième</strong></td><td>कात्र-वैंतिएम <button class="inline-audio-btn" onclick="playAudio('quatre-vingtième')" title="Listen"></button></td><td>अस्सीवाँ</td></tr>
+                        <tr><td>90th</td><td><strong>quatre-vingt-dixième</strong></td><td>कात्र-वैं-दीज़िएम <button class="inline-audio-btn" onclick="playAudio('quatre-vingt-dixième')" title="Listen"></button></td><td>नब्बेवाँ</td></tr>
+                        <tr><td>100th</td><td><strong>centième</strong></td><td>सॉँतिएम <button class="inline-audio-btn" onclick="playAudio('centième')" title="Listen"></button></td><td>सौवाँ</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- LARGE SCALE ORDINALS -->
+            <h3>Higher Scale Ordinal Examples</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Numeric</th>
+                            <th>French Ordinal Word</th>
+                            <th>Pronunciation</th>
+                            <th>Translation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>101st</td><td><strong>cent unième</strong></td><td>सॉँ उनिएम <button class="inline-audio-btn" onclick="playAudio('cent unième')" title="Listen"></button></td><td>101st / 101वाँ</td></tr>
+                        <tr><td>1,000th</td><td><strong>millième</strong></td><td>मीलिएम <button class="inline-audio-btn" onclick="playAudio('millième')" title="Listen"></button></td><td>1000th / हज़ारवाँ</td></tr>
+                        <tr><td>1,002nd</td><td><strong>mille deuxième</strong></td><td>मील दुज़िएम <button class="inline-audio-btn" onclick="playAudio('mille deuxième')" title="Listen"></button></td><td>1002nd / 1002वाँ</td></tr>
+                        <tr><td>1,020th</td><td><strong>mille-vingtième</strong></td><td>मील-वैंतिएम <button class="inline-audio-btn" onclick="playAudio('mille-vingtième')" title="Listen"></button></td><td>1020th / 1020वाँ</td></tr>
+                        <tr><td>1,100th</td><td><strong>mille centième</strong></td><td>मील सॉँतिएम <button class="inline-audio-btn" onclick="playAudio('mille centième')" title="Listen"></button></td><td>1100th / 1100वाँ</td></tr>
+                        <tr><td>1,200th</td><td><strong>mille deux centième</strong></td><td>मील दु सॉँतिएम <button class="inline-audio-btn" onclick="playAudio('mille deux centième')" title="Listen"></button></td><td>1200th / 1200वाँ</td></tr>
+                        <tr><td>1,260th</td><td><strong>mille deux cents soixantième</strong></td><td>मील दु सॉँ स्वासांतिएम <button class="inline-audio-btn" onclick="playAudio('mille deux cents soixantième')" title="Listen"></button></td><td>1260th / 1260वाँ</td></tr>
+                        <tr><td>2,000th</td><td><strong>deux millième</strong></td><td>दु मीलिएम <button class="inline-audio-btn" onclick="playAudio('deux millième')" title="Listen"></button></td><td>2000th / 2000वाँ</td></tr>
+                        <tr><td>1,000,000th</td><td><strong>millionième</strong></td><td>मीलियोनिएम <button class="inline-audio-btn" onclick="playAudio('millionième')" title="Listen"></button></td><td>1,000,000th / दस लाखवाँ</td></tr>
+                        <tr><td>2,000,000th</td><td><strong>deux millionième</strong></td><td>दु मीलियोनिएम <button class="inline-audio-btn" onclick="playAudio('deux millionième')" title="Listen"></button></td><td>2,000,000th / बीस लाखवाँ</td></tr>
+                        <tr><td>1,000,000,000th</td><td><strong>un milliardième</strong></td><td>अँ मीलियार्दिएम <button class="inline-audio-btn" onclick="playAudio('un milliardième')" title="Listen"></button></td><td>1,000,000,000th (billionth) / अरबवाँ</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 2: DATES -->
+            <h2>2. Dates in French (Les Dates)</h2>
+            <div class="section-pronunciation">French: <em>Les Dates</em> <button class="inline-audio-btn" onclick="playAudio('Les Dates')" title="Listen"></button> / Pronunciation: ले दात</div>
+
+            <p>The format of dates is very important for writing letters, making plans, or requesting appointments.</p>
+
+            <div class="rule-card">
+                <strong>Standard Date Structure & Grammatical Rules:</strong><br>
+                • French always uses the formula: <strong>le + day number + month + year</strong> (e.g., <em>le 18 avril 2013</em>).<br>
+                • <strong>The First Day Logic:</strong> When we talk about the first day of any month, the formula is slightly different — the **ordinal number** is used instead: <strong>le premier = 1er + month (+ year)</strong>.<br>
+                • For all other days (2, 3, 18, 31, etc.), use the regular **cardinal number**: <em>le 2 mai</em>, <em>le 18 avril 2013</em>.
+            </div>
+
+            <div class="example-box">
+                <strong>Asking & Answering Questions about Dates:</strong><br><br>
+                • <strong>Question:</strong> <em>Quelle est la date ?</em> <button class="inline-audio-btn" onclick="playAudio('Quelle est la date')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> केल ए ला दात ?<br>
+                &nbsp;&nbsp;<em>Translation:</em> What's the date? / आज क्या तारीख है?<br><br>
+
+                • <strong>Question:</strong> <em>Quelle est la date de ton anniversaire ?</em> <button class="inline-audio-btn" onclick="playAudio('Quelle est la date de ton anniversaire')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> केल ए ला दात द तों आनीवेर्सेर ?<br>
+                &nbsp;&nbsp;<em>Translation:</em> What is your birth date? / आपका जन्मदिन कब है?<br><br>
+
+                • <strong>Answer Example (Standard Day):</strong> <em>C'est le 18 avril 2013.</em> <button class="inline-audio-btn" onclick="playAudio('Cest le dix-huit avril deux mille treize')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> से ल दीज़-वीत आव्रील दु मील त्रेज़<br>
+                &nbsp;&nbsp;<em>Translation:</em> April 18, 2013 / 18 अप्रैल 2013<br><br>
+
+                • <strong>Answer Example (1st Day of Month):</strong> <em>C'est le premier mai.</em> <button class="inline-audio-btn" onclick="playAudio('Cest le premier mai')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> से ल प्रमिये मे<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is May 1st / यह 1 मई है
+            </div>
+
+            <!-- SECTION 3: TELLING TIME -->
+            <h2>3. Telling Time (L'Heure / Dire l'heure)</h2>
+            <div class="section-pronunciation">French: <em>Dire l'heure</em> <button class="inline-audio-btn" onclick="playAudio('Dire lheure')" title="Listen"></button> / Pronunciation: दीर लूर</div>
+
+            <p>It is important to tell time in French for traveling, meeting up with friends, making appointments, and getting to work or school on time.</p>
+
+            <div class="rule-card">
+                <strong>Key Vocabulary & Notation Rules:</strong><br>
+                • <strong>heure</strong> = hour / time / o'clock (pronounced <em>उर / ज़र</em> with a guttural French R).<br>
+                • <strong>Abbreviation 'h':</strong> The abbreviation <strong>h</strong> is used where a colon is used in English (e.g., <strong>1h00</strong> in French vs 1:00 in English, <strong>7h51</strong> in French vs 7:51 in English).<br>
+                • <strong>Asking Time in French:</strong> <em>Quelle heure est-il ?</em> (What time is it?)<br>
+                • <strong>Informal Expressions (used only with 1 to 12):</strong><br>
+                &nbsp;&nbsp;- <strong>et quart</strong> = quarter past (:15)<br>
+                &nbsp;&nbsp;- <strong>et demie</strong> = half past (:30)<br>
+                &nbsp;&nbsp;- <strong>moins le quart</strong> = quarter to (:45)<br>
+                &nbsp;&nbsp;- <strong>moins [minutes]</strong> = minus minutes (e.g., <em>moins dix</em> = 10 to)
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>French Term / Time Phrase</th>
+                            <th>Phonetics & Pronunciation</th>
+                            <th>English & Hindi Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>heure</strong></td><td>उर <button class="inline-audio-btn" onclick="playAudio('heure')" title="Listen"></button></td><td>hour / time / o'clock (घंटा/समय)</td></tr>
+                        <tr><td><strong>demie</strong></td><td>दमी <button class="inline-audio-btn" onclick="playAudio('demie')" title="Listen"></button></td><td>half (आधा / साढ़े)</td></tr>
+                        <tr><td><strong>le quart</strong></td><td>ल कार <button class="inline-audio-btn" onclick="playAudio('le quart')" title="Listen"></button></td><td>quarter (चौथाई / सवा)</td></tr>
+                        <tr><td><strong>Moins</strong></td><td>मुआँ <button class="inline-audio-btn" onclick="playAudio('moins')" title="Listen"></button></td><td>minus / to (कम / बाकी)</td></tr>
+                        <tr><td><strong>midi</strong></td><td>मीदी <button class="inline-audio-btn" onclick="playAudio('midi')" title="Listen"></button></td><td>noon (दोपहर के 12 बजे)</td></tr>
+                        <tr><td><strong>minuit</strong></td><td>मीनुई <button class="inline-audio-btn" onclick="playAudio('minuit')" title="Listen"></button></td><td>midnight (आधी रात के 12 बजे)</td></tr>
+                        <tr><td><strong>Le matin</strong></td><td>ल माताँ (नेज़ल) <button class="inline-audio-btn" onclick="playAudio('Le matin')" title="Listen"></button></td><td>morning / AM (सुबह)</td></tr>
+                        <tr><td><strong>Le soir / du soir</strong></td><td>ल स्वार <button class="inline-audio-btn" onclick="playAudio('Le soir')" title="Listen"></button></td><td>evening / PM (शाम)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Practical Time Examples (With Liaison & Correct Phonetics)</h3>
+            <div class="example-box">
+                • <strong>Asking Time:</strong> <em>Quelle heure est-il ?</em> <button class="inline-audio-btn" onclick="playAudio('Quelle heure est-il')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> केल उर ए-तील<br>
+                &nbsp;&nbsp;<em>Translation:</em> What time is it? / क्या समय हुआ है?<br><br>
+
+                • <strong>1h00:</strong> <em>Il est une heure.</em> <button class="inline-audio-btn" onclick="playAudio('Il est une heure')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए उन उर<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is 1 o'clock / 1 बजा है<br><br>
+
+                • <strong>3h00:</strong> <em>Il est trois heures.</em> <button class="inline-audio-btn" onclick="playAudio('Il est trois heures')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए त्वा ज़ूर<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is 3 o'clock / 3 बजे हैं<br><br>
+
+                • <strong>3h10:</strong> <em>Il est trois heures dix.</em> <button class="inline-audio-btn" onclick="playAudio('Il est trois heures dix')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए त्वा ज़ूर दीस<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is 3:10 / 3 बजकर 10 मिनट<br><br>
+
+                • <strong>8h20:</strong> <em>Il est huit heures vingt.</em> <button class="inline-audio-btn" onclick="playAudio('Il est huit heures vingt')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए वी-तज़र वैंत (Liaison applied)<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is 8:20 / 8 बजकर 20 मिनट<br><br>
+
+                • <strong>3h15:</strong> <em>Il est trois heures et quart.</em> <button class="inline-audio-btn" onclick="playAudio('Il est trois heures et quart')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए त्वा ज़ूर ए कार<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is quarter past 3 / सवा तीन बजे हैं<br><br>
+
+                • <strong>3h30:</strong> <em>Il est trois heures et demie.</em> <button class="inline-audio-btn" onclick="playAudio('Il est trois heures et demie')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए त्वा ज़ूर ए दमी<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is half past 3 / साढ़े तीन बजे हैं<br><br>
+
+                • <strong>15h00 (24-hr):</strong> <em>Il est quinze heures.</em> <button class="inline-audio-btn" onclick="playAudio('Il est quinze heures')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए कैंज़ उर<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is 15:00 (3:00 PM) / दोपहर के 3:00 बजे हैं<br><br>
+
+                • <strong>15h15 (24-hr):</strong> <em>Il est quinze heures quinze.</em> <button class="inline-audio-btn" onclick="playAudio('Il est quinze heures quinze')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए कैंज़ उर कैंज़<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is 15:15 (3:15 PM) / दोपहर के 3:15 बजे हैं<br><br>
+
+                • <strong>8 AM:</strong> <em>Huit heures du matin.</em> <button class="inline-audio-btn" onclick="playAudio('Huit heures du matin')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> वी-तज़र द्यु माताँ (Liaison applied with nasal 'matin')<br>
+                &nbsp;&nbsp;<em>Translation:</em> 8 o'clock in the morning / सुबह के 8 बजे<br><br>
+
+                • <strong>8 PM:</strong> <em>Huit heures du soir.</em> <button class="inline-audio-btn" onclick="playAudio('Huit heures du soir')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> वी-तज़र द्यु स्वार (Liaison applied)<br>
+                &nbsp;&nbsp;<em>Translation:</em> 8 o'clock in the evening / शाम के 8 बजे<br><br>
+
+                • <strong>4h45:</strong> <em>Il est cinq heures moins le quart.</em> <button class="inline-audio-btn" onclick="playAudio('Il est cinq heures moins le quart')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए सैं-कज़र मुआँ ल कार (Liaison applied)<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is quarter to 5 / पौने पाँच बजे हैं<br><br>
+
+                • <strong>4h50:</strong> <em>Il est cinq heures moins dix.</em> <button class="inline-audio-btn" onclick="playAudio('Il est cinq heures moins dix')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ईल ए सैं-कज़र मुआँ दीस (Liaison applied)<br>
+                &nbsp;&nbsp;<em>Translation:</em> It is 10 to 5 / पाँच बजने में 10 मिनट
+            </div>
+
+            <!-- SECTION 4: MOBILE NUMBERS -->
+            <h2>4. Mobile Numbers (Les Numéros de Téléphone)</h2>
+            <div class="section-pronunciation">French: <em>Les Numéros de Téléphone</em> <button class="inline-audio-btn" onclick="playAudio('Les Numéros de Téléphone')" title="Listen"></button> / Pronunciation: ले नुमेरो द टेलीफ़ोन</div>
+
+            <div class="rule-card">
+                <strong>How to Read & Write Phone Numbers in French:</strong><br>
+                • You should be very accurate with numbers, especially from <strong>0 to 99</strong>.<br>
+                • Phone numbers are shared and spoken in **groups of two digits** (pairs).<br>
+                • Standard 10-digit format: <strong>XX XX XX XX XX</strong>.
+            </div>
+
+            <div class="example-box">
+                <strong>Asking & Sharing Phone Numbers:</strong><br><br>
+                • <strong>Question:</strong> <em>Quel est votre numéro de téléphone ?</em> <button class="inline-audio-btn" onclick="playAudio('Quel est votre numéro de téléphone')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> केल ए वोत्र नुमेरो द टेलीफ़ोन ?<br>
+                &nbsp;&nbsp;<em>Translation:</em> What is your phone number? / आपका फोन नंबर क्या है?<br><br>
+
+                • <strong>Question:</strong> <em>Quel est ton numéro ?</em> <button class="inline-audio-btn" onclick="playAudio('Quel est ton numéro')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> केल ए तों नुमेरो ?<br>
+                &nbsp;&nbsp;<em>Translation:</em> What is your number? / तुम्हारा नंबर क्या है?<br><br>
+
+                • <strong>Exact Example from Slides:</strong><br>
+                &nbsp;&nbsp;<strong>02 20 24 98 75</strong><br>
+                &nbsp;&nbsp;<em>French Spoken Form:</em> <strong>zéro deux, vingt, vingt-quatre, quatre-vingt-dix-huit, soixante-quinze</strong> <button class="inline-audio-btn" onclick="playAudio('zéro deux, vingt, vingt-quatre, quatre-vingt-dix-huit, soixante-quinze')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Phonetic Pronunciation:</em> ज़ेरो दु, वैंत, वैंत-कात्र, कात्र-वैं-दीज़-वीत, स्वासांत-कैंज़<br>
+                &nbsp;&nbsp;<em>Breakdown in Pairs:</em> 02 (zéro deux) | 20 (vingt) | 24 (vingt-quatre) | 98 (quatre-vingt-dix-huit) | 75 (soixante-quinze)
+            </div>
+        </div>
+
+        <!-- Right Sidebar Quick Links Container -->
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
+    </div>
+
+    <!-- Footer container rendered via includes.js -->
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>

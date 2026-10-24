@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Basic French Knowledge</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --answer-key-bg: #e9ecef;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --answer-key-bg: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        .section-header {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+        }
+
+        .question-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .question-title {
+            font-weight: 600;
+            font-size: 1.02rem;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            background: rgba(0,0,0,0.02);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .option-item input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .option-item label {
+            cursor: pointer;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        .digital-clock-display {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .clock-box {
+            background: #000;
+            color: #00ff66;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 1.4rem;
+            padding: 8px 15px;
+            border-radius: 6px;
+            border: 2px solid #333;
+        }
+
+        .answer-key-section {
+            background-color: var(--answer-key-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 50px;
+            border: 2px dashed var(--primary-color);
+        }
+
+        .answer-key-section h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+
+        .answer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .answer-item {
+            background: var(--card-bg);
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <div id="header-container"></div>
+
+    <div class="main-layout-wrapper">
+        <div class="main-content-area">
+            <h1>Test Your Basic French Knowledge</h1>
+            <p class="subtitle">Comprehensive French Practice Assessment - 50 Questions</p>
+
+            <!-- Q1 to Q10 -->
+            <div class="question-card">
+                <div class="question-title">Q.1) Comment dit-on « To Go » en français ?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q1_a" name="q1"><label for="q1_a">a) être</label></div>
+                    <div class="option-item"><input type="radio" id="q1_b" name="q1"><label for="q1_b">b) avoir</label></div>
+                    <div class="option-item"><input type="radio" id="q1_c" name="q1"><label for="q1_c">c) aller</label></div>
+                    <div class="option-item"><input type="radio" id="q1_d" name="q1"><label for="q1_d">d) faire</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.2) Choisissez la phrase correcte :</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q2_a" name="q2"><label for="q2_a">a) Je vais à Lyon</label></div>
+                    <div class="option-item"><input type="radio" id="q2_b" name="q2"><label for="q2_b">b) Je viens Lyon</label></div>
+                    <div class="option-item"><input type="radio" id="q2_c" name="q2"><label for="q2_c">c) Je suis Lyon</label></div>
+                    <div class="option-item"><input type="radio" id="q2_d" name="q2"><label for="q2_d">d) J'habite à Lyon</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.3) Quel est votre numéro de téléphone ?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q3_a" name="q3"><label for="q3_a">a) Mon numéro téléphone est...</label></div>
+                    <div class="option-item"><input type="radio" id="q3_b" name="q3"><label for="q3_b">b) Mon numéro de téléphone est...</label></div>
+                    <div class="option-item"><input type="radio" id="q3_c" name="q3"><label for="q3_c">c) Je numéro de téléphone est...</label></div>
+                    <div class="option-item"><input type="radio" id="q3_d" name="q3"><label for="q3_d">d) Mon numéro du téléphone est...</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.4) Il est neuf heures vingt-cinq:</div>
+                <div class="digital-clock-display">
+                    <span class="clock-box">9:20</span>
+                    <span class="clock-box">9:12</span>
+                    <span class="clock-box">7:45</span>
+                    <span class="clock-box">9:25</span>
+                </div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q4_a" name="q4"><label for="q4_a">a) 9:20</label></div>
+                    <div class="option-item"><input type="radio" id="q4_b" name="q4"><label for="q4_b">b) 9:12</label></div>
+                    <div class="option-item"><input type="radio" id="q4_c" name="q4"><label for="q4_c">c) 7:45</label></div>
+                    <div class="option-item"><input type="radio" id="q4_d" name="q4"><label for="q4_d">d) 9:25</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.5) Quel mois a 30 jours ?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q5_a" name="q5"><label for="q5_a">a) Janvier</label></div>
+                    <div class="option-item"><input type="radio" id="q5_b" name="q5"><label for="q5_b">b) Février</label></div>
+                    <div class="option-item"><input type="radio" id="q5_c" name="q5"><label for="q5_c">c) Avril</label></div>
+                    <div class="option-item"><input type="radio" id="q5_d" name="q5"><label for="q5_d">d) Août</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.6) What beverage is well known in France?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q6_a" name="q6"><label for="q6_a">a) Le thé</label></div>
+                    <div class="option-item"><input type="radio" id="q6_b" name="q6"><label for="q6_b">b) Le café</label></div>
+                    <div class="option-item"><input type="radio" id="q6_c" name="q6"><label for="q6_c">c) Le vin</label></div>
+                    <div class="option-item"><input type="radio" id="q6_d" name="q6"><label for="q6_d">d) Le jus</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.7) Quel est l'hymne national de la France ?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q7_a" name="q7"><label for="q7_a">a) La France</label></div>
+                    <div class="option-item"><input type="radio" id="q7_b" name="q7"><label for="q7_b">b) La Musique</label></div>
+                    <div class="option-item"><input type="radio" id="q7_c" name="q7"><label for="q7_c">c) La Marseillaise</label></div>
+                    <div class="option-item"><input type="radio" id="q7_d" name="q7"><label for="q7_d">d) Le Chant</label></div>
+                </div>
+            </div>
+
+            <h3 class="section-header">Q.10-16 Choisissez le verbe correct</h3>
+
+            <div class="question-card">
+                <div class="question-title">Q.10) J'aime ____ français.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q10_a" name="q10"><label for="q10_a">a) parler</label></div>
+                    <div class="option-item"><input type="radio" id="q10_b" name="q10"><label for="q10_b">b) finir</label></div>
+                    <div class="option-item"><input type="radio" id="q10_c" name="q10"><label for="q10_c">c) vendre</label></div>
+                    <div class="option-item"><input type="radio" id="q10_d" name="q10"><label for="q10_d">d) être</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.11) Je veux ____ mon travail.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q11_a" name="q11"><label for="q11_a">a) parler</label></div>
+                    <div class="option-item"><input type="radio" id="q11_b" name="q11"><label for="q11_b">b) finir</label></div>
+                    <div class="option-item"><input type="radio" id="q11_c" name="q11"><label for="q11_c">c) vendre</label></div>
+                    <div class="option-item"><input type="radio" id="q11_d" name="q11"><label for="q11_d">d) aller</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.12) J'aime ____ au cinéma.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q12_a" name="q12"><label for="q12_a">a) aller</label></div>
+                    <div class="option-item"><input type="radio" id="q12_b" name="q12"><label for="q12_b">b) vais</label></div>
+                    <div class="option-item"><input type="radio" id="q12_c" name="q12"><label for="q12_c">c) va</label></div>
+                    <div class="option-item"><input type="radio" id="q12_d" name="q12"><label for="q12_d">d) allez</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.13) Je ____ étudiant.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q13_a" name="q13"><label for="q13_a">a) es</label></div>
+                    <div class="option-item"><input type="radio" id="q13_b" name="q13"><label for="q13_b">b) suis</label></div>
+                    <div class="option-item"><input type="radio" id="q13_c" name="q13"><label for="q13_c">c) est</label></div>
+                    <div class="option-item"><input type="radio" id="q13_d" name="q13"><label for="q13_d">d) sont</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.14) Tu ____ très sympa.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q14_a" name="q14"><label for="q14_a">a) suis</label></div>
+                    <div class="option-item"><input type="radio" id="q14_b" name="q14"><label for="q14_b">b) es</label></div>
+                    <div class="option-item"><input type="radio" id="q14_c" name="q14"><label for="q14_c">c) est</label></div>
+                    <div class="option-item"><input type="radio" id="q14_d" name="q14"><label for="q14_d">d) avons</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.15) Nous ____ étudiants.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q15_a" name="q15"><label for="q15_a">a) sommes</label></div>
+                    <div class="option-item"><input type="radio" id="q15_b" name="q15"><label for="q15_b">b) êtes</label></div>
+                    <div class="option-item"><input type="radio" id="q15_c" name="q15"><label for="q15_c">c) sont</label></div>
+                    <div class="option-item"><input type="radio" id="q15_d" name="q15"><label for="q15_d">d) suis</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.16) J' ____ un stylo.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q16_a" name="q16"><label for="q16_a">a) ai</label></div>
+                    <div class="option-item"><input type="radio" id="q16_b" name="q16"><label for="q16_b">b) as</label></div>
+                    <div class="option-item"><input type="radio" id="q16_c" name="q16"><label for="q16_c">c) a</label></div>
+                    <div class="option-item"><input type="radio" id="q16_d" name="q16"><label for="q16_d">d) ont</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.17) Choisissez la phrase correcte.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q17_a" name="q17"><label for="q17_a">a) Nous sommes des stylos</label></div>
+                    <div class="option-item"><input type="radio" id="q17_b" name="q17"><label for="q17_b">b) Nous avons des stylos</label></div>
+                    <div class="option-item"><input type="radio" id="q17_c" name="q17"><label for="q17_c">c) Nous est des stylos</label></div>
+                    <div class="option-item"><input type="radio" id="q17_d" name="q17"><label for="q17_d">d) Nous suis des stylos</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.18) Comment appelle-t-on cet endroit ? (Office / Workplace illustration)</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q18_a" name="q18"><label for="q18_a">a) L'école</label></div>
+                    <div class="option-item"><input type="radio" id="q18_b" name="q18"><label for="q18_b">b) Travail</label></div>
+                    <div class="option-item"><input type="radio" id="q18_c" name="q18"><label for="q18_c">c) La maison</label></div>
+                    <div class="option-item"><input type="radio" id="q18_d" name="q18"><label for="q18_d">d) Le parc</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.19) Quel fromage est célèbre en France ?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q19_a" name="q19"><label for="q19_a">a) Cheddar</label></div>
+                    <div class="option-item"><input type="radio" id="q19_b" name="q19"><label for="q19_b">b) Mozzarella</label></div>
+                    <div class="option-item"><input type="radio" id="q19_c" name="q19"><label for="q19_c">c) Camembert</label></div>
+                    <div class="option-item"><input type="radio" id="q19_d" name="q19"><label for="q19_d">d) Parmesan</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.20) Il est le frère de mon père. Il est mon ____.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q20_a" name="q20"><label for="q20_a">a) cousin</label></div>
+                    <div class="option-item"><input type="radio" id="q20_b" name="q20"><label for="q20_b">b) oncle</label></div>
+                    <div class="option-item"><input type="radio" id="q20_c" name="q20"><label for="q20_c">c) frère</label></div>
+                    <div class="option-item"><input type="radio" id="q20_d" name="q20"><label for="q20_d">d) grand-père</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.21) Elle est la mère de mon père. Elle est ma ____.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q21_a" name="q21"><label for="q21_a">a) tante</label></div>
+                    <div class="option-item"><input type="radio" id="q21_b" name="q21"><label for="q21_b">b) mère</label></div>
+                    <div class="option-item"><input type="radio" id="q21_c" name="q21"><label for="q21_c">c) grand-mère</label></div>
+                    <div class="option-item"><input type="radio" id="q21_d" name="q21"><label for="q21_d">d) sœur</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.22) Elle est la sœur de ma mère. Elle est ma ____.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q22_a" name="q22"><label for="q22_a">a) tante</label></div>
+                    <div class="option-item"><input type="radio" id="q22_b" name="q22"><label for="q22_b">b) belle-mère</label></div>
+                    <div class="option-item"><input type="radio" id="q22_c" name="q22"><label for="q22_c">c) sœur</label></div>
+                    <div class="option-item"><input type="radio" id="q22_d" name="q22"><label for="q22_d">d) grand-mère</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.23) Vous entendez : zéro deux, dix-huit, trente-trois, quatre-vingt-un</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q23_a" name="q23"><label for="q23_a">a) 02 18 33 81</label></div>
+                    <div class="option-item"><input type="radio" id="q23_b" name="q23"><label for="q23_b">b) 02 81 33 18</label></div>
+                    <div class="option-item"><input type="radio" id="q23_c" name="q23"><label for="q23_c">c) 02 18 13 81</label></div>
+                    <div class="option-item"><input type="radio" id="q23_d" name="q23"><label for="q23_d">d) 02 18 33 18</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.24) Quelle heure est indiquée ? (Clock showing 8:30)</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q24_a" name="q24"><label for="q24_a">a) Il est huit heures cinquante.</label></div>
+                    <div class="option-item"><input type="radio" id="q24_b" name="q24"><label for="q24_b">b) Il est huit heures et demie.</label></div>
+                    <div class="option-item"><input type="radio" id="q24_c" name="q24"><label for="q24_c">c) Il est neuf heures et demie</label></div>
+                    <div class="option-item"><input type="radio" id="q24_d" name="q24"><label for="q24_d">d) Il est un heure et quart.</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.25) Je vais ____ au marché.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q25_a" name="q25"><label for="q25_a">a) parler</label></div>
+                    <div class="option-item"><input type="radio" id="q25_b" name="q25"><label for="q25_b">b) finir</label></div>
+                    <div class="option-item"><input type="radio" id="q25_c" name="q25"><label for="q25_c">c) aller</label></div>
+                    <div class="option-item"><input type="radio" id="q25_d" name="q25"><label for="q25_d">d) vendre</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.26) Quel est son numéro de téléphone ? (02 20 24 98 75)</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q26_a" name="q26"><label for="q26_a">a) zéro deux, vingt, vingt-quatre, quatre-vingt-dix-huit, soixante-quinze</label></div>
+                    <div class="option-item"><input type="radio" id="q26_b" name="q26"><label for="q26_b">b) deux, vingt, vingt-quatre, quatre-vingt-dix-huit, soixante-quinze</label></div>
+                    <div class="option-item"><input type="radio" id="q26_c" name="q26"><label for="q26_c">c) zéro deux, vingt-deux, vingt-quatre, quatre-vingt-huit, soixante-quinze</label></div>
+                    <div class="option-item"><input type="radio" id="q26_d" name="q26"><label for="q26_d">d) zéro deux, vingt, vingt-quatre, quatre-vingt-dix, soixante-quinze</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.27) Cochez le bon nombre en français : 30 + 32</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q27_a" name="q27"><label for="q27_a">a) cinquante-deux</label></div>
+                    <div class="option-item"><input type="radio" id="q27_b" name="q27"><label for="q27_b">b) cinquante-trois</label></div>
+                    <div class="option-item"><input type="radio" id="q27_c" name="q27"><label for="q27_c">c) quarante-trois</label></div>
+                    <div class="option-item"><input type="radio" id="q27_d" name="q27"><label for="q27_d">d) soixante-deux</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.28) Cochez le bon nombre en français : 42 - 21</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q28_a" name="q28"><label for="q28_a">a) Vingt deux</label></div>
+                    <div class="option-item"><input type="radio" id="q28_b" name="q28"><label for="q28_b">b) Quarante deux</label></div>
+                    <div class="option-item"><input type="radio" id="q28_c" name="q28"><label for="q28_c">c) Vingt et un</label></div>
+                    <div class="option-item"><input type="radio" id="q28_d" name="q28"><label for="q28_d">d) Vingt</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.29) Le chat est ____ de la maison. (Cat sitting in front of the house)</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q29_a" name="q29"><label for="q29_a">a) derrière</label></div>
+                    <div class="option-item"><input type="radio" id="q29_b" name="q29"><label for="q29_b">b) dans</label></div>
+                    <div class="option-item"><input type="radio" id="q29_c" name="q29"><label for="q29_c">c) devant</label></div>
+                    <div class="option-item"><input type="radio" id="q29_d" name="q29"><label for="q29_d">d) sur</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.30) Il + ____ + quelle + heure?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q30_a" name="q30"><label for="q30_a">a) as</label></div>
+                    <div class="option-item"><input type="radio" id="q30_b" name="q30"><label for="q30_b">b) sont</label></div>
+                    <div class="option-item"><input type="radio" id="q30_c" name="q30"><label for="q30_c">c) est</label></div>
+                    <div class="option-item"><input type="radio" id="q30_d" name="q30"><label for="q30_d">d) ont</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.31) Cochez l'heure correcte en français : (Clock shows 3:00)</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q31_a" name="q31"><label for="q31_a">a) Il est douze heures</label></div>
+                    <div class="option-item"><input type="radio" id="q31_b" name="q31"><label for="q31_b">b) Il est trois heures</label></div>
+                    <div class="option-item"><input type="radio" id="q31_c" name="q31"><label for="q31_c">c) Il est quatre heures</label></div>
+                    <div class="option-item"><input type="radio" id="q31_d" name="q31"><label for="q31_d">d) Il est trois heures cinq</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.32) Quel est le format de la date en français ?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q32_a" name="q32"><label for="q32_a">a) Le MM/DD/YY</label></div>
+                    <div class="option-item"><input type="radio" id="q32_b" name="q32"><label for="q32_b">b) DD/MM/YY Le</label></div>
+                    <div class="option-item"><input type="radio" id="q32_c" name="q32"><label for="q32_c">c) DD/MM/YY</label></div>
+                    <div class="option-item"><input type="radio" id="q32_d" name="q32"><label for="q32_d">d) Le DD MM YYYY</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.33) Complétez : Marie est française. ____ habite à Paris.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q33_a" name="q33"><label for="q33_a">a) Il</label></div>
+                    <div class="option-item"><input type="radio" id="q33_b" name="q33"><label for="q33_b">b) Elle</label></div>
+                    <div class="option-item"><input type="radio" id="q33_c" name="q33"><label for="q33_c">c) Nous</label></div>
+                    <div class="option-item"><input type="radio" id="q33_d" name="q33"><label for="q33_d">d) Vous</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.34) Choisissez la phrase correcte :</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q34_a" name="q34"><label for="q34_a">a) J'ai premier ans</label></div>
+                    <div class="option-item"><input type="radio" id="q34_b" name="q34"><label for="q34_b">b) J'ai trois ans</label></div>
+                    <div class="option-item"><input type="radio" id="q34_c" name="q34"><label for="q34_c">c) J'ai troisième ans</label></div>
+                    <div class="option-item"><input type="radio" id="q34_d" name="q34"><label for="q34_d">d) J'ai deuxième ans</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.35) Nous ____ (aller) au marché.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q35_a" name="q35"><label for="q35_a">a) vais</label></div>
+                    <div class="option-item"><input type="radio" id="q35_b" name="q35"><label for="q35_b">b) vas</label></div>
+                    <div class="option-item"><input type="radio" id="q35_c" name="q35"><label for="q35_c">c) allons</label></div>
+                    <div class="option-item"><input type="radio" id="q35_d" name="q35"><label for="q35_d">d) va</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.36) Elles ____ arrivées à l'heure.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q36_a" name="q36"><label for="q36_a">a) ont</label></div>
+                    <div class="option-item"><input type="radio" id="q36_b" name="q36"><label for="q36_b">b) sont</label></div>
+                    <div class="option-item"><input type="radio" id="q36_c" name="q36"><label for="q36_c">c) est</label></div>
+                    <div class="option-item"><input type="radio" id="q36_d" name="q36"><label for="q36_d">d) ai</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.37) ____ allons au cinéma ce soir.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q37_a" name="q37"><label for="q37_a">a) Je</label></div>
+                    <div class="option-item"><input type="radio" id="q37_b" name="q37"><label for="q37_b">b) Tu</label></div>
+                    <div class="option-item"><input type="radio" id="q37_c" name="q37"><label for="q37_c">c) Nous</label></div>
+                    <div class="option-item"><input type="radio" id="q37_d" name="q37"><label for="q37_d">d) Il</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.38) Quelle action est montrée dans l'image donnée ? (Man eating food)</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q38_a" name="q38"><label for="q38_a">a) Il mange</label></div>
+                    <div class="option-item"><input type="radio" id="q38_b" name="q38"><label for="q38_b">b) Il attend</label></div>
+                    <div class="option-item"><input type="radio" id="q38_c" name="q38"><label for="q38_c">c) Il finit</label></div>
+                    <div class="option-item"><input type="radio" id="q38_d" name="q38"><label for="q38_d">d) Il se douche</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.39) Où Mike va-t-il ? (Flying out of Japan / Traveling)</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q39_a" name="q39"><label for="q39_a">a) Je viens du Japon</label></div>
+                    <div class="option-item"><input type="radio" id="q39_b" name="q39"><label for="q39_b">b) Je vais Japon</label></div>
+                    <div class="option-item"><input type="radio" id="q39_c" name="q39"><label for="q39_c">c) Je suis Japon</label></div>
+                    <div class="option-item"><input type="radio" id="q39_d" name="q39"><label for="q39_d">d) Je habite Japon</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.40) Le président est élu tous les ____ ans.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q40_a" name="q40"><label for="q40_a">a) six</label></div>
+                    <div class="option-item"><input type="radio" id="q40_b" name="q40"><label for="q40_b">b) sept</label></div>
+                    <div class="option-item"><input type="radio" id="q40_c" name="q40"><label for="q40_c">c) cinq</label></div>
+                    <div class="option-item"><input type="radio" id="q40_d" name="q40"><label for="q40_d">d) deux</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.41) Montagne célèbre de la France :</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q41_a" name="q41"><label for="q41_a">a) les Alpes</label></div>
+                    <div class="option-item"><input type="radio" id="q41_b" name="q41"><label for="q41_b">b) Bleu</label></div>
+                    <div class="option-item"><input type="radio" id="q41_c" name="q41"><label for="q41_c">c) Mont Everest</label></div>
+                    <div class="option-item"><input type="radio" id="q41_d" name="q41"><label for="q41_d">d) le Jura</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.42) A neighbouring country of France is:</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q42_a" name="q42"><label for="q42_a">a) Inde</label></div>
+                    <div class="option-item"><input type="radio" id="q42_b" name="q42"><label for="q42_b">b) Allemagne</label></div>
+                    <div class="option-item"><input type="radio" id="q42_c" name="q42"><label for="q42_c">c) Japon</label></div>
+                    <div class="option-item"><input type="radio" id="q42_d" name="q42"><label for="q42_d">d) Brésil</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.43) The clock shows 12 o'clock during the day.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q43_a" name="q43"><label for="q43_a">a) minuit</label></div>
+                    <div class="option-item"><input type="radio" id="q43_b" name="q43"><label for="q43_b">b) matin</label></div>
+                    <div class="option-item"><input type="radio" id="q43_c" name="q43"><label for="q43_c">c) midi</label></div>
+                    <div class="option-item"><input type="radio" id="q43_d" name="q43"><label for="q43_d">d) soirée</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.44) Vous regardez la télévision à 20 h. C'est :</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q44_a" name="q44"><label for="q44_a">a) le matin</label></div>
+                    <div class="option-item"><input type="radio" id="q44_b" name="q44"><label for="q44_b">b) midi</label></div>
+                    <div class="option-item"><input type="radio" id="q44_c" name="q44"><label for="q44_c">c) la soirée</label></div>
+                    <div class="option-item"><input type="radio" id="q44_d" name="q44"><label for="q44_d">d) minuit</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.45) You have lunch at 1 p.m. It is:</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q45_a" name="q45"><label for="q45_a">a) minuit</label></div>
+                    <div class="option-item"><input type="radio" id="q45_b" name="q45"><label for="q45_b">b) le matin</label></div>
+                    <div class="option-item"><input type="radio" id="q45_c" name="q45"><label for="q45_c">c) l'après-midi</label></div>
+                    <div class="option-item"><input type="radio" id="q45_d" name="q45"><label for="q45_d">d) la soirée</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.46) Which word is NOT a member of the family?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q46_a" name="q46"><label for="q46_a">a) Grand-mère</label></div>
+                    <div class="option-item"><input type="radio" id="q46_b" name="q46"><label for="q46_b">b) Sœur</label></div>
+                    <div class="option-item"><input type="radio" id="q46_c" name="q46"><label for="q46_c">c) prend</label></div>
+                    <div class="option-item"><input type="radio" id="q46_d" name="q46"><label for="q46_d">d) fils</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.47) Quel mot est lié au mariage ?</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q47_a" name="q47"><label for="q47_a">a) Tante</label></div>
+                    <div class="option-item"><input type="radio" id="q47_b" name="q47"><label for="q47_b">b) Oncle</label></div>
+                    <div class="option-item"><input type="radio" id="q47_c" name="q47"><label for="q47_c">c) beau-père</label></div>
+                    <div class="option-item"><input type="radio" id="q47_d" name="q47"><label for="q47_d">d) Cousin</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.48) Elle est la sœur de ma mère. Elle est ma ____.</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q48_a" name="q48"><label for="q48_a">a) tante</label></div>
+                    <div class="option-item"><input type="radio" id="q48_b" name="q48"><label for="q48_b">b) belle-mère</label></div>
+                    <div class="option-item"><input type="radio" id="q48_c" name="q48"><label for="q48_c">c) sœur</label></div>
+                    <div class="option-item"><input type="radio" id="q48_d" name="q48"><label for="q48_d">d) grand-mère</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.49) Choisissez la conjugaison correcte :</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q49_a" name="q49"><label for="q49_a">a) Je finissons mon travail</label></div>
+                    <div class="option-item"><input type="radio" id="q49_b" name="q49"><label for="q49_b">b) Je finit mon travail</label></div>
+                    <div class="option-item"><input type="radio" id="q49_c" name="q49"><label for="q49_c">c) Je finis mon travail</label></div>
+                    <div class="option-item"><input type="radio" id="q49_d" name="q49"><label for="q49_d">d) Je finissez mon travail</label></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">Q.50) Choisissez la prononciation correcte de « compagnie » :</div>
+                <div class="options-grid">
+                    <div class="option-item"><input type="radio" id="q50_a" name="q50"><label for="q50_a">a) kom-pag-nee</label></div>
+                    <div class="option-item"><input type="radio" id="q50_b" name="q50"><label for="q50_b">b) kohm-pahn-yee</label></div>
+                    <div class="option-item"><input type="radio" id="q50_c" name="q50"><label for="q50_c">c) com-pain</label></div>
+                    <div class="option-item"><input type="radio" id="q50_d" name="q50"><label for="q50_d">d) kohm-pahg-nee</label></div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY SECTION -->
+            <div class="answer-key-section">
+                <h2>Answer Key</h2>
+                <div class="answer-grid">
+                    <div class="answer-item"><strong>Q1:</strong> c) aller</div>
+                    <div class="answer-item"><strong>Q2:</strong> a) Je vais à Lyon</div>
+                    <div class="answer-item"><strong>Q3:</strong> b) Mon numéro de téléphone est...</div>
+                    <div class="answer-item"><strong>Q4:</strong> d) 9:25</div>
+                    <div class="answer-item"><strong>Q5:</strong> c) Avril</div>
+                    <div class="answer-item"><strong>Q6:</strong> c) Le vin</div>
+                    <div class="answer-item"><strong>Q7:</strong> c) La Marseillaise</div>
+                    <div class="answer-item"><strong>Q10:</strong> a) parler</div>
+                    <div class="answer-item"><strong>Q11:</strong> b) finir</div>
+                    <div class="answer-item"><strong>Q12:</strong> a) aller</div>
+                    <div class="answer-item"><strong>Q13:</strong> b) suis</div>
+                    <div class="answer-item"><strong>Q14:</strong> b) es</div>
+                    <div class="answer-item"><strong>Q15:</strong> a) sommes</div>
+                    <div class="answer-item"><strong>Q16:</strong> a) ai</div>
+                    <div class="answer-item"><strong>Q17:</strong> b) Nous avons des stylos</div>
+                    <div class="answer-item"><strong>Q18:</strong> b) Travail</div>
+                    <div class="answer-item"><strong>Q19:</strong> c) Camembert</div>
+                    <div class="answer-item"><strong>Q20:</strong> b) oncle</div>
+                    <div class="answer-item"><strong>Q21:</strong> c) grand-mère</div>
+                    <div class="answer-item"><strong>Q22:</strong> a) tante</div>
+                    <div class="answer-item"><strong>Q23:</strong> a) 02 18 33 81</div>
+                    <div class="answer-item"><strong>Q24:</strong> b) Il est huit heures et demie.</div>
+                    <div class="answer-item"><strong>Q25:</strong> c) aller</div>
+                    <div class="answer-item"><strong>Q26:</strong> a) zéro deux, vingt, vingt-quatre, quatre-vingt-dix-huit, soixante-quinze</div>
+                    <div class="answer-item"><strong>Q27:</strong> d) soixante-deux</div>
+                    <div class="answer-item"><strong>Q28:</strong> c) Vingt et un</div>
+                    <div class="answer-item"><strong>Q29:</strong> c) devant</div>
+                    <div class="answer-item"><strong>Q30:</strong> c) est</div>
+                    <div class="answer-item"><strong>Q31:</strong> b) Il est trois heures</div>
+                    <div class="answer-item"><strong>Q32:</strong> d) Le DD MM YYYY</div>
+                    <div class="answer-item"><strong>Q33:</strong> b) Elle</div>
+                    <div class="answer-item"><strong>Q34:</strong> b) J'ai trois ans</div>
+                    <div class="answer-item"><strong>Q35:</strong> c) allons</div>
+                    <div class="answer-item"><strong>Q36:</strong> b) sont</div>
+                    <div class="answer-item"><strong>Q37:</strong> c) Nous</div>
+                    <div class="answer-item"><strong>Q38:</strong> a) Il mange</div>
+                    <div class="answer-item"><strong>Q39:</strong> a) Je viens du Japon</div>
+                    <div class="answer-item"><strong>Q40:</strong> c) cinq</div>
+                    <div class="answer-item"><strong>Q41:</strong> a) les Alpes</div>
+                    <div class="answer-item"><strong>Q42:</strong> b) Allemagne</div>
+                    <div class="answer-item"><strong>Q43:</strong> c) midi</div>
+                    <div class="answer-item"><strong>Q44:</strong> c) la soirée</div>
+                    <div class="answer-item"><strong>Q45:</strong> c) l'après-midi</div>
+                    <div class="answer-item"><strong>Q46:</strong> c) prend</div>
+                    <div class="answer-item"><strong>Q47:</strong> c) beau-père</div>
+                    <div class="answer-item"><strong>Q48:</strong> a) tante</div>
+                    <div class="answer-item"><strong>Q49:</strong> c) Je finis mon travail</div>
+                    <div class="answer-item"><strong>Q50:</strong> b) kohm-pahn-yee</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>

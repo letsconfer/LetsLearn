@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Pronouns & Essential Verbs (Être, Avoir, Aller, Faire)</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --highlight-bg: #d4edda;
+            --highlight-text: #155724;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --highlight-bg: #1e3a29;
+            --highlight-text: #a3e635;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--text-color);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .section-pronunciation {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .rule-card {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .example-box {
+            background-color: #e8f5e9;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2e7d32;
+        }
+
+        [data-theme="dark"] .example-box {
+            background-color: #1e3a29;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <div id="header-container"></div>
+
+    <div class="main-layout-wrapper">
+        <div class="main-content-area">
+            <h1>French Pronouns & Essential Verbs</h1>
+            <p class="subtitle">Deep Dive into Subject Pronouns, Elision, Reflexive Verbs, and Verbs: Être, Avoir, Aller, & Faire</p>
+
+            <!-- SECTION 1: PRONOUNS -->
+            <h2>1. French Pronouns (Les Pronoms)</h2>
+            <div class="section-pronunciation">French: <em>Les Pronoms</em> <button class="inline-audio-btn" onclick="playAudio('Les Pronoms')" title="Listen"></button> / Pronunciation: ले प्रोनॉँ</div>
+            
+            <p><strong>Definition:</strong> Pronouns are words such as I, he, she, and they that perform the action expressed by the verb. Pronouns stand in for nouns when it is clear who is being talked about (e.g., <em>My brother isn’t here at the moment. He’ll be back in an hour.</em>).</p>
+
+            <div class="rule-card">
+                <strong>Subject Pronouns (Les Pronoms Sujets):</strong><br>
+                • <strong>1st Person Singular:</strong> <em>Je</em> (I) / <strong>Elision Rule:</strong> When <em>Je</em> is followed by a word starting with a vowel or mute 'h', it drops 'e' and becomes <strong>J'</strong> (e.g., <em>j'ai</em>, <em>j'habite</em>).<br>
+                • <strong>2nd Person Singular:</strong> <em>Tu</em> (You - informal / singular).<br>
+                • <strong>3rd Person Singular:</strong> <em>Il</em> (He / It - masculine), <em>Elle</em> (She / It - feminine), <em>On</em> (One / We - informal singular/general pronoun).<br>
+                • <strong>1st Person Plural:</strong> <em>Nous</em> (We).<br>
+                • <strong>2nd Person Plural:</strong> <em>Vous</em> (You - formal singular 'aap' / plural 'aap sab').<br>
+                • <strong>3rd Person Plural:</strong> <em>Ils</em> (They - masculine or mixed group), <em>Elles</em> (They - exclusively feminine group).
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Person & Number</th>
+                            <th>French Pronoun</th>
+                            <th>Phonetics & Pronunciation</th>
+                            <th>English & Hindi Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1st Pers. Sing.</td><td><strong>Je / J'</strong></td><td>ज / ज्र (ज्ज़ाँ) <button class="inline-audio-btn" onclick="playAudio('Je')" title="Listen"></button></td><td>I / मैं</td></tr>
+                        <tr><td>2nd Pers. Sing.</td><td><strong>Tu</strong></td><td>त्यु <button class="inline-audio-btn" onclick="playAudio('Tu')" title="Listen"></button></td><td>You (informal) / तुम</td></tr>
+                        <tr><td>3rd Pers. Sing.</td><td><strong>Il / Elle / On</strong></td><td>इल / एल / ऑँ <button class="inline-audio-btn" onclick="playAudio('Il Elle On')" title="Listen"></button></td><td>He/She/It/One / वह / हम (अनौपचारिक)</td></tr>
+                        <tr><td>1st Pers. Plu.</td><td><strong>Nous</strong></td><td>नू <button class="inline-audio-btn" onclick="playAudio('Nous')" title="Listen"></button></td><td>We / हम</td></tr>
+                        <tr><td>2nd Pers. Plu.</td><td><strong>Vous</strong></td><td>वू <button class="inline-audio-btn" onclick="playAudio('Vous')" title="Listen"></button></td><td>You (formal/plural) / आप</td></tr>
+                        <tr><td>3rd Pers. Plu.</td><td><strong>Ils / Elles</strong></td><td>इल / एल (Liaison applied) <button class="inline-audio-btn" onclick="playAudio('Ils Elles')" title="Listen"></button></td><td>They (Masc/Fem) / वे</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Pronoun Mapping Rules for Names & Groups</h3>
+            <div class="rule-card">
+                • <strong>Mohan</strong> (Male name) → <strong>Il</strong><br>
+                • <strong>Meena</strong> (Female name) → <strong>Elle</strong><br>
+                • <strong>Mohan et Manoj</strong> (All male / mixed group) → <strong>Ils</strong><br>
+                • <strong>Meena et Geeta</strong> (Exclusively female group) → <strong>Elles</strong><br>
+                • <strong>Mohan et Meena</strong> (Mixed male & female group) → <strong>Ils</strong> (Masculine plural takes precedence)
+            </div>
+
+            <!-- SECTION 2: VERBS OVERVIEW -->
+            <h2>2. Verbs Overview: Auxiliaries, Infinitives & Reflexives</h2>
+            <div class="section-pronunciation">French: <em>Les Verbes</em> <button class="inline-audio-btn" onclick="playAudio('Les Verbes')" title="Listen"></button> / Pronunciation: ले वेर्ब</div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Auxiliary / Helping Verbs</th>
+                            <th>Infinitive Verbs (-ER / -IR / -RE)</th>
+                            <th>Reflexive Verbs (Action on Oneself)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                • <strong>être</strong> = to be<br>
+                                • <strong>avoir</strong> = to have<br>
+                                • <strong>aller</strong> = to go<br>
+                                • <strong>faire</strong> = to do / to make
+                            </td>
+                            <td>
+                                • <strong>75% Regular</strong> (Follow strict grammatical logic, e.g., <em>parler</em>, <em>finir</em>, <em>vendre</em>)<br>
+                                • <strong>25% Irregular</strong> (No fixed conjugation logic, must be memorized)
+                            </td>
+                            <td>
+                                • Myself = <em>me</em><br>
+                                • Yourself = <em>te</em><br>
+                                • Himself/Herself = <em>se</em><br>
+                                • Ourselves = <em>nous</em><br>
+                                • Yourselves = <em>vous</em><br>
+                                • Themselves = <em>se</em>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SECTION 3: VERB ÊTRE -->
+            <h2>3. The Verb Être (To Be) - Present Indicative</h2>
+            <div class="section-pronunciation">French: <em>Verbe être - Indicatif présent</em> <button class="inline-audio-btn" onclick="playAudio('Verbe être')" title="Listen"></button> / Pronunciation: वेर्ब एत्र - अँदीकातिफ प्रेजाँ</div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pronoun</th>
+                            <th>Conjugation</th>
+                            <th>Phonetics with Liaison</th>
+                            <th>English & Hindi Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Je</td><td><strong>suis</strong></td><td>ज सुई <button class="inline-audio-btn" onclick="playAudio('Je suis')" title="Listen"></button></td><td>I am / मैं हूँ</td></tr>
+                        <tr><td>Tu</td><td><strong>es</strong></td><td>त्यु ए <button class="inline-audio-btn" onclick="playAudio('Tu es')" title="Listen"></button></td><td>You are / तू है (तुझसे)</td></tr>
+                        <tr><td>Il / Elle / On</td><td><strong>est</strong></td><td>इल ए / एल ए / ऑँ ए <button class="inline-audio-btn" onclick="playAudio('Il est')" title="Listen"></button></td><td>He/She/It/One is / वह है</td></tr>
+                        <tr><td>Nous</td><td><strong>sommes</strong></td><td>नू सोम्म् <button class="inline-audio-btn" onclick="playAudio('Nous sommes')" title="Listen"></button></td><td>We are / हम हैं</td></tr>
+                        <tr><td>Vous</td><td><strong>êtes</strong></td><td>वू-ज़ेत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Vous êtes')" title="Listen"></button></td><td>You are / आप हैं</td></tr>
+                        <tr><td>Ils / Elles</td><td><strong>sont</strong></td><td>इल्ज़ ऑँत / एल्ज़ ऑँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils sont')" title="Listen"></button></td><td>They are / वे हैं</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Practical Sentences with Être & Possessive Adjectives (Mon / Ma / Mes)</h3>
+            <div class="rule-card">
+                <strong>Possessive Adjectives ("My"):</strong><br>
+                • <strong>Mon</strong> = Masculine singular (e.g., <em>mon frère</em>)<br>
+                • <strong>Ma</strong> = Feminine singular (e.g., <em>ma sœur</em>)<br>
+                • <strong>Mes</strong> = Plural for both genders (e.g., <em>mes amis</em>)
+            </div>
+
+            <div class="example-box">
+                • <em>Je suis un / une étudiant(e).</em> <button class="inline-audio-btn" onclick="playAudio('Je suis un étudiant')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ज सुई अन एत्युदियांत<br>
+                &nbsp;&nbsp;<em>Translation:</em> I am a student. / मैं एक छात्र/छात्रा हूँ。<br><br>
+
+                • <em>Tu es un médecin.</em> <button class="inline-audio-btn" onclick="playAudio('Tu es un médecin')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> त्यु ए अन मेदसाँ<br>
+                &nbsp;&nbsp;<em>Translation:</em> You are a doctor. / तुम एक डॉक्टर हो।<br><br>
+
+                • <em>Il est un acteur.</em> <button class="inline-audio-btn" onclick="playAudio('Il est un acteur')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> इल ए-तन आक्तूर (Liaison)<br>
+                &nbsp;&nbsp;<em>Translation:</em> He is an actor. / वह एक अभिनेता है।<br><br>
+
+                • <em>Elle est une actrice.</em> <button class="inline-audio-btn" onclick="playAudio('Elle est une actrice')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> एल ए उन आक्ट्रीस<br>
+                &nbsp;&nbsp;<em>Translation:</em> She is an actress. / वह एक अभिनेत्री है।<br><br>
+
+                • <em>Nous sommes avocats.</em> <button class="inline-audio-btn" onclick="playAudio('Nous sommes avocats')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> नू सोम्म् आवोका<br>
+                &nbsp;&nbsp;<em>Translation:</em> We are advocates. / हम वकील हैं।<br><br>
+
+                • <em>Vous êtes mon frère.</em> <button class="inline-audio-btn" onclick="playAudio('Vous êtes mon frère')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> वू-ज़ेत मॉँ फ्रेर (Liaison)<br>
+                &nbsp;&nbsp;<em>Translation:</em> You are my brother. / आप मेरे भाई हैं।<br><br>
+
+                • <em>Ils sont mes amis.</em> <button class="inline-audio-btn" onclick="playAudio('Ils sont mes amis')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> इल्ज़ सॉँ मे ज़मी (Liaison)<br>
+                &nbsp;&nbsp;<em>Translation:</em> They are my friends. / वे मेरे दोस्त हैं।<br><br>
+
+                • <em>Manoj, Mohan et Karanveer sont mes amis.</em> <button class="inline-audio-btn" onclick="playAudio('Manoj Mohan et Karanveer sont mes amis')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> मनोज, मोहॉँ ए करनवीर सॉँ मे ज़मी<br>
+                &nbsp;&nbsp;<em>Translation:</em> Manoj, Mohan, and Karanveer are my friends.<br><br>
+
+                • <em>Meena, Geeta et Vinisha sont mes amies.</em> <button class="inline-audio-btn" onclick="playAudio('Meena Geeta et Vinisha sont mes amies')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> मीना, गीता ए विनीशा सॉँ मे ज़मी<br>
+                &nbsp;&nbsp;<em>Translation:</em> Meena, Geeta, and Vinisha are my female friends.
+            </div>
+
+            <!-- SECTION 4: VERB AVOIR -->
+            <h2>4. The Verb Avoir (To Have) - Present Indicative</h2>
+            <div class="section-pronunciation">French: <em>Verbe avoir - Indicatif présent</em> <button class="inline-audio-btn" onclick="playAudio('Verbe avoir')" title="Listen"></button> / Pronunciation: वेर्ब आव्वार - अँदीकातिफ प्रेजाँ</div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pronoun</th>
+                            <th>Conjugation</th>
+                            <th>Phonetics with Liaison & Elision</th>
+                            <th>English & Hindi Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>J'</td><td><strong>ai</strong></td><td>जे (Elision) <button class="inline-audio-btn" onclick="playAudio('J ai')" title="Listen"></button></td><td>I have / मेरे पास है</td></tr>
+                        <tr><td>Tu</td><td><strong>as</strong></td><td>त्यु आ <button class="inline-audio-btn" onclick="playAudio('Tu as')" title="Listen"></button></td><td>You have / तुम्हारे पास है</td></tr>
+                        <tr><td>Il / Elle / On</td><td><strong>a</strong></td><td>इल आ / एल आ / ऑँ आ <button class="inline-audio-btn" onclick="playAudio('Il a')" title="Listen"></button></td><td>He/She/One has / उसके पास है</td></tr>
+                        <tr><td>Nous</td><td><strong>avons</strong></td><td>नू-ज़ावॉँ (Liaison) <button class="inline-audio-btn" onclick="playAudio('Nous avons')" title="Listen"></button></td><td>We have / हमारे पास है</td></tr>
+                        <tr><td>Vous</td><td><strong>avez</strong></td><td>वू-ज़ावे (Liaison) <button class="inline-audio-btn" onclick="playAudio('Vous avez')" title="Listen"></button></td><td>You have / आपके पास है</td></tr>
+                        <tr><td>Ils / Elles</td><td><strong>ont</strong></td><td>इल्ज़ ऑँत / एल्ज़ ऑँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils ont')" title="Listen"></button></td><td>They have / उनके पास है</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Practical Sentences with Avoir & "Des" (Some)</h3>
+            <div class="example-box">
+                • <em>J'ai un stylo.</em> <button class="inline-audio-btn" onclick="playAudio('Jai un stylo')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> जे अन स्तीलो<br>
+                &nbsp;&nbsp;<em>Translation:</em> I have a pen. / मेरे पास एक पेन है।<br><br>
+
+                • <em>Tu as un stylo.</em> <button class="inline-audio-btn" onclick="playAudio('Tu as un stylo')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> त्यु आ अन स्तीलो<br>
+                &nbsp;&nbsp;<em>Translation:</em> You have a pen. / तुम्हारे पास एक पेन है।<br><br>
+
+                • <em>On a faim.</em> <button class="inline-audio-btn" onclick="playAudio('On a faim')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ऑँ ना फैँ (Liaison)<br>
+                &nbsp;&nbsp;<em>Translation:</em> We are hungry (We have hunger). / हमें भूख लगी है।<br><br>
+
+                • <em>Nous avons des stylos.</em> <button class="inline-audio-btn" onclick="playAudio('Nous avons des stylos')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> नू-ज़ावॉँ डे स्तीलो (Liaison)<br>
+                &nbsp;&nbsp;<em>Translation:</em> We have some pens. (<em>des</em> = some).<br><br>
+
+                • <em>Avez-vous un stylo ?</em> <button class="inline-audio-btn" onclick="playAudio('Avez vous un stylo')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> आवे-वू अन स्तीलो ?<br>
+                &nbsp;&nbsp;<em>Translation:</em> Do you have a pen? / क्या आपके पास पेन है?<br><br>
+
+                • <em>J'ai une voiture.</em> <button class="inline-audio-btn" onclick="playAudio('Jai une voiture')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> जे उन वूत्र<br>
+                &nbsp;&nbsp;<em>Translation:</em> I have a car. / मेरे पास एक कार है।<br><br>
+
+                • <em>Il a un taille-crayon.</em> <button class="inline-audio-btn" onclick="playAudio('Il a un taille-crayon')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> इल आ अन ताय-क्रेयॉँ<br>
+                &nbsp;&nbsp;<em>Translation:</em> He has a sharpener. / उसके पास कटर है।
+            </div>
+
+            <!-- SECTION 5: VERB ALLER -->
+            <h2>5. The Verb Aller (To Go) - Irregular Verb</h2>
+            <div class="section-pronunciation">French: <em>Verbe aller - Indicatif présent</em> <button class="inline-audio-btn" onclick="playAudio('Verbe aller')" title="Listen"></button> / Pronunciation: वेर्ब आल्ले - अँदीकातिफ प्रेजाँ</div>
+
+            <p><strong>Definition:</strong> <em>Aller</em> means "to go". It is one of the most common irregular verbs in French and is also used to form near-future tense sentences.</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pronoun</th>
+                            <th>Conjugation</th>
+                            <th>Phonetics</th>
+                            <th>English & Hindi Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Je</td><td><strong>vais</strong></td><td>ज वे <button class="inline-audio-btn" onclick="playAudio('Je vais')" title="Listen"></button></td><td>I am going / मैं जा रहा हूँ</td></tr>
+                        <tr><td>Tu</td><td><strong>vas</strong></td><td>त्यु वा <button class="inline-audio-btn" onclick="playAudio('Tu vas')" title="Listen"></button></td><td>You are going / तुम जा रहे हो</td></tr>
+                        <tr><td>Il / Elle / On</td><td><strong>va</strong></td><td>इल वा / एल वा / ऑँ वा <button class="inline-audio-btn" onclick="playAudio('Il va')" title="Listen"></button></td><td>He/She/One is going / वह जा रहा/रही है</td></tr>
+                        <tr><td>Nous</td><td><strong>allons</strong></td><td>नू-ज़ालॉँ (Liaison) <button class="inline-audio-btn" onclick="playAudio('Nous allons')" title="Listen"></button></td><td>We are going / हम जा रहे हैं</td></tr>
+                        <tr><td>Vous</td><td><strong>allez</strong></td><td>वू-ज़ाले (Liaison) <button class="inline-audio-btn" onclick="playAudio('Vous allez')" title="Listen"></button></td><td>You are going / आप जा रहे हैं</td></tr>
+                        <tr><td>Ils / Elles</td><td><strong>vont</strong></td><td>इल्ज़ वॉँत / एल्ज़ वॉँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils vont')" title="Listen"></button></td><td>They are going / वे जा रहे हैं</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Preposition Rules with Places & Countries (Aller + Destination)</h3>
+            <div class="rule-card">
+                • <strong>au</strong> + Masculine singular country/place (e.g., <em>au Canada</em>, <em>au Japon</em>, <em>au Mexique</em>, <em>au théâtre</em>, <em>au zoo</em>, <em>au restaurant</em>, <em>au parc</em>).<br>
+                • <strong>en</strong> + Feminine singular country or country starting with a vowel (e.g., <em>en Inde</em>).<br>
+                • <strong>à la</strong> + Feminine singular place (e.g., <em>à la piscine</em>).<br>
+                • <strong>à l'</strong> + Place starting with a vowel (e.g., <em>à l'école</em>).<br>
+                • <strong>à</strong> + City name (e.g., <em>à Paris</em>).<br>
+                • <strong>aux</strong> + Plural country/place (e.g., <em>aux États-Unis</em>, <em>aux Pays-Bas</em>).
+            </div>
+
+            <div class="example-box">
+                • <em>Je vais au théâtre.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais au théâtre')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ज वे ओ थियात्र<br>
+                &nbsp;&nbsp;<em>Translation:</em> I am theater. / मैं थिएटर जा रहा हूँ।<br><br>
+
+                • <em>Tu vas à l'école.</em> <button class="inline-audio-btn" onclick="playAudio('Tu vas à lecole')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> त्यु वा आ लेकोल (Elision)<br>
+                &nbsp;&nbsp;<em>Translation:</em> You are going to school. / तुम स्कूल जा रहे हो।<br><br>
+
+                • <em>Il va au Japon.</em> <button class="inline-audio-btn" onclick="playAudio('Il va au Japon')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> इल वा ओ जापॉँ<br>
+                &nbsp;&nbsp;<em>Translation:</em> He is going to Japan. / वह जापान जा रहा है।<br><br>
+
+                • <em>Nous allons aux États-Unis.</em> <button class="inline-audio-btn" onclick="playAudio('Nous allons aux États-Unis')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> नू-ज़ालॉँ ओज़ एतात-युनी (Liaison)<br>
+                &nbsp;&nbsp;<em>Translation:</em> We are going to the United States. / हम अमेरिका जा रहे हैं।
+            </div>
+
+            <!-- SECTION 6: VERB FAIRE -->
+            <h2>6. The Verb Faire (To Do / To Make)</h2>
+            <div class="section-pronunciation">French: <em>Verbe faire - Indicatif présent</em> <button class="inline-audio-btn" onclick="playAudio('Verbe faire')" title="Listen"></button> / Pronunciation: वेर्ब फेर - अँदीकातिफ प्रेजाँ</div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pronoun</th>
+                            <th>Conjugation</th>
+                            <th>Phonetics</th>
+                            <th>English & Hindi Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Je</td><td><strong>fais</strong></td><td>ज फे <button class="inline-audio-btn" onclick="playAudio('Je fais')" title="Listen"></button></td><td>I do/make / मैं करता/बनता हूँ</td></tr>
+                        <tr><td>Tu</td><td><strong>fais</strong></td><td>त्यु फे <button class="inline-audio-btn" onclick="playAudio('Tu fais')" title="Listen"></button></td><td>You do/make / तुम करते हो</td></tr>
+                        <tr><td>Il / Elle / On</td><td><strong>fait</strong></td><td>इल फे / एल फे / ऑँ फे <button class="inline-audio-btn" onclick="playAudio('Il fait')" title="Listen"></button></td><td>He/She does/makes / वह करता है</td></tr>
+                        <tr><td>Nous</td><td><strong>faisons</strong></td><td>नू फेज़ॉँ <button class="inline-audio-btn" onclick="playAudio('Nous faisons')" title="Listen"></button></td><td>We do/make / हम करते हैं</td></tr>
+                        <tr><td>Vous</td><td><strong>faites</strong></td><td>वू फेत <button class="inline-audio-btn" onclick="playAudio('Vous faites')" title="Listen"></button></td><td>You do/make / आप करते हैं</td></tr>
+                        <tr><td>Ils / Elles</td><td><strong>font</strong></td><td>इल्ज़ फॉँत / एल्ज़ फॉँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils font')" title="Listen"></button></td><td>They do/make / वे करते हैं</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example-box">
+                • <em>Je fais un gâteau.</em> <button class="inline-audio-btn" onclick="playAudio('Je fais un gâteau')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> ज फे अन गातो<br>
+                &nbsp;&nbsp;<em>Translation:</em> I am making a cake. / मैं एक केक बना रहा हूँ।<br><br>
+
+                • <em>Il fait son travail.</em> <button class="inline-audio-btn" onclick="playAudio('Il fait son travail')" title="Listen"></button><br>
+                &nbsp;&nbsp;<em>Pronunciation:</em> इल फे सॉँ त्रा바이<br>
+                &nbsp;&nbsp;<em>Translation:</em> He is doing his work. / वह अपना काम कर रहा है।
+            </div>
+        </div>
+
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>

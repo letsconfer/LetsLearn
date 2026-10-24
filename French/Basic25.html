@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Language Assessment - Test 2</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --answer-key-bg: #e9ecef;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --answer-key-bg: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .question-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .question-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .options-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .options-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .options-list label {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        td:first-child, th:first-child {
+            text-align: left;
+        }
+
+        .reading-text {
+            background-color: rgba(0, 85, 165, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+            border-radius: 4px;
+            line-height: 1.6;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .answer-key-section {
+            background-color: var(--answer-key-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 50px;
+            border: 2px dashed var(--primary-color);
+        }
+
+        .answer-key-section h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .answer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .answer-item {
+            background: var(--card-bg);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <div id="header-container"></div>
+
+    <div class="main-layout-wrapper">
+        <div class="main-content-area">
+            <h1>French Language Assessment</h1>
+            <p class="subtitle">Basic French Language Sessions - Practice Assessment Test</p>
+
+            <!-- QUESTION 1 -->
+            <div class="question-card">
+                <div class="question-title">1. Tick the correct sounds for the given letter combinations:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Combination</th>
+                                <th>SH</th>
+                                <th>NI</th>
+                                <th>KA</th>
+                                <th>KU</th>
+                                <th>OO</th>
+                                <th>SI</th>
+                                <th>AI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>CH</strong></td>
+                                <td><input type="checkbox" name="q1_ch"></td>
+                                <td><input type="checkbox" name="q1_ch"></td>
+                                <td><input type="checkbox" name="q1_ch"></td>
+                                <td><input type="checkbox" name="q1_ch"></td>
+                                <td><input type="checkbox" name="q1_ch"></td>
+                                <td><input type="checkbox" name="q1_ch"></td>
+                                <td><input type="checkbox" name="q1_ch"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>GN</strong></td>
+                                <td><input type="checkbox" name="q1_gn"></td>
+                                <td><input type="checkbox" name="q1_gn"></td>
+                                <td><input type="checkbox" name="q1_gn"></td>
+                                <td><input type="checkbox" name="q1_gn"></td>
+                                <td><input type="checkbox" name="q1_gn"></td>
+                                <td><input type="checkbox" name="q1_gn"></td>
+                                <td><input type="checkbox" name="q1_gn"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>QU</strong></td>
+                                <td><input type="checkbox" name="q1_qu"></td>
+                                <td><input type="checkbox" name="q1_qu"></td>
+                                <td><input type="checkbox" name="q1_qu"></td>
+                                <td><input type="checkbox" name="q1_qu"></td>
+                                <td><input type="checkbox" name="q1_qu"></td>
+                                <td><input type="checkbox" name="q1_qu"></td>
+                                <td><input type="checkbox" name="q1_qu"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CA</strong></td>
+                                <td><input type="checkbox" name="q1_ca"></td>
+                                <td><input type="checkbox" name="q1_ca"></td>
+                                <td><input type="checkbox" name="q1_ca"></td>
+                                <td><input type="checkbox" name="q1_ca"></td>
+                                <td><input type="checkbox" name="q1_ca"></td>
+                                <td><input type="checkbox" name="q1_ca"></td>
+                                <td><input type="checkbox" name="q1_ca"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CI</strong></td>
+                                <td><input type="checkbox" name="q1_ci"></td>
+                                <td><input type="checkbox" name="q1_ci"></td>
+                                <td><input type="checkbox" name="q1_ci"></td>
+                                <td><input type="checkbox" name="q1_ci"></td>
+                                <td><input type="checkbox" name="q1_ci"></td>
+                                <td><input type="checkbox" name="q1_ci"></td>
+                                <td><input type="checkbox" name="q1_ci"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>OU</strong></td>
+                                <td><input type="checkbox" name="q1_ou"></td>
+                                <td><input type="checkbox" name="q1_ou"></td>
+                                <td><input type="checkbox" name="q1_ou"></td>
+                                <td><input type="checkbox" name="q1_ou"></td>
+                                <td><input type="checkbox" name="q1_ou"></td>
+                                <td><input type="checkbox" name="q1_ou"></td>
+                                <td><input type="checkbox" name="q1_ou"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>AI</strong></td>
+                                <td><input type="checkbox" name="q1_ai"></td>
+                                <td><input type="checkbox" name="q1_ai"></td>
+                                <td><input type="checkbox" name="q1_ai"></td>
+                                <td><input type="checkbox" name="q1_ai"></td>
+                                <td><input type="checkbox" name="q1_ai"></td>
+                                <td><input type="checkbox" name="q1_ai"></td>
+                                <td><input type="checkbox" name="q1_ai"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 2 -->
+            <div class="question-card">
+                <div class="question-title">2. How to write time in digital format (French)?</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q2_1" name="q2"><label for="q2_1">1. 7:00 AM</label></li>
+                    <li><input type="radio" id="q2_2" name="q2"><label for="q2_2">2. 7h:00</label></li>
+                    <li><input type="radio" id="q2_3" name="q2"><label for="q2_3">3. 70h0</label></li>
+                    <li><input type="radio" id="q2_4" name="q2"><label for="q2_4">4. 7h00</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 3 -->
+            <div class="question-card">
+                <div class="question-title">3. Fill in the blank: Il + verbe être + quelle heure?</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q3_1" name="q3"><label for="q3_1">est</label></li>
+                    <li><input type="radio" id="q3_2" name="q3"><label for="q3_2">sont</label></li>
+                    <li><input type="radio" id="q3_3" name="q3"><label for="q3_3">as</label></li>
+                    <li><input type="radio" id="q3_4" name="q3"><label for="q3_4">ont</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 4 -->
+            <div class="question-card">
+                <div class="question-title">4. Tick the correct answer for the following general knowledge questions:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Nice</th>
+                                <th>camembert</th>
+                                <th>suisse</th>
+                                <th>pâques</th>
+                                <th>five</th>
+                                <th>Les Alpes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Which is a city?</td>
+                                <td><input type="radio" name="q4_1"></td>
+                                <td><input type="radio" name="q4_1"></td>
+                                <td><input type="radio" name="q4_1"></td>
+                                <td><input type="radio" name="q4_1"></td>
+                                <td><input type="radio" name="q4_1"></td>
+                                <td><input type="radio" name="q4_1"></td>
+                            </tr>
+                            <tr>
+                                <td>Which is a type of cheese?</td>
+                                <td><input type="radio" name="q4_2"></td>
+                                <td><input type="radio" name="q4_2"></td>
+                                <td><input type="radio" name="q4_2"></td>
+                                <td><input type="radio" name="q4_2"></td>
+                                <td><input type="radio" name="q4_2"></td>
+                                <td><input type="radio" name="q4_2"></td>
+                            </tr>
+                            <tr>
+                                <td>Which one is the French festival?</td>
+                                <td><input type="radio" name="q4_3"></td>
+                                <td><input type="radio" name="q4_3"></td>
+                                <td><input type="radio" name="q4_3"></td>
+                                <td><input type="radio" name="q4_3"></td>
+                                <td><input type="radio" name="q4_3"></td>
+                                <td><input type="radio" name="q4_3"></td>
+                            </tr>
+                            <tr>
+                                <td>A neighboring country of France?</td>
+                                <td><input type="radio" name="q4_4"></td>
+                                <td><input type="radio" name="q4_4"></td>
+                                <td><input type="radio" name="q4_4"></td>
+                                <td><input type="radio" name="q4_4"></td>
+                                <td><input type="radio" name="q4_4"></td>
+                                <td><input type="radio" name="q4_4"></td>
+                            </tr>
+                            <tr>
+                                <td>The president is elected every ___ Years.</td>
+                                <td><input type="radio" name="q4_5"></td>
+                                <td><input type="radio" name="q4_5"></td>
+                                <td><input type="radio" name="q4_5"></td>
+                                <td><input type="radio" name="q4_5"></td>
+                                <td><input type="radio" name="q4_5"></td>
+                                <td><input type="radio" name="q4_5"></td>
+                            </tr>
+                            <tr>
+                                <td>Famous Mountain of France?</td>
+                                <td><input type="radio" name="q4_6"></td>
+                                <td><input type="radio" name="q4_6"></td>
+                                <td><input type="radio" name="q4_6"></td>
+                                <td><input type="radio" name="q4_6"></td>
+                                <td><input type="radio" name="q4_6"></td>
+                                <td><input type="radio" name="q4_6"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 5 -->
+            <div class="question-card">
+                <div class="question-title">5. Complete the missing letters: J'ai n_u_ stylos.</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q5_1" name="q5"><label for="q5_1">u, e</label></li>
+                    <li><input type="radio" id="q5_2" name="q5"><label for="q5_2">a, f</label></li>
+                    <li><input type="radio" id="q5_3" name="q5"><label for="q5_3">u, f</label></li>
+                    <li><input type="radio" id="q5_4" name="q5"><label for="q5_4">e, f</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 6 -->
+            <div class="question-card">
+                <div class="question-title">6. Write the correct family name in French that corresponds to each of the words below:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Relation</th>
+                                <th>La tante</th>
+                                <th>L'oncle</th>
+                                <th>Le beau-père</th>
+                                <th>La belle-mère</th>
+                                <th>La grand-mère</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Grand uncle</td>
+                                <td><input type="radio" name="q6_1"></td>
+                                <td><input type="radio" name="q6_1"></td>
+                                <td><input type="radio" name="q6_1"></td>
+                                <td><input type="radio" name="q6_1"></td>
+                                <td><input type="radio" name="q6_1"></td>
+                            </tr>
+                            <tr>
+                                <td>father-in-law</td>
+                                <td><input type="radio" name="q6_2"></td>
+                                <td><input type="radio" name="q6_2"></td>
+                                <td><input type="radio" name="q6_2"></td>
+                                <td><input type="radio" name="q6_2"></td>
+                                <td><input type="radio" name="q6_2"></td>
+                            </tr>
+                            <tr>
+                                <td>Mother-in-law</td>
+                                <td><input type="radio" name="q6_3"></td>
+                                <td><input type="radio" name="q6_3"></td>
+                                <td><input type="radio" name="q6_3"></td>
+                                <td><input type="radio" name="q6_3"></td>
+                                <td><input type="radio" name="q6_3"></td>
+                            </tr>
+                            <tr>
+                                <td>aunty</td>
+                                <td><input type="radio" name="q6_4"></td>
+                                <td><input type="radio" name="q6_4"></td>
+                                <td><input type="radio" name="q6_4"></td>
+                                <td><input type="radio" name="q6_4"></td>
+                                <td><input type="radio" name="q6_4"></td>
+                            </tr>
+                            <tr>
+                                <td>mother</td>
+                                <td><input type="radio" name="q6_5"></td>
+                                <td><input type="radio" name="q6_5"></td>
+                                <td><input type="radio" name="q6_5"></td>
+                                <td><input type="radio" name="q6_5"></td>
+                                <td><input type="radio" name="q6_5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 7 -->
+            <div class="question-card">
+                <div class="question-title">7. Translate to English:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>French Time Phrase</th>
+                                <th>eight in the morning</th>
+                                <th>It is 3 in the afternoon.</th>
+                                <th>It is 11.10am.</th>
+                                <th>Seven in the evening.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Il est onze heures dix du matin</td>
+                                <td><input type="radio" name="q7_1"></td>
+                                <td><input type="radio" name="q7_1"></td>
+                                <td><input type="radio" name="q7_1"></td>
+                                <td><input type="radio" name="q7_1"></td>
+                            </tr>
+                            <tr>
+                                <td>Il est trois heures de l'après-midi.</td>
+                                <td><input type="radio" name="q7_2"></td>
+                                <td><input type="radio" name="q7_2"></td>
+                                <td><input type="radio" name="q7_2"></td>
+                                <td><input type="radio" name="q7_2"></td>
+                            </tr>
+                            <tr>
+                                <td>huit heures du matin</td>
+                                <td><input type="radio" name="q7_3"></td>
+                                <td><input type="radio" name="q7_3"></td>
+                                <td><input type="radio" name="q7_3"></td>
+                                <td><input type="radio" name="q7_3"></td>
+                            </tr>
+                            <tr>
+                                <td>Sept heures du soir</td>
+                                <td><input type="radio" name="q7_4"></td>
+                                <td><input type="radio" name="q7_4"></td>
+                                <td><input type="radio" name="q7_4"></td>
+                                <td><input type="radio" name="q7_4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 8 -->
+            <div class="question-card">
+                <div class="question-title">8. Mobile numbers should always be given in ___ digits?</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q8_1" name="q8"><label for="q8_1">deux</label></li>
+                    <li><input type="radio" id="q8_2" name="q8"><label for="q8_2">Quatre</label></li>
+                    <li><input type="radio" id="q8_3" name="q8"><label for="q8_3">Cinq</label></li>
+                    <li><input type="radio" id="q8_4" name="q8"><label for="q8_4">Trois</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 9 -->
+            <div class="question-card">
+                <div class="question-title">9. Tick the correct number in English:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>French Number</th>
+                                <th>Seventeen</th>
+                                <th>Thirty</th>
+                                <th>Twelve</th>
+                                <th>seventy</th>
+                                <th>Eighteen</th>
+                                <th>Forty five</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Douze</td>
+                                <td><input type="radio" name="q9_1"></td>
+                                <td><input type="radio" name="q9_1"></td>
+                                <td><input type="radio" name="q9_1"></td>
+                                <td><input type="radio" name="q9_1"></td>
+                                <td><input type="radio" name="q9_1"></td>
+                                <td><input type="radio" name="q9_1"></td>
+                            </tr>
+                            <tr>
+                                <td>dix-sept</td>
+                                <td><input type="radio" name="q9_2"></td>
+                                <td><input type="radio" name="q9_2"></td>
+                                <td><input type="radio" name="q9_2"></td>
+                                <td><input type="radio" name="q9_2"></td>
+                                <td><input type="radio" name="q9_2"></td>
+                                <td><input type="radio" name="q9_2"></td>
+                            </tr>
+                            <tr>
+                                <td>Soixante-dix-huit</td>
+                                <td><input type="radio" name="q9_3"></td>
+                                <td><input type="radio" name="q9_3"></td>
+                                <td><input type="radio" name="q9_3"></td>
+                                <td><input type="radio" name="q9_3"></td>
+                                <td><input type="radio" name="q9_3"></td>
+                                <td><input type="radio" name="q9_3"></td>
+                            </tr>
+                            <tr>
+                                <td>Trente</td>
+                                <td><input type="radio" name="q9_4"></td>
+                                <td><input type="radio" name="q9_4"></td>
+                                <td><input type="radio" name="q9_4"></td>
+                                <td><input type="radio" name="q9_4"></td>
+                                <td><input type="radio" name="q9_4"></td>
+                                <td><input type="radio" name="q9_4"></td>
+                            </tr>
+                            <tr>
+                                <td>Quarante-cinq</td>
+                                <td><input type="radio" name="q9_5"></td>
+                                <td><input type="radio" name="q9_5"></td>
+                                <td><input type="radio" name="q9_5"></td>
+                                <td><input type="radio" name="q9_5"></td>
+                                <td><input type="radio" name="q9_5"></td>
+                                <td><input type="radio" name="q9_5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 10 -->
+            <div class="question-card">
+                <div class="question-title">10. Tick the correct answer in French (Analog Clock shows 10:10):</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q10_1" name="q10"><label for="q10_1">Il est dix heures dix minute.</label></li>
+                    <li><input type="radio" id="q10_2" name="q10"><label for="q10_2">Il est dix heures dix.</label></li>
+                    <li><input type="radio" id="q10_3" name="q10"><label for="q10_3">Il est dix heures onze minute.</label></li>
+                    <li><input type="radio" id="q10_4" name="q10"><label for="q10_4">Il est dix heures.</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 11 -->
+            <div class="question-card">
+                <div class="question-title">11. Tick the correct time in French (Clock shows 3:00):</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q11_1" name="q11"><label for="q11_1">Il est trois heures</label></li>
+                    <li><input type="radio" id="q11_2" name="q11"><label for="q11_2">Il est apres-midi.</label></li>
+                    <li><input type="radio" id="q11_3" name="q11"><label for="q11_3">Il est trois heures cinq</label></li>
+                    <li><input type="radio" id="q11_4" name="q11"><label for="q11_4">Il est Quatre heures</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 12 -->
+            <div class="question-card">
+                <div class="question-title">12. It's 7:20:</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q12_1" name="q12"><label for="q12_1">Il est matin.</label></li>
+                    <li><input type="radio" id="q12_2" name="q12"><label for="q12_2">Il est 7.vingt.</label></li>
+                    <li><input type="radio" id="q12_3" name="q12"><label for="q12_3">Il est huit heures moins vingt</label></li>
+                    <li><input type="radio" id="q12_4" name="q12"><label for="q12_4">Il est sept heures vingt.</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 13 -->
+            <div class="question-card">
+                <div class="question-title">13. Tick the correct time mentioned in each dialogue:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dialogue</th>
+                                <th>3h45</th>
+                                <th>5h30</th>
+                                <th>5h45</th>
+                                <th>10h15</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Je pars maintenant, j'arriverai chez toi vers dix-sept heures trente.</td>
+                                <td><input type="radio" name="q13_1"></td>
+                                <td><input type="radio" name="q13_1"></td>
+                                <td><input type="radio" name="q13_1"></td>
+                                <td><input type="radio" name="q13_1"></td>
+                            </tr>
+                            <tr>
+                                <td>Ne m'attends pas pour dîner, je rentre à trois heures quarante-cinq du matin.</td>
+                                <td><input type="radio" name="q13_2"></td>
+                                <td><input type="radio" name="q13_2"></td>
+                                <td><input type="radio" name="q13_2"></td>
+                                <td><input type="radio" name="q13_2"></td>
+                            </tr>
+                            <tr>
+                                <td>Je me suis réveillé plus tôt, j'arriverai donc à dix heures et quart.</td>
+                                <td><input type="radio" name="q13_3"></td>
+                                <td><input type="radio" name="q13_3"></td>
+                                <td><input type="radio" name="q13_3"></td>
+                                <td><input type="radio" name="q13_3"></td>
+                            </tr>
+                            <tr>
+                                <td>Il y a des embouteillages, il rentrera sûrement vers six heures moins le quart.</td>
+                                <td><input type="radio" name="q13_4"></td>
+                                <td><input type="radio" name="q13_4"></td>
+                                <td><input type="radio" name="q13_4"></td>
+                                <td><input type="radio" name="q13_4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 14 -->
+            <div class="question-card">
+                <div class="question-title">14. Put the words in the right order to match the time into brackets:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Target Time</th>
+                                <th>Il est trois heures de l'après-midi.</th>
+                                <th>Il est deux heures du matin</th>
+                                <th>Il est douze heures quarante-cinq</th>
+                                <th>Il est douze heures trente.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>(3pm) l'après-midi. - Il - trois - heures - est - de</td>
+                                <td><input type="radio" name="q14_1"></td>
+                                <td><input type="radio" name="q14_1"></td>
+                                <td><input type="radio" name="q14_1"></td>
+                                <td><input type="radio" name="q14_1"></td>
+                            </tr>
+                            <tr>
+                                <td>(2am) du / matin. / est / heures / deux / Il</td>
+                                <td><input type="radio" name="q14_2"></td>
+                                <td><input type="radio" name="q14_2"></td>
+                                <td><input type="radio" name="q14_2"></td>
+                                <td><input type="radio" name="q14_2"></td>
+                            </tr>
+                            <tr>
+                                <td>(12.30pm) Il / douze / heures / est / trente.</td>
+                                <td><input type="radio" name="q14_3"></td>
+                                <td><input type="radio" name="q14_3"></td>
+                                <td><input type="radio" name="q14_3"></td>
+                                <td><input type="radio" name="q14_3"></td>
+                            </tr>
+                            <tr>
+                                <td>(12.45pm) quarante-cinq / douze / est / il / heures</td>
+                                <td><input type="radio" name="q14_4"></td>
+                                <td><input type="radio" name="q14_4"></td>
+                                <td><input type="radio" name="q14_4"></td>
+                                <td><input type="radio" name="q14_4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 15 -->
+            <div class="question-card">
+                <div class="question-title">15. What is the sound of below given alphabets in French?</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Alphabet</th>
+                                <th>Ah</th>
+                                <th>Ce</th>
+                                <th>eks</th>
+                                <th>e-grec</th>
+                                <th>effe</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A</td>
+                                <td><input type="radio" name="q15_1"></td>
+                                <td><input type="radio" name="q15_1"></td>
+                                <td><input type="radio" name="q15_1"></td>
+                                <td><input type="radio" name="q15_1"></td>
+                                <td><input type="radio" name="q15_1"></td>
+                            </tr>
+                            <tr>
+                                <td>C</td>
+                                <td><input type="radio" name="q15_2"></td>
+                                <td><input type="radio" name="q15_2"></td>
+                                <td><input type="radio" name="q15_2"></td>
+                                <td><input type="radio" name="q15_2"></td>
+                                <td><input type="radio" name="q15_2"></td>
+                            </tr>
+                            <tr>
+                                <td>X</td>
+                                <td><input type="radio" name="q15_3"></td>
+                                <td><input type="radio" name="q15_3"></td>
+                                <td><input type="radio" name="q15_3"></td>
+                                <td><input type="radio" name="q15_3"></td>
+                                <td><input type="radio" name="q15_3"></td>
+                            </tr>
+                            <tr>
+                                <td>Y</td>
+                                <td><input type="radio" name="q15_4"></td>
+                                <td><input type="radio" name="q15_4"></td>
+                                <td><input type="radio" name="q15_4"></td>
+                                <td><input type="radio" name="q15_4"></td>
+                                <td><input type="radio" name="q15_4"></td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td><input type="radio" name="q15_5"></td>
+                                <td><input type="radio" name="q15_5"></td>
+                                <td><input type="radio" name="q15_5"></td>
+                                <td><input type="radio" name="q15_5"></td>
+                                <td><input type="radio" name="q15_5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 16 -->
+            <div class="question-card">
+                <div class="question-title">16. What is the date format in French?</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q16_1" name="q16"><label for="q16_1">Le MM/DD/YY</label></li>
+                    <li><input type="radio" id="q16_2" name="q16"><label for="q16_2">DD/MM/YY Le</label></li>
+                    <li><input type="radio" id="q16_3" name="q16"><label for="q16_3">DD/MM/YY</label></li>
+                    <li><input type="radio" id="q16_4" name="q16"><label for="q16_4">Le DD/MM/YY</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 17 -->
+            <div class="question-card">
+                <div class="question-title">17. Write the correct family name in French that corresponds to each of the words below:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>English Relation</th>
+                                <th>Grand-père</th>
+                                <th>Grand-Mère</th>
+                                <th>Frère</th>
+                                <th>Sœur</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Grand father</td>
+                                <td><input type="radio" name="q17_1"></td>
+                                <td><input type="radio" name="q17_1"></td>
+                                <td><input type="radio" name="q17_1"></td>
+                                <td><input type="radio" name="q17_1"></td>
+                            </tr>
+                            <tr>
+                                <td>Grand mother</td>
+                                <td><input type="radio" name="q17_2"></td>
+                                <td><input type="radio" name="q17_2"></td>
+                                <td><input type="radio" name="q17_2"></td>
+                                <td><input type="radio" name="q17_2"></td>
+                            </tr>
+                            <tr>
+                                <td>Brother</td>
+                                <td><input type="radio" name="q17_3"></td>
+                                <td><input type="radio" name="q17_3"></td>
+                                <td><input type="radio" name="q17_3"></td>
+                                <td><input type="radio" name="q17_3"></td>
+                            </tr>
+                            <tr>
+                                <td>Sister</td>
+                                <td><input type="radio" name="q17_4"></td>
+                                <td><input type="radio" name="q17_4"></td>
+                                <td><input type="radio" name="q17_4"></td>
+                                <td><input type="radio" name="q17_4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 18 -->
+            <div class="question-card">
+                <div class="question-title">18. Fill in the missing letters to form 37: Mon cousin a _r_n__e__n ans aujourd'hui.</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q18_1" name="q18"><label for="q18_1">S, e, t, e, t, u, t</label></li>
+                    <li><input type="radio" id="q18_2" name="q18"><label for="q18_2">Q, e, t, e, t, u</label></li>
+                    <li><input type="radio" id="q18_3" name="q18"><label for="q18_3">C, e, t, i, t, u</label></li>
+                    <li><input type="radio" id="q18_4" name="q18"><label for="q18_4">T, e, t, e, t, u</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 19 -->
+            <div class="question-card">
+                <div class="question-title">19. Tick the correct months in English:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>French Month</th>
+                                <th>March</th>
+                                <th>April</th>
+                                <th>January</th>
+                                <th>October</th>
+                                <th>December</th>
+                                <th>February</th>
+                                <th>June</th>
+                                <th>September</th>
+                                <th>July</th>
+                                <th>May</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Avril</td>
+                                <td><input type="radio" name="q19_1"></td>
+                                <td><input type="radio" name="q19_1"></td>
+                                <td><input type="radio" name="q19_1"></td>
+                                <td><input type="radio" name="q19_1"></td>
+                                <td><input type="radio" name="q19_1"></td>
+                                <td><input type="radio" name="q19_1"></td>
+                                <td><input type="radio" name="q19_1"></td>
+                                <td><input type="radio" name="q19_1"></td>
+                                <td><input type="radio" name="q19_1"></td>
+                                <td><input type="radio" name="q19_1"></td>
+                            </tr>
+                            <tr>
+                                <td>Mars</td>
+                                <td><input type="radio" name="q19_2"></td>
+                                <td><input type="radio" name="q19_2"></td>
+                                <td><input type="radio" name="q19_2"></td>
+                                <td><input type="radio" name="q19_2"></td>
+                                <td><input type="radio" name="q19_2"></td>
+                                <td><input type="radio" name="q19_2"></td>
+                                <td><input type="radio" name="q19_2"></td>
+                                <td><input type="radio" name="q19_2"></td>
+                                <td><input type="radio" name="q19_2"></td>
+                                <td><input type="radio" name="q19_2"></td>
+                            </tr>
+                            <tr>
+                                <td>Septembre</td>
+                                <td><input type="radio" name="q19_3"></td>
+                                <td><input type="radio" name="q19_3"></td>
+                                <td><input type="radio" name="q19_3"></td>
+                                <td><input type="radio" name="q19_3"></td>
+                                <td><input type="radio" name="q19_3"></td>
+                                <td><input type="radio" name="q19_3"></td>
+                                <td><input type="radio" name="q19_3"></td>
+                                <td><input type="radio" name="q19_3"></td>
+                                <td><input type="radio" name="q19_3"></td>
+                                <td><input type="radio" name="q19_3"></td>
+                            </tr>
+                            <tr>
+                                <td>Octobre</td>
+                                <td><input type="radio" name="q19_4"></td>
+                                <td><input type="radio" name="q19_4"></td>
+                                <td><input type="radio" name="q19_4"></td>
+                                <td><input type="radio" name="q19_4"></td>
+                                <td><input type="radio" name="q19_4"></td>
+                                <td><input type="radio" name="q19_4"></td>
+                                <td><input type="radio" name="q19_4"></td>
+                                <td><input type="radio" name="q19_4"></td>
+                                <td><input type="radio" name="q19_4"></td>
+                                <td><input type="radio" name="q19_4"></td>
+                            </tr>
+                            <tr>
+                                <td>Février</td>
+                                <td><input type="radio" name="q19_5"></td>
+                                <td><input type="radio" name="q19_5"></td>
+                                <td><input type="radio" name="q19_5"></td>
+                                <td><input type="radio" name="q19_5"></td>
+                                <td><input type="radio" name="q19_5"></td>
+                                <td><input type="radio" name="q19_5"></td>
+                                <td><input type="radio" name="q19_5"></td>
+                                <td><input type="radio" name="q19_5"></td>
+                                <td><input type="radio" name="q19_5"></td>
+                                <td><input type="radio" name="q19_5"></td>
+                            </tr>
+                            <tr>
+                                <td>Juillet</td>
+                                <td><input type="radio" name="q19_6"></td>
+                                <td><input type="radio" name="q19_6"></td>
+                                <td><input type="radio" name="q19_6"></td>
+                                <td><input type="radio" name="q19_6"></td>
+                                <td><input type="radio" name="q19_6"></td>
+                                <td><input type="radio" name="q19_6"></td>
+                                <td><input type="radio" name="q19_6"></td>
+                                <td><input type="radio" name="q19_6"></td>
+                                <td><input type="radio" name="q19_6"></td>
+                                <td><input type="radio" name="q19_6"></td>
+                            </tr>
+                            <tr>
+                                <td>Juin</td>
+                                <td><input type="radio" name="q19_7"></td>
+                                <td><input type="radio" name="q19_7"></td>
+                                <td><input type="radio" name="q19_7"></td>
+                                <td><input type="radio" name="q19_7"></td>
+                                <td><input type="radio" name="q19_7"></td>
+                                <td><input type="radio" name="q19_7"></td>
+                                <td><input type="radio" name="q19_7"></td>
+                                <td><input type="radio" name="q19_7"></td>
+                                <td><input type="radio" name="q19_7"></td>
+                                <td><input type="radio" name="q19_7"></td>
+                            </tr>
+                            <tr>
+                                <td>Janvier</td>
+                                <td><input type="radio" name="q19_8"></td>
+                                <td><input type="radio" name="q19_8"></td>
+                                <td><input type="radio" name="q19_8"></td>
+                                <td><input type="radio" name="q19_8"></td>
+                                <td><input type="radio" name="q19_8"></td>
+                                <td><input type="radio" name="q19_8"></td>
+                                <td><input type="radio" name="q19_8"></td>
+                                <td><input type="radio" name="q19_8"></td>
+                                <td><input type="radio" name="q19_8"></td>
+                                <td><input type="radio" name="q19_8"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 20 -->
+            <div class="question-card">
+                <div class="question-title">20. Tick the correct answers in English:</div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>French Word</th>
+                                <th>afternoon</th>
+                                <th>Morning</th>
+                                <th>Evening</th>
+                                <th>Midnight</th>
+                                <th>noon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>la soirée</td>
+                                <td><input type="radio" name="q20_1"></td>
+                                <td><input type="radio" name="q20_1"></td>
+                                <td><input type="radio" name="q20_1"></td>
+                                <td><input type="radio" name="q20_1"></td>
+                                <td><input type="radio" name="q20_1"></td>
+                            </tr>
+                            <tr>
+                                <td>l'après-midi</td>
+                                <td><input type="radio" name="q20_2"></td>
+                                <td><input type="radio" name="q20_2"></td>
+                                <td><input type="radio" name="q20_2"></td>
+                                <td><input type="radio" name="q20_2"></td>
+                                <td><input type="radio" name="q20_2"></td>
+                            </tr>
+                            <tr>
+                                <td>le matin</td>
+                                <td><input type="radio" name="q20_3"></td>
+                                <td><input type="radio" name="q20_3"></td>
+                                <td><input type="radio" name="q20_3"></td>
+                                <td><input type="radio" name="q20_3"></td>
+                                <td><input type="radio" name="q20_3"></td>
+                            </tr>
+                            <tr>
+                                <td>minuit</td>
+                                <td><input type="radio" name="q20_4"></td>
+                                <td><input type="radio" name="q20_4"></td>
+                                <td><input type="radio" name="q20_4"></td>
+                                <td><input type="radio" name="q20_4"></td>
+                                <td><input type="radio" name="q20_4"></td>
+                            </tr>
+                            <tr>
+                                <td>midi</td>
+                                <td><input type="radio" name="q20_5"></td>
+                                <td><input type="radio" name="q20_5"></td>
+                                <td><input type="radio" name="q20_5"></td>
+                                <td><input type="radio" name="q20_5"></td>
+                                <td><input type="radio" name="q20_5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUESTION 21 -->
+            <div class="question-card">
+                <div class="question-title">21. Tick the correct number in French for the underlined number in the plate (42-<u>21</u> TA):</div>
+                <ul class="options-list">
+                    <li><input type="radio" id="q21_1" name="q21"><label for="q21_1">Quarante deux</label></li>
+                    <li><input type="radio" id="q21_2" name="q21"><label for="q21_2">Vingt deux</label></li>
+                    <li><input type="radio" id="q21_3" name="q21"><label for="q21_3">Vingt</label></li>
+                    <li><input type="radio" id="q21_4" name="q21"><label for="q21_4">Vingt et un</label></li>
+                </ul>
+            </div>
+
+            <!-- QUESTION 22 -->
+            <div class="question-card">
+                <div class="question-title">22. Reading Comprehension:</div>
+                <div class="reading-text">
+                    "Bonjour mes amis! Je m'appelle Disha. J'ai 18 ans et je suis dans la classe troisième dans une école française. J'aime nager. J'habite à Mumbai et mon école est près de ma maison. J'ai beaucoup d'amis à l'école. Dans ma famille J'ai quatre personnes. Ma mère, mon père, mon frère et moi. Nous habitons dans une petite maison. Notre maison est confortable. Ma mère est femme au foyer. Mon petit frère étudie dans une école maternelle. Il aime jouer et il aime le chocolat."
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>dix-huit</th>
+                                <th>Chocolat</th>
+                                <th>Petite maison</th>
+                                <th>petit frère</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Quel âge a Disha ?</td>
+                                <td><input type="radio" name="q22_1"></td>
+                                <td><input type="radio" name="q22_1"></td>
+                                <td><input type="radio" name="q22_1"></td>
+                                <td><input type="radio" name="q22_1"></td>
+                            </tr>
+                            <tr>
+                                <td>Elle aime ?</td>
+                                <td><input type="radio" name="q22_2"></td>
+                                <td><input type="radio" name="q22_2"></td>
+                                <td><input type="radio" name="q22_2"></td>
+                                <td><input type="radio" name="q22_2"></td>
+                            </tr>
+                            <tr>
+                                <td>Elle habite dans une ___ confortable.</td>
+                                <td><input type="radio" name="q22_3"></td>
+                                <td><input type="radio" name="q22_3"></td>
+                                <td><input type="radio" name="q22_3"></td>
+                                <td><input type="radio" name="q22_3"></td>
+                            </tr>
+                            <tr>
+                                <td>Elle a un ___ dans sa famille.</td>
+                                <td><input type="radio" name="q22_4"></td>
+                                <td><input type="radio" name="q22_4"></td>
+                                <td><input type="radio" name="q22_4"></td>
+                                <td><input type="radio" name="q22_4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY SECTION -->
+            <div class="answer-key-section">
+                <h2>Answer Key</h2>
+                <div class="answer-grid">
+                    <div class="answer-item"><strong>Q1:</strong> CH=SH | GN=NI | QU=KA | CA=KA | CI=SI | OU=OO | AI=AI</div>
+                    <div class="answer-item"><strong>Q2:</strong> 4. 7h00</div>
+                    <div class="answer-item"><strong>Q3:</strong> est</div>
+                    <div class="answer-item"><strong>Q4:</strong> City=Nice | Cheese=camembert | Festival=pâques | Neighbor=suisse | Term=five | Mountain=Les Alpes</div>
+                    <div class="answer-item"><strong>Q5:</strong> u, e (J'ai neuf stylos)</div>
+                    <div class="answer-item"><strong>Q6:</strong> Grand uncle=L'oncle | father-in-law=Le beau-père | Mother-in-law=La belle-mère | aunty=La tante | mother=La grand-mère (as per assessment options)</div>
+                    <div class="answer-item"><strong>Q7:</strong> 11.10am | 3 in afternoon | 8 in morning | 7 in evening</div>
+                    <div class="answer-item"><strong>Q8:</strong> deux</div>
+                    <div class="answer-item"><strong>Q9:</strong> Douze=Twelve | dix-sept=Seventeen | Soixante-dix-huit=seventy-eight | Trente=Thirty | Quarante-cinq=Forty five</div>
+                    <div class="answer-item"><strong>Q10:</strong> Il est dix heures dix.</div>
+                    <div class="answer-item"><strong>Q11:</strong> Il est trois heures</div>
+                    <div class="answer-item"><strong>Q12:</strong> Il est sept heures vingt.</div>
+                    <div class="answer-item"><strong>Q13:</strong> Dialogue 1=5h30 | Dialogue 2=3h45 | Dialogue 3=10h15 | Dialogue 4=5h45</div>
+                    <div class="answer-item"><strong>Q14:</strong> 3pm=Il est trois heures de l'après-midi. | 2am=Il est deux heures du matin | 12:30pm=Il est douze heures trente. | 12:45pm=Il est douze heures quarante-cinq</div>
+                    <div class="answer-item"><strong>Q15:</strong> A=Ah | C=Ce | X=eks | Y=e-grec | F=effe</div>
+                    <div class="answer-item"><strong>Q16:</strong> Le DD/MM/YY</div>
+                    <div class="answer-item"><strong>Q17:</strong> Grand father=Grand-père | Grand mother=Grand-Mère | Brother=Frère | Sister=Sœur</div>
+                    <div class="answer-item"><strong>Q18:</strong> T, e, t, e, t, u (Trente-sept)</div>
+                    <div class="answer-item"><strong>Q19:</strong> Avril=April | Mars=March | Septembre=September | Octobre=October | Février=February | Juillet=July | Juin=June | Janvier=January</div>
+                    <div class="answer-item"><strong>Q20:</strong> la soirée=Evening | l'après-midi=afternoon | le matin=Morning | minuit=Midnight | midi=noon</div>
+                    <div class="answer-item"><strong>Q21:</strong> Vingt et un (21)</div>
+                    <div class="answer-item"><strong>Q22:</strong> Quel âge=dix-huit | Elle aime=Chocolat | Elle habite=Petite maison | Elle a un=petit frère</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'fr-FR';
+            utterance.rate = 0.8;
+            window.speechSynthesis.speak(utterance);
+            window._lastUtterance = utterance;
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+</script>
+
+</body>
+</html>
