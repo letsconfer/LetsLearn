@@ -133,9 +133,9 @@
         }
 
         th, td {
-            padding: 10px 12px;
+            padding: 12px 14px;
             text-align: left;
-            vertical-align: middle;
+            vertical-align: top;
             border-bottom: 1px solid var(--border-color);
             font-size: 0.9rem;
         }
@@ -180,16 +180,40 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        .example-box {
-            background-color: #e8f5e9;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            border-left: 4px solid #2e7d32;
+        .example-list {
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
         }
 
-        [data-theme="dark"] .example-box {
-            background-color: #1e3a29;
+        .example-list li {
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .example-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .phonetics-text {
+            color: #555;
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 2px;
+        }
+
+        [data-theme="dark"] .phonetics-text {
+            color: #cbd5e1;
+        }
+
+        .translation-text {
+            color: #2b6cb0;
+            font-size: 0.85rem;
+            display: block;
+        }
+
+        [data-theme="dark"] .translation-text {
+            color: #93c5fd;
         }
     </style>
 </head>
@@ -229,15 +253,88 @@
                             <th>French Pronoun</th>
                             <th>Phonetics & Pronunciation</th>
                             <th>English & Hindi Meaning</th>
+                            <th>Examples</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>1st Pers. Sing.</td><td><strong>Je / J'</strong></td><td>ज / ज्र (ज्ज़ाँ) <button class="inline-audio-btn" onclick="playAudio('Je')" title="Listen"></button></td><td>I / मैं</td></tr>
-                        <tr><td>2nd Pers. Sing.</td><td><strong>Tu</strong></td><td>त्यु <button class="inline-audio-btn" onclick="playAudio('Tu')" title="Listen"></button></td><td>You (informal) / तुम</td></tr>
-                        <tr><td>3rd Pers. Sing.</td><td><strong>Il / Elle / On</strong></td><td>इल / एल / ऑँ <button class="inline-audio-btn" onclick="playAudio('Il Elle On')" title="Listen"></button></td><td>He/She/It/One / वह / हम (अनौपचारिक)</td></tr>
-                        <tr><td>1st Pers. Plu.</td><td><strong>Nous</strong></td><td>नू <button class="inline-audio-btn" onclick="playAudio('Nous')" title="Listen"></button></td><td>We / हम</td></tr>
-                        <tr><td>2nd Pers. Plu.</td><td><strong>Vous</strong></td><td>वू <button class="inline-audio-btn" onclick="playAudio('Vous')" title="Listen"></button></td><td>You (formal/plural) / आप</td></tr>
-                        <tr><td>3rd Pers. Plu.</td><td><strong>Ils / Elles</strong></td><td>इल / एल (Liaison applied) <button class="inline-audio-btn" onclick="playAudio('Ils Elles')" title="Listen"></button></td><td>They (Masc/Fem) / वे</td></tr>
+                        <tr>
+                            <td>1st Pers. Sing.</td>
+                            <td><strong>Je / J'</strong></td>
+                            <td>ज / ज्र (ज्ज़ाँ) <button class="inline-audio-btn" onclick="playAudio('Je')" title="Listen"></button></td>
+                            <td>I / मैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Je parle français.</em> <button class="inline-audio-btn" onclick="playAudio('Je parle français')" title="Listen"></button><span class="phonetics-text">Phonetics: ज पार्ल फ्रॉँसे</span><span class="translation-text">I speak French. / मैं फ़्रेंच बोलता हूँ।</span></li>
+                                    <li>• <em>J'habite à Paris.</em> <button class="inline-audio-btn" onclick="playAudio('Jhabite à Paris')" title="Listen"></button><span class="phonetics-text">Phonetics: जाबीत आ पारी</span><span class="translation-text">I live in Paris. / मैं पेरिस में रहता हूँ।</span></li>
+                                    <li>• <em>Je mange une pomme.</em> <button class="inline-audio-btn" onclick="playAudio('Je mange une pomme')" title="Listen"></button><span class="phonetics-text">Phonetics: ज माँज उन पॉम</span><span class="translation-text">I am eating an apple. / मैं एक सेब खा रहा हूँ।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2nd Pers. Sing.</td>
+                            <td><strong>Tu</strong></td>
+                            <td>त्यु <button class="inline-audio-btn" onclick="playAudio('Tu')" title="Listen"></button></td>
+                            <td>You (informal) / तुम</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Tu étudies ici.</em> <button class="inline-audio-btn" onclick="playAudio('Tu étudies ici')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु एत्युदी ईसी</span><span class="translation-text">You study here. / तुम यहाँ पढ़ते हो।</span></li>
+                                    <li>• <em>Tu aimes le chocolat.</em> <button class="inline-audio-btn" onclick="playAudio('Tu aimes le chocolat')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु एम ल शोकोला</span><span class="translation-text">You like chocolate. / तुम्हें चॉकलेट पसंद है।</span></li>
+                                    <li>• <em>Tu écoutes de la musique.</em> <button class="inline-audio-btn" onclick="playAudio('Tu écoutes de la musique')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु एकूत द ला म्युज़ीक</span><span class="translation-text">You listen to music. / तुम संगीत सुनते हो।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3rd Pers. Sing.</td>
+                            <td><strong>Il / Elle / On</strong></td>
+                            <td>इल / एल / ऑँ <button class="inline-audio-btn" onclick="playAudio('Il Elle On')" title="Listen"></button></td>
+                            <td>He/She/It/One / वह / हम</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Il regarde la télévision.</em> <button class="inline-audio-btn" onclick="playAudio('Il regarde la télévision')" title="Listen"></button><span class="phonetics-text">Phonetics: इल र गार्द ला तेलेविज़्यॉँ</span><span class="translation-text">He watches TV. / वह टीवी देखता है।</span></li>
+                                    <li>• <em>Elle lit un livre.</em> <button class="inline-audio-btn" onclick="playAudio('Elle lit un livre')" title="Listen"></button><span class="phonetics-text">Phonetics: एल ली अन लीव्र</span><span class="translation-text">She is reading a book. / वह एक किताब पढ़ रही है।</span></li>
+                                    <li>• <em>On parle français ici.</em> <button class="inline-audio-btn" onclick="playAudio('On parle français ici')" title="Listen"></button><span class="phonetics-text">Phonetics: ऑँ पार्ल फ्रॉँसे ईसी</span><span class="translation-text">One speaks French here. / यहाँ फ़्रेंच बोली जाती है।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1st Pers. Plu.</td>
+                            <td><strong>Nous</strong></td>
+                            <td>नू <button class="inline-audio-btn" onclick="playAudio('Nous')" title="Listen"></button></td>
+                            <td>We / हम</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Nous habitons à Delhi.</em> <button class="inline-audio-btn" onclick="playAudio('Nous habitons à Delhi')" title="Listen"></button><span class="phonetics-text">Phonetics: नू-ज़ाबीतॉँ आ दिल्ली</span><span class="translation-text">We live in Delhi. / हम दिल्ली में रहते हैं।</span></li>
+                                    <li>• <em>Nous apprenons le français.</em> <button class="inline-audio-btn" onclick="playAudio('Nous apprenons le français')" title="Listen"></button><span class="phonetics-text">Phonetics: नू-ज़ाप्रेनॉँ ल फ्रॉँसे</span><span class="translation-text">We are learning French. / हम फ़्रेंच सीख रहे हैं।</span></li>
+                                    <li>• <em>Nous travaillons ensemble.</em> <button class="inline-audio-btn" onclick="playAudio('Nous travaillons ensemble')" title="Listen"></button><span class="phonetics-text">Phonetics: नू त्रावायॉँ आँसाम्ब्ल</span><span class="translation-text">We work together. / हम एक साथ काम करते हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2nd Pers. Plu.</td>
+                            <td><strong>Vous</strong></td>
+                            <td>वू <button class="inline-audio-btn" onclick="playAudio('Vous')" title="Listen"></button></td>
+                            <td>You (formal/plural) / आप</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Vous parlez très bien.</em> <button class="inline-audio-btn" onclick="playAudio('Vous parlez très bien')" title="Listen"></button><span class="phonetics-text">Phonetics: वू पार्ले त्रे ब्यॉँ</span><span class="translation-text">You speak very well. / आप बहुत अच्छा बोलते हैं।</span></li>
+                                    <li>• <em>Vous habitez en Inde.</em> <button class="inline-audio-btn" onclick="playAudio('Vous habitez en Inde')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ाबीते आँ अँद</span><span class="translation-text">You live in India. / आप भारत में रहते हैं।</span></li>
+                                    <li>• <em>Vous aimez le café.</em> <button class="inline-audio-btn" onclick="playAudio('Vous aimez le café')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ेमे ल काफ़े</span><span class="translation-text">You like coffee. / आपको कॉफ़ी पसंद है।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3rd Pers. Plu.</td>
+                            <td><strong>Ils / Elles</strong></td>
+                            <td>इल / एल (Liaison applied) <button class="inline-audio-btn" onclick="playAudio('Ils Elles')" title="Listen"></button></td>
+                            <td>They (Masc/Fem) / वे</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Ils jouent au football.</em> <button class="inline-audio-btn" onclick="playAudio('Ils jouent au football')" title="Listen"></button><span class="phonetics-text">Phonetics: इल जू ओ फ़ुटबॉल</span><span class="translation-text">They play football. / वे फ़ुटबॉल खेलते हैं।</span></li>
+                                    <li>• <em>Elles chantent une chanson.</em> <button class="inline-audio-btn" onclick="playAudio('Elles chantent une chanson')" title="Listen"></button><span class="phonetics-text">Phonetics: एल शॉँत उन शॉँसॉँ</span><span class="translation-text">They sing a song. / वे एक गाना गाती हैं।</span></li>
+                                    <li>• <em>Ils étudient à l'université.</em> <button class="inline-audio-btn" onclick="playAudio('Ils étudient à luniversité')" title="Listen"></button><span class="phonetics-text">Phonetics: इल्ज़ एत्युदी आ ल्युनिवेरसिते</span><span class="translation-text">They study at university. / वे विश्वविद्यालय में पढ़ते हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -245,10 +342,29 @@
             <h3>Pronoun Mapping Rules for Names & Groups</h3>
             <div class="rule-card">
                 • <strong>Mohan</strong> (Male name) → <strong>Il</strong><br>
+                &nbsp;&nbsp;<em>Example 1:</em> Mohan est intelligent. (इल ए आँतेलीझॉँ - Mohan is intelligent.)<br>
+                &nbsp;&nbsp;<em>Example 2:</em> Mohan habite à Amritsar. (इल आबीत आ अमृतसर - Mohan lives in Amritsar.)<br>
+                &nbsp;&nbsp;<em>Example 3:</em> Mohan travaille beaucoup. (इल त्रावाय बोकू - Mohan works a lot.)<br><br>
+
                 • <strong>Meena</strong> (Female name) → <strong>Elle</strong><br>
+                &nbsp;&nbsp;<em>Example 1:</em> Meena est professeure. (एल ए प्रोफ़ेसॉर - Meena is a teacher.)<br>
+                &nbsp;&nbsp;<em>Example 2:</em> Meena lit un livre. (एल ली अन लीव्र - Meena is reading a book.)<br>
+                &nbsp;&nbsp;<em>Example 3:</em> Meena aime la musique. (एल एम ला म्युज़ीक - Meena likes music.)<br><br>
+
                 • <strong>Mohan et Manoj</strong> (All male / mixed group) → <strong>Ils</strong><br>
+                &nbsp;&nbsp;<em>Example 1:</em> Mohan et Manoj sont amis. (इल्ज़ सॉँ ज़मी - Mohan and Manoj are friends.)<br>
+                &nbsp;&nbsp;<em>Example 2:</em> Mohan et Manoj vont au parc. (इल्ज़ वॉँ ओ पार्क - Mohan and Manoj go to the park.)<br>
+                &nbsp;&nbsp;<em>Example 3:</em> Mohan et Manoj étudient ici. (इल्ज़ एत्युदी ईसी - Mohan and Manoj study here.)<br><br>
+
                 • <strong>Meena et Geeta</strong> (Exclusively female group) → <strong>Elles</strong><br>
-                • <strong>Mohan et Meena</strong> (Mixed male & female group) → <strong>Ils</strong> (Masculine plural takes precedence)
+                &nbsp;&nbsp;<em>Example 1:</em> Meena et Geeta sont amies. (एल्ज़ सॉँ ज़मी - Meena and Geeta are female friends.)<br>
+                &nbsp;&nbsp;<em>Example 2:</em> Meena et Geeta chantent bien. (एल शॉँत ब्यॉँ - Meena and Geeta sing well.)<br>
+                &nbsp;&nbsp;<em>Example 3:</em> Meena et Geeta dansent ensemble. (एल दॉँस आँसाम्ब्ल - Meena and Geeta dance together.)<br><br>
+
+                • <strong>Mohan et Meena</strong> (Mixed male & female group) → <strong>Ils</strong> (Masculine plural takes precedence)<br>
+                &nbsp;&nbsp;<em>Example 1:</em> Mohan et Meena parlent français. (इल्ज़ पार्ल फ्रॉँसे - Mohan and Meena speak French.)<br>
+                &nbsp;&nbsp;<em>Example 2:</em> Mohan et Meena sont étudiants. (इल्ज़ सॉँत एत्युदियाँ - Mohan and Meena are students.)<br>
+                &nbsp;&nbsp;<em>Example 3:</em> Mohan et Meena voyagent souvent. (इल्ज़ वॉयाज सूवाँ - Mohan and Meena travel often.)
             </div>
 
             <!-- SECTION 2: VERBS OVERVIEW -->
@@ -293,71 +409,98 @@
             <h2>3. The Verb Être (To Be) - Present Indicative</h2>
             <div class="section-pronunciation">French: <em>Verbe être - Indicatif présent</em> <button class="inline-audio-btn" onclick="playAudio('Verbe être')" title="Listen"></button> / Pronunciation: वेर्ब एत्र - अँदीकातिफ प्रेजाँ</div>
 
+            <div class="rule-card">
+                <strong>Possessive Adjectives ("My"):</strong><br>
+                • <strong>Mon</strong> = Masculine singular (e.g., <em>mon frère</em>, <em>mon père</em>, <em>mon ami</em>)<br>
+                • <strong>Ma</strong> = Feminine singular (e.g., <em>ma sœur</em>, <em>ma mère</em>, <em>ma maison</em>)<br>
+                • <strong>Mes</strong> = Plural for both genders (e.g., <em>mes amis</em>, <em>mes parents</em>, <em>mes livres</em>)
+            </div>
+
             <div class="table-responsive">
                 <table>
                     <thead>
                         <tr>
-                            <th>Pronoun</th>
-                            <th>Conjugation</th>
-                            <th>Phonetics with Liaison</th>
+                            <th>Pronoun + Conjugation</th>
+                            <th>Phonetics (with Liaison/Elision)</th>
                             <th>English & Hindi Meaning</th>
+                            <th>Examples</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Je</td><td><strong>suis</strong></td><td>ज सुई <button class="inline-audio-btn" onclick="playAudio('Je suis')" title="Listen"></button></td><td>I am / मैं हूँ</td></tr>
-                        <tr><td>Tu</td><td><strong>es</strong></td><td>त्यु ए <button class="inline-audio-btn" onclick="playAudio('Tu es')" title="Listen"></button></td><td>You are / तू है (तुझसे)</td></tr>
-                        <tr><td>Il / Elle / On</td><td><strong>est</strong></td><td>इल ए / एल ए / ऑँ ए <button class="inline-audio-btn" onclick="playAudio('Il est')" title="Listen"></button></td><td>He/She/It/One is / वह है</td></tr>
-                        <tr><td>Nous</td><td><strong>sommes</strong></td><td>नू सोम्म् <button class="inline-audio-btn" onclick="playAudio('Nous sommes')" title="Listen"></button></td><td>We are / हम हैं</td></tr>
-                        <tr><td>Vous</td><td><strong>êtes</strong></td><td>वू-ज़ेत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Vous êtes')" title="Listen"></button></td><td>You are / आप हैं</td></tr>
-                        <tr><td>Ils / Elles</td><td><strong>sont</strong></td><td>इल्ज़ ऑँत / एल्ज़ ऑँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils sont')" title="Listen"></button></td><td>They are / वे हैं</td></tr>
+                        <tr>
+                            <td><strong>Je + suis</strong></td>
+                            <td>ज सुई <button class="inline-audio-btn" onclick="playAudio('Je suis')" title="Listen"></button></td>
+                            <td>I am / मैं हूँ</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Je suis un étudiant.</em> <button class="inline-audio-btn" onclick="playAudio('Je suis un étudiant')" title="Listen"></button><span class="phonetics-text">Phonetics: ज सुई अन एत्युदियांत</span><span class="translation-text">I am a student. / मैं एक छात्र हूँ।</span></li>
+                                    <li>• <em>Je suis indien.</em> <button class="inline-audio-btn" onclick="playAudio('Je suis indien')" title="Listen"></button><span class="phonetics-text">Phonetics: ज सुई अँदियाँ</span><span class="translation-text">I am Indian. / मैं भारतीय हूँ।</span></li>
+                                    <li>• <em>Je suis très heureux.</em> <button class="inline-audio-btn" onclick="playAudio('Je suis très heureux')" title="Listen"></button><span class="phonetics-text">Phonetics: ज सुई त्रे ज़ोरॉ</span><span class="translation-text">I am very happy. / मैं बहुत खुश हूँ।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu + es</strong></td>
+                            <td>त्यु ए <button class="inline-audio-btn" onclick="playAudio('Tu es')" title="Listen"></button></td>
+                            <td>You are / तुम हो</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Tu es un médecin.</em> <button class="inline-audio-btn" onclick="playAudio('Tu es un médecin')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु ए अन मेदसाँ</span><span class="translation-text">You are a doctor. / तुम एक डॉक्टर हो।</span></li>
+                                    <li>• <em>Tu es très gentil.</em> <button class="inline-audio-btn" onclick="playAudio('Tu es très gentil')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु ए त्रे जॉँती</span><span class="translation-text">You are very kind. / तुम बहुत दयालु हो।</span></li>
+                                    <li>• <em>Tu es mon ami.</em> <button class="inline-audio-btn" onclick="playAudio('Tu es mon ami')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु ए मॉँ नमी</span><span class="translation-text">You are my friend. / तुम मेरे दोस्त हो।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Il / Elle / On + est</strong></td>
+                            <td>इल ए / एल ए / ऑँ ए <button class="inline-audio-btn" onclick="playAudio('Il est')" title="Listen"></button></td>
+                            <td>He/She/It/One is / वह है</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Il est un acteur.</em> <button class="inline-audio-btn" onclick="playAudio('Il est un acteur')" title="Listen"></button><span class="phonetics-text">Phonetics: इल ए-तन आक्तूर</span><span class="translation-text">He is an actor. / वह एक अभिनेता है।</span></li>
+                                    <li>• <em>Elle est une actrice.</em> <button class="inline-audio-btn" onclick="playAudio('Elle est une actrice')" title="Listen"></button><span class="phonetics-text">Phonetics: एल ए उन आक्ट्रीस</span><span class="translation-text">She is an actress. / वह एक अभिनेत्री है।</span></li>
+                                    <li>• <em>On est en retard.</em> <button class="inline-audio-btn" onclick="playAudio('On est en retard')" title="Listen"></button><span class="phonetics-text">Phonetics: ऑँ न-ए तॉँ रतार</span><span class="translation-text">We/One are late. / हमें देर हो रही है।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous + sommes</strong></td>
+                            <td>नू सोम्म् <button class="inline-audio-btn" onclick="playAudio('Nous sommes')" title="Listen"></button></td>
+                            <td>We are / हम हैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Nous sommes avocats.</em> <button class="inline-audio-btn" onclick="playAudio('Nous sommes avocats')" title="Listen"></button><span class="phonetics-text">Phonetics: नू सोम्म् आवोका</span><span class="translation-text">We are lawyers. / हम वकील हैं।</span></li>
+                                    <li>• <em>Nous sommes prêts.</em> <button class="inline-audio-btn" onclick="playAudio('Nous sommes prêts')" title="Listen"></button><span class="phonetics-text">Phonetics: नू सोम्म् प्रे</span><span class="translation-text">We are ready. / हम तैयार हैं।</span></li>
+                                    <li>• <em>Nous sommes à la maison.</em> <button class="inline-audio-btn" onclick="playAudio('Nous sommes à la maison')" title="Listen"></button><span class="phonetics-text">Phonetics: नू सोम्म् आ ला मेज़ॉँ</span><span class="translation-text">We are at home. / हम घर पर हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous + êtes</strong></td>
+                            <td>वू-ज़ेत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Vous êtes')" title="Listen"></button></td>
+                            <td>You are / आप हैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Vous êtes mon frère.</em> <button class="inline-audio-btn" onclick="playAudio('Vous êtes mon frère')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ेत मॉँ फ्रेर</span><span class="translation-text">You are my brother. / आप मेरे भाई हैं।</span></li>
+                                    <li>• <em>Vous êtes professeur.</em> <button class="inline-audio-btn" onclick="playAudio('Vous êtes professeur')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ेत प्रोफ़ेसॉर</span><span class="translation-text">You are a teacher. / आप एक शिक्षक हैं।</span></li>
+                                    <li>• <em>Vous êtes très sympathiques.</em> <button class="inline-audio-btn" onclick="playAudio('Vous êtes très sympathiques')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ेत त्रे सॉँपातीक</span><span class="translation-text">You are very nice. / आप सब बहुत अच्छे हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ils / Elles + sont</strong></td>
+                            <td>इल्ज़ ऑँत / एल्ज़ ऑँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils sont')" title="Listen"></button></td>
+                            <td>They are / वे हैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Ils sont mes amis.</em> <button class="inline-audio-btn" onclick="playAudio('Ils sont mes amis')" title="Listen"></button><span class="phonetics-text">Phonetics: इल्ज़ सॉँ मे ज़मी</span><span class="translation-text">They are my friends. / वे मेरे दोस्त हैं।</span></li>
+                                    <li>• <em>Manoj, Mohan et Karanveer sont mes amis.</em> <button class="inline-audio-btn" onclick="playAudio('Manoj Mohan et Karanveer sont mes amis')" title="Listen"></button><span class="phonetics-text">Phonetics: मनोज, मोहॉँ ए करनवीर सॉँ मे ज़मी</span><span class="translation-text">Manoj, Mohan, and Karanveer are my friends. / मनोज, मोहन और करनवीर मेरे दोस्त हैं।</span></li>
+                                    <li>• <em>Meena, Geeta et Vinisha sont mes amies.</em> <button class="inline-audio-btn" onclick="playAudio('Meena Geeta et Vinisha sont mes amies')" title="Listen"></button><span class="phonetics-text">Phonetics: मीना, गीता ए विनीशा सॉँ मे ज़मी</span><span class="translation-text">Meena, Geeta, and Vinisha are my female friends. / मीना, गीता और विनीशा मेरी सहेलियाँ हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
-
-            <h3>Practical Sentences with Être & Possessive Adjectives (Mon / Ma / Mes)</h3>
-            <div class="rule-card">
-                <strong>Possessive Adjectives ("My"):</strong><br>
-                • <strong>Mon</strong> = Masculine singular (e.g., <em>mon frère</em>)<br>
-                • <strong>Ma</strong> = Feminine singular (e.g., <em>ma sœur</em>)<br>
-                • <strong>Mes</strong> = Plural for both genders (e.g., <em>mes amis</em>)
-            </div>
-
-            <div class="example-box">
-                • <em>Je suis un / une étudiant(e).</em> <button class="inline-audio-btn" onclick="playAudio('Je suis un étudiant')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> ज सुई अन एत्युदियांत<br>
-                &nbsp;&nbsp;<em>Translation:</em> I am a student. / मैं एक छात्र/छात्रा हूँ。<br><br>
-
-                • <em>Tu es un médecin.</em> <button class="inline-audio-btn" onclick="playAudio('Tu es un médecin')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> त्यु ए अन मेदसाँ<br>
-                &nbsp;&nbsp;<em>Translation:</em> You are a doctor. / तुम एक डॉक्टर हो।<br><br>
-
-                • <em>Il est un acteur.</em> <button class="inline-audio-btn" onclick="playAudio('Il est un acteur')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> इल ए-तन आक्तूर (Liaison)<br>
-                &nbsp;&nbsp;<em>Translation:</em> He is an actor. / वह एक अभिनेता है।<br><br>
-
-                • <em>Elle est une actrice.</em> <button class="inline-audio-btn" onclick="playAudio('Elle est une actrice')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> एल ए उन आक्ट्रीस<br>
-                &nbsp;&nbsp;<em>Translation:</em> She is an actress. / वह एक अभिनेत्री है।<br><br>
-
-                • <em>Nous sommes avocats.</em> <button class="inline-audio-btn" onclick="playAudio('Nous sommes avocats')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> नू सोम्म् आवोका<br>
-                &nbsp;&nbsp;<em>Translation:</em> We are advocates. / हम वकील हैं।<br><br>
-
-                • <em>Vous êtes mon frère.</em> <button class="inline-audio-btn" onclick="playAudio('Vous êtes mon frère')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> वू-ज़ेत मॉँ फ्रेर (Liaison)<br>
-                &nbsp;&nbsp;<em>Translation:</em> You are my brother. / आप मेरे भाई हैं।<br><br>
-
-                • <em>Ils sont mes amis.</em> <button class="inline-audio-btn" onclick="playAudio('Ils sont mes amis')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> इल्ज़ सॉँ मे ज़मी (Liaison)<br>
-                &nbsp;&nbsp;<em>Translation:</em> They are my friends. / वे मेरे दोस्त हैं।<br><br>
-
-                • <em>Manoj, Mohan et Karanveer sont mes amis.</em> <button class="inline-audio-btn" onclick="playAudio('Manoj Mohan et Karanveer sont mes amis')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> मनोज, मोहॉँ ए करनवीर सॉँ मे ज़मी<br>
-                &nbsp;&nbsp;<em>Translation:</em> Manoj, Mohan, and Karanveer are my friends.<br><br>
-
-                • <em>Meena, Geeta et Vinisha sont mes amies.</em> <button class="inline-audio-btn" onclick="playAudio('Meena Geeta et Vinisha sont mes amies')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> मीना, गीता ए विनीशा सॉँ मे ज़मी<br>
-                &nbsp;&nbsp;<em>Translation:</em> Meena, Geeta, and Vinisha are my female friends.
             </div>
 
             <!-- SECTION 4: VERB AVOIR -->
@@ -368,52 +511,87 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Pronoun</th>
-                            <th>Conjugation</th>
-                            <th>Phonetics with Liaison & Elision</th>
+                            <th>Pronoun + Conjugation</th>
+                            <th>Phonetics (with Liaison & Elision)</th>
                             <th>English & Hindi Meaning</th>
+                            <th>Examples</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>J'</td><td><strong>ai</strong></td><td>जे (Elision) <button class="inline-audio-btn" onclick="playAudio('J ai')" title="Listen"></button></td><td>I have / मेरे पास है</td></tr>
-                        <tr><td>Tu</td><td><strong>as</strong></td><td>त्यु आ <button class="inline-audio-btn" onclick="playAudio('Tu as')" title="Listen"></button></td><td>You have / तुम्हारे पास है</td></tr>
-                        <tr><td>Il / Elle / On</td><td><strong>a</strong></td><td>इल आ / एल आ / ऑँ आ <button class="inline-audio-btn" onclick="playAudio('Il a')" title="Listen"></button></td><td>He/She/One has / उसके पास है</td></tr>
-                        <tr><td>Nous</td><td><strong>avons</strong></td><td>नू-ज़ावॉँ (Liaison) <button class="inline-audio-btn" onclick="playAudio('Nous avons')" title="Listen"></button></td><td>We have / हमारे पास है</td></tr>
-                        <tr><td>Vous</td><td><strong>avez</strong></td><td>वू-ज़ावे (Liaison) <button class="inline-audio-btn" onclick="playAudio('Vous avez')" title="Listen"></button></td><td>You have / आपके पास है</td></tr>
-                        <tr><td>Ils / Elles</td><td><strong>ont</strong></td><td>इल्ज़ ऑँत / एल्ज़ ऑँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils ont')" title="Listen"></button></td><td>They have / उनके पास है</td></tr>
+                        <tr>
+                            <td><strong>J' + ai</strong></td>
+                            <td>जे (Elision) <button class="inline-audio-btn" onclick="playAudio('J ai')" title="Listen"></button></td>
+                            <td>I have / मेरे पास है</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>J'ai un stylo.</em> <button class="inline-audio-btn" onclick="playAudio('Jai un stylo')" title="Listen"></button><span class="phonetics-text">Phonetics: जे अन स्तीलो</span><span class="translation-text">I have a pen. / मेरे पास एक पेन है।</span></li>
+                                    <li>• <em>J'ai une voiture.</em> <button class="inline-audio-btn" onclick="playAudio('Jai une voiture')" title="Listen"></button><span class="phonetics-text">Phonetics: जे उन वूत्र</span><span class="translation-text">I have a car. / मेरे पास एक कार है।</span></li>
+                                    <li>• <em>J'ai vingt ans.</em> <button class="inline-audio-btn" onclick="playAudio('Jai vingt ans')" title="Listen"></button><span class="phonetics-text">Phonetics: जे वँ ताँ</span><span class="translation-text">I am twenty years old. / मेरी उम्र 20 साल है।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu + as</strong></td>
+                            <td>त्यु आ <button class="inline-audio-btn" onclick="playAudio('Tu as')" title="Listen"></button></td>
+                            <td>You have / तुम्हारे पास है</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Tu as un stylo.</em> <button class="inline-audio-btn" onclick="playAudio('Tu as un stylo')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु आ अन स्तीलो</span><span class="translation-text">You have a pen. / तुम्हारे पास एक पेन है।</span></li>
+                                    <li>• <em>Tu as un livre.</em> <button class="inline-audio-btn" onclick="playAudio('Tu as un livre')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु आ अन लीव्र</span><span class="translation-text">You have a book. / तुम्हारे पास एक किताब है।</span></li>
+                                    <li>• <em>Tu as un chien.</em> <button class="inline-audio-btn" onclick="playAudio('Tu as un chien')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु आ अन श्याँ</span><span class="translation-text">You have a dog. / तुम्हारे पास एक कुत्ता है।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Il / Elle / On + a</strong></td>
+                            <td>इल आ / एल आ / ऑँ आ <button class="inline-audio-btn" onclick="playAudio('Il a')" title="Listen"></button></td>
+                            <td>He/She/One has / उसके पास है</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Il a un taille-crayon.</em> <button class="inline-audio-btn" onclick="playAudio('Il a un taille-crayon')" title="Listen"></button><span class="phonetics-text">Phonetics: इल आ अन ताय-क्रेयॉँ</span><span class="translation-text">He has a sharpener. / उसके पास कटर है।</span></li>
+                                    <li>• <em>Elle a un grand sac.</em> <button class="inline-audio-btn" onclick="playAudio('Elle a un grand sac')" title="Listen"></button><span class="phonetics-text">Phonetics: एल आ अन ग्रॉँ साक</span><span class="translation-text">She has a big bag. / उसके पास एक बड़ा बैग है।</span></li>
+                                    <li>• <em>On a faim.</em> <button class="inline-audio-btn" onclick="playAudio('On a faim')" title="Listen"></button><span class="phonetics-text">Phonetics: ऑँ ना फैँ</span><span class="translation-text">We are hungry. / हमें भूख लगी है।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous + avons</strong></td>
+                            <td>नू-ज़ावॉँ (Liaison) <button class="inline-audio-btn" onclick="playAudio('Nous avons')" title="Listen"></button></td>
+                            <td>We have / हमारे पास है</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Nous avons des stylos.</em> <button class="inline-audio-btn" onclick="playAudio('Nous avons des stylos')" title="Listen"></button><span class="phonetics-text">Phonetics: नू-ज़ावॉँ डे स्तीलो</span><span class="translation-text">We have some pens. / हमारे पास कुछ पेन हैं।</span></li>
+                                    <li>• <em>Nous avons une belle maison.</em> <button class="inline-audio-btn" onclick="playAudio('Nous avons une belle maison')" title="Listen"></button><span class="phonetics-text">Phonetics: नू-ज़ावॉँ उन बेल मेज़ॉँ</span><span class="translation-text">We have a beautiful house. / हमारे पास एक सुंदर घर है।</span></li>
+                                    <li>• <em>Nous avons un examen.</em> <button class="inline-audio-btn" onclick="playAudio('Nous avons un examen')" title="Listen"></button><span class="phonetics-text">Phonetics: नू-ज़ावॉँ अन एग्ज़ामाँ</span><span class="translation-text">We have an exam. / हमारी परीक्षा है।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous + avez</strong></td>
+                            <td>वू-ज़ावे (Liaison) <button class="inline-audio-btn" onclick="playAudio('Vous avez')" title="Listen"></button></td>
+                            <td>You have / आपके पास है</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Avez-vous un stylo ?</em> <button class="inline-audio-btn" onclick="playAudio('Avez vous un stylo')" title="Listen"></button><span class="phonetics-text">Phonetics: आवे-वू अन स्तीलो ?</span><span class="translation-text">Do you have a pen? / क्या आपके पास पेन है?</span></li>
+                                    <li>• <em>Vous avez du temps.</em> <button class="inline-audio-btn" onclick="playAudio('Vous avez du temps')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ावे द्यु तॉँ</span><span class="translation-text">You have time. / आपके पास समय है।</span></li>
+                                    <li>• <em>Vous avez une belle voiture.</em> <button class="inline-audio-btn" onclick="playAudio('Vous avez une belle voiture')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ावे उन बेल वूत्र</span><span class="translation-text">You have a nice car. / आपके पास एक अच्छी कार है।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ils / Elles + ont</strong></td>
+                            <td>इल्ज़ ऑँत / एल्ज़ ऑँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils ont')" title="Listen"></button></td>
+                            <td>They have / उनके पास है</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Ils ont des livres.</em> <button class="inline-audio-btn" onclick="playAudio('Ils ont des livres')" title="Listen"></button><span class="phonetics-text">Phonetics: इल्ज़ ऑँ डे लीव्र</span><span class="translation-text">They have books. / उनके पास किताबें हैं।</span></li>
+                                    <li>• <em>Elles ont beaucoup de travail.</em> <button class="inline-audio-btn" onclick="playAudio('Elles ont beaucoup de travail')" title="Listen"></button><span class="phonetics-text">Phonetics: एल्ज़ ऑँ बोकू द त्रावाय</span><span class="translation-text">They have a lot of work. / उनके पास बहुत काम है।</span></li>
+                                    <li>• <em>Ils ont deux enfants.</em> <button class="inline-audio-btn" onclick="playAudio('Ils ont deux enfants')" title="Listen"></button><span class="phonetics-text">Phonetics: इल्ज़ ऑँ द ज़ॉँफ़ॉँ</span><span class="translation-text">They have two children. / उनके दो बच्चे हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
-
-            <h3>Practical Sentences with Avoir & "Des" (Some)</h3>
-            <div class="example-box">
-                • <em>J'ai un stylo.</em> <button class="inline-audio-btn" onclick="playAudio('Jai un stylo')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> जे अन स्तीलो<br>
-                &nbsp;&nbsp;<em>Translation:</em> I have a pen. / मेरे पास एक पेन है।<br><br>
-
-                • <em>Tu as un stylo.</em> <button class="inline-audio-btn" onclick="playAudio('Tu as un stylo')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> त्यु आ अन स्तीलो<br>
-                &nbsp;&nbsp;<em>Translation:</em> You have a pen. / तुम्हारे पास एक पेन है।<br><br>
-
-                • <em>On a faim.</em> <button class="inline-audio-btn" onclick="playAudio('On a faim')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> ऑँ ना फैँ (Liaison)<br>
-                &nbsp;&nbsp;<em>Translation:</em> We are hungry (We have hunger). / हमें भूख लगी है।<br><br>
-
-                • <em>Nous avons des stylos.</em> <button class="inline-audio-btn" onclick="playAudio('Nous avons des stylos')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> नू-ज़ावॉँ डे स्तीलो (Liaison)<br>
-                &nbsp;&nbsp;<em>Translation:</em> We have some pens. (<em>des</em> = some).<br><br>
-
-                • <em>Avez-vous un stylo ?</em> <button class="inline-audio-btn" onclick="playAudio('Avez vous un stylo')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> आवे-वू अन स्तीलो ?<br>
-                &nbsp;&nbsp;<em>Translation:</em> Do you have a pen? / क्या आपके पास पेन है?<br><br>
-
-                • <em>J'ai une voiture.</em> <button class="inline-audio-btn" onclick="playAudio('Jai une voiture')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> जे उन वूत्र<br>
-                &nbsp;&nbsp;<em>Translation:</em> I have a car. / मेरे पास एक कार है।<br><br>
-
-                • <em>Il a un taille-crayon.</em> <button class="inline-audio-btn" onclick="playAudio('Il a un taille-crayon')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> इल आ अन ताय-क्रेयॉँ<br>
-                &nbsp;&nbsp;<em>Translation:</em> He has a sharpener. / उसके पास कटर है।
             </div>
 
             <!-- SECTION 5: VERB ALLER -->
@@ -422,53 +600,101 @@
 
             <p><strong>Definition:</strong> <em>Aller</em> means "to go". It is one of the most common irregular verbs in French and is also used to form near-future tense sentences.</p>
 
+            <div class="rule-card">
+                <strong>Preposition Rules with Destinations (Aller + Place):</strong><br>
+                • <strong>au</strong> + Masculine singular place/country (e.g., <em>au Canada</em>, <em>au Japon</em>, <em>au théâtre</em>, <em>au zoo</em>, <em>au restaurant</em>, <em>au parc</em>).<br>
+                • <strong>en</strong> + Feminine singular country or starting with vowel (e.g., <em>en Inde</em>, <em>en France</em>, <em>en Italie</em>).<br>
+                • <strong>à la</strong> + Feminine singular place (e.g., <em>à la piscine</em>, <em>à la banque</em>, <em>à la plage</em>).<br>
+                • <strong>à l'</strong> + Place starting with vowel/mute h (e.g., <em>à l'école</em>, <em>à l'hôpital</em>, <em>à l'aéroport</em>).<br>
+                • <strong>à</strong> + City name (e.g., <em>à Paris</em>, <em>à Delhi</em>, <em>à Amritsar</em>).<br>
+                • <strong>aux</strong> + Plural place/country (e.g., <em>aux États-Unis</em>, <em>aux Pays-Bas</em>, <em>aux toilettes</em>).
+            </div>
+
             <div class="table-responsive">
                 <table>
                     <thead>
                         <tr>
-                            <th>Pronoun</th>
-                            <th>Conjugation</th>
+                            <th>Pronoun + Conjugation</th>
                             <th>Phonetics</th>
                             <th>English & Hindi Meaning</th>
+                            <th>Examples</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Je</td><td><strong>vais</strong></td><td>ज वे <button class="inline-audio-btn" onclick="playAudio('Je vais')" title="Listen"></button></td><td>I am going / मैं जा रहा हूँ</td></tr>
-                        <tr><td>Tu</td><td><strong>vas</strong></td><td>त्यु वा <button class="inline-audio-btn" onclick="playAudio('Tu vas')" title="Listen"></button></td><td>You are going / तुम जा रहे हो</td></tr>
-                        <tr><td>Il / Elle / On</td><td><strong>va</strong></td><td>इल वा / एल वा / ऑँ वा <button class="inline-audio-btn" onclick="playAudio('Il va')" title="Listen"></button></td><td>He/She/One is going / वह जा रहा/रही है</td></tr>
-                        <tr><td>Nous</td><td><strong>allons</strong></td><td>नू-ज़ालॉँ (Liaison) <button class="inline-audio-btn" onclick="playAudio('Nous allons')" title="Listen"></button></td><td>We are going / हम जा रहे हैं</td></tr>
-                        <tr><td>Vous</td><td><strong>allez</strong></td><td>वू-ज़ाले (Liaison) <button class="inline-audio-btn" onclick="playAudio('Vous allez')" title="Listen"></button></td><td>You are going / आप जा रहे हैं</td></tr>
-                        <tr><td>Ils / Elles</td><td><strong>vont</strong></td><td>इल्ज़ वॉँत / एल्ज़ वॉँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils vont')" title="Listen"></button></td><td>They are going / वे जा रहे हैं</td></tr>
+                        <tr>
+                            <td><strong>Je + vais</strong></td>
+                            <td>ज वे <button class="inline-audio-btn" onclick="playAudio('Je vais')" title="Listen"></button></td>
+                            <td>I am going / मैं जा रहा हूँ</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Je vais au théâtre.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais au théâtre')" title="Listen"></button><span class="phonetics-text">Phonetics: ज वे ओ थियात्र</span><span class="translation-text">I am going to the theater. / मैं थिएटर जा रहा हूँ।</span></li>
+                                    <li>• <em>Je vais à la piscine.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais à la piscine')" title="Listen"></button><span class="phonetics-text">Phonetics: ज वे आ ला पीसीन</span><span class="translation-text">I am going to the swimming pool. / मैं स्विमिंग पूल जा रहा हूँ।</span></li>
+                                    <li>• <em>Je vais en France.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais en France')" title="Listen"></button><span class="phonetics-text">Phonetics: ज वे आँ फ्रॉँस</span><span class="translation-text">I am going to France. / मैं फ्रांस जा रहा हूँ।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu + vas</strong></td>
+                            <td>त्यु वा <button class="inline-audio-btn" onclick="playAudio('Tu vas')" title="Listen"></button></td>
+                            <td>You are going / तुम जा रहे हो</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Tu vas à l'école.</em> <button class="inline-audio-btn" onclick="playAudio('Tu vas à lecole')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु वा आ लेकोल</span><span class="translation-text">You are going to school. / तुम स्कूल जा रहे हो।</span></li>
+                                    <li>• <em>Tu vas au marché.</em> <button class="inline-audio-btn" onclick="playAudio('Tu vas au marché')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु वा ओ मार्शे</span><span class="translation-text">You are going to the market. / तुम बाजार जा रहे हो।</span></li>
+                                    <li>• <em>Tu vas à Paris.</em> <button class="inline-audio-btn" onclick="playAudio('Tu vas à Paris')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु वा आ पारी</span><span class="translation-text">You are going to Paris. / तुम पेरिस जा रहे हो।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Il / Elle / On + va</strong></td>
+                            <td>इल वा / एल वा / ऑँ वा <button class="inline-audio-btn" onclick="playAudio('Il va')" title="Listen"></button></td>
+                            <td>He/She/One is going / वह जा रहा/रही है</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Il va au Japon.</em> <button class="inline-audio-btn" onclick="playAudio('Il va au Japon')" title="Listen"></button><span class="phonetics-text">Phonetics: इल वा ओ जापॉँ</span><span class="translation-text">He is going to Japan. / वह जापान जा रहा है।</span></li>
+                                    <li>• <em>Elle va à la banque.</em> <button class="inline-audio-btn" onclick="playAudio('Elle va à la banque')" title="Listen"></button><span class="phonetics-text">Phonetics: एल वा आ ला बॉँक</span><span class="translation-text">She is going to the bank. / वह बैंक जा रही है।</span></li>
+                                    <li>• <em>On va au cinéma.</em> <button class="inline-audio-btn" onclick="playAudio('On va au cinéma')" title="Listen"></button><span class="phonetics-text">Phonetics: ऑँ वा ओ सीनेमा</span><span class="translation-text">We are going to the cinema. / हम सिनेमा जा रहे हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous + allons</strong></td>
+                            <td>नू-ज़ालॉँ (Liaison) <button class="inline-audio-btn" onclick="playAudio('Nous allons')" title="Listen"></button></td>
+                            <td>We are going / हम जा रहे हैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Nous allons aux États-Unis.</em> <button class="inline-audio-btn" onclick="playAudio('Nous allons aux États-Unis')" title="Listen"></button><span class="phonetics-text">Phonetics: नू-ज़ालॉँ ओज़ एतात-युनी</span><span class="translation-text">We are going to the United States. / हम अमेरिका जा रहे हैं।</span></li>
+                                    <li>• <em>Nous allons au restaurant.</em> <button class="inline-audio-btn" onclick="playAudio('Nous allons au restaurant')" title="Listen"></button><span class="phonetics-text">Phonetics: नू-ज़ालॉँ ओ रेस्तॉराँ</span><span class="translation-text">We are going to the restaurant. / हम रेस्तरां जा रहे हैं।</span></li>
+                                    <li>• <em>Nous allons en Inde.</em> <button class="inline-audio-btn" onclick="playAudio('Nous allons en Inde')" title="Listen"></button><span class="phonetics-text">Phonetics: नू-ज़ालॉँ आँ अँद</span><span class="translation-text">We are going to India. / हम भारत जा रहे हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous + allez</strong></td>
+                            <td>वू-ज़ाले (Liaison) <button class="inline-audio-btn" onclick="playAudio('Vous allez')" title="Listen"></button></td>
+                            <td>You are going / आप जा रहे हैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Vous allez à l'aéroport.</em> <button class="inline-audio-btn" onclick="playAudio('Vous allez à laéroport')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ाले आ लाएरोपोर</span><span class="translation-text">You are going to the airport. / आप एयरपोर्ट जा रहे हैं।</span></li>
+                                    <li>• <em>Vous allez au travail.</em> <button class="inline-audio-btn" onclick="playAudio('Vous allez au travail')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ाले ओ त्रावाय</span><span class="translation-text">You are going to work. / आप काम पर जा रहे हैं।</span></li>
+                                    <li>• <em>Vous allez au Canada.</em> <button class="inline-audio-btn" onclick="playAudio('Vous allez au Canada')" title="Listen"></button><span class="phonetics-text">Phonetics: वू-ज़ाले ओ कनाडा</span><span class="translation-text">You are going to Canada. / आप कनाडा जा रहे हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ils / Elles + vont</strong></td>
+                            <td>इल्ज़ वॉँत / एल्ज़ वॉँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils vont')" title="Listen"></button></td>
+                            <td>They are going / वे जा रहे हैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Ils vont au parc.</em> <button class="inline-audio-btn" onclick="playAudio('Ils vont au parc')" title="Listen"></button><span class="phonetics-text">Phonetics: इल्ज़ वॉँ ओ पार्क</span><span class="translation-text">They are going to the park. / वे पार्क जा रहे हैं।</span></li>
+                                    <li>• <em>Elles vont à la plage.</em> <button class="inline-audio-btn" onclick="playAudio('Elles vont à la plage')" title="Listen"></button><span class="phonetics-text">Phonetics: एल्ज़ वॉँ आ ला प्लाज</span><span class="translation-text">They are going to the beach. / वे समुद्र तट पर जा रही हैं।</span></li>
+                                    <li>• <em>Ils vont aux Pays-Bas.</em> <button class="inline-audio-btn" onclick="playAudio('Ils vont aux Pays-Bas')" title="Listen"></button><span class="phonetics-text">Phonetics: इल्ज़ वॉँ ओ पेइ-बा</span><span class="translation-text">They are going to the Netherlands. / वे नीदरलैंड जा रहे हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
-
-            <h3>Preposition Rules with Places & Countries (Aller + Destination)</h3>
-            <div class="rule-card">
-                • <strong>au</strong> + Masculine singular country/place (e.g., <em>au Canada</em>, <em>au Japon</em>, <em>au Mexique</em>, <em>au théâtre</em>, <em>au zoo</em>, <em>au restaurant</em>, <em>au parc</em>).<br>
-                • <strong>en</strong> + Feminine singular country or country starting with a vowel (e.g., <em>en Inde</em>).<br>
-                • <strong>à la</strong> + Feminine singular place (e.g., <em>à la piscine</em>).<br>
-                • <strong>à l'</strong> + Place starting with a vowel (e.g., <em>à l'école</em>).<br>
-                • <strong>à</strong> + City name (e.g., <em>à Paris</em>).<br>
-                • <strong>aux</strong> + Plural country/place (e.g., <em>aux États-Unis</em>, <em>aux Pays-Bas</em>).
-            </div>
-
-            <div class="example-box">
-                • <em>Je vais au théâtre.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais au théâtre')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> ज वे ओ थियात्र<br>
-                &nbsp;&nbsp;<em>Translation:</em> I am theater. / मैं थिएटर जा रहा हूँ।<br><br>
-
-                • <em>Tu vas à l'école.</em> <button class="inline-audio-btn" onclick="playAudio('Tu vas à lecole')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> त्यु वा आ लेकोल (Elision)<br>
-                &nbsp;&nbsp;<em>Translation:</em> You are going to school. / तुम स्कूल जा रहे हो।<br><br>
-
-                • <em>Il va au Japon.</em> <button class="inline-audio-btn" onclick="playAudio('Il va au Japon')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> इल वा ओ जापॉँ<br>
-                &nbsp;&nbsp;<em>Translation:</em> He is going to Japan. / वह जापान जा रहा है।<br><br>
-
-                • <em>Nous allons aux États-Unis.</em> <button class="inline-audio-btn" onclick="playAudio('Nous allons aux États-Unis')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> नू-ज़ालॉँ ओज़ एतात-युनी (Liaison)<br>
-                &nbsp;&nbsp;<em>Translation:</em> We are going to the United States. / हम अमेरिका जा रहे हैं।
             </div>
 
             <!-- SECTION 6: VERB FAIRE -->
@@ -479,31 +705,87 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Pronoun</th>
-                            <th>Conjugation</th>
+                            <th>Pronoun + Conjugation</th>
                             <th>Phonetics</th>
                             <th>English & Hindi Meaning</th>
+                            <th>Examples</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Je</td><td><strong>fais</strong></td><td>ज फे <button class="inline-audio-btn" onclick="playAudio('Je fais')" title="Listen"></button></td><td>I do/make / मैं करता/बनता हूँ</td></tr>
-                        <tr><td>Tu</td><td><strong>fais</strong></td><td>त्यु फे <button class="inline-audio-btn" onclick="playAudio('Tu fais')" title="Listen"></button></td><td>You do/make / तुम करते हो</td></tr>
-                        <tr><td>Il / Elle / On</td><td><strong>fait</strong></td><td>इल फे / एल फे / ऑँ फे <button class="inline-audio-btn" onclick="playAudio('Il fait')" title="Listen"></button></td><td>He/She does/makes / वह करता है</td></tr>
-                        <tr><td>Nous</td><td><strong>faisons</strong></td><td>नू फेज़ॉँ <button class="inline-audio-btn" onclick="playAudio('Nous faisons')" title="Listen"></button></td><td>We do/make / हम करते हैं</td></tr>
-                        <tr><td>Vous</td><td><strong>faites</strong></td><td>वू फेत <button class="inline-audio-btn" onclick="playAudio('Vous faites')" title="Listen"></button></td><td>You do/make / आप करते हैं</td></tr>
-                        <tr><td>Ils / Elles</td><td><strong>font</strong></td><td>इल्ज़ फॉँत / एल्ज़ फॉँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils font')" title="Listen"></button></td><td>They do/make / वे करते हैं</td></tr>
+                        <tr>
+                            <td><strong>Je + fais</strong></td>
+                            <td>ज फे <button class="inline-audio-btn" onclick="playAudio('Je fais')" title="Listen"></button></td>
+                            <td>I do/make / मैं करता/बनता हूँ</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Je fais un gâteau.</em> <button class="inline-audio-btn" onclick="playAudio('Je fais un gâteau')" title="Listen"></button><span class="phonetics-text">Phonetics: ज फे अन गातो</span><span class="translation-text">I am making a cake. / मैं एक केक बना रहा हूँ।</span></li>
+                                    <li>• <em>Je fais mes devoirs.</em> <button class="inline-audio-btn" onclick="playAudio('Je fais mes devoirs')" title="Listen"></button><span class="phonetics-text">Phonetics: ज फे मे दवूआर</span><span class="translation-text">I am doing my homework. / मैं अपना गृहकार्य कर रहा हूँ।</span></li>
+                                    <li>• <em>Je fais du sport.</em> <button class="inline-audio-btn" onclick="playAudio('Je fais du sport')" title="Listen"></button><span class="phonetics-text">Phonetics: ज फे द्यु स्पोर</span><span class="translation-text">I play sports. / मैं खेल खेलता हूँ।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu + fais</strong></td>
+                            <td>त्यु फे <button class="inline-audio-btn" onclick="playAudio('Tu fais')" title="Listen"></button></td>
+                            <td>You do/make / तुम करते हो</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Tu fais la cuisine.</em> <button class="inline-audio-btn" onclick="playAudio('Tu fais la cuisine')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु फे ला कुइज़ीन</span><span class="translation-text">You are cooking. / तुम खाना बना रहे हो।</span></li>
+                                    <li>• <em>Tu fais un effort.</em> <button class="inline-audio-btn" onclick="playAudio('Tu fais un effort')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु फे अन एफ़ोर</span><span class="translation-text">You make an effort. / तुम प्रयास करते हो।</span></li>
+                                    <li>• <em>Tu fais du yoga.</em> <button class="inline-audio-btn" onclick="playAudio('Tu fais du yoga')" title="Listen"></button><span class="phonetics-text">Phonetics: त्यु फे द्यु योगा</span><span class="translation-text">You do yoga. / तुम योग करते हो।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Il / Elle / On + fait</strong></td>
+                            <td>इल फे / एल फे / ऑँ फे <button class="inline-audio-btn" onclick="playAudio('Il fait')" title="Listen"></button></td>
+                            <td>He/She does/makes / वह करता है</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Il fait son travail.</em> <button class="inline-audio-btn" onclick="playAudio('Il fait son travail')" title="Listen"></button><span class="phonetics-text">Phonetics: इल फे सॉँ त्रावाय</span><span class="translation-text">He is doing his work. / वह अपना काम कर रहा है।</span></li>
+                                    <li>• <em>Elle fait du vélo.</em> <button class="inline-audio-btn" onclick="playAudio('Elle fait du vélo')" title="Listen"></button><span class="phonetics-text">Phonetics: एल फे द्यु वेलो</span><span class="translation-text">She rides a bicycle. / वह साइकिल चलाती है।</span></li>
+                                    <li>• <em>Il fait beau aujourd'hui.</em> <button class="inline-audio-btn" onclick="playAudio('Il fait beau aujourdhui')" title="Listen"></button><span class="phonetics-text">Phonetics: इल फे बो ओझुरदुई</span><span class="translation-text">The weather is nice today. / आज मौसम अच्छा है।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous + faisons</strong></td>
+                            <td>नू फेज़ॉँ <button class="inline-audio-btn" onclick="playAudio('Nous faisons')" title="Listen"></button></td>
+                            <td>We do/make / हम करते हैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Nous faisons une promenade.</em> <button class="inline-audio-btn" onclick="playAudio('Nous faisons une promenade')" title="Listen"></button><span class="phonetics-text">Phonetics: नू फेज़ॉँ उन प्रोमनाद</span><span class="translation-text">We go for a walk. / हम टहलने जा रहे हैं।</span></li>
+                                    <li>• <em>Nous faisons du café.</em> <button class="inline-audio-btn" onclick="playAudio('Nous faisons du café')" title="Listen"></button><span class="phonetics-text">Phonetics: नू फेज़ॉँ द्यु काफ़े</span><span class="translation-text">We are making coffee. / हम कॉफ़ी बना रहे हैं।</span></li>
+                                    <li>• <em>Nous faisons attention.</em> <button class="inline-audio-btn" onclick="playAudio('Nous faisons attention')" title="Listen"></button><span class="phonetics-text">Phonetics: नू फेज़ॉँ आ तोंस्यॉँ</span><span class="translation-text">We are paying attention. / हम ध्यान दे रहे हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous + faites</strong></td>
+                            <td>वू फेत <button class="inline-audio-btn" onclick="playAudio('Vous faites')" title="Listen"></button></td>
+                            <td>You do/make / आप करते हैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Vous faites du bon travail.</em> <button class="inline-audio-btn" onclick="playAudio('Vous faites du bon travail')" title="Listen"></button><span class="phonetics-text">Phonetics: वू फेत द्यु बॉँ त्रावाय</span><span class="translation-text">You are doing good work. / आप अच्छा काम कर रहे हैं।</span></li>
+                                    <li>• <em>Qu'est-ce que vous faites ?</em> <button class="inline-audio-btn" onclick="playAudio('Quest ce que vous faites')" title="Listen"></button><span class="phonetics-text">Phonetics: केस क वू फेत ?</span><span class="translation-text">What are you doing? / आप क्या कर रहे हैं?</span></li>
+                                    <li>• <em>Vous faites de la musique.</em> <button class="inline-audio-btn" onclick="playAudio('Vous faites de la musique')" title="Listen"></button><span class="phonetics-text">Phonetics: वू फेत द ला म्युज़ीक</span><span class="translation-text">You make music. / आप संगीत बनाते हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ils / Elles + font</strong></td>
+                            <td>इल्ज़ फॉँत / एल्ज़ फॉँत (Liaison) <button class="inline-audio-btn" onclick="playAudio('Ils font')" title="Listen"></button></td>
+                            <td>They do/make / वे करते हैं</td>
+                            <td>
+                                <ul class="example-list">
+                                    <li>• <em>Ils font la fête.</em> <button class="inline-audio-btn" onclick="playAudio('Ils font la fête')" title="Listen"></button><span class="phonetics-text">Phonetics: इल फॉँ ला फ़ेत</span><span class="translation-text">They are partying. / वे पार्टी कर रहे हैं।</span></li>
+                                    <li>• <em>Elles font des achats.</em> <button class="inline-audio-btn" onclick="playAudio('Elles font des achats')" title="Listen"></button><span class="phonetics-text">Phonetics: एल्ज़ फॉँ डे ज़ाशा</span><span class="translation-text">They are shopping. / वे खरीदारी कर रही हैं।</span></li>
+                                    <li>• <em>Ils font un voyage.</em> <button class="inline-audio-btn" onclick="playAudio('Ils font un voyage')" title="Listen"></button><span class="phonetics-text">Phonetics: इल फॉँ अन वॉयाज</span><span class="translation-text">They are taking a trip. / वे यात्रा कर रहे हैं।</span></li>
+                                </ul>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
-
-            <div class="example-box">
-                • <em>Je fais un gâteau.</em> <button class="inline-audio-btn" onclick="playAudio('Je fais un gâteau')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> ज फे अन गातो<br>
-                &nbsp;&nbsp;<em>Translation:</em> I am making a cake. / मैं एक केक बना रहा हूँ।<br><br>
-
-                • <em>Il fait son travail.</em> <button class="inline-audio-btn" onclick="playAudio('Il fait son travail')" title="Listen"></button><br>
-                &nbsp;&nbsp;<em>Pronunciation:</em> इल फे सॉँ त्रा바이<br>
-                &nbsp;&nbsp;<em>Translation:</em> He is doing his work. / वह अपना काम कर रहा है।
             </div>
         </div>
 
@@ -515,7 +797,7 @@
     <div id="footer-container"></div>
 </div>
 
-<script>
+<!-- <script>
     function playAudio(text) {
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
@@ -528,7 +810,7 @@
             alert('Speech synthesis is not supported in your browser.');
         }
     }
-</script>
+</script> -->
 
 </body>
 </html>

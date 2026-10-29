@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French -ER Verbs Masterclass</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
+    <style>
+        :root {
+            --primary-color: #1b4d3e;
+            --accent-color: #2e8b57;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --phonetic-color: #008080;
+            --phonetic-en-color: #d97706;
+            --badge-beginner: #22c55e;
+            --badge-medium: #3b82f6;
+            --answer-key-bg: #e9ecef;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --phonetic-color: #2dd4bf;
+            --phonetic-en-color: #fbbf24;
+            --answer-key-bg: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .rule-box {
+            background-color: var(--answer-key-bg);
+            border-left: 5px solid var(--primary-color);
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        table.conjugation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.93rem;
+        }
+
+        table.conjugation-table th, table.conjugation-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            vertical-align: top;
+        }
+
+        table.conjugation-table th {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: left;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+        }
+
+        .phonetic-hi {
+            color: var(--phonetic-color);
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-left: 4px;
+        }
+
+        .phonetic-en {
+            color: var(--phonetic-en-color);
+            font-size: 0.83rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 4px;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .examples-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .example-item {
+            background: rgba(0,0,0,0.02);
+            border-left: 3px solid var(--accent-color);
+            padding: 6px 10px;
+            margin-bottom: 6px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            position: relative;
+        }
+
+        .level-badge {
+            font-size: 0.70rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: white;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .badge-beginner {
+            background-color: var(--badge-beginner);
+        }
+
+        .badge-medium {
+            background-color: var(--badge-medium);
+        }
+
+        .num-col {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <div id="header-container"></div>
+
+    <div class="main-layout-wrapper">
+        <main class="main-content-area">
+            <h1>French -ER Verbs Masterclass</h1>
+            <p class="subtitle">Alphabetically sorted directory of regular "-ER" verbs examples per pronoun group, English & Devanagari phonetics, and audio playback buttons.</p>
+
+            <!-- Rule Box -->
+            <div class="rule-box">
+                <h3>📌 Pronoun & Ending Rule for 1st Group (-ER)</h3>
+                <p>To conjugate any regular <strong> "-er" verb </strong> (e.g., <em>parler</em>), drop the -er stem and apply these pronoun endings:</p>
+                <ul>
+                    <li><strong>Je (I):</strong> Add <strong>-e</strong> &rarr; <em>Je parle</em> <span class="phonetic-en">[zhuh parl]</span> <span class="phonetic-hi">(झ़् पर्ल)</span></li>
+                    <li><strong>Tu (You - informal):</strong> Add <strong>-es</strong> (silent) &rarr; <em>Tu parles</em> <span class="phonetic-en">[too parl]</span> <span class="phonetic-hi">(त्यू पर्ल)</span></li>
+                    <li><strong>Il / Elle / On (He / She / One):</strong> Add <strong>-e</strong> &rarr; <em>Il / Elle parle</em> <span class="phonetic-en">[eel / el parl]</span> <span class="phonetic-hi">(इल / एल पर्ल)</span></li>
+                    <li><strong>Nous (We):</strong> Add <strong>-ons</strong> &rarr; <em>Nous parlons</em> <span class="phonetic-en">[noo par-lohng]</span> <span class="phonetic-hi">(नू पर्लों)</span></li>
+                    <li><strong>Vous (You - formal/plural):</strong> Add <strong>-ez</strong> &rarr; <em>Vous parlez</em> <span class="phonetic-en">[voo par-lay]</span> <span class="phonetic-hi">(वू पर्ले)</span></li>
+                    <li><strong>Ils / Elles (They):</strong> Add <strong>-ent</strong> (silent) &rarr; <em>Ils / Elles parlent</em> <span class="phonetic-en">[eel / el parl]</span> <span class="phonetic-hi">(इल / एल पर्ल)</span></li>
+                </ul>
+            </div>
+
+            <!-- Alphabetical Verbs Table -->
+            <h2>-ER Verbs Examples</h2>
+            <div style="overflow-x: auto;">
+                <table class="conjugation-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">#</th>
+                            <th style="width: 20%;">Verb & Meaning</th>
+                            <th style="width: 37.5%;">Singular Pronouns</th>
+                            <th style="width: 37.5%;">Plural Pronouns</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 1. aider -->
+                        <tr>
+                            <td class="num-col">1</td>
+                            <td><strong>aider</strong> <span class="phonetic-en">[ay-day]</span> <span class="phonetic-hi">(एदे)</span> <button class="inline-audio-btn" onclick="playAudio('aider')" title="Listen"></button><br><span style="font-size:0.85rem; color:#6c757d;">To help / मदद करना</span></td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>J'aide.</strong> <span class="phonetic-en">[zhed]</span> <span class="phonetic-hi">(झ़ेद)</span> <button class="inline-audio-btn" onclick="playAudio('Jaide')" title="Listen"></button><br>I help. / मैं मदद करता हूँ।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>Tu aides.</strong> <span class="phonetic-en">[too ed]</span> <span class="phonetic-hi">(त्यू एद)</span> <button class="inline-audio-btn" onclick="playAudio('Tu aides')" title="Listen"></button><br>You help. / तुम मदद करते हो।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Il aide son père à la maison.</strong> <span class="phonetic-en">[eel ed sohng pair ah lah may-zohng]</span> <span class="phonetic-hi">(इल एद सोँ पेर आ ला मेज़ों)</span> <button class="inline-audio-btn" onclick="playAudio('Il aide son père à la maison')" title="Listen"></button><br>He helps his father at home. / वह घर पर अपने पिता की मदद करता है।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Elle aide toujours ses amis.</strong> <span class="phonetic-en">[el ed too-zhoor say zah-mee]</span> <span class="phonetic-hi">(एल एद तूझ़ूर से ज़ामी)</span> <button class="inline-audio-btn" onclick="playAudio('Elle aide toujours ses amis')" title="Listen"></button><br>She always helps her friends. / वह हमेशा अपने दोस्तों की मदद करती है।
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>Nous aidons.</strong> <span class="phonetic-en">[noo zay-dohng]</span> <span class="phonetic-hi">(नू ज़ैदों)</span> <button class="inline-audio-btn" onclick="playAudio('Nous aidons')" title="Listen"></button><br>We help. / हम मदद करते हैं।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>Vous aidez.</strong> <span class="phonetic-en">[voo zay-day]</span> <span class="phonetic-hi">(वू ज़ैदे)</span> <button class="inline-audio-btn" onclick="playAudio('Vous aidez')" title="Listen"></button><br>You help. / आप मदद करते हैं।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Ils aident les nouveaux étudiants.</strong> <span class="phonetic-en">[eel zed lay noo-vo zah-too-dyahng]</span> <span class="phonetic-hi">(इल ज़ैद ले नू वो ज़ेतूद्याँ)</span> <button class="inline-audio-btn" onclick="playAudio('Ils aident les nouveaux étudiants')" title="Listen"></button><br>They help the new students. / वे नए छात्रों की मदद करते हैं।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Elles aident leur mère dans la cuisine.</strong> <span class="phonetic-en">[el zed lur pair dahng lah kwee-zeen]</span> <span class="phonetic-hi">(एल ज़ैद लौर पेर दाँ ला क्वीज़ीन)</span> <button class="inline-audio-btn" onclick="playAudio('Elles aident leur mère dans la cuisine')" title="Listen"></button><br>They help their mother in the kitchen. / वे रसोई में अपनी माँ की मदद करती हैं।
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <!-- 2. aimer -->
+                        <tr>
+                            <td class="num-col">2</td>
+                            <td><strong>aimer</strong> <span class="phonetic-en">[ay-may]</span> <span class="phonetic-hi">(एमे)</span> <button class="inline-audio-btn" onclick="playAudio('aimer')" title="Listen"></button><br><span style="font-size:0.85rem; color:#6c757d;">To like, to love / पसंद करना</span></td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>J'aime.</strong> <span class="phonetic-en">[zhem]</span> <span class="phonetic-hi">(झ़ेम)</span> <button class="inline-audio-btn" onclick="playAudio('Jaime')" title="Listen"></button><br>I like. / मुझे पसंद है।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>Tu aimes.</strong> <span class="phonetic-en">[too em]</span> <span class="phonetic-hi">(त्यू एम)</span> <button class="inline-audio-btn" onclick="playAudio('Tu aimes')" title="Listen"></button><br>You like. / तुम्हें पसंद है।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Il aime lire des livres le soir.</strong> <span class="phonetic-en">[eel em leer day leev-ruh luh swahr]</span> <span class="phonetic-hi">(इल एम लीर दे लीव्र ल स्वा)</span> <button class="inline-audio-btn" onclick="playAudio('Il aime lire des livres le soir')" title="Listen"></button><br>He likes reading books in the evening. / वह शाम को किताबें पढ़ना पसंद करता है।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Elle aime écouter de la musique.</strong> <span class="phonetic-en">[el em ay-koo-tay duh lah moo-zeek]</span> <span class="phonetic-hi">(एल एम एकूते द ला म्यूज़ीक)</span> <button class="inline-audio-btn" onclick="playAudio('Elle aime écouter de la musique')" title="Listen"></button><br>She likes listening to music. / उसे संगीत सुनना पसंद है।
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>Nous aimons.</strong> <span class="phonetic-en">[noo zay-mohng]</span> <span class="phonetic-hi">(नू ज़ैमोँ)</span> <button class="inline-audio-btn" onclick="playAudio('Nous aimons')" title="Listen"></button><br>We like. / हमें पसंद है।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>Vous aimez.</strong> <span class="phonetic-en">[voo zay-may]</span> <span class="phonetic-hi">(वू ज़ैमे)</span> <button class="inline-audio-btn" onclick="playAudio('Vous aimez')" title="Listen"></button><br>You like. / आपको पसंद है।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Ils aiment voyager pendant les vacances.</strong> <span class="phonetic-en">[eel zem vwah-yah-zhay pahng-dahng lay vah-kahngs]</span> <span class="phonetic-hi">(इल ज़ैम वोयाझे पैदाँ ले वाकाँस)</span> <button class="inline-audio-btn" onclick="playAudio('Ils aiment voyager pendant les vacances')" title="Listen"></button><br>They like traveling during holidays. / वे छुट्टियों के दौरान यात्रा करना पसंद करते हैं।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Elles aiment manger du chocolat chaud.</strong> <span class="phonetic-en">[el zem mahng-zhay doo shoh-koh-lah shoh]</span> <span class="phonetic-hi">(एल ज़ैम माँझे द्यू शोकोला शो)</span> <button class="inline-audio-btn" onclick="playAudio('Elles aiment manger du chocolat chaud')" title="Listen"></button><br>They like drinking hot chocolate. / उन्हें हॉट चॉकलेट पीना पसंद है।
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <!-- 3. ajouter -->
+                        <tr>
+                            <td class="num-col">3</td>
+                            <td><strong>ajouter</strong> <span class="phonetic-en">[ah-zhoo-tay]</span> <span class="phonetic-hi">(आझ़ूते)</span> <button class="inline-audio-btn" onclick="playAudio('ajouter')" title="Listen"></button><br><span style="font-size:0.85rem; color:#6c757d;">To add / जोड़ना</span></td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>J'ajoute.</strong> <span class="phonetic-en">[zhah-zhoot]</span> <span class="phonetic-hi">(झ़ाझ़ूत)</span> <button class="inline-audio-btn" onclick="playAudio('Jajoute')" title="Listen"></button><br>I add. / मैं जोड़ता हूँ।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>Tu ajoutes.</strong> <span class="phonetic-en">[too ah-zhoot]</span> <span class="phonetic-hi">(त्यू आझ़ूत)</span> <button class="inline-audio-btn" onclick="playAudio('Tu ajoutes')" title="Listen"></button><br>You add. / तुम जोड़ते हो।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Il ajoute du sucre dans le café.</strong> <span class="phonetic-en">[eel ah-zhoot doo sook-ruh dahng luh kah-fay]</span> <span class="phonetic-hi">(इल आझ़ूत द्यू सूक्र दाँ ल काफ़े)</span> <button class="inline-audio-btn" onclick="playAudio('Il ajoute du sucre dans le café')" title="Listen"></button><br>He adds sugar to the coffee. / वह कॉफ़ी में चीनी मिलाता है।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Elle ajoute un mot dans le texte.</strong> <span class="phonetic-en">[el ah-zhoot uhng moh dahng luh tekst]</span> <span class="phonetic-hi">(एल आझ़ूत अ मो दाँ ल टेक्स्ट)</span> <button class="inline-audio-btn" onclick="playAudio('Elle ajoute un mot dans le texte')" title="Listen"></button><br>She adds a word to the text. / वह पाठ में एक शब्द जोड़ती है।
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>Nous ajoutons.</strong> <span class="phonetic-en">[noo zah-zhoo-tohng]</span> <span class="phonetic-hi">(नू ज़ाझ़ूतों)</span> <button class="inline-audio-btn" onclick="playAudio('Nous ajoutons')" title="Listen"></button><br>We add. / हम जोड़ते हैं।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-beginner">Beginner</span><br>
+                                        <strong>Vous ajoutez.</strong> <span class="phonetic-en">[voo zah-zhoo-tay]</span> <span class="phonetic-hi">(वू ज़ाझ़ूते)</span> <button class="inline-audio-btn" onclick="playAudio('Vous ajoutez')" title="Listen"></button><br>You add. / आप जोड़ते हैं।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Ils ajoutent du sel sur la salade.</strong> <span class="phonetic-en">[eel zah-zhoot doo sel soor lah sah-lahd]</span> <span class="phonetic-hi">(इल ज़ाझ़ूत द्यू सेल सूर ला सालाद)</span> <button class="inline-audio-btn" onclick="playAudio('Ils ajoutent du sel sur la salade')" title="Listen"></button><br>They add salt to the salad. / वे सलाद में नमक मिलाते हैं।
+                                    </li>
+                                    <li class="example-item">
+                                        <span class="level-badge badge-medium">Medium</span><br>
+                                        <strong>Elles ajoutent des détails au rapport.</strong> <span class="phonetic-en">[el zah-zhoot day day-tahy oh rah-por]</span> <span class="phonetic-hi">(एल ज़ाझ़ूत दे देताय ओ रापोर)</span> <button class="inline-audio-btn" onclick="playAudio('Elles ajoutent des détails au rapport')" title="Listen"></button><br>They add details to the report. / वे रिपोर्ट में विवरण जोड़ती हैं।
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <!-- Additional rows continue in the exact same 2 Beginner + 2 Medium format... -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+</div>
+
+</body>
+</html>

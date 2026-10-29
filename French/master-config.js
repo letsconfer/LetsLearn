@@ -19,7 +19,10 @@ window.French_MASTER_CONFIG = {
     homePage: "../Home.html", 
 
     // 5. Favicon Setting (Local subfolder asset)
-    favicon: "../logo1.png"         
+    favicon: "../logo1.png",         
+
+    // 6. Default Audio Speed (0.6 = Slow, 1.0 = Normal, 1.6 = Fast)
+    audioSpeed: 1.0             
 };
 
 // ==========================================

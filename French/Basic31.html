@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Masterclass - Verbe Continuation</title>
+    <!-- Standard Framework Scripts -->
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
+    <style>
+        /* Masterclass Consistent Layout & Styling */
+        :root {
+            --primary-color: #1b4d3e;
+            --accent-color: #2e8b57;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --phonetic-color: #008080;
+            --answer-key-bg: #e9ecef;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --phonetic-color: #2dd4bf;
+            --answer-key-bg: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .rule-box {
+            background-color: var(--answer-key-bg);
+            border-left: 5px solid var(--primary-color);
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .sub-rule-card {
+            background-color: var(--answer-key-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        table.conjugation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        table.conjugation-table th, table.conjugation-table td {
+            border: 1px solid var(--border-color);
+            padding: 0.75rem;
+            vertical-align: top;
+        }
+
+        table.conjugation-table th {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: left;
+        }
+
+        .phonetic {
+            color: var(--phonetic-color);
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 0.2rem;
+        }
+
+        /* Standard Synced Audio Button Styling */
+        .inline-audio-btn {
+            background: transparent url('Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .examples-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .example-item {
+            background: rgba(0,0,0,0.02);
+            border-left: 3px solid var(--accent-color);
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .exercise-box {
+            background: var(--answer-key-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .exercise-input {
+            padding: 0.3rem 0.6rem;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            width: 140px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        .answer-key {
+            display: none;
+            color: #047857;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <!-- Header container rendered via includes.js -->
+    <div id="header-container"></div>
+
+    <div class="main-layout-wrapper">
+        <!-- Main Content Section -->
+        <main class="main-content-area">
+            <h1>French Masterclass - Verbe Continuation</h1>
+            <p>Comprehensive lesson covering 1st Group (-ER), 2nd Group (-IR), 3rd Group (-RE), and Irregular Verbs with complete phonetic breakdowns and mandatory multi-example structures.</p>
+
+            <!-- Overview & Cheat Codes -->
+            <div class="rule-box">
+                <h3>⚡ Master Cheat Code & Rules</h3>
+                <ul>
+                    <li><strong>1st Group (-ER):</strong> Drop <em>-er</em> and add <code>-e, -es, -e, -ons, -ez, -ent</code>. Note: <em>-es</em> and <em>-ent</em> are silent. One French form expresses simple, continuous, and emphatic (e.g., <em>Je parle</em> = I speak / I am speaking / I do speak).</li>
+                    <li><strong>2nd Group (-IR):</strong> Drop <em>-ir</em> and add <code>-is, -is, -it, -issons, -issez, -issent</code> (featuring the <em>-iss-</em> plural infix).</li>
+                    <li><strong>3rd Group (-RE / Irregular):</strong> Includes regular -re verbs and irregular verbs like <em>Prendre</em>, <em>Apprendre</em>, <em>Comprendre</em>, and <em>Aller</em> which require separate memorization.</li>
+                </ul>
+            </div>
+
+            <!-- 1st Group -ER Verbs Section -->
+            <section id="er-verbs">
+                <h2>1. First Group (-ER Verbs) — Parler (To Speak)</h2>
+                
+                <!-- Explicit Pronoun Rule Mapping for -ER Verbs -->
+                <div class="sub-rule-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <strong>📌 Pronoun & Ending Rule for 1st Group (-ER):</strong>
+                    <a href="Basic31ER.html" style="color: #e74c3c; text-decoration: none;"><strong>Click for 80+ '-ER' Verbs examples</strong></a>
+                </div>
+                    To conjugate any regular -er verb (e.g., <em>parler</em>), drop the <em>-er</em> stem and apply these pronoun endings:
+                    <ul style="margin: 8px 0 0 20px; padding: 0;">
+                        <li><strong>Je (I):</strong> Add <strong>-e</strong> &rarr; <em>Je parle</em> <span class="phonetic">(झ़् पर्ल)</span> <button class="inline-audio-btn" onclick="playAudio('Je parle')" title="Listen"></button></li>
+                        <li><strong>Tu (You - informal):</strong> Add <strong>-es</strong> (silent) &rarr; <em>Tu parles</em> <span class="phonetic">(त्यू पर्ल)</span> <button class="inline-audio-btn" onclick="playAudio('Tu parles')" title="Listen"></button></li>
+                        <li><strong>Il / Elle / On (He / She / One):</strong> Add <strong>-e</strong> &rarr; <em>Il parle</em> <span class="phonetic">(इल पर्ल)</span> <button class="inline-audio-btn" onclick="playAudio('Il parle')" title="Listen"></button></li>
+                        <li><strong>Nous (We):</strong> Add <strong>-ons</strong> &rarr; <em>Nous parlons</em> <span class="phonetic">(नू पर्लों)</span> <button class="inline-audio-btn" onclick="playAudio('Nous parlons')" title="Listen"></button></li>
+                        <li><strong>Vous (You - formal/plural):</strong> Add <strong>-ez</strong> &rarr; <em>Vous parlez</em> <span class="phonetic">(वू पर्ले)</span> <button class="inline-audio-btn" onclick="playAudio('Vous parlez')" title="Listen"></button></li>
+                        <li><strong>Ils / Elles (They):</strong> Add <strong>-ent</strong> (silent) &rarr; <em>Ils parlent</em> <span class="phonetic">(इल पर्ल)</span> <button class="inline-audio-btn" onclick="playAudio('Ils parlent')" title="Listen"></button></li>
+                        <li style="text-align: right; list-style-type: none;"><a href="Basic31ER.html"><strong>Click for 80+ '-ER' Verbs examples</strong></a></li>
+                    </ul>
+                </div>
+
+                <table class="conjugation-table">
+                    <thead>
+                        <tr>
+                            <th>Pronoun & Conjugation</th>
+                            <th>Phonetics & Audio</th>
+                            <th>Meaning (English / Hindi)</th>
+                            <th>Examples (Minimum 3 Required)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Je parle</strong></td>
+                            <td><span class="phonetic">झ़् पर्ल</span> <button class="inline-audio-btn" onclick="playAudio('Je parle')" title="Listen"></button></td>
+                            <td>I speak / am speaking<br>मैं बोलता हूँ</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Je parle français.</strong> <span class="phonetic">(झ़् पर्ल फ़्रॉंसे)</span> <button class="inline-audio-btn" onclick="playAudio('Je parle français')" title="Listen"></button><br>I speak French. / मैं फ़्रांसीसी बोलता हूँ।</li>
+                                    <li class="example-item"><strong>Je parle à mon ami.</strong> <span class="phonetic">(झ़् पर्ल आ मोँ नामी)</span> <button class="inline-audio-btn" onclick="playAudio('Je parle à mon ami')" title="Listen"></button><br>I am speaking to my friend. / मैं अपने दोस्त से बात कर रहा हूँ।</li>
+                                    <li class="example-item"><strong>Je parle doucement.</strong> <span class="phonetic">(झ़् पर्ल दुसमॉं)</span> <button class="inline-audio-btn" onclick="playAudio('Je parle doucement')" title="Listen"></button><br>I speak softly. / मैं धीरे बोलता हूँ।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu parles</strong></td>
+                            <td><span class="phonetic">त्यू पर्ल</span> <button class="inline-audio-btn" onclick="playAudio('Tu parles')" title="Listen"></button></td>
+                            <td>You speak (informal)<br>तुम बोलते हो</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Tu parles anglais.</strong> <span class="phonetic">(त्यू पर्ल ज़ॉंग्ले)</span> <button class="inline-audio-btn" onclick="playAudio('Tu parles anglais')" title="Listen"></button><br>You speak English. / तुम अंग्रेज़ी बोलते हो।</li>
+                                    <li class="example-item"><strong>Tu parles trop vite.</strong> <span class="phonetic">(त्यू पर्ल त्रो बीत)</span> <button class="inline-audio-btn" onclick="playAudio('Tu parles trop vite')" title="Listen"></button><br>You speak too fast. / तुम बहुत तेज़ बोलते हो।</li>
+                                    <li class="example-item"><strong>Tu parles bien.</strong> <span class="phonetic">(त्यू पर्ल ब्यॉं)</span> <button class="inline-audio-btn" onclick="playAudio('Tu parles bien')" title="Listen"></button><br>You speak well. / तुम अच्छा बोलते हो।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Il / Elle parle</strong></td>
+                            <td><span class="phonetic">इल / एल पर्ल</span> <button class="inline-audio-btn" onclick="playAudio('Il parle')" title="Listen"></button></td>
+                            <td>He / She speaks<br>वह बोलता / बोलती है</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Il parle espagnol.</strong> <span class="phonetic">(इल पर्ल एस्पान्योल)</span> <button class="inline-audio-btn" onclick="playAudio('Il parle espagnol')" title="Listen"></button><br>He speaks Spanish. / वह स्पैनिश बोलता है।</li>
+                                    <li class="example-item"><strong>Elle parle allemand.</strong> <span class="phonetic">(एल पर्ल अलमॉं)</span> <button class="inline-audio-btn" onclick="playAudio('Elle parle allemand')" title="Listen"></button><br>She speaks German. / वह जर्मन बोलती है।</li>
+                                    <li class="example-item"><strong>Paul parle au téléphone.</strong> <span class="phonetic">(पोल पर्ल ओ टेलीफ़ोन)</span> <button class="inline-audio-btn" onclick="playAudio('Paul parle au téléphone')" title="Listen"></button><br>Paul is speaking on the phone. / पोल फ़ोन पर बात कर रहा है।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous parlons</strong></td>
+                            <td><span class="phonetic">नू पर्लों</span> <button class="inline-audio-btn" onclick="playAudio('Nous parlons')" title="Listen"></button></td>
+                            <td>We speak<br>हम बोलते हैं</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Nous parlons hindi.</strong> <span class="phonetic">(नू पर्लों हिंदी)</span> <button class="inline-audio-btn" onclick="playAudio('Nous parlons hindi')" title="Listen"></button><br>We speak Hindi. / हम हिंदी बोलते हैं।</li>
+                                    <li class="example-item"><strong>Nous parlons ensemble.</strong> <span class="phonetic">(नू पर्लों ज़ॉंसॉम्बल)</span> <button class="inline-audio-btn" onclick="playAudio('Nous parlons ensemble')" title="Listen"></button><br>We talk together. / हम एक साथ बात करते हैं।</li>
+                                    <li class="example-item"><strong>Nous parlons du projet.</strong> <span class="phonetic">(नू पर्लों द्यू प्रोझ़े)</span> <button class="inline-audio-btn" onclick="playAudio('Nous parlons du projet')" title="Listen"></button><br>We are talking about the project. / हम प्रोजेक्ट के बारे में बात कर रहे हैं।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous parlez</strong></td>
+                            <td><span class="phonetic">वू पर्ले</span> <button class="inline-audio-btn" onclick="playAudio('Vous parlez')" title="Listen"></button></td>
+                            <td>You speak (formal/plural)<br>आप बोलते हैं</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Vous parlez punjabi.</strong> <span class="phonetic">(वू पर्ले पंजाबी)</span> <button class="inline-audio-btn" onclick="playAudio('Vous parlez punjabi')" title="Listen"></button><br>You speak Punjabi. / आप पंजाबी बोलते हैं।</li>
+                                    <li class="example-item"><strong>Vous parlez clairement.</strong> <span class="phonetic">(वू पर्ले क्लेरमॉं)</span> <button class="inline-audio-btn" onclick="playAudio('Vous parlez clairement')" title="Listen"></button><br>You speak clearly. / आप स्पष्ट बोलते हैं।</li>
+                                    <li class="example-item"><strong>Vous parlez au professeur.</strong> <span class="phonetic">(वू पर्ले ओ प्रोफ़ेसर)</span> <button class="inline-audio-btn" onclick="playAudio('Vous parlez au professeur')" title="Listen"></button><br>You are speaking to the teacher. / आप शिक्षक से बात कर रहे हैं।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ils / Elles parlent</strong></td>
+                            <td><span class="phonetic">इल / एल पर्ल</span> <button class="inline-audio-btn" onclick="playAudio('Ils parlent')" title="Listen"></button></td>
+                            <td>They speak<br>वे बोलते हैं</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Ils parlent gujarati.</strong> <span class="phonetic">(इल पर्ल गुजराती)</span> <button class="inline-audio-btn" onclick="playAudio('Ils parlent gujarati')" title="Listen"></button><br>They speak Gujarati. / वे गुजराती बोलते हैं।</li>
+                                    <li class="example-item"><strong>Elles parlent marathi.</strong> <span class="phonetic">(एल पर्ल मराठी)</span> <button class="inline-audio-btn" onclick="playAudio('Elles parlent marathi')" title="Listen"></button><br>They (f) speak Marathi. / वे मराठी बोलती हैं।</li>
+                                    <li class="example-item"><strong>Ils parlent fort.</strong> <span class="phonetic">(इल पर्ल फ़ोर)</span> <button class="inline-audio-btn" onclick="playAudio('Ils parlent fort')" title="Listen"></button><br>They speak loudly. / वे तेज़ आवाज़ में बोलते हैं।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 2nd Group -IR Verbs Section -->
+            <section id="ir-verbs">
+                <h2>2. Second Group (-IR Verbs) — Finir (To Finish)</h2>
+                
+                <!-- Explicit Pronoun Rule Mapping for -IR Verbs -->
+                <div class="sub-rule-card">
+                    <strong>📌 Pronoun & Ending Rule for 2nd Group (-IR):</strong><br>
+                    To conjugate any regular -ir verb (e.g., <em>finir</em>), drop the <em>-ir</em> stem and apply these pronoun endings (incorporating the <em>-iss-</em> infix for plural forms):
+                    <ul style="margin: 8px 0 0 20px; padding: 0;">
+                        <li><strong>Je (I):</strong> Add <strong>-is</strong> &rarr; <em>Je finis</em> <span class="phonetic">(झ़् फ़िनी)</span> <button class="inline-audio-btn" onclick="playAudio('Je finis')" title="Listen"></button></li>
+                        <li><strong>Tu (You - informal):</strong> Add <strong>-is</strong> &rarr; <em>Tu finis</em> <span class="phonetic">(त्यू फ़िनी)</span> <button class="inline-audio-btn" onclick="playAudio('Tu finis')" title="Listen"></button></li>
+                        <li><strong>Il / Elle / On (He / She / One):</strong> Add <strong>-it</strong> &rarr; <em>Il finit</em> <span class="phonetic">(इल फ़िनी)</span> <button class="inline-audio-btn" onclick="playAudio('Il finit')" title="Listen"></button></li>
+                        <li><strong>Nous (We):</strong> Add <strong>-issons</strong> &rarr; <em>Nous finissons</em> <span class="phonetic">(नू फ़िनिसों)</span> <button class="inline-audio-btn" onclick="playAudio('Nous finissons')" title="Listen"></button></li>
+                        <li><strong>Vous (You - formal/plural):</strong> Add <strong>-issez</strong> &rarr; <em>Vous finissez</em> <span class="phonetic">(वू फ़िनिसे)</span> <button class="inline-audio-btn" onclick="playAudio('Vous finissez')" title="Listen"></button></li>
+                        <li><strong>Ils / Elles (They):</strong> Add <strong>-issent</strong> &rarr; <em>Ils finissent</em> <span class="phonetic">(इल फ़िनीस)</span> <button class="inline-audio-btn" onclick="playAudio('Ils finissent')" title="Listen"></button></li>
+                    </ul>
+                </div>
+
+                <table class="conjugation-table">
+                    <thead>
+                        <tr>
+                            <th>Pronoun & Conjugation</th>
+                            <th>Phonetics & Audio</th>
+                            <th>Meaning (English / Hindi)</th>
+                            <th>Examples (Minimum 3 Required)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Je finis</strong></td>
+                            <td><span class="phonetic">झ़् फ़िनी</span> <button class="inline-audio-btn" onclick="playAudio('Je finis')" title="Listen"></button></td>
+                            <td>I finish / am finishing<br>मैं समाप्त करता हूँ</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Je finis mes devoirs.</strong> <span class="phonetic">(झ़् फ़िनी मे दवार)</span> <button class="inline-audio-btn" onclick="playAudio('Je finis mes devoirs')" title="Listen"></button><br>I finish my homework. / मैं अपना गृहकार्य पूरा करता हूँ।</li>
+                                    <li class="example-item"><strong>Je finis de faire quelque chose.</strong> <span class="phonetic">(झ़् फ़िनी द फ़ैर केल्क शोज़)</span> <button class="inline-audio-btn" onclick="playAudio('Je finis de faire quelque chose')" title="Listen"></button><br>I finish doing something. / मैं कुछ करना समाप्त करता हूँ।</li>
+                                    <li class="example-item"><strong>Avant que je finis de faire la vidéo.</strong> <span class="phonetic">(अवॉं क झ़् फ़िनी द फ़ैर ला वीडियो)</span> <button class="inline-audio-btn" onclick="playAudio('Avant que je finis de faire la vidéo')" title="Listen"></button><br>Before I finish making the video. / इससे पहले कि मैं वीडियो बनाना समाप्त करूँ।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu finis</strong></td>
+                            <td><span class="phonetic">त्यू फ़िनी</span> <button class="inline-audio-btn" onclick="playAudio('Tu finis')" title="Listen"></button></td>
+                            <td>You finish (informal)<br>तुम समाप्त करते हो</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Tu finis ton travail.</strong> <span class="phonetic">(त्यू फ़िनी तोँ त्रावाय)</span> <button class="inline-audio-btn" onclick="playAudio('Tu finis ton travail')" title="Listen"></button><br>You finish your work. / तुम अपना काम खत्म करते हो।</li>
+                                    <li class="example-item"><strong>Tu finis ton repas.</strong> <span class="phonetic">(त्यू फ़िनी तोँ रपा)</span> <button class="inline-audio-btn" onclick="playAudio('Tu finis ton repas')" title="Listen"></button><br>You finish your meal. / तुम अपना खाना समाप्त करते हो।</li>
+                                    <li class="example-item"><strong>Tu finis tôt.</strong> <span class="phonetic">(त्यू फ़िनी तो)</span> <button class="inline-audio-btn" onclick="playAudio('Tu finis tôt')" title="Listen"></button><br>You finish early. / तुम जल्दी समाप्त करते हो।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Il / Elle finit</strong></td>
+                            <td><span class="phonetic">इल / एल फ़िनी</span> <button class="inline-audio-btn" onclick="playAudio('Il finit')" title="Listen"></button></td>
+                            <td>He / She finishes<br>वह समाप्त करता/करती है</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Il finit son livre.</strong> <span class="phonetic">(इल फ़िनी सोँ लीव्र)</span> <button class="inline-audio-btn" onclick="playAudio('Il finit son livre')" title="Listen"></button><br>He finishes his book. / वह अपनी किताब खत्म करता है।</li>
+                                    <li class="example-item"><strong>Elle finit ses études.</strong> <span class="phonetic">(एल फ़िनी से एतूद)</span> <button class="inline-audio-btn" onclick="playAudio('Elle finit ses études')" title="Listen"></button><br>She finishes her studies. / वह अपनी पढ़ाई पूरी करती है।</li>
+                                    <li class="example-item"><strong>Paul finit sa tâche.</strong> <span class="phonetic">(पोल फ़िनी सा ताश)</span> <button class="inline-audio-btn" onclick="playAudio('Paul finit sa tâche')" title="Listen"></button><br>Paul finishes his task. / पोल अपना काम पूरा करता है।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous finissons</strong></td>
+                            <td><span class="phonetic">नू फ़िनिसों</span> <button class="inline-audio-btn" onclick="playAudio('Nous finissons')" title="Listen"></button></td>
+                            <td>We finish<br>हम समाप्त करते हैं</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Nous finissons de peindre la chambre de notre fille.</strong> <span class="phonetic">(नू फ़िनिसों द पॉंद्र ला शोँब्र द नोत्र फ़ीय)</span> <button class="inline-audio-btn" onclick="playAudio('Nous finissons de peindre la chambre de notre fille')" title="Listen"></button><br>We finish painting our daughter's bedroom. / हम अपनी बेटी का कमरा रंगना पूरा करते हैं।</li>
+                                    <li class="example-item"><strong>Avant que nous finissons.</strong> <span class="phonetic">(अवॉं क नू फ़िनिसों)</span> <button class="inline-audio-btn" onclick="playAudio('Avant que nous finissons')" title="Listen"></button><br>Before we finish. / इससे पहले कि हम समाप्त करें।</li>
+                                    <li class="example-item"><strong>Nous finissons à midi.</strong> <span class="phonetic">(नू फ़िनिसों आ मीदी)</span> <button class="inline-audio-btn" onclick="playAudio('Nous finissons à midi')" title="Listen"></button><br>We finish at noon. / हम दोपहर में समाप्त करते हैं।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous finissez</strong></td>
+                            <td><span class="phonetic">वू फ़िनिसे</span> <button class="inline-audio-btn" onclick="playAudio('Vous finissez')" title="Listen"></button></td>
+                            <td>You finish (formal/plural)<br>आप समाप्त करते हैं</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Vous finissez vos projets.</strong> <span class="phonetic">(वू फ़िनिसे वो प्रोझ़े)</span> <button class="inline-audio-btn" onclick="playAudio('Vous finissez vos projets')" title="Listen"></button><br>You finish your projects. / आप अपने प्रोजेक्ट पूरे करते हैं।</li>
+                                    <li class="example-item"><strong>Vous finissez tard.</strong> <span class="phonetic">(वू फ़िनिसे तार्द)</span> <button class="inline-audio-btn" onclick="playAudio('Vous finissez tard')" title="Listen"></button><br>You finish late. / आप देर से समाप्त करते हैं।</li>
+                                    <li class="example-item"><strong>Vous finissez vite.</strong> <span class="phonetic">(वू फ़िनिसे बीत)</span> <button class="inline-audio-btn" onclick="playAudio('Vous finissez vite')" title="Listen"></button><br>You finish quickly. / आप जल्दी समाप्त करते हैं।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ils / Elles finissent</strong></td>
+                            <td><span class="phonetic">इल / एल फ़िनीस</span> <button class="inline-audio-btn" onclick="playAudio('Ils finissent')" title="Listen"></button></td>
+                            <td>They finish<br>वे समाप्त करते हैं</td>
+                            <td>
+                                <ul class="examples-list">
+                                    <li class="example-item"><strong>Ils finissent leur diner.</strong> <span class="phonetic">(इल फ़िनीस लौर दीने)</span> <button class="inline-audio-btn" onclick="playAudio('Ils finissent leur diner')" title="Listen"></button><br>They finish their dinner. / वे अपना रात का खाना खत्म करते हैं।</li>
+                                    <li class="example-item"><strong>Elles finissent ensemble.</strong> <span class="phonetic">(एल फ़िनीस ज़ॉंसॉम्बल)</span> <button class="inline-audio-btn" onclick="playAudio('Elles finissent ensemble')" title="Listen"></button><br>They finish together. / वे साथ में समाप्त करती हैं।</li>
+                                    <li class="example-item"><strong>Ils finissent le match.</strong> <span class="phonetic">(इल फ़िनीस ल मात्श)</span> <button class="inline-audio-btn" onclick="playAudio('Ils finissent le match')" title="Listen"></button><br>They finish the match. / वे मैच समाप्त करते हैं।</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 3rd Group -RE & Irregular Verbs -->
+            <section id="re-verbs">
+                <h2>3. Third Group (-RE & Irregular) — Prendre, Apprendre, Comprendre</h2>
+                
+                <!-- Explicit Logic & Rule Card for 3rd Group (-dre verbs) -->
+                <div class="sub-rule-card">
+                    <strong>📌 Logic & Conjugation Rule for Prendre & Derivatives (-dre Verbs):</strong><br>
+                    Verbs like <em>prendre</em> (to take) and its family (<em>apprendre</em> = to learn, <em>comprendre</em> = to understand) follow a specific pattern:
+                    <ul style="margin: 8px 0 0 20px; padding: 0;">
+                        <li><strong>Singular (Je, Tu, Il/Elle):</strong> Keep the <strong>'d'</strong> in the stem.
+                            <br>• <strong>Je / Tu:</strong> Add <strong>-s</strong> &rarr; <em>Je prends / Tu prends</em> <span class="phonetic">(झ़् / त्यू प्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Je prends')" title="Listen"></button> (ends in silent 's').
+                            <br>• <strong>Il / Elle:</strong> Drop the 's' (no ending) &rarr; <em>Il prend</em> <span class="phonetic">(इल प्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Il prend')" title="Listen"></button> (same sound).
+                        </li>
+                        <li><strong>Plural (Nous, Vous, Ils/Elles):</strong> Drop the <strong>'d'</strong> entirely and apply standard plural endings:
+                            <br>• <strong>Nous (We):</strong> Drop 'd' + <strong>-ons</strong> &rarr; <em>Nous prenons</em> <span class="phonetic">(नू प्रनों)</span> <button class="inline-audio-btn" onclick="playAudio('Nous prenons')" title="Listen"></button>
+                            <br>• <strong>Vous (You):</strong> Drop 'd' + <strong>-ez</strong> &rarr; <em>Vous prenez</em> <span class="phonetic">(वू प्रने)</span> <button class="inline-audio-btn" onclick="playAudio('Vous prenez')" title="Listen"></button>
+                            <br>• <strong>Ils / Elles (They):</strong> Drop 'd' + double 'nn' + <strong>-ent</strong> &rarr; <em>Ils prennent</em> <span class="phonetic">(इल प्रैन)</span> <button class="inline-audio-btn" onclick="playAudio('Ils prennent')" title="Listen"></button>
+                        </li>
+                        <li><strong>💡 The Family Cheat Code:</strong> Because <em>apprendre</em> and <em>comprendre</em> contain <em>prendre</em> inside them, they conjugate using the exact same rule! Simply attach the prefix (<em>ap-</em> or <em>com-</em>) to the front of each form.</li>
+                    </ul>
+                </div>
+
+                <table class="conjugation-table">
+                    <thead>
+                        <tr>
+                            <th>Pronoun</th>
+                            <th>Prendre (To Take)</th>
+                            <th>Apprendre (To Learn)</th>
+                            <th>Comprendre (To Understand)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Je / J'</strong></td>
+                            <td><strong>Je prends</strong> <span class="phonetic">(झ़् प्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Je prends')" title="Listen"></button></td>
+                            <td><strong>J'apprends</strong> <span class="phonetic">(झ़ाप्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Japprends')" title="Listen"></button></td>
+                            <td><strong>Je comprends</strong> <span class="phonetic">(झ़् कॉंप्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Je comprends')" title="Listen"></button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tu</strong></td>
+                            <td><strong>Tu prends</strong> <span class="phonetic">(त्यू प्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Tu prends')" title="Listen"></button></td>
+                            <td><strong>Tu apprends</strong> <span class="phonetic">(त्यू अप्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Tu apprends')" title="Listen"></button></td>
+                            <td><strong>Tu comprends</strong> <span class="phonetic">(त्यू कॉंप्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Tu comprends')" title="Listen"></button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Il / Elle</strong></td>
+                            <td><strong>Il prend</strong> <span class="phonetic">(इल प्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Il prend')" title="Listen"></button></td>
+                            <td><strong>Il apprend</strong> <span class="phonetic">(इल अप्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Il apprend')" title="Listen"></button></td>
+                            <td><strong>Elle comprend</strong> <span class="phonetic">(एल कॉंप्रों)</span> <button class="inline-audio-btn" onclick="playAudio('Elle comprend')" title="Listen"></button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nous</strong></td>
+                            <td><strong>Nous prenons</strong> <span class="phonetic">(नू प्रनों)</span> <button class="inline-audio-btn" onclick="playAudio('Nous prenons')" title="Listen"></button></td>
+                            <td><strong>Nous apprenons</strong> <span class="phonetic">(नू ज़ाप्रनों)</span> <button class="inline-audio-btn" onclick="playAudio('Nous apprenons')" title="Listen"></button></td>
+                            <td><strong>Nous comprenons</strong> <span class="phonetic">(नू कॉंप्रनों)</span> <button class="inline-audio-btn" onclick="playAudio('Nous comprenons')" title="Listen"></button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vous</strong></td>
+                            <td><strong>Vous prenez</strong> <span class="phonetic">(वू प्रने)</span> <button class="inline-audio-btn" onclick="playAudio('Vous prenez')" title="Listen"></button></td>
+                            <td><strong>Vous apprenez</strong> <span class="phonetic">(वू ज़ाप्रने)</span> <button class="inline-audio-btn" onclick="playAudio('Vous apprenez')" title="Listen"></button></td>
+                            <td><strong>Vous comprenez</strong> <span class="phonetic">(वू कॉंप्रने)</span> <button class="inline-audio-btn" onclick="playAudio('Vous comprenez')" title="Listen"></button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ils / Elles</strong></td>
+                            <td><strong>Ils prennent</strong> <span class="phonetic">(इल प्रैन)</span> <button class="inline-audio-btn" onclick="playAudio('Ils prennent')" title="Listen"></button></td>
+                            <td><strong>Ils apprennent</strong> <span class="phonetic">(इल ज़ाप्रैन)</span> <button class="inline-audio-btn" onclick="playAudio('Ils apprennent')" title="Listen"></button></td>
+                            <td><strong>Elles comprennent</strong> <span class="phonetic">(एल कॉंप्रैन)</span> <button class="inline-audio-btn" onclick="playAudio('Elles comprennent')" title="Listen"></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Practice Exercises -->
+            <section class="exercise-box">
+                <h2>📝 Practice Exercises: Fill in the Blanks</h2>
+                <p>Complete each sentence with the correct verb conjugation based on your reference materials:</p>
+                <ol style="margin-left: 1.5rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <li>Les enfants (manger) <input type="text" id="ex1" class="exercise-input"> du poisson deux fois par semaine. <span class="answer-key" id="ans1">[mangent]</span></li>
+                    <li>Elle (arriver) <input type="text" id="ex2" class="exercise-input"> cet après-midi à trois heures. <span class="answer-key" id="ans2">[arrive]</span></li>
+                    <li>Je (parler) <input type="text" id="ex3" class="exercise-input"> français avec mon correspondant. <span class="answer-key" id="ans3">[parle]</span></li>
+                    <li>Tu (donner) <input type="text" id="ex4" class="exercise-input"> un bain au bébé ? <span class="answer-key" id="ans4">[donnes]</span></li>
+                    <li>Nous (rester) <input type="text" id="ex5" class="exercise-input"> ici pour le week-end. <span class="answer-key" id="ans5">[restons]</span></li>
+                    <li>Vous (regarder) <input type="text" id="ex6" class="exercise-input"> la télévision après le repas. <span class="answer-key" id="ans6">[regardez]</span></li>
+                    <li>Les filles (aimer) <input type="text" id="ex7" class="exercise-input"> porter de jolies robes. <span class="answer-key" id="ans7">[aiment]</span></li>
+                    <li>Tu (chanter) <input type="text" id="ex8" class="exercise-input"> dans une chorale. <span class="answer-key" id="ans8">[chantes]</span></li>
+                    <li>Lucie (téléphoner) <input type="text" id="ex9" class="exercise-input"> à son amie. <span class="answer-key" id="ans9">[téléphone]</span></li>
+                    <li>Marion (jouer) <input type="text" id="ex10" class="exercise-input"> dans le jardin des voisins. <span class="answer-key" id="ans10">[joue]</span></li>
+                </ol>
+                <button class="btn" onclick="revealAnswers()">Reveal Answers</button>
+            </section>
+        </main>
+
+        <!-- Sidebar Section -->
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
+    </div>
+
+    <!-- Footer container rendered via includes.js -->
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    function revealAnswers() {
+        const keys = document.querySelectorAll('.answer-key');
+        keys.forEach(el => el.style.display = 'inline');
+    }
+</script>
+
+</body>
+</html>
