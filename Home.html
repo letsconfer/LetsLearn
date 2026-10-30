@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="master-config.js"></script>
     <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
     <style>
         .hub-grid {
             display: flex;
@@ -85,7 +86,9 @@
 <div class="cv-container">
     <!-- restrictions.js automatically hooks into this class to place Home, Theme, and Download icons -->
     <div class="theme-switcher"></div>
-
+        <!-- Header container rendered via includes.js -->
+        <div id="header-container"></div>
+        
     <h1>Welcome to Learning Hub</h1>
     <p style="color: var(--muted-color); margin-bottom: 10px;">Select a program below to access your training modules and materials.</p>
     <hr>
@@ -93,6 +96,7 @@
     <div class="hub-grid">
         <!-- IELTS Preparation -->
         <div class="hub-card">
+            <a href="./IELTS/Language.html" style="text-decoration: none; color: inherit; display: block;">
             <img src="IELTS.png" alt="IELTS Preparation" class="hub-image">
             <div class="hub-content">
                 <h2><a href="./IELTS/Language.html">IELTS Preparation</a></h2>
@@ -102,11 +106,12 @@
 
         <!-- Learn French -->
         <div class="hub-card">
-            <img src="French.png" alt="Learn French" class="hub-image">
+            <a href="./French/Language.html" style="text-decoration: none; color: inherit; display: block;">
+            <img src="French.png" alt="Learn French" class="hub-image"> </a>
             <div class="hub-content">
                 <h2><a href="./French/Language.html">Learn French</a></h2>
                 <p>Master French alphabets, foundational grammar rules, pronunciation audio tools, and essential daily vocabulary to build a strong linguistic base.</p>
-            </div>
+            </div>            
         </div>
 
         <!-- TCF/TEF Training -->
@@ -118,6 +123,10 @@
             </div>
         </div>
     </div>
+    <!-- Footer container rendered via includes.js -->
+    <div id="footer-container"></div>
+    </div>
+
 </div>
 
 </body>
