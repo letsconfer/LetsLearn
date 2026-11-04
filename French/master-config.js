@@ -7,6 +7,9 @@ window.French_MASTER_CONFIG = {
     allowLeftClick: true,       // true = Normal clicks, false = Blocks selection/clicks
     allowScreenshot: true,      // false = Blocks PrintScreen/shortcuts, true = Allowed
     
+    // ... your existing config settings ...
+    ENABLE_FLOATING_NAV: false, // Set to false to disable globally across all pages
+    
     // 2. Toolbar Icon Controls
     showDownloadIcon: true,      // true = Show PDF download icon, false = Hidden
     showThemeIcon: true,         // true = Show Theme toggle icon, false = Hidden
@@ -15,8 +18,8 @@ window.French_MASTER_CONFIG = {
     // 3. Profile Image Setting (Points to root asset)
     profileImage: "../me.jpeg",     
 
-    // 4. Fixed homepage (Points to root home.html)
-    homePage: "../Home.html", 
+    // 4. Fixed homepage (Points to french root Language.html)
+    homePage: "Language.html", 
 
     // 5. Favicon Setting (Local subfolder asset)
     favicon: "../logo1.png",         

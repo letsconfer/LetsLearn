@@ -119,7 +119,8 @@ window.playAudio = function(text) {
     }
 };
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () 
+{
     const headerContainer = document.getElementById("header-container");
     const footerContainer = document.getElementById("footer-container");
 
@@ -128,4 +129,152 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Sync slider and label on page load
     updateSpeedUI(window.currentAudioSpeedIndex);
+});
+
+
+
+// Dynamic Floating Top & Bottom Navigation
+function initFloatingNav() {
+    // Check master config flag
+    if (window.MASTER_CONFIG && window.MASTER_CONFIG.ENABLE_FLOATING_NAV === false) {
+        return;
+    }
+
+    if (document.getElementById('floating-nav-container')) return;
+
+    // Create container and buttons
+    const navContainer = document.createElement('div');
+    navContainer.id = 'floating-nav-container';
+    navContainer.innerHTML = `
+        <button id="float-top-btn" class="nav-btn-hidden" title="Go to Top" onclick="scrollToTop()">
+            <img src="Top.png" alt="Top" onerror="this.style.display='none'">
+        </button>
+        <button id="float-bottom-btn" title="Go to Bottom" onclick="scrollToBottom()">
+            <img src="Bottom.png" alt="Bottom" onerror="this.style.display='none'">
+        </button>
+    `;
+    document.body.appendChild(navContainer);
+
+    
+    // Inject CSS styles
+    const style = document.createElement('style');
+    style.innerHTML = `
+        #floating-nav-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        #floating-nav-container button {
+            // background-color: var(--primary-color, #2563eb);
+            background-color: #e6dada7e;
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s, background-color 0.2s;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #floating-nav-container button img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            pointer-events: none;
+        }
+
+        #floating-nav-container button:hover {
+            //background-color: var(--primary-hover, #1d4ed8);
+            background-color: #f5f6ec;
+            transform: scale(1.08);
+        }
+
+        #floating-nav-container button.nav-btn-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Scroll Visibility Logic
+    const topBtn = document.getElementById('float-top-btn');
+    const bottomBtn = document.getElementById('float-bottom-btn');
+
+    function updateNavVisibility() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        
+        // If page has no scrollable area, show bottom and hide top
+        if (scrollHeight <= 0) {
+            topBtn.classList.add('nav-btn-hidden');
+            bottomBtn.classList.remove('nav-btn-hidden');
+            return;
+        }
+
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+        // Show TOP button only after scrolling past 15%
+        if (scrollPercent >= 15) {
+            topBtn.classList.remove('nav-btn-hidden');
+        } else {
+            topBtn.classList.add('nav-btn-hidden');
+        }
+
+        // Hide BOTTOM button when near the end (85%+ scrolled)
+        if (scrollPercent >= 85) {
+            bottomBtn.classList.add('nav-btn-hidden');
+        } else {
+            bottomBtn.classList.remove('nav-btn-hidden');
+        }
+    }
+
+    window.addEventListener('scroll', updateNavVisibility);
+    window.addEventListener('resize', updateNavVisibility);
+    
+    // Run on load and after a brief timeout to ensure layout is fully rendered
+    updateNavVisibility();
+    setTimeout(updateNavVisibility, 100);
+}
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', initFloatingNav);
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Intercept clicks on internal anchor/bookmark links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Stop the default URL hash change
+            
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Smoothly scroll to the target element without altering the URL hash
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 });

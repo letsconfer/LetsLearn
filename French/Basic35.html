@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Language Assessment</title>
+    <script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #dee2e6;
+            --text-color: #212529;
+            --success-bg: #e8f5e9;
+            --error-bg: #ffebee;
+            --error-border: #ef5350;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+            --text-color: #e0e0e0;
+            --success-bg: #1b3320;
+            --error-bg: #3c1919;
+            --error-border: #e53935;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+        }
+        .main-content-area {
+            flex: 1;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .sidebar-area {
+            width: 280px;
+        }
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        p, li {
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+        .question-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .question-title {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+        .reading-box {
+            background-color: var(--bg-color);
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: var(--card-bg);
+        }
+        th {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        td {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+        .feedback-box {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 4px;
+        }
+        .feedback-error {
+            background-color: var(--error-bg);
+            border: 1px solid var(--error-border);
+            color: var(--text-color);
+        }
+        .submit-btn-container {
+            text-align: center;
+            margin: 40px 0 20px 0;
+        }
+        .reveal-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 28px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .reveal-btn:hover {
+            background-color: #003366;
+        }
+        .score-display {
+            display: none;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: var(--success-bg);
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="theme-switcher"></div>
+        <div class="main-layout-wrapper">
+            <div class="main-content-area">
+                <div id="header-container"></div>
+                <h1>French Language Assessment</h1>
+                <p>Complete all test questions below and click <strong>"Reveal & Assess Answers"</strong> at the bottom of the page to evaluate your performance.</p>
+                
+                <div id="score-display" class="score-display"></div>
+
+                <form id="assessment-form">
+
+                    <!-- Q1 -->
+                    <div class="question-card" id="card-q1">
+                        <div class="question-title">1. Écris la conjugaison du verbe "parler" (to speak)</div>
+                        <p>Write out the full present tense conjugation for <em>parler</em> (e.g., Je parle, Tu parles, ...):</p>
+                        <textarea id="q1" rows="6" placeholder="Je parle&#10;Tu parles..."></textarea>
+                        <div class="feedback-box feedback-error" id="fb-q1"></div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="question-card" id="card-q2">
+                        <div class="question-title">2. Tick the correct question words (pronouns/adverbs) in French</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>English Meaning</th>
+                                    <th>Pourquoi</th>
+                                    <th>Quand</th>
+                                    <th>Comment</th>
+                                    <th>Qui</th>
+                                    <th>Que</th>
+                                    <th>Où</th>
+                                    <th>Parce que</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>When</strong></td>
+                                    <td><input type="radio" name="q2_when" value="Pourquoi"></td>
+                                    <td><input type="radio" name="q2_when" value="Quand"></td>
+                                    <td><input type="radio" name="q2_when" value="Comment"></td>
+                                    <td><input type="radio" name="q2_when" value="Qui"></td>
+                                    <td><input type="radio" name="q2_when" value="Que"></td>
+                                    <td><input type="radio" name="q2_when" value="Où"></td>
+                                    <td><input type="radio" name="q2_when" value="Parce que"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Why</strong></td>
+                                    <td><input type="radio" name="q2_why" value="Pourquoi"></td>
+                                    <td><input type="radio" name="q2_why" value="Quand"></td>
+                                    <td><input type="radio" name="q2_why" value="Comment"></td>
+                                    <td><input type="radio" name="q2_why" value="Qui"></td>
+                                    <td><input type="radio" name="q2_why" value="Que"></td>
+                                    <td><input type="radio" name="q2_why" value="Où"></td>
+                                    <td><input type="radio" name="q2_why" value="Parce que"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>What</strong></td>
+                                    <td><input type="radio" name="q2_what" value="Pourquoi"></td>
+                                    <td><input type="radio" name="q2_what" value="Quand"></td>
+                                    <td><input type="radio" name="q2_what" value="Comment"></td>
+                                    <td><input type="radio" name="q2_what" value="Qui"></td>
+                                    <td><input type="radio" name="q2_what" value="Que"></td>
+                                    <td><input type="radio" name="q2_what" value="Où"></td>
+                                    <td><input type="radio" name="q2_what" value="Parce que"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Where</strong></td>
+                                    <td><input type="radio" name="q2_where" value="Pourquoi"></td>
+                                    <td><input type="radio" name="q2_where" value="Quand"></td>
+                                    <td><input type="radio" name="q2_where" value="Comment"></td>
+                                    <td><input type="radio" name="q2_where" value="Qui"></td>
+                                    <td><input type="radio" name="q2_where" value="Que"></td>
+                                    <td><input type="radio" name="q2_where" value="Où"></td>
+                                    <td><input type="radio" name="q2_where" value="Parce que"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Whom / Who</strong></td>
+                                    <td><input type="radio" name="q2_who" value="Pourquoi"></td>
+                                    <td><input type="radio" name="q2_who" value="Quand"></td>
+                                    <td><input type="radio" name="q2_who" value="Comment"></td>
+                                    <td><input type="radio" name="q2_who" value="Qui"></td>
+                                    <td><input type="radio" name="q2_who" value="Que"></td>
+                                    <td><input type="radio" name="q2_who" value="Où"></td>
+                                    <td><input type="radio" name="q2_who" value="Parce que"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>How</strong></td>
+                                    <td><input type="radio" name="q2_how" value="Pourquoi"></td>
+                                    <td><input type="radio" name="q2_how" value="Quand"></td>
+                                    <td><input type="radio" name="q2_how" value="Comment"></td>
+                                    <td><input type="radio" name="q2_how" value="Qui"></td>
+                                    <td><input type="radio" name="q2_how" value="Que"></td>
+                                    <td><input type="radio" name="q2_how" value="Où"></td>
+                                    <td><input type="radio" name="q2_how" value="Parce que"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Because</strong></td>
+                                    <td><input type="radio" name="q2_because" value="Pourquoi"></td>
+                                    <td><input type="radio" name="q2_because" value="Quand"></td>
+                                    <td><input type="radio" name="q2_because" value="Comment"></td>
+                                    <td><input type="radio" name="q2_because" value="Qui"></td>
+                                    <td><input type="radio" name="q2_because" value="Que"></td>
+                                    <td><input type="radio" name="q2_because" value="Où"></td>
+                                    <td><input type="radio" name="q2_because" value="Parce que"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="feedback-box feedback-error" id="fb-q2"></div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="question-card" id="card-q3">
+                        <div class="question-title">3. Reading Comprehension : Text Analysis</div>
+                        <div class="reading-box">
+                            "Je m'appelle Siddhant, J'ai 12 ans et je vais au collège Sayajirao à Vadodara. Je me lève à 7h. L'école commence à 9h00. Je vais au collège par le métro. J'ai 5 cours le matin. Je déjeune à la cantine de l'école à 12h30. J'ai 2 cours l'après-midi. Les cours terminent à 16 heures. Après l'école je fais du sport: le lundi je fais du basket; le mardi et le vendredi j'ai cours de guitare. Quand je rentre à la maison, avant le dîner je fais mes devoirs. À 20h je dîne avec ma famille. Après le dîner je vais dans ma chambre et je joue un peu à l'ordinateur ou je regarde la télé. À 22h je vais au lit."
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>7h</th>
+                                    <th>Sept (7)</th>
+                                    <th>16h</th>
+                                    <th>Aller dans la chambre / Jouer ou regarder la télé</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>À quelle heure Siddhant se lève ?</td>
+                                    <td><input type="radio" name="q3_1" value="7h"></td>
+                                    <td><input type="radio" name="q3_1" value="Sept"></td>
+                                    <td><input type="radio" name="q3_1" value="16h"></td>
+                                    <td><input type="radio" name="q3_1" value="Chambre"></td>
+                                </tr>
+                                <tr>
+                                    <td>Il y a combien de cours à l'école ?</td>
+                                    <td><input type="radio" name="q3_2" value="7h"></td>
+                                    <td><input type="radio" name="q3_2" value="Sept"></td>
+                                    <td><input type="radio" name="q3_2" value="16h"></td>
+                                    <td><input type="radio" name="q3_2" value="Chambre"></td>
+                                </tr>
+                                <tr>
+                                    <td>À quelle heure les cours terminent ?</td>
+                                    <td><input type="radio" name="q3_3" value="7h"></td>
+                                    <td><input type="radio" name="q3_3" value="Sept"></td>
+                                    <td><input type="radio" name="q3_3" value="16h"></td>
+                                    <td><input type="radio" name="q3_3" value="Chambre"></td>
+                                </tr>
+                                <tr>
+                                    <td>Qu'est-ce que Siddhant fait après le dîner ?</td>
+                                    <td><input type="radio" name="q3_4" value="7h"></td>
+                                    <td><input type="radio" name="q3_4" value="Sept"></td>
+                                    <td><input type="radio" name="q3_4" value="16h"></td>
+                                    <td><input type="radio" name="q3_4" value="Chambre"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="feedback-box feedback-error" id="fb-q3"></div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="question-card" id="card-q4">
+                        <div class="question-title">4. Complete with Definite Articles (Le, La, Les, L')</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sentence</th>
+                                    <th>Le</th>
+                                    <th>La</th>
+                                    <th>Les</th>
+                                    <th>L'</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Jyoti est ___ grand-mère de Vinisha.</td>
+                                    <td><input type="radio" name="q4_1" value="Le"></td>
+                                    <td><input type="radio" name="q4_1" value="La"></td>
+                                    <td><input type="radio" name="q4_1" value="Les"></td>
+                                    <td><input type="radio" name="q4_1" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>Meena est ___ fille de Simran.</td>
+                                    <td><input type="radio" name="q4_2" value="Le"></td>
+                                    <td><input type="radio" name="q4_2" value="La"></td>
+                                    <td><input type="radio" name="q4_2" value="Les"></td>
+                                    <td><input type="radio" name="q4_2" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>Soniya est ___ sœur de Vinisha.</td>
+                                    <td><input type="radio" name="q4_3" value="Le"></td>
+                                    <td><input type="radio" name="q4_3" value="La"></td>
+                                    <td><input type="radio" name="q4_3" value="Les"></td>
+                                    <td><input type="radio" name="q4_3" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>___ panda est un animal vivant en Chine.</td>
+                                    <td><input type="radio" name="q4_4" value="Le"></td>
+                                    <td><input type="radio" name="q4_4" value="La"></td>
+                                    <td><input type="radio" name="q4_4" value="Les"></td>
+                                    <td><input type="radio" name="q4_4" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>___ poules n'ont pas de dents.</td>
+                                    <td><input type="radio" name="q4_5" value="Le"></td>
+                                    <td><input type="radio" name="q4_5" value="La"></td>
+                                    <td><input type="radio" name="q4_5" value="Les"></td>
+                                    <td><input type="radio" name="q4_5" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>Delhi est ___ capitale d'Inde.</td>
+                                    <td><input type="radio" name="q4_6" value="Le"></td>
+                                    <td><input type="radio" name="q4_6" value="La"></td>
+                                    <td><input type="radio" name="q4_6" value="Les"></td>
+                                    <td><input type="radio" name="q4_6" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>Mon chat mange ___ rats.</td>
+                                    <td><input type="radio" name="q4_7" value="Le"></td>
+                                    <td><input type="radio" name="q4_7" value="La"></td>
+                                    <td><input type="radio" name="q4_7" value="Les"></td>
+                                    <td><input type="radio" name="q4_7" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>___ abeille butine une fleur.</td>
+                                    <td><input type="radio" name="q4_8" value="Le"></td>
+                                    <td><input type="radio" name="q4_8" value="La"></td>
+                                    <td><input type="radio" name="q4_8" value="Les"></td>
+                                    <td><input type="radio" name="q4_8" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>Il y a des livres dans ___ bibliothèque.</td>
+                                    <td><input type="radio" name="q4_9" value="Le"></td>
+                                    <td><input type="radio" name="q4_9" value="La"></td>
+                                    <td><input type="radio" name="q4_9" value="Les"></td>
+                                    <td><input type="radio" name="q4_9" value="L'"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="feedback-box feedback-error" id="fb-q4"></div>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="question-card" id="card-q5">
+                        <div class="question-title">5. Fill in the blank: "Travailler dur pour être ___ meilleur."</div>
+                        <p>Select the correct comparative/superlative structure:</p>
+                        <select id="q5">
+                            <option value="">-- Select --</option>
+                            <option value="le">le</option>
+                            <option value="un">un</option>
+                            <option value="du">du</option>
+                            <option value="au">au</option>
+                        </select>
+                        <div class="feedback-box feedback-error" id="fb-q5"></div>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="question-card" id="card-q6">
+                        <div class="question-title">6. Conjugation of Verbe "Aller" (to go)</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sentence</th>
+                                    <th>Vais</th>
+                                    <th>Va</th>
+                                    <th>Vas</th>
+                                    <th>Allez</th>
+                                    <th>Allons</th>
+                                    <th>Vont</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Siddhant ___ à la mer avec ses parents.</td>
+                                    <td><input type="radio" name="q6_1" value="Vais"></td>
+                                    <td><input type="radio" name="q6_1" value="Va"></td>
+                                    <td><input type="radio" name="q6_1" value="Vas"></td>
+                                    <td><input type="radio" name="q6_1" value="Allez"></td>
+                                    <td><input type="radio" name="q6_1" value="Allons"></td>
+                                    <td><input type="radio" name="q6_1" value="Vont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Geeta et Rajesh ___ au restaurant.</td>
+                                    <td><input type="radio" name="q6_2" value="Vais"></td>
+                                    <td><input type="radio" name="q6_2" value="Va"></td>
+                                    <td><input type="radio" name="q6_2" value="Vas"></td>
+                                    <td><input type="radio" name="q6_2" value="Allez"></td>
+                                    <td><input type="radio" name="q6_2" value="Allons"></td>
+                                    <td><input type="radio" name="q6_2" value="Vont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Nous sommes malades, nous ___ chez le docteur.</td>
+                                    <td><input type="radio" name="q6_3" value="Vais"></td>
+                                    <td><input type="radio" name="q6_3" value="Va"></td>
+                                    <td><input type="radio" name="q6_3" value="Vas"></td>
+                                    <td><input type="radio" name="q6_3" value="Allez"></td>
+                                    <td><input type="radio" name="q6_3" value="Allons"></td>
+                                    <td><input type="radio" name="q6_3" value="Vont"></td>
+                                </tr>
+                                <tr>
+                                    <td>___-vous à Mumbai fréquemment ?</td>
+                                    <td><input type="radio" name="q6_4" value="Vais"></td>
+                                    <td><input type="radio" name="q6_4" value="Va"></td>
+                                    <td><input type="radio" name="q6_4" value="Vas"></td>
+                                    <td><input type="radio" name="q6_4" value="Allez"></td>
+                                    <td><input type="radio" name="q6_4" value="Allons"></td>
+                                    <td><input type="radio" name="q6_4" value="Vont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Je ___ au marché, acheter des fruits.</td>
+                                    <td><input type="radio" name="q6_5" value="Vais"></td>
+                                    <td><input type="radio" name="q6_5" value="Va"></td>
+                                    <td><input type="radio" name="q6_5" value="Vas"></td>
+                                    <td><input type="radio" name="q6_5" value="Allez"></td>
+                                    <td><input type="radio" name="q6_5" value="Allons"></td>
+                                    <td><input type="radio" name="q6_5" value="Vont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ma mère et moi ___ au magasin cet après-midi.</td>
+                                    <td><input type="radio" name="q6_6" value="Vais"></td>
+                                    <td><input type="radio" name="q6_6" value="Va"></td>
+                                    <td><input type="radio" name="q6_6" value="Vas"></td>
+                                    <td><input type="radio" name="q6_6" value="Allez"></td>
+                                    <td><input type="radio" name="q6_6" value="Allons"></td>
+                                    <td><input type="radio" name="q6_6" value="Vont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Mon meilleur ami ___ jouer avec moi.</td>
+                                    <td><input type="radio" name="q6_7" value="Vais"></td>
+                                    <td><input type="radio" name="q6_7" value="Va"></td>
+                                    <td><input type="radio" name="q6_7" value="Vas"></td>
+                                    <td><input type="radio" name="q6_7" value="Allez"></td>
+                                    <td><input type="radio" name="q6_7" value="Allons"></td>
+                                    <td><input type="radio" name="q6_7" value="Vont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Quand ___ nous manger ?</td>
+                                    <td><input type="radio" name="q6_8" value="Vais"></td>
+                                    <td><input type="radio" name="q6_8" value="Va"></td>
+                                    <td><input type="radio" name="q6_8" value="Vas"></td>
+                                    <td><input type="radio" name="q6_8" value="Allez"></td>
+                                    <td><input type="radio" name="q6_8" value="Allons"></td>
+                                    <td><input type="radio" name="q6_8" value="Vont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ce soir, mon père et ma mère ___ au cinéma.</td>
+                                    <td><input type="radio" name="q6_9" value="Vais"></td>
+                                    <td><input type="radio" name="q6_9" value="Va"></td>
+                                    <td><input type="radio" name="q6_9" value="Vas"></td>
+                                    <td><input type="radio" name="q6_9" value="Allez"></td>
+                                    <td><input type="radio" name="q6_9" value="Allons"></td>
+                                    <td><input type="radio" name="q6_9" value="Vont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Aujourd'hui, Vinisha et Siddhant ___ à l'école.</td>
+                                    <td><input type="radio" name="q6_10" value="Vais"></td>
+                                    <td><input type="radio" name="q6_10" value="Va"></td>
+                                    <td><input type="radio" name="q6_10" value="Vas"></td>
+                                    <td><input type="radio" name="q6_10" value="Allez"></td>
+                                    <td><input type="radio" name="q6_10" value="Allons"></td>
+                                    <td><input type="radio" name="q6_10" value="Vont"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="feedback-box feedback-error" id="fb-q6"></div>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="question-card" id="card-q7">
+                        <div class="question-title">7. Complete with Indefinite Articles (Un, Une, Des)</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sentence</th>
+                                    <th>Un</th>
+                                    <th>Une</th>
+                                    <th>Des</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Jyoti est ___ grande-mère.</td>
+                                    <td><input type="radio" name="q7_1" value="Un"></td>
+                                    <td><input type="radio" name="q7_1" value="Une"></td>
+                                    <td><input type="radio" name="q7_1" value="Des"></td>
+                                </tr>
+                                <tr>
+                                    <td>Meena est ___ fille.</td>
+                                    <td><input type="radio" name="q7_2" value="Un"></td>
+                                    <td><input type="radio" name="q7_2" value="Une"></td>
+                                    <td><input type="radio" name="q7_2" value="Des"></td>
+                                </tr>
+                                <tr>
+                                    <td>Karan et Vinay sont ___ cousins.</td>
+                                    <td><input type="radio" name="q7_3" value="Un"></td>
+                                    <td><input type="radio" name="q7_3" value="Une"></td>
+                                    <td><input type="radio" name="q7_3" value="Des"></td>
+                                </tr>
+                                <tr>
+                                    <td>Pourquoi Meena va-t-elle dans ___ boutique ?</td>
+                                    <td><input type="radio" name="q7_4" value="Un"></td>
+                                    <td><input type="radio" name="q7_4" value="Une"></td>
+                                    <td><input type="radio" name="q7_4" value="Des"></td>
+                                </tr>
+                                <tr>
+                                    <td>___ livre est un objet.</td>
+                                    <td><input type="radio" name="q7_5" value="Un"></td>
+                                    <td><input type="radio" name="q7_5" value="Une"></td>
+                                    <td><input type="radio" name="q7_5" value="Des"></td>
+                                </tr>
+                                <tr>
+                                    <td>Il existe ___ méchants.</td>
+                                    <td><input type="radio" name="q7_6" value="Un"></td>
+                                    <td><input type="radio" name="q7_6" value="Une"></td>
+                                    <td><input type="radio" name="q7_6" value="Des"></td>
+                                </tr>
+                                <tr>
+                                    <td>Mohan est ___ garçon.</td>
+                                    <td><input type="radio" name="q7_7" value="Un"></td>
+                                    <td><input type="radio" name="q7_7" value="Une"></td>
+                                    <td><input type="radio" name="q7_7" value="Des"></td>
+                                </tr>
+                                <tr>
+                                    <td>Mohan et Raju vont dans ___ boutique.</td>
+                                    <td><input type="radio" name="q7_8" value="Un"></td>
+                                    <td><input type="radio" name="q7_8" value="Une"></td>
+                                    <td><input type="radio" name="q7_8" value="Des"></td>
+                                </tr>
+                                <tr>
+                                    <td>Il y a ___ chiens dans la chambre.</td>
+                                    <td><input type="radio" name="q7_9" value="Un"></td>
+                                    <td><input type="radio" name="q7_9" value="Une"></td>
+                                    <td><input type="radio" name="q7_9" value="Des"></td>
+                                </tr>
+                                <tr>
+                                    <td>Il y a ___ fleurs dans le jardin.</td>
+                                    <td><input type="radio" name="q7_10" value="Un"></td>
+                                    <td><input type="radio" name="q7_10" value="Une"></td>
+                                    <td><input type="radio" name="q7_10" value="Des"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="feedback-box feedback-error" id="fb-q7"></div>
+                    </div>
+
+                    <!-- Q8 -->
+                    <div class="question-card" id="card-q8">
+                        <div class="question-title">8. Conjugation of Verbe "Avoir" (to have)</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sentence</th>
+                                    <th>Ai</th>
+                                    <th>As</th>
+                                    <th>A</th>
+                                    <th>Avons</th>
+                                    <th>Avez</th>
+                                    <th>Ont</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Vinisha et Siddhant ___ cinq crayons.</td>
+                                    <td><input type="radio" name="q8_1" value="Ai"></td>
+                                    <td><input type="radio" name="q8_1" value="As"></td>
+                                    <td><input type="radio" name="q8_1" value="A"></td>
+                                    <td><input type="radio" name="q8_1" value="Avons"></td>
+                                    <td><input type="radio" name="q8_1" value="Avez"></td>
+                                    <td><input type="radio" name="q8_1" value="Ont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Vedika ___ un beau cartable.</td>
+                                    <td><input type="radio" name="q8_2" value="Ai"></td>
+                                    <td><input type="radio" name="q8_2" value="As"></td>
+                                    <td><input type="radio" name="q8_2" value="A"></td>
+                                    <td><input type="radio" name="q8_2" value="Avons"></td>
+                                    <td><input type="radio" name="q8_2" value="Avez"></td>
+                                    <td><input type="radio" name="q8_2" value="Ont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Il y ___ deux oiseaux dans l'arbre.</td>
+                                    <td><input type="radio" name="q8_3" value="Ai"></td>
+                                    <td><input type="radio" name="q8_3" value="As"></td>
+                                    <td><input type="radio" name="q8_3" value="A"></td>
+                                    <td><input type="radio" name="q8_3" value="Avons"></td>
+                                    <td><input type="radio" name="q8_3" value="Avez"></td>
+                                    <td><input type="radio" name="q8_3" value="Ont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Elles ___ des tenues identiques.</td>
+                                    <td><input type="radio" name="q8_4" value="Ai"></td>
+                                    <td><input type="radio" name="q8_4" value="As"></td>
+                                    <td><input type="radio" name="q8_4" value="A"></td>
+                                    <td><input type="radio" name="q8_4" value="Avons"></td>
+                                    <td><input type="radio" name="q8_4" value="Avez"></td>
+                                    <td><input type="radio" name="q8_4" value="Ont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Vous ___ les cheveux noirs.</td>
+                                    <td><input type="radio" name="q8_5" value="Ai"></td>
+                                    <td><input type="radio" name="q8_5" value="As"></td>
+                                    <td><input type="radio" name="q8_5" value="A"></td>
+                                    <td><input type="radio" name="q8_5" value="Avons"></td>
+                                    <td><input type="radio" name="q8_5" value="Avez"></td>
+                                    <td><input type="radio" name="q8_5" value="Ont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Beaucoup de gens ___ peur du noir.</td>
+                                    <td><input type="radio" name="q8_6" value="Ai"></td>
+                                    <td><input type="radio" name="q8_6" value="As"></td>
+                                    <td><input type="radio" name="q8_6" value="A"></td>
+                                    <td><input type="radio" name="q8_6" value="Avons"></td>
+                                    <td><input type="radio" name="q8_6" value="Avez"></td>
+                                    <td><input type="radio" name="q8_6" value="Ont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Vous ___ l'argent ?</td>
+                                    <td><input type="radio" name="q8_7" value="Ai"></td>
+                                    <td><input type="radio" name="q8_7" value="As"></td>
+                                    <td><input type="radio" name="q8_7" value="A"></td>
+                                    <td><input type="radio" name="q8_7" value="Avons"></td>
+                                    <td><input type="radio" name="q8_7" value="Avez"></td>
+                                    <td><input type="radio" name="q8_7" value="Ont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Il ___ des stylos.</td>
+                                    <td><input type="radio" name="q8_8" value="Ai"></td>
+                                    <td><input type="radio" name="q8_8" value="As"></td>
+                                    <td><input type="radio" name="q8_8" value="A"></td>
+                                    <td><input type="radio" name="q8_8" value="Avons"></td>
+                                    <td><input type="radio" name="q8_8" value="Avez"></td>
+                                    <td><input type="radio" name="q8_8" value="Ont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Nous ___ un musicien dans la famille.</td>
+                                    <td><input type="radio" name="q8_9" value="Ai"></td>
+                                    <td><input type="radio" name="q8_9" value="As"></td>
+                                    <td><input type="radio" name="q8_9" value="A"></td>
+                                    <td><input type="radio" name="q8_9" value="Avons"></td>
+                                    <td><input type="radio" name="q8_9" value="Avez"></td>
+                                    <td><input type="radio" name="q8_9" value="Ont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ce garçon ___ mon argent.</td>
+                                    <td><input type="radio" name="q8_10" value="Ai"></td>
+                                    <td><input type="radio" name="q8_10" value="As"></td>
+                                    <td><input type="radio" name="q8_10" value="A"></td>
+                                    <td><input type="radio" name="q8_10" value="Avons"></td>
+                                    <td><input type="radio" name="q8_10" value="Avez"></td>
+                                    <td><input type="radio" name="q8_10" value="Ont"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="feedback-box feedback-error" id="fb-q8"></div>
+                    </div>
+
+                    <!-- Q9 -->
+                    <div class="question-card" id="card-q9">
+                        <div class="question-title">9. Match Subject Pronouns to Person & Number</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Grammatical Person</th>
+                                    <th>Tu</th>
+                                    <th>Nous</th>
+                                    <th>Vous</th>
+                                    <th>Ils</th>
+                                    <th>Elle</th>
+                                    <th>Il</th>
+                                    <th>Elles</th>
+                                    <th>Je</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>First Person Singular</td>
+                                    <td><input type="radio" name="q9_1" value="Tu"></td>
+                                    <td><input type="radio" name="q9_1" value="Nous"></td>
+                                    <td><input type="radio" name="q9_1" value="Vous"></td>
+                                    <td><input type="radio" name="q9_1" value="Ils"></td>
+                                    <td><input type="radio" name="q9_1" value="Elle"></td>
+                                    <td><input type="radio" name="q9_1" value="Il"></td>
+                                    <td><input type="radio" name="q9_1" value="Elles"></td>
+                                    <td><input type="radio" name="q9_1" value="Je"></td>
+                                </tr>
+                                <tr>
+                                    <td>Second Person Singular</td>
+                                    <td><input type="radio" name="q9_2" value="Tu"></td>
+                                    <td><input type="radio" name="q9_2" value="Nous"></td>
+                                    <td><input type="radio" name="q9_2" value="Vous"></td>
+                                    <td><input type="radio" name="q9_2" value="Ils"></td>
+                                    <td><input type="radio" name="q9_2" value="Elle"></td>
+                                    <td><input type="radio" name="q9_2" value="Il"></td>
+                                    <td><input type="radio" name="q9_2" value="Elles"></td>
+                                    <td><input type="radio" name="q9_2" value="Je"></td>
+                                </tr>
+                                <tr>
+                                    <td>Third Person Singular (Masc/Fem)</td>
+                                    <td><input type="radio" name="q9_3" value="Tu"></td>
+                                    <td><input type="radio" name="q9_3" value="Nous"></td>
+                                    <td><input type="radio" name="q9_3" value="Vous"></td>
+                                    <td><input type="radio" name="q9_3" value="Ils"></td>
+                                    <td><input type="radio" name="q9_3" value="Elle"></td>
+                                    <td><input type="radio" name="q9_3" value="Il"></td>
+                                    <td><input type="radio" name="q9_3" value="Elles"></td>
+                                    <td><input type="radio" name="q9_3" value="Je"></td>
+                                </tr>
+                                <tr>
+                                    <td>First Person Plural</td>
+                                    <td><input type="radio" name="q9_4" value="Tu"></td>
+                                    <td><input type="radio" name="q9_4" value="Nous"></td>
+                                    <td><input type="radio" name="q9_4" value="Vous"></td>
+                                    <td><input type="radio" name="q9_4" value="Ils"></td>
+                                    <td><input type="radio" name="q9_4" value="Elle"></td>
+                                    <td><input type="radio" name="q9_4" value="Il"></td>
+                                    <td><input type="radio" name="q9_4" value="Elles"></td>
+                                    <td><input type="radio" name="q9_4" value="Je"></td>
+                                </tr>
+                                <tr>
+                                    <td>Second Person Plural</td>
+                                    <td><input type="radio" name="q9_5" value="Tu"></td>
+                                    <td><input type="radio" name="q9_5" value="Nous"></td>
+                                    <td><input type="radio" name="q9_5" value="Vous"></td>
+                                    <td><input type="radio" name="q9_5" value="Ils"></td>
+                                    <td><input type="radio" name="q9_5" value="Elle"></td>
+                                    <td><input type="radio" name="q9_5" value="Il"></td>
+                                    <td><input type="radio" name="q9_5" value="Elles"></td>
+                                    <td><input type="radio" name="q9_5" value="Je"></td>
+                                </tr>
+                                <tr>
+                                    <td>Third Person Plural (Masc/Fem)</td>
+                                    <td><input type="radio" name="q9_6" value="Tu"></td>
+                                    <td><input type="radio" name="q9_6" value="Nous"></td>
+                                    <td><input type="radio" name="q9_6" value="Vous"></td>
+                                    <td><input type="radio" name="q9_6" value="Ils"></td>
+                                    <td><input type="radio" name="q9_6" value="Elle"></td>
+                                    <td><input type="radio" name="q9_6" value="Il"></td>
+                                    <td><input type="radio" name="q9_6" value="Elles"></td>
+                                    <td><input type="radio" name="q9_6" value="Je"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="feedback-box feedback-error" id="fb-q9"></div>
+                    </div>
+
+                    <!-- Q10 -->
+                    <div class="question-card" id="card-q10">
+                        <div class="question-title">10. Écris la conjugaison du verbe "Prendre" (to take)</div>
+                        <p>Write out the full present tense conjugation for <em>prendre</em>:</p>
+                        <textarea id="q10" rows="6" placeholder="Je prends&#10;Tu prends..."></textarea>
+                        <div class="feedback-box feedback-error" id="fb-q10"></div>
+                    </div>
+
+                    <!-- Q11 -->
+                    <div class="question-card" id="card-q11">
+                        <div class="question-title">11. Conjugation of Verbe "Être" (to be)</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sentence</th>
+                                    <th>Suis</th>
+                                    <th>Es</th>
+                                    <th>Est</th>
+                                    <th>Sommes</th>
+                                    <th>Êtes</th>
+                                    <th>Sont</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Je ___ étudiante de faculté de lettres.</td>
+                                    <td><input type="radio" name="q11_1" value="Suis"></td>
+                                    <td><input type="radio" name="q11_1" value="Es"></td>
+                                    <td><input type="radio" name="q11_1" value="Est"></td>
+                                    <td><input type="radio" name="q11_1" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_1" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_1" value="Sont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ces deux enfants ___ très intelligents.</td>
+                                    <td><input type="radio" name="q11_2" value="Suis"></td>
+                                    <td><input type="radio" name="q11_2" value="Es"></td>
+                                    <td><input type="radio" name="q11_2" value="Est"></td>
+                                    <td><input type="radio" name="q11_2" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_2" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_2" value="Sont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Vinisha ___ petite mais elle comprend.</td>
+                                    <td><input type="radio" name="q11_3" value="Suis"></td>
+                                    <td><input type="radio" name="q11_3" value="Es"></td>
+                                    <td><input type="radio" name="q11_3" value="Est"></td>
+                                    <td><input type="radio" name="q11_3" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_3" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_3" value="Sont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tu ___ très jeune et sympathique.</td>
+                                    <td><input type="radio" name="q11_4" value="Suis"></td>
+                                    <td><input type="radio" name="q11_4" value="Es"></td>
+                                    <td><input type="radio" name="q11_4" value="Est"></td>
+                                    <td><input type="radio" name="q11_4" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_4" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_4" value="Sont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Cette solution ___ valable dans toutes les situations.</td>
+                                    <td><input type="radio" name="q11_5" value="Suis"></td>
+                                    <td><input type="radio" name="q11_5" value="Es"></td>
+                                    <td><input type="radio" name="q11_5" value="Est"></td>
+                                    <td><input type="radio" name="q11_5" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_5" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_5" value="Sont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Elles ___ arrivées chez nous maintenant.</td>
+                                    <td><input type="radio" name="q11_6" value="Suis"></td>
+                                    <td><input type="radio" name="q11_6" value="Es"></td>
+                                    <td><input type="radio" name="q11_6" value="Est"></td>
+                                    <td><input type="radio" name="q11_6" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_6" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_6" value="Sont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Vous ___ là !</td>
+                                    <td><input type="radio" name="q11_7" value="Suis"></td>
+                                    <td><input type="radio" name="q11_7" value="Es"></td>
+                                    <td><input type="radio" name="q11_7" value="Est"></td>
+                                    <td><input type="radio" name="q11_7" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_7" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_7" value="Sont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Il ___ mon ami.</td>
+                                    <td><input type="radio" name="q11_8" value="Suis"></td>
+                                    <td><input type="radio" name="q11_8" value="Es"></td>
+                                    <td><input type="radio" name="q11_8" value="Est"></td>
+                                    <td><input type="radio" name="q11_8" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_8" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_8" value="Sont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Nous ___ des voyageurs.</td>
+                                    <td><input type="radio" name="q11_9" value="Suis"></td>
+                                    <td><input type="radio" name="q11_9" value="Es"></td>
+                                    <td><input type="radio" name="q11_9" value="Est"></td>
+                                    <td><input type="radio" name="q11_9" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_9" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_9" value="Sont"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ce ___ mes amis.</td>
+                                    <td><input type="radio" name="q11_10" value="Suis"></td>
+                                    <td><input type="radio" name="q11_10" value="Es"></td>
+                                    <td><input type="radio" name="q11_10" value="Est"></td>
+                                    <td><input type="radio" name="q11_10" value="Sommes"></td>
+                                    <td><input type="radio" name="q11_10" value="Êtes"></td>
+                                    <td><input type="radio" name="q11_10" value="Sont"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="feedback-box feedback-error" id="fb-q11"></div>
+                    </div>
+
+                    <!-- Q12 -->
+                    <div class="question-card" id="card-q12">
+                        <div class="question-title">12. Definite Articles Part II (Le, La, Les, L')</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sentence</th>
+                                    <th>Le</th>
+                                    <th>La</th>
+                                    <th>Les</th>
+                                    <th>L'</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pratik est ___ fils de Robert et d'Aditya.</td>
+                                    <td><input type="radio" name="q12_1" value="Le"></td>
+                                    <td><input type="radio" name="q12_1" value="La"></td>
+                                    <td><input type="radio" name="q12_1" value="Les"></td>
+                                    <td><input type="radio" name="q12_1" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>Meena est ___ fille de Jyoti et de Shankar.</td>
+                                    <td><input type="radio" name="q12_2" value="Le"></td>
+                                    <td><input type="radio" name="q12_2" value="La"></td>
+                                    <td><input type="radio" name="q12_2" value="Les"></td>
+                                    <td><input type="radio" name="q12_2" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>Raju et Meena sont ___ enfants de Shankar et de Jyoti.</td>
+                                    <td><input type="radio" name="q12_3" value="Le"></td>
+                                    <td><input type="radio" name="q12_3" value="La"></td>
+                                    <td><input type="radio" name="q12_3" value="Les"></td>
+                                    <td><input type="radio" name="q12_3" value="L'"></td>
+                                </tr>
+                                <tr>
+                                    <td>Simran est ___ enfant de Shankar.</td>
+                                    <td><input type="radio" name="q12_4" value="Le"></td>
+                                    <td><input type="radio" name="q12_4" value="La"></td>
+                                    <td><input type="radio" name="q12_4" value="Les"></td>
+                                    <td><input type="radio" name="q12_4" value="L'"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="feedback-box feedback-error" id="fb-q12"></div>
+                    </div>
+
+                    <!-- Q13 -->
+                    <div class="question-card" id="card-q13">
+                        <div class="question-title">13. Time Expression Structure: "Il + verbe être + quelle + heure ?"</div>
+                        <p>Which form of <em>être</em> is used with <em>Il</em> to state or ask the time?</p>
+                        <label><input type="radio" name="q13" value="est"> est</label><br>
+                        <label><input type="radio" name="q13" value="as"> as</label><br>
+                        <label><input type="radio" name="q13" value="ont"> ont</label><br>
+                        <label><input type="radio" name="q13" value="sont"> sont</label>
+                        <div class="feedback-box feedback-error" id="fb-q13"></div>
+                    </div>
+
+                    <!-- Q14 -->
+                    <div class="question-card" id="card-q14">
+                        <div class="question-title">14. Écris la conjugaison du verbe "Finir" (to finish)</div>
+                        <p>Write out the full present tense conjugation for <em>finir</em>:</p>
+                        <textarea id="q14" rows="6" placeholder="Je finis&#10;Tu finis..."></textarea>
+                        <div class="feedback-box feedback-error" id="fb-q14"></div>
+                    </div>
+
+                    <div class="submit-btn-container">
+                        <button type="button" class="reveal-btn" onclick="assessAnswers()">Reveal & Assess Answers</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="sidebar-area">
+                <div id="quick-links-container"></div>
+            </div>
+        </div>
+        <div id="footer-container"></div>
+    </div>
+
+    <script>
+        function assessAnswers() {
+            let totalQuestions = 14;
+            let incorrectCount = 0;
+
+            for (let i = 1; i <= 14; i++) {
+                const fb = document.getElementById('fb-q' + i);
+                if (fb) {
+                    fb.style.display = 'none';
+                    fb.innerHTML = '';
+                }
+            }
+
+            // Q1 Validation
+            const q1Val = document.getElementById('q1').value.toLowerCase();
+            let q1Errors = [];
+            if (!q1Val.includes('parle')) q1Errors.push("Missing 'parle' for Je/Il/Elle.");
+            if (!q1Val.includes('parles')) q1Errors.push("Missing 'parles' for Tu.");
+            if (!q1Val.includes('parlons')) q1Errors.push("Missing 'parlons' for Nous.");
+            if (!q1Val.includes('parlez')) q1Errors.push("Missing 'parlez' for Vous.");
+            if (!q1Val.includes('parlent')) q1Errors.push("Missing 'parlent' for Ils/Elles.");
+            if (q1Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q1').style.display = 'block';
+                document.getElementById('fb-q1').innerHTML = "<strong>Incorrect:</strong> The regular -er verb 'parler' conjugates as: <em>Je parle, Tu parles, Il/Elle parle, Nous parlons, Vous parlez, Ils/Elles parlent</em>. Errors: " + q1Errors.join(" ");
+            }
+
+            // Q2 Validation
+            const q2Answers = {
+                when: 'Quand', why: 'Pourquoi', what: 'Que', where: 'Où', who: 'Qui', how: 'Comment', because: 'Parce que'
+            };
+            let q2Errors = [];
+            for (let key in q2Answers) {
+                const sel = document.querySelector('input[name="q2_' + key + '"]:checked');
+                if (!sel || sel.value !== q2Answers[key]) {
+                    q2Errors.push("For <strong>" + key.toUpperCase() + "</strong>, expected '" + q2Answers[key] + "'.");
+                }
+            }
+            if (q2Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q2').style.display = 'block';
+                document.getElementById('fb-q2').innerHTML = "<strong>Incorrect Question Words:</strong><br>" + q2Errors.join("<br>");
+            }
+
+            // Q3 Validation
+            const q3Answers = { 1: '7h', 2: 'Sept', 3: '16h', 4: 'Chambre' };
+            let q3Errors = [];
+            for (let i = 1; i <= 4; i++) {
+                const sel = document.querySelector('input[name="q3_' + i + '"]:checked');
+                if (!sel || sel.value !== q3Answers[i]) {
+                    q3Errors.push("Sub-question " + i + ": Expected '" + q3Answers[i] + "'.");
+                }
+            }
+            if (q3Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q3').style.display = 'block';
+                document.getElementById('fb-q3').innerHTML = "<strong>Incorrect Text Analysis:</strong><br>" + q3Errors.join("<br>");
+            }
+
+            // Q4 Validation
+            const q4Answers = { 1: 'La', 2: 'La', 3: 'La', 4: 'Le', 5: 'Les', 6: 'La', 7: 'Les', 8: "L'", 9: 'La' };
+            let q4Errors = [];
+            for (let i = 1; i <= 9; i++) {
+                const sel = document.querySelector('input[name="q4_' + i + '"]:checked');
+                if (!sel || sel.value !== q4Answers[i]) {
+                    q4Errors.push("Item " + i + ": Expected '" + q4Answers[i] + "'.");
+                }
+            }
+            if (q4Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q4').style.display = 'block';
+                document.getElementById('fb-q4').innerHTML = "<strong>Incorrect Definite Articles:</strong><br>" + q4Errors.join("<br>");
+            }
+
+            // Q5 Validation
+            const q5Val = document.getElementById('q5').value;
+            if (q5Val !== 'le') {
+                incorrectCount++;
+                document.getElementById('fb-q5').style.display = 'block';
+                document.getElementById('fb-q5').innerHTML = "<strong>Incorrect:</strong> Expected 'le'.";
+            }
+
+            // Q6 Validation
+            const q6Answers = { 1: 'Va', 2: 'Vont', 3: 'Allons', 4: 'Allez', 5: 'Vais', 6: 'Allons', 7: 'Va', 8: 'Allons', 9: 'Vont', 10: 'Vont' };
+            let q6Errors = [];
+            for (let i = 1; i <= 10; i++) {
+                const sel = document.querySelector('input[name="q6_' + i + '"]:checked');
+                if (!sel || sel.value !== q6Answers[i]) {
+                    q6Errors.push("Item " + i + ": Expected '" + q6Answers[i] + "'.");
+                }
+            }
+            if (q6Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q6').style.display = 'block';
+                document.getElementById('fb-q6').innerHTML = "<strong>Incorrect 'Aller':</strong><br>" + q6Errors.join("<br>");
+            }
+
+            // Q7 Validation
+            const q7Answers = { 1: 'Une', 2: 'Une', 3: 'Des', 4: 'Une', 5: 'Un', 6: 'Des', 7: 'Un', 8: 'Une', 9: 'Des', 10: 'Des' };
+            let q7Errors = [];
+            for (let i = 1; i <= 10; i++) {
+                const sel = document.querySelector('input[name="q7_' + i + '"]:checked');
+                if (!sel || sel.value !== q7Answers[i]) {
+                    q7Errors.push("Item " + i + ": Expected '" + q7Answers[i] + "'.");
+                }
+            }
+            if (q7Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q7').style.display = 'block';
+                document.getElementById('fb-q7').innerHTML = "<strong>Incorrect Indefinite Articles:</strong><br>" + q7Errors.join("<br>");
+            }
+
+            // Q8 Validation
+            const q8Answers = { 1: 'Ont', 2: 'A', 3: 'A', 4: 'Ont', 5: 'Avez', 6: 'Ont', 7: 'Avez', 8: 'A', 9: 'Avons', 10: 'A' };
+            let q8Errors = [];
+            for (let i = 1; i <= 10; i++) {
+                const sel = document.querySelector('input[name="q8_' + i + '"]:checked');
+                if (!sel || sel.value !== q8Answers[i]) {
+                    q8Errors.push("Item " + i + ": Expected '" + q8Answers[i] + "'.");
+                }
+            }
+            if (q8Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q8').style.display = 'block';
+                document.getElementById('fb-q8').innerHTML = "<strong>Incorrect 'Avoir':</strong><br>" + q8Errors.join("<br>");
+            }
+
+            // Q9 Validation
+            const q9Answers = { 1: 'Je', 2: 'Tu', 3: 'Il', 4: 'Nous', 5: 'Vous', 6: 'Ils' };
+            let q9Errors = [];
+            for (let i = 1; i <= 6; i++) {
+                const sel = document.querySelector('input[name="q9_' + i + '"]:checked');
+                if (!sel || (sel.value !== q9Answers[i] && !(i === 3 && sel.value === 'Elle') && !(i === 6 && sel.value === 'Elles'))) {
+                    q9Errors.push("Row " + i + ": Incorrect.");
+                }
+            }
+            if (q9Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q9').style.display = 'block';
+                document.getElementById('fb-q9').innerHTML = "<strong>Incorrect Pronouns:</strong><br>" + q9Errors.join("<br>");
+            }
+
+            // Q10 Validation
+            const q10Val = document.getElementById('q10').value.toLowerCase();
+            let q10Errors = [];
+            if (!q10Val.includes('prends')) q10Errors.push("Missing 'prends'.");
+            if (!q10Val.includes('prend')) q10Errors.push("Missing 'prend'.");
+            if (!q10Val.includes('prenons')) q10Errors.push("Missing 'prenons'.");
+            if (!q10Val.includes('prenez')) q10Errors.push("Missing 'prenez'.");
+            if (!q10Val.includes('prennent')) q10Errors.push("Missing 'prennent'.");
+            if (q10Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q10').style.display = 'block';
+                document.getElementById('fb-q10').innerHTML = "<strong>Incorrect 'Prendre':</strong> " + q10Errors.join(" ");
+            }
+
+            // Q11 Validation
+            const q11Answers = { 1: 'Suis', 2: 'Sont', 3: 'Est', 4: 'Es', 5: 'Est', 6: 'Sont', 7: 'Êtes', 8: 'Est', 9: 'Sommes', 10: 'Sont' };
+            let q11Errors = [];
+            for (let i = 1; i <= 10; i++) {
+                const sel = document.querySelector('input[name="q11_' + i + '"]:checked');
+                if (!sel || sel.value !== q11Answers[i]) {
+                    q11Errors.push("Item " + i + ": Expected '" + q11Answers[i] + "'.");
+                }
+            }
+            if (q11Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q11').style.display = 'block';
+                document.getElementById('fb-q11').innerHTML = "<strong>Incorrect 'Être':</strong><br>" + q11Errors.join("<br>");
+            }
+
+            // Q12 Validation
+            const q12Answers = { 1: 'Le', 2: 'La', 3: 'Les', 4: "L'" };
+            let q12Errors = [];
+            for (let i = 1; i <= 4; i++) {
+                const sel = document.querySelector('input[name="q12_' + i + '"]:checked');
+                if (!sel || sel.value !== q12Answers[i]) {
+                    q12Errors.push("Item " + i + ": Expected '" + q12Answers[i] + "'.");
+                }
+            }
+            if (q12Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q12').style.display = 'block';
+                document.getElementById('fb-q12').innerHTML = "<strong>Incorrect Definite Articles:</strong><br>" + q12Errors.join("<br>");
+            }
+
+            // Q13 Validation
+            const q13Sel = document.querySelector('input[name="q13"]:checked');
+            if (!q13Sel || q13Sel.value !== 'est') {
+                incorrectCount++;
+                document.getElementById('fb-q13').style.display = 'block';
+                document.getElementById('fb-q13').innerHTML = "<strong>Incorrect:</strong> Expected 'est'.";
+            }
+
+            // Q14 Validation
+            const q14Val = document.getElementById('q14').value.toLowerCase();
+            let q14Errors = [];
+            if (!q14Val.includes('finis')) q14Errors.push("Missing 'finis'.");
+            if (!q14Val.includes('finit')) q14Errors.push("Missing 'finit'.");
+            if (!q14Val.includes('finissons')) q14Errors.push("Missing 'finissons'.");
+            if (!q14Val.includes('finissez')) q14Errors.push("Missing 'finissez'.");
+            if (!q14Val.includes('finissent')) q14Errors.push("Missing 'finissent'.");
+            if (q14Errors.length > 0) {
+                incorrectCount++;
+                document.getElementById('fb-q14').style.display = 'block';
+                document.getElementById('fb-q14').innerHTML = "<strong>Incorrect 'Finir':</strong> " + q14Errors.join(" ");
+            }
+
+            const scoreDisplay = document.getElementById('score-display');
+            scoreDisplay.style.display = 'block';
+            const correctCount = totalQuestions - incorrectCount;
+            scoreDisplay.innerHTML = "Assessment Completed: " + correctCount + " / " + totalQuestions + " Section(s) Passed Correctly.";
+        }
+    </script>
+</body>
+</html>
