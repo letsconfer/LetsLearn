@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interrogative Sentences & Articles Contractés</title>
+    <script src="../Global/load-global.js"></script>
+    <!--<script src="master-config.js"></script>
+    <script src="restrictions.js"></script>
+    <script src="includes.js"></script>
+    <script src="quick-links.js"></script>-->
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #dee2e6;
+            --text-color: #212529;
+            --success-bg: #e8f5e9;
+            --error-bg: #ffebee;
+            --error-border: #ef5350;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+            --text-color: #e0e0e0;
+            --success-bg: #1b3320;
+            --error-bg: #3c1919;
+            --error-border: #e53935;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+        }
+        .main-content-area {
+            flex: 1;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .sidebar-area {
+            width: 280px;
+        }
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.15rem;
+            margin-top: 20px;
+        }
+        p, li {
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--card-bg);
+        }
+        th {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        td {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        .formula-box {
+            background-color: var(--bg-color);
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box-correct {
+            background-color: var(--success-bg);
+            border-left: 4px solid #4caf50;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .phonetic {
+            color: #d9534f;
+            font-weight: bold;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="theme-switcher"></div>
+        <div class="main-layout-wrapper">
+            <div class="main-content-area">
+                <div id="header-container"></div>
+                <h1>Interrogative Sentences & Articles Contractés</h1>
+                <p>In this lesson, we cover essential verb conjugations (<em>Dire</em> & <em>Lire</em>), the rules and vocabulary for forming interrogative sentences (questions), and the contracted articles (<em>Articles Contractés</em> with prepositions <strong>à</strong> and <strong>de</strong>).</p>
+
+                <!-- Section 1: Verbs Conjugations -->
+                <h2>1. Irregular Verbs Conjugation: Dire & Lire</h2>
+                <p>Verbs conjugated like <em>Prendre</em> (to take) include <strong>Apprendre</strong> (to learn) and <strong>Comprendre</strong> (to understand). Below are the full present tense conjugations for <strong>Dire</strong> (to say) and <strong>Lire</strong> (to read):</p>
+
+                <h3>Dire (to say / to tell)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 22%;">Grammatical Person</th>
+                            <th style="width: 48%;">Singular</th>
+                            <th style="width: 30%;">Plural</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1st Person</strong></td>
+                            <td>Je dis</td>
+                            <td>Nous disons</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2nd Person</strong></td>
+                            <td>Tu dis</td>
+                            <td>Vous dites</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3rd Person</strong></td>
+                            <td>Il / Elle / On dit</td>
+                            <td>Ils / Elles disent</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Lire (to read)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 22%;">Grammatical Person</th>
+                            <th style="width: 48%;">Singular</th>
+                            <th style="width: 30%;">Plural</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1st Person</strong></td>
+                            <td>Je lis</td>
+                            <td>Nous lisons</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2nd Person</strong></td>
+                            <td>Tu lis</td>
+                            <td>Vous lisez</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3rd Person</strong></td>
+                            <td>Il / Elle / On lit</td>
+                            <td>Ils / Elles lisent</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Section 2: Interrogative Sentences -->
+                <h2>2. Interrogative Sentences (Phrases Interrogatives)</h2>
+                <p>In French, questions can be asked using specific question words (pronouns and adverbs). Below is the foundational interrogative vocabulary along with phonetics and meanings:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">French Question Word</th>
+                            <th style="width: 25%;">Phonetic Pronunciation</th>
+                            <th style="width: 50%;">English Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Quoi</strong></td>
+                            <td><span class="phonetic">Kwah</span></td>
+                            <td>What</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Est-ce que</strong></td>
+                            <td><span class="phonetic">ess-kuh</span></td>
+                            <td>Is it (that) / Standard question launcher</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Qu'est-ce que</strong></td>
+                            <td><span class="phonetic">kess-kuh</span></td>
+                            <td>What is it (that) / What</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Qui</strong></td>
+                            <td><span class="phonetic">kee</span></td>
+                            <td>Who / Whom</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Que</strong></td>
+                            <td><span class="phonetic">kuh</span></td>
+                            <td>What</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Où</strong></td>
+                            <td><span class="phonetic">oo</span></td>
+                            <td>Where</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quand</strong></td>
+                            <td><span class="phonetic">kahn</span></td>
+                            <td>When</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comment</strong></td>
+                            <td><span class="phonetic">koh-mahn</span></td>
+                            <td>How / What (in specific contexts)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pourquoi</strong></td>
+                            <td><span class="phonetic">pour-kwah</span></td>
+                            <td>Why</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Combien / Combien de</strong></td>
+                            <td><span class="phonetic">kohm-bee-an / kohm-bee-an duh</span></td>
+                            <td>How much / How many</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quel / Quelle / Quels / Quelles</strong></td>
+                            <td><span class="phonetic">kel</span></td>
+                            <td>Which / What</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Detailed Usage & Examples</h3>
+                
+                <div class="formula-box">
+                    <strong>1) Combien vs Combien de:</strong><br>
+                    • Use <strong>Combien</strong> standalone or with prepositions: <em>Combien pour ça ?</em> (How much for this?)<br>
+                    • Use <strong>Combien de</strong> when directly followed by a noun: <em>Combien de pommes veux-tu ?</em> (How many apples do you want?)
+                </div>
+
+                <div class="formula-box">
+                    <strong>2) Quel / Quelle (Adjectif Interrogatif):</strong><br>
+                    Must agree in gender and number with the noun it modifies or refers to.<br>
+                    • <em>Quelle heure est-il ?</em> ("heure" is feminine singular &rarr; quelle)<br>
+                    • <em>Quels sont les professions des gens ?</em> ("professions" is feminine plural &rarr; quelles / masculine plural &rarr; quels)
+                </div>
+
+                <div class="formula-box">
+                    <strong>3) Comment & Où:</strong><br>
+                    • <strong>Comment:</strong> <em>Comment vas-tu ?</em> (How are you?) | <em>Comment vous appelez-vous ?</em> (What is your name?)<br>
+                    • <strong>Où:</strong> <em>Où veux-tu manger ?</em> (Where do you want to eat?)
+                </div>
+
+                <div class="formula-box">
+                    <strong>4) Pourquoi & Quand:</strong><br>
+                    • <strong>Pourquoi:</strong> <em>Pourquoi êtes-vous partis ?</em> (Why did you leave?)<br>
+                    • <strong>Quand:</strong> <em>Quand est-ce que Paul va arriver ?</em> (When is Paul going to arrive?)<br>
+                    • <em>Indirect Question:</em> <em>J'ai oublié où tu vas.</em> (I forgot where you're going.)
+                </div>
+
+                <div class="formula-box">
+                    <strong>5) Qui, Que & Quoi:</strong><br>
+                    • <strong>Qui (Who/Whom):</strong> <em>Qui a acheté le pain ?</em> / <em>Qui est-ce qui a acheté le pain ?</em> (Who bought the bread?) | <em>Qui connais-tu ici ?</em> (Whom do you know here?)<br>
+                    • <strong>Que / Qu'est-ce que (What):</strong> <em>Qu'est-ce qui se passe ?</em> (What's happening?) | <em>Qu'est-ce que vous faites ? / Que faites-vous ?</em> (What are you doing?)<br>
+                    • <strong>Quoi (Informal What):</strong> <em>Elle a fait quoi hier ?</em> (What did she do yesterday? - familiar language)
+                </div>
+
+                <!-- Section 3: Articles Contractés -->
+                <h2>3. Articles Contractés (Contracted Articles)</h2>
+                <p>A contracted article is formed when a preposition (<strong>à</strong> = to/in or <strong>de</strong> = of/from) combines with a definite article (<em>le, la, l', les</em>).</p>
+
+                <h3>Category A: Préposition (à) + Definite Article</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Preposition + Definite Article</th>
+                            <th>Contracted Form</th>
+                            <th>Usage Category</th>
+                            <th>Example Sentence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>à + le</strong></td>
+                            <td><strong>au</strong></td>
+                            <td>Masculine singular</td>
+                            <td>Je vais <strong>au</strong> café. (I am going to the cafe.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>à + la</strong></td>
+                            <td><strong>à la</strong></td>
+                            <td>Feminine singular</td>
+                            <td>Il va <strong>à la</strong> maison. (He is going to the house.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>à + l'</strong></td>
+                            <td><strong>à l'</strong></td>
+                            <td>Singular starting with vowel/silent h</td>
+                            <td>Je vais <strong>à l'</strong>hôtel. (I am going to the hotel.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>à + les</strong></td>
+                            <td><strong>aux</strong></td>
+                            <td>Masculine & Feminine plural</td>
+                            <td>Elle va <strong>aux</strong> États-Unis. (She is going to the United States.)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Category B: Préposition (de) + Definite Article</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Preposition + Definite Article</th>
+                            <th>Contracted Form</th>
+                            <th>Usage Category</th>
+                            <th>Example Sentence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>de + le</strong></td>
+                            <td><strong>du</strong></td>
+                            <td>Masculine singular</td>
+                            <td>Je viens <strong>du</strong> café. (I am coming from the cafe.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>de + la</strong></td>
+                            <td><strong>de la</strong></td>
+                            <td>Feminine singular</td>
+                            <td>Il vient <strong>de la</strong> maison. (He is coming from the house.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>de + l'</strong></td>
+                            <td><strong>de l'</strong></td>
+                            <td>Singular starting with vowel/silent h</td>
+                            <td>Elle vient <strong>de l'</strong>hôtel. (She is coming from the hotel.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>de + les</strong></td>
+                            <td><strong>des</strong></td>
+                            <td>Masculine & Feminine plural</td>
+                            <td>Je viens <strong>des</strong> Émirats. (I am coming from the Emirates.)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="formula-box">
+                    <strong>Rule Before Proper Nouns:</strong><br>
+                    Articles are <strong>NOT</strong> applied before proper names; only the raw prepositions <em>à</em> or <em>de</em> (becoming <em>d'</em> before vowels) are used.<br>
+                    • <em>Je parle à Mohan. / Je parle à Geeta.</em><br>
+                    • <em>C'est la robe de Geeta. / Ce sont les chaussures de Mohan.</em><br>
+                    • <em>Le père de Mohan et d'Anil. / Je parle à Mohan et à Anil.</em>
+                </div>
+
+                <!-- Section 4: Key Practice Sentences -->
+                <h2>4. Practice & Reference Exercises</h2>
+                <div class="example-box-correct">
+                    1. Je vais <strong>au</strong> parc avec mes amis. (à + le parc)<br>
+                    2. Nous revenons <strong>de l'</strong>école après les cours. (de + l'école)<br>
+                    3. Il parle <strong>au</strong> professeur de maths. (à + le professeur)<br>
+                    4. Marie rêve <strong>de</strong> voyages à travers le monde. (de + voyages)<br>
+                    5. Vous allez <strong>à l'</strong>hôpital pour une consultation ? (à + l'hôpital)<br>
+                    6. Les enfants jouent <strong>au</strong> ballon dans le jardin. (à + le ballon)<br>
+                    7. Ils viennent <strong>du</strong> marché avec des légumes frais. (de + le marché)<br>
+                    8. Tu donnes ce cadeau <strong>aux</strong> amis de ton frère ? (à + les amis)<br>
+                    9. On parle souvent <strong>de l'</strong>importance de l'éducation. (de + l'importance)<br>
+                    10. Ce livre appartient <strong>à la</strong> bibliothèque municipale. (à + la bibliothèque)
+                </div>
+
+            </div>
+            <div class="sidebar-area">
+                <div id="quick-links-container"></div>
+            </div>
+        </div>
+        <div id="footer-container"></div>
+    </div>
+</body>
+</html>
