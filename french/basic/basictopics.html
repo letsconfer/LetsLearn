@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Foundational Grammar Topics</title>
+    <!-- Masterclass Configuration Scripts -->
+    <script src="../global/load-global.js"></script>
+    <!--<script src="master-config.js" defer></script>
+    <script src="restrictions.js" defer></script>
+    <script src="includes.js" defer></script>
+    <script src="quick-links.js" defer></script>-->
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --success-color: #16a34a;
+            --bg-light: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-dark: #212529;
+            --border-color: #dee2e6;
+            --muted-color: #6c757d;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --secondary-color: #f87171;
+            --success-color: #22c55e;
+            --bg-light: #0f172a;
+            --card-bg: #1e293b;
+            --text-dark: #f8fafc;
+            --border-color: #334155;
+            --muted-color: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .main-layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .main-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sidebar-area {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-area {
+                width: 100%;
+                position: static;
+            }
+        }
+
+        .main-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .intro-box {
+            background-color: rgba(0, 85, 165, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        [data-theme="dark"] .intro-box {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .section-header {
+            margin-top: 35px;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .section-subtitle {
+            color: var(--muted-color);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .master-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: var(--card-bg);
+        }
+
+        .master-table th {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 12px 14px;
+            text-align: left;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .master-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: var(--text-dark);
+        }
+
+        .master-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .col-topic { width: 22%; font-weight: 700; color: var(--text-dark); }
+        .col-rules { width: 48%; }
+        .col-examples { width: 30%; }
+
+        .example-box-correct {
+            background-color: #e8f5e9;
+            padding: 8px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 4px solid #2e7d32;
+        }
+
+        [data-theme="dark"] .example-box-correct {
+            background-color: #1e3a29;
+        }
+
+        .phonetic-text {
+            color: var(--muted-color);
+            font-size: 0.85rem;
+        }
+
+        .hindi-text {
+            color: #b45309;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        [data-theme="dark"] .hindi-text {
+            color: #fbbf24;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('../Image/Listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <div id="header-container"></div>
+
+    <div class="main-layout-wrapper">
+        <div class="main-content-area">
+            <h1>French Foundational Grammar Topics</h1>
+            <p class="subtitle">Uncovering topics, rules, articles, verbs, or pronouns in upcoming weeks.</p>
+            
+            <!-- TOPIC 1 -->
+            <div class="section-header">
+                <h2>1. Pronouns (Les Pronoms Sujets)</h2>
+                <div class="section-subtitle">French: Les Pronoms Sujets <button class="inline-audio-btn" onclick="playAudio('Les Pronoms Sujets')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">PRONOUN</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Je / J'</td><td class="col-rules">First person singular (I)</td><td class="col-examples"><div class="example-box-correct">• <em>Je parle</em> <button class="inline-audio-btn" onclick="playAudio('Je parle')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Tu</td><td class="col-rules">Second person singular informal (You)</td><td class="col-examples"><div class="example-box-correct">• <em>Tu manges</em> <button class="inline-audio-btn" onclick="playAudio('Tu manges')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Il</td><td class="col-rules">Third person masculine singular (He)</td><td class="col-examples"><div class="example-box-correct">• <em>Il parle</em> <button class="inline-audio-btn" onclick="playAudio('Il parle')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Elle</td><td class="col-rules">Third person feminine singular (She)</td><td class="col-examples"><div class="example-box-correct">• <em>Elle chante</em> <button class="inline-audio-btn" onclick="playAudio('Elle chante')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">On</td><td class="col-rules">Impersonal / informal "We"</td><td class="col-examples"><div class="example-box-correct">• <em>On y va</em> <button class="inline-audio-btn" onclick="playAudio('On y va')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Nous</td><td class="col-rules">First person plural (We)</td><td class="col-examples"><div class="example-box-correct">• <em>Nous arrivons</em> <button class="inline-audio-btn" onclick="playAudio('Nous arrivons')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Vous</td><td class="col-rules">Second person plural / formal (You)</td><td class="col-examples"><div class="example-box-correct">• <em>Vous écoutez</em> <button class="inline-audio-btn" onclick="playAudio('Vous écoutez')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Ils</td><td class="col-rules">Third person masculine plural (They)</td><td class="col-examples"><div class="example-box-correct">• <em>Ils travaillent</em> <button class="inline-audio-btn" onclick="playAudio('Ils travaillent')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Elles</td><td class="col-rules">Third person feminine plural (They)</td><td class="col-examples"><div class="example-box-correct">• <em>Elles dansent</em> <button class="inline-audio-btn" onclick="playAudio('Elles dansent')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 2 -->
+            <div class="section-header">
+                <h2>2. Auxiliary Verbs (Les Verbes Auxiliaires)</h2>
+                <div class="section-subtitle">French: Les Verbes Auxiliaires <button class="inline-audio-btn" onclick="playAudio('Les Verbes Auxiliaires')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">VERB</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Être (To Be)</td><td class="col-rules">Je suis, tu es, il est, nous sommes, vous êtes, ils sont.</td><td class="col-examples"><div class="example-box-correct">• <em>Je suis étudiant</em> <button class="inline-audio-btn" onclick="playAudio('Je suis étudiant')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Avoir (To Have)</td><td class="col-rules">J'ai, tu as, il a, nous avons, vous avez, ils ont.</td><td class="col-examples"><div class="example-box-correct">• <em>J'ai une voiture</em> <button class="inline-audio-btn" onclick="playAudio('J\'ai une voiture')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 3 -->
+            <div class="section-header">
+                <h2>3. Regular Verbs (ER / IR / RE)</h2>
+                <div class="section-subtitle">French: Les Verbes Réguliers <button class="inline-audio-btn" onclick="playAudio('Les Verbes Réguliers')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">GROUP</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">-ER Verbs</td><td class="col-rules">First group regular verbs (e.g., parler).</td><td class="col-examples"><div class="example-box-correct">• <em>Nous parlons</em> <button class="inline-audio-btn" onclick="playAudio('Nous parlons')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">-IR Verbs</td><td class="col-rules">Second group regular verbs (e.g., finir).</td><td class="col-examples"><div class="example-box-correct">• <em>Je finis</em> <button class="inline-audio-btn" onclick="playAudio('Je finis')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">-RE Verbs</td><td class="col-rules">Third group regular verbs (e.g., vendre).</td><td class="col-examples"><div class="example-box-correct">• <em>Il vend</em> <button class="inline-audio-btn" onclick="playAudio('Il vend')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 4 -->
+            <div class="section-header">
+                <h2>4. Definite Articles (Les Articles Définis)</h2>
+                <div class="section-subtitle">French: Les Articles Définis <button class="inline-audio-btn" onclick="playAudio('Les Articles Définis')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">ARTICLE</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Le</td><td class="col-rules">Masculine singular definite article</td><td class="col-examples"><div class="example-box-correct">• <em>Le livre</em> <button class="inline-audio-btn" onclick="playAudio('Le livre')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">La</td><td class="col-rules">Feminine singular definite article</td><td class="col-examples"><div class="example-box-correct">• <em>La table</em> <button class="inline-audio-btn" onclick="playAudio('La table')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">L'</td><td class="col-rules">Singular definite article before vowel/mute h</td><td class="col-examples"><div class="example-box-correct">• <em>L'école</em> <button class="inline-audio-btn" onclick="playAudio('L\'école')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Les</td><td class="col-rules">Plural definite article</td><td class="col-examples"><div class="example-box-correct">• <em>Les amis</em> <button class="inline-audio-btn" onclick="playAudio('Les amis')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 5 -->
+            <div class="section-header">
+                <h2>5. Indefinite Articles (Les Articles Indéfinis)</h2>
+                <div class="section-subtitle">French: Les Articles Indéfinis <button class="inline-audio-btn" onclick="playAudio('Les Articles Indéfinis')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">ARTICLE</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Un</td><td class="col-rules">Masculine singular indefinite article</td><td class="col-examples"><div class="example-box-correct">• <em>Un stylo</em> <button class="inline-audio-btn" onclick="playAudio('Un stylo')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Une</td><td class="col-rules">Feminine singular indefinite article</td><td class="col-examples"><div class="example-box-correct">• <em>Une pomme</em> <button class="inline-audio-btn" onclick="playAudio('Une pomme')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Des</td><td class="col-rules">Plural indefinite article</td><td class="col-examples"><div class="example-box-correct">• <em>Des livres</em> <button class="inline-audio-btn" onclick="playAudio('Des livres')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 6 -->
+            <div class="section-header">
+                <h2>6. Contracted Articles (Les Articles Contractés)</h2>
+                <div class="section-subtitle">French: Les Articles Contractés <button class="inline-audio-btn" onclick="playAudio('Les Articles Contractés')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">FORMULA</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Au / Aux</td><td class="col-rules">Preposition à + le / les contractions</td><td class="col-examples"><div class="example-box-correct">• <em>Je vais au cinéma</em> <button class="inline-audio-btn" onclick="playAudio('Je vais au cinéma')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Du / Des</td><td class="col-rules">Preposition de + le / les contractions</td><td class="col-examples"><div class="example-box-correct">• <em>Je parle du professeur</em> <button class="inline-audio-btn" onclick="playAudio('Je parle du professeur')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 7 -->
+            <div class="section-header">
+                <h2>7. Partitive Articles (Les Articles Partitifs)</h2>
+                <div class="section-subtitle">French: Les Articles Partitifs <button class="inline-audio-btn" onclick="playAudio('Les Articles Partitifs')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">ARTICLE</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Du / De la / De l' / Des</td><td class="col-rules">Used for unspecified quantities or food items.</td><td class="col-examples"><div class="example-box-correct">• <em>Je bois du café</em> <button class="inline-audio-btn" onclick="playAudio('Je bois du café')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 8 -->
+            <div class="section-header">
+                <h2>8. Adjectives & Agreement (Les Adjectifs)</h2>
+                <div class="section-subtitle">French: Les Adjectifs <button class="inline-audio-btn" onclick="playAudio('Les Adjectifs')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">CONCEPT</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Gender & Number</td><td class="col-rules">Adjectives must match the noun they modify.</td><td class="col-examples"><div class="example-box-correct">• <em>Une grande maison</em> <button class="inline-audio-btn" onclick="playAudio('Une grande maison')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 9 -->
+            <div class="section-header">
+                <h2>9. Possessive Adjectives (Les Adjectifs Possessifs)</h2>
+                <div class="section-subtitle">French: Les Adjectifs Possessifs <button class="inline-audio-btn" onclick="playAudio('Les Adjectifs Possessifs')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">PRONOUN</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Mon / Ma / Mes</td><td class="col-rules">My (masc / fem / plural)</td><td class="col-examples"><div class="example-box-correct">• <em>C'est mon livre</em> <button class="inline-audio-btn" onclick="playAudio('C\'est mon livre')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Ton / Ta / Tes</td><td class="col-rules">Your (masc / fem / plural)</td><td class="col-examples"><div class="example-box-correct">• <em>Ton stylo</em> <button class="inline-audio-btn" onclick="playAudio('Ton stylo')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Son / Sa / Ses</td><td class="col-rules">His / Her / Its</td><td class="col-examples"><div class="example-box-correct">• <em>Sa voiture</em> <button class="inline-audio-btn" onclick="playAudio('Sa voiture')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 10 -->
+            <div class="section-header">
+                <h2>10. Demonstrative Adjectives (Les Adjectifs Démonstratifs)</h2>
+                <div class="section-subtitle">French: Les Adjectifs Démonstratifs <button class="inline-audio-btn" onclick="playAudio('Les Adjectifs Démonstratifs')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">FORM</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Ce</td><td class="col-rules">Masculine singular consonant</td><td class="col-examples"><div class="example-box-correct">• <em>Ce garçon</em> <button class="inline-audio-btn" onclick="playAudio('Ce garçon')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Cet</td><td class="col-rules">Masculine singular vowel / mute h</td><td class="col-examples"><div class="example-box-correct">• <em>Cet homme</em> <button class="inline-audio-btn" onclick="playAudio('Cet homme')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Cette</td><td class="col-rules">Feminine singular</td><td class="col-examples"><div class="example-box-correct">• <em>Cette fille</em> <button class="inline-audio-btn" onclick="playAudio('Cette fille')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Ces</td><td class="col-rules">Plural (all genders)</td><td class="col-examples"><div class="example-box-correct">• <em>Ces étudiants</em> <button class="inline-audio-btn" onclick="playAudio('Ces étudiants')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 11 -->
+            <div class="section-header">
+                <h2>11. Negation (La Négation)</h2>
+                <div class="section-subtitle">French: La Négation <button class="inline-audio-btn" onclick="playAudio('La Négation')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">STRUCTURE</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Ne ... pas</td><td class="col-rules">Standard verb negation wrapping.</td><td class="col-examples"><div class="example-box-correct">• <em>Je ne sais pas</em> <button class="inline-audio-btn" onclick="playAudio('Je ne sais pas')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Ne ... jamais</td><td class="col-rules">Never negation.</td><td class="col-examples"><div class="example-box-correct">• <em>Je ne fume jamais</em> <button class="inline-audio-btn" onclick="playAudio('Je ne fume jamais')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 12 -->
+            <div class="section-header">
+                <h2>12. Interrogative Sentences (L'Interrogation)</h2>
+                <div class="section-subtitle">French: L'Interrogation <button class="inline-audio-btn" onclick="playAudio('L\'Interrogation')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">METHOD</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Est-ce que</td><td class="col-rules">Question prefix.</td><td class="col-examples"><div class="example-box-correct">• <em>Est-ce que tu viens?</em> <button class="inline-audio-btn" onclick="playAudio('Est-ce que tu viens')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 13 -->
+            <div class="section-header">
+                <h2>13. Interrogative Words (Les Mots Interrogatifs)</h2>
+                <div class="section-subtitle">French: Les Mots Interrogatifs <button class="inline-audio-btn" onclick="playAudio('Les Mots Interrogatifs')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">WORD</th><th class="col-rules">MEANING</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Où / Quand / Pourquoi / Comment</td><td class="col-rules">Where, When, Why, How.</td><td class="col-examples"><div class="example-box-correct">• <em>Où habites-tu?</em> <button class="inline-audio-btn" onclick="playAudio('Où habites-tu')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 14 -->
+            <div class="section-header">
+                <h2>14. Personal Introduction (Se Présenter)</h2>
+                <div class="section-subtitle">French: Se Présenter <button class="inline-audio-btn" onclick="playAudio('Se Présenter')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">EXPRESSION</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Identity & Age</td><td class="col-rules">Stating name and age.</td><td class="col-examples"><div class="example-box-correct">• <em>Je m'appelle Lucas, j'ai 25 ans</em> <button class="inline-audio-btn" onclick="playAudio('Je m\'appelle Lucas')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 15 -->
+            <div class="section-header">
+                <h2>15. Describing Your House (Décrire sa Maison)</h2>
+                <div class="section-subtitle">French: Décrire sa Maison <button class="inline-audio-btn" onclick="playAudio('Décrire sa Maison')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">ROOM</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Salon / Cuisine</td><td class="col-rules">Living room, kitchen.</td><td class="col-examples"><div class="example-box-correct">• <em>Ma maison a un grand salon</em> <button class="inline-audio-btn" onclick="playAudio('Ma maison a un grand salon')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 16 -->
+            <div class="section-header">
+                <h2>16. Daily Routine (La Routine Quotidienne)</h2>
+                <div class="section-subtitle">French: La Routine Quotidienne <button class="inline-audio-btn" onclick="playAudio('La Routine Quotidienne')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">VERB</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Se lever</td><td class="col-rules">Reflexive verb (To get up).</td><td class="col-examples"><div class="example-box-correct">• <em>Je me lève à 7h</em> <button class="inline-audio-btn" onclick="playAudio('Je me lève à 7h')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 17 -->
+            <div class="section-header">
+                <h2>17. Adverbs of Frequency (Les Adverbes de Fréquence)</h2>
+                <div class="section-subtitle">French: Les Adverbes de Fréquence <button class="inline-audio-btn" onclick="playAudio('Les Adverbes de Fréquence')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">ADVERB</th><th class="col-rules">MEANING</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Toujours</td><td class="col-rules">Always</td><td class="col-examples"><div class="example-box-correct">• <em>Je vais toujours chez mes parents</em> <button class="inline-audio-btn" onclick="playAudio('Je vais toujours chez mes parents')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Souvent</td><td class="col-rules">Often</td><td class="col-examples"><div class="example-box-correct">• <em>Je vais souvent au restaurant</em> <button class="inline-audio-btn" onclick="playAudio('Je vais souvent au restaurant')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Parfois</td><td class="col-rules">Sometimes</td><td class="col-examples"><div class="example-box-correct">• <em>Je vais parfois au cinéma</em> <button class="inline-audio-btn" onclick="playAudio('Je vais parfois au cinéma')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Rarement</td><td class="col-rules">Rarely</td><td class="col-examples"><div class="example-box-correct">• <em>Je lis rarement un livre</em> <button class="inline-audio-btn" onclick="playAudio('Je lis rarement un livre')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Jamais</td><td class="col-rules">Never</td><td class="col-examples"><div class="example-box-correct">• <em>Je ne fais jamais de sport</em> <button class="inline-audio-btn" onclick="playAudio('Je ne fais jamais de sport')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOPIC 18 -->
+            <div class="section-header">
+                <h2>18. Cardinal & Ordinal Numbers (Les Nombres)</h2>
+                <div class="section-subtitle">French: Les Nombres <button class="inline-audio-btn" onclick="playAudio('Les Nombres')" title="Listen"></button></div>
+            </div>
+            <table class="master-table">
+                <thead><tr><th class="col-topic">NUMBER TYPE</th><th class="col-rules">RULE</th><th class="col-examples">EXAMPLE</th></tr></thead>
+                <tbody>
+                    <tr><td class="col-topic">Cardinal Numbers</td><td class="col-rules">Counting (un, deux, trois...)</td><td class="col-examples"><div class="example-box-correct">• <em>J'ai dix ans</em> <button class="inline-audio-btn" onclick="playAudio('J\'ai dix ans')" title="Listen"></button></div></td></tr>
+                    <tr><td class="col-topic">Ordinal Numbers</td><td class="col-rules">Ranking (premier, deuxième...)</td><td class="col-examples"><div class="example-box-correct">• <em>Le premier jour</em> <button class="inline-audio-btn" onclick="playAudio('Le premier jour')" title="Listen"></button></div></td></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="sidebar-area">
+            <div id="quick-links-container"></div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+</div>
+
+</body>
+</html>
