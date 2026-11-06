@@ -76,9 +76,9 @@ function updateThemeButton() {
     if (themeBtn) {
         const currentTheme = document.body.getAttribute("data-theme") || "light";
         if (currentTheme === "dark") {
-            themeBtn.style.backgroundImage = "url('../images/lightBulb.jpeg?v=2026')";
+            themeBtn.style.backgroundImage = "url('../images/lightbulb.jpeg?v=2026')";
         } else {
-            themeBtn.style.backgroundImage = "url('../images/darkBulb.jpeg?v=2026')";
+            themeBtn.style.backgroundImage = "url('../images/darkbulb.jpeg?v=2026')";
         }
     }
 }
