@@ -59,7 +59,7 @@ const siteHeaderHTML = `
 const siteFooterHTML = `
     <hr style="margin: 20px 0 10px 0;">
     <div style="text-align: center; color: var(--muted-color); font-size: 8.5pt; padding: 5px 0;">
-        &copy; 2026 French Learning Workspace. All rights reserved. | <a href="../Home.html" style="color: var(--primary-color); text-decoration: none;">Home</a>
+        &copy; 2026 French Learning Workspace. All rights reserved. | <a href="../../Home.html" style="color: var(--primary-color); text-decoration: none;">Home</a>
     </div>
 `;
 
