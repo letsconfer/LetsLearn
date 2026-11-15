@@ -5,13 +5,13 @@ window.French_MASTER_CONFIG = {
     // 1. Security & Interaction Controls
     allowRightClick: true,      // false = Restricted (Default), true = Allowed
     allowLeftClick: true,       // true = Normal clicks, false = Blocks selection/clicks
-    allowScreenshot: true,      // false = Blocks PrintScreen/shortcuts, true = Allowed
+    allowScreenshot: false,      // false = Blocks PrintScreen/shortcuts, true = Allowed
     
     // ... your existing config settings ...
     ENABLE_FLOATING_NAV: false, // Set to false to disable globally across all pages
     
     // 2. Toolbar Icon Controls
-    showDownloadIcon: true,      // true = Show PDF download icon, false = Hidden
+    showDownloadIcon: false,      // true = Show PDF download icon, false = Hidden
     showThemeIcon: true,         // true = Show Theme toggle icon, false = Hidden
     showQuickLinks: false,        // true = Show Quick Links sidebar, false = Hide sidebar & expand layout
     
@@ -25,7 +25,7 @@ window.French_MASTER_CONFIG = {
     favicon: "../images/logo1.png",         
 
     // 6. Default Audio Speed (0.6 = Slow, 1.0 = Normal, 1.6 = Fast)
-    audioSpeed: 1.0             
+    audioSpeed: 0.6             
 };
 
 // ==========================================

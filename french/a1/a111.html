@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Prépositions</title>
+    <script src="../global/load-global.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --highlight-bg: #d4edda;
+            --highlight-text: #155724;
+            --muted-color: #6c757d;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --secondary-color: #ef4444;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+            --highlight-bg: #1e3a29;
+            --highlight-text: #a3e635;
+            --muted-color: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .theme-switcher {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--muted-color);
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .section-pronunciation {
+            background-color: #f1f3f5;
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        [data-theme="dark"] .section-pronunciation {
+            background-color: #1e293b;
+            border-color: #3b82f6;
+            color: #cbd5e1;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* 3-Column Table Layout proportions */
+        th:nth-child(1), td:nth-child(1) { width: 22%; }
+        th:nth-child(2), td:nth-child(2) { width: 48%; }
+        th:nth-child(3), td:nth-child(3) { width: 30%; }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .incorrect {
+            color: #dc3545;
+            text-decoration: line-through;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .example-box-correct {
+            background-color: #e8f5e9;
+            padding: 8px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 4px solid #2e7d32;
+        }
+
+        [data-theme="dark"] .example-box-correct {
+            background-color: #1e3a29;
+        }
+
+        .example-box-incorrect {
+            background-color: #ffebee;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border-left: 4px solid #c62828;
+        }
+
+        [data-theme="dark"] .example-box-incorrect {
+            background-color: #3a1e1e;
+        }
+
+        .inline-audio-btn {
+            background: transparent url('../images/listen.png') no-repeat center;
+            background-size: 16px 16px;
+            border: none;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            margin-left: 4px;
+            padding: 0;
+            vertical-align: middle;
+            transition: transform 0.1s;
+            display: inline-block;
+        }
+
+        .inline-audio-btn:hover {
+            transform: scale(1.15);
+        }
+
+        /* Interactive Exercise Styling */
+        .exercise-box {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 15px;
+        }
+        [data-theme="dark"] .exercise-box {
+            background: #1e293b;
+        }
+        .exercise-row {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .blank-select {
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .blank-select.correct {
+            border-color: #2e7d32;
+            background-color: #e8f5e9;
+            color: #155724;
+        }
+        .blank-select.incorrect {
+            border-color: #c62828;
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .btn-check {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+        .btn-check:hover {
+            opacity: 0.9;
+        }
+        #quiz-score {
+            margin-left: 15px;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="theme-switcher"></div>
+    
+    <!-- Header container rendered via includes.js -->
+    <div id="header-container"></div>
+    
+    <!-- 2-Column Layout Wrapper (Main Content Left, Quick Links Sidebar Right) -->
+    <div class="main-layout-wrapper">
+        <!-- Left Main Content Area -->
+    
+    <div class="main-content-area">
+        <h1>Les Prépositions (Prepositions)</h1>
+        <p class="subtitle">Comprehensive Guide to French Prepositions, Countries, Cities, Time &amp; Location</p>
+
+        <!-- INTRODUCTION -->
+        <h2>Introduction to Prepositions</h2>
+        <div class="section-pronunciation">
+            French: <em>Les Prépositions</em> <button class="inline-audio-btn" onclick="playAudio('Les Prépositions')" title="Listen"></button> / Pronunciation: ले प्रेपोझ़िसियों<br><br>
+            <strong>What are prepositions?</strong> Prepositions are small linking words that connect elements of a sentence together and indicate relationships of place, direction, time, or origin between words. Prepositions cannot always be translated literally word-for-word; they must be learned in context with their specific usage rules.
+        </div>
+
+        <!-- SECTION 1: COUNTRIES, CONTINENTS, PROVINCES & CITIES -->
+        <h2>1. Prepositions with Countries, Continents, Provinces &amp; Cities</h2>
+        <div class="section-pronunciation">
+            French: <em>Au / En / À &amp; Du / De / Des + Noms de Pays</em> <button class="inline-audio-btn" onclick="playAudio('Au En Du De noms de pays')" title="Listen"></button> / Pronunciation: ओ / आँ / आ &amp; द्यू / द / दे + नों द पेई
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Topic Details / Definition</th>
+                        <th>Rules, Logics &amp; Pronunciation</th>
+                        <th>Examples (Correct &amp; Incorrect)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Going to / Being in (Aller / Être / Habiter)</strong><br><br>• <strong>en</strong><br>• <strong>au</strong><br>• <strong>aux</strong><br>• <strong>à</strong></td>
+                        <td>
+                            How to express going to or being in a geographical location:<br><br>
+                            1. <strong>en: </strong>Always use before <br>• <em>feminine countries, continents, provinces</em>, <br>• and <em>masculine countries starting with a vowel</em>. <br> <br> Important Note: <br>•<strong> en</strong> is never followed by articles like <em>le, du, des</em>. <br>• Also used for years (<em>en 1983</em>), months (<em>en janvier</em>), seasons (<em>en hiver</em>), and mode of transport (<em>en train</em>).<br> <br>
+                            2. <strong>au:</strong> Use it before <em>masculine singular countries starting with a consonant</em>.<br> <br>
+                            3. <strong>aux:</strong> Use before <em>plural countries</em> <br>(e.g., <em>aux États-Unis, aux Antilles, aux Philippines</em>).<br> <br>
+                            4. <strong>à:</strong> Use before <em>all cities and towns</em> <br> (e.g., <em>à Paris, à Mumbai, à Delhi</em>).
+                        </td>
+                        <td>
+                            <div class="example-box-correct">
+                                <strong>Correct Examples:</strong><br>
+                                • <em>Je vais en Suisse.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais en Suisse')" title="Listen"></button> (I am going to Switzerland) — /झ़ वे आं स्वीस/<br>
+                                • <em>Il travaille en Iran.</em> <button class="inline-audio-btn" onclick="playAudio('Il travaille en Iran')" title="Listen"></button> (He works in Iran) — /इल त्रावाय आं ईरां/<br>
+                                • <em>Elle va au Japon.</em> <button class="inline-audio-btn" onclick="playAudio('Elle va au Japon')" title="Listen"></button> (She goes to Japan) — /एल वा ओ झ़ापों/<br>
+                                • <em>Ils vont aux États-Unis.</em> <button class="inline-audio-btn" onclick="playAudio('Ils vont aux États-Unis')" title="Listen"></button> (They go to the USA) — /इल वों ओज़ एताज़-यूनी/<br>
+                                • <em>Je vais à Paris.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais à Paris')" title="Listen"></button> (I am going to Paris) — /झ़ वे आ पारी/
+                            </div>
+                            <div class="example-box-incorrect">
+                                <strong>Incorrect Examples:</strong><br>
+                                • <span class="incorrect">Je vais au Suisse.</span> <button class="inline-audio-btn" onclick="playAudio('Je vais au Suisse')" title="Listen"></button> (Wrong gender article)<br>
+                                • <span class="incorrect">Il va en Japon.</span> <button class="inline-audio-btn" onclick="playAudio('Il va en Japon')" title="Listen"></button> (Wrong preposition for masculine country)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coming from / Belonging to (Venir / Être de)</strong><br><br>• <strong>de / d’</strong><br>• <strong>du</strong><br>• <strong>des</strong></td>
+                        <td>
+                            How to express coming from or belonging to a place:<br><br>
+                            1. <strong>de:</strong> Used before <em><strong>feminine</strong> countries, continents, provinces</em> starting with a consonant (e.g., <em>de Suisse, de France</em>). Also used for cities (e.g., <em>de Paris</em>).<br><br>
+                            2. <strong>d’ / de:</strong> Used before <em>any country or city starting with a vowel</em> (e.g., <em>d’Amérique, d’Inde, d’Iran, d’Afghanistan</em>).<br><br>
+                            3. <strong>du:</strong> Used before <em>masculine singular countries starting with a consonant</em> (e.g., <em>du Japon, du Danemark</em>).<br><br>
+                            4. <strong>des:</strong> Used before <em>plural countries</em> (e.g., <em>des États-Unis, des Antilles, des Émirats</em>).
+                        </td>
+                        <td>
+                            <div class="example-box-correct">
+                                <strong>Correct Examples:</strong><br>
+                                • <em>Je viens de Suisse.</em> <button class="inline-audio-btn" onclick="playAudio('Je viens de Suisse')" title="Listen"></button> (I come from Switzerland) — /झ़ व्यें द स्वीस/<br>
+                                • <em>Il vient d’Inde.</em> <button class="inline-audio-btn" onclick="playAudio('Il vient d’Inde')" title="Listen"></button> (He comes from India) — /इल व्यें दैंद/<br>
+                                • <em>Elle vient du Japon.</em> <button class="inline-audio-btn" onclick="playAudio('Elle vient du Japon')" title="Listen"></button> (She comes from Japan) — /एल व्यें द्यू झ़ापों/<br>
+                                • <em>Je viens des États-Unis.</em> <button class="inline-audio-btn" onclick="playAudio('Je viens des États-Unis')" title="Listen"></button> (I come from the USA) — /झ़ व्यें देज़ एताज़-यूनी/
+                            </div>
+                            <div class="example-box-incorrect">
+                                <strong>Incorrect Examples:</strong><br>
+                                • <span class="incorrect">Je viens de Japon.</span> <button class="inline-audio-btn" onclick="playAudio('Je viens de Japon')" title="Listen"></button> (Missing masculine contraction <em>du</em>)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Important Exceptions &amp; Plurals</strong></td>
+                        <td>
+                            • <strong>Masculine countries ending in -e:</strong> Most countries ending in <em>-e</em> are feminine, but these 4 are masculine and take <strong>au / du</strong>: <em>le Mexique, le Mozambique, le Zaïre, le Zimbabwe</em>.<br> <br>
+                            • <strong>Plural country names:</strong> <em>Les Philippines, Les Antilles, Les États-Unis, Les Pays-Bas</em> (take <strong>aux / des</strong>).
+                        </td>
+                        <td>
+                            <div class="example-box-correct">
+                                <strong>Correct Examples:</strong><br>
+                                • <em>Mes parents sont au Mexique.</em> <button class="inline-audio-btn" onclick="playAudio('Mes parents sont au Mexique')" title="Listen"></button> (My parents are in Mexico)<br>
+                                • <em>Il vient du Mexique.</em> <button class="inline-audio-btn" onclick="playAudio('Il vient du Mexique')" title="Listen"></button> (He comes from Mexico)
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 2: PLACE PREPOSITIONS - CHEZ, DANS, SUR, SOUS -->
+        <h2>2. Prepositions of Place: chez, dans, sur, sous</h2>
+        <div class="section-pronunciation">
+            French: <em>Les Prépositions de lieu (2): chez, dans, sur, sous</em> <button class="inline-audio-btn" onclick="playAudio('Les Prépositions de lieu chez dans sur sous')" title="Listen"></button> / Pronunciation: ले प्रेपोझ़िसियों द ल्यू: शे, दां, स्यूर, सू
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>French</th>
+                        <th>English Meaning</th>
+                        <th>Usage &amp; Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="highlight">chez <button class="inline-audio-btn" onclick="playAudio('chez')" title="Listen"></button></span></td>
+                        <td><strong>at / to (someone's place)</strong><br>i.e Used before a person's name <br>or a profession/shop title.</td>
+                        <td>
+                            • <em>Je vais chez Christophe.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais chez Christophe')" title="Listen"></button> (I am going to Christophe's house)<br>
+                            • <em>Il va chez le coiffeur. / chez le fleuriste.</em> <button class="inline-audio-btn" onclick="playAudio('Je vais chez le coiffeur')" title="Listen"></button> (He is going to the hairdresser's / florist's)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">dans <button class="inline-audio-btn" onclick="playAudio('dans')" title="Listen"></button></span></td>
+                        <td><strong>in / inside / into</strong><br>Used for enclosed physical spaces, rooms, buildings, <br>cities, countries (with articles), and specific containers or vehicles.<br></td>
+                        <td>
+                            • <em>J’habite dans la ville.</em> <button class="inline-audio-btn" onclick="playAudio('Jhabite dans la ville')" title="Listen"></button> (I live in the city)<br>
+                            • <em>Je voyage dans le train.</em> <button class="inline-audio-btn" onclick="playAudio('Je voyage dans le train')" title="Listen"></button> (I am traveling inside the train — contrasted with <em>en train</em> by train)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">sur <button class="inline-audio-btn" onclick="playAudio('sur')" title="Listen"></button></span></td>
+                        <td><strong>on / over</strong><br> Used to indicate directly <br> on or over a surface.<br></td>
+                        <td>
+                            • <em>Le livre est sur la table.</em> <button class="inline-audio-btn" onclick="playAudio('Le livre est sur la table')" title="Listen"></button> (The book is on the table)<br>
+                            • <em>Sur la tête.</em> <button class="inline-audio-btn" onclick="playAudio('Sur la tête')" title="Listen"></button> (On the head)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">sous <button class="inline-audio-btn" onclick="playAudio('sous')" title="Listen"></button> </span></td>
+                        <td><strong>under</strong><br>Used to indicate directly under something.<br></td>
+                        <td>
+                            • <em>Le chat est sous la table.</em> <button class="inline-audio-btn" onclick="playAudio('Le chat est sous la table')" title="Listen"></button> (The cat is under the table)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 3: OTHER PREPOSITIONS -->
+        <h2>3. Other Essential Prepositions (Autres Prépositions)</h2>
+        <div class="section-pronunciation">
+            French: <em>Autres Prépositions</em> <button class="inline-audio-btn" onclick="playAudio('Autres Prépositions')" title="Listen"></button> / Pronunciation: ओत्र प्रेपोझ़िसियों
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>French</th>
+                        <th>Devanagari Phonetic</th>
+                        <th>English Phonetic</th>
+                        <th>English Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>après</strong></td><td>आप्रे</td><td>ah-pray</td><td>after</td></tr>
+                    <tr><td><strong>avant</strong></td><td>आवां</td><td>ah-vahn</td><td>before</td></tr>
+                    <tr><td><strong>avec</strong></td><td>आवेक</td><td>ah-vek</td><td>with</td></tr>
+                    <tr><td><strong>derrière</strong></td><td>देरियेर</td><td>deh-ryair</td><td>behind</td></tr>
+                    <tr><td><strong>contre</strong></td><td>कोंत्र</td><td>kohn-truh</td><td>against</td></tr>
+                    <tr><td><strong>depuis</strong></td><td>दप्वी</td><td>duh-pwee</td><td>since / for</td></tr>
+                    <tr><td><strong>pendant</strong></td><td>पांदाँ</td><td>pahn-dahn</td><td>during</td></tr>
+                    <tr><td><strong>pour</strong></td><td>पूर</td><td>poor</td><td>for</td></tr>
+                    <tr><td><strong>sans</strong></td><td>साँ</td><td>sahn</td><td>without</td></tr>
+                    <tr><td><strong>sauf</strong></td><td>सोफ़</td><td>sohf</td><td>except</td></tr>
+                    <tr><td><strong>selon</strong></td><td>सलों</td><td>suh-lohn</td><td>according to</td></tr>
+                    <tr><td><strong>vers</strong></td><td>वेर</td><td>vair</td><td>toward</td></tr>
+                    <tr><td><strong>durant</strong></td><td>द्यूराँ</td><td>doo-rahn</td><td>while / during</td></tr>
+                    <tr><td><strong>parmi</strong></td><td>पारमी</td><td>par-mee</td><td>among</td></tr>
+                    <tr><td><strong>jusque</strong></td><td>झ़्यूस्क</td><td>zhoos-kuh</td><td>until / up to</td></tr>
+                    <tr><td><strong>malgré</strong></td><td>माल्ग्रे</td><td>mal-gray</td><td>despite</td></tr>
+                    <tr><td><strong>devant</strong></td><td>दवाँ</td><td>duh-vahn</td><td>in front of</td></tr>
+                    <tr><td><strong>envers</strong></td><td>आंवेer</td><td>ahn-vair</td><td>toward (attitude)</td></tr>
+                    <tr><td><strong>environ</strong></td><td>आंवीरों</td><td>ahn-vee-rohn</td><td>around / approximately</td></tr>
+                    <tr><td><strong>par</strong></td><td>पार</td><td>par</td><td>by / through</td></tr>
+                    <tr><td><strong>entre</strong></td><td>आंत्र</td><td>ahn-truh</td><td>between</td></tr>
+                    <tr><td><strong>suivant</strong></td><td>स्वीवाँ</td><td>swee-vahn</td><td>following / according to</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 4: INTERACTIVE PRACTICE EXERCISE -->
+        <h2>4. Interactive Practice Exercise (Exercice)</h2>
+        <div class="section-pronunciation">
+            Test your knowledge of French prepositions based on today's lesson. Select the correct preposition for each sentence and check your answers!
+        </div>
+
+        <div id="quiz-container">
+            <!-- Question 1 -->
+            <div class="exercise-box">
+                <div class="exercise-row">
+                    1. Il vit 
+                    <select class="blank-select" data-answer="à">
+                        <option value="">--select--</option>
+                        <option value="à">à</option>
+                        <option value="en">en</option>
+                        <option value="au">au</option>
+                    </select>
+                    Mumbai 
+                    <select class="blank-select" data-answer="en">
+                        <option value="">--select--</option>
+                        <option value="à">à</option>
+                        <option value="en">en</option>
+                        <option value="au">au</option>
+                    </select>
+                    Inde.
+                    <button class="inline-audio-btn" onclick="playAudio('Il vit à Mumbai en Inde')" title="Listen" style="width:24px; height:24px; background-size:20px;"></button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="exercise-box">
+                <div class="exercise-row">
+                    2. Je vais 
+                    <select class="blank-select" data-answer="à">
+                        <option value="">--select--</option>
+                        <option value="à">à</option>
+                        <option value="en">en</option>
+                        <option value="au">au</option>
+                    </select>
+                    paris 
+                    <select class="blank-select" data-answer="en">
+                        <option value="">--select--</option>
+                        <option value="à">à</option>
+                        <option value="en">en</option>
+                        <option value="au">au</option>
+                    </select>
+                    France.
+                    <button class="inline-audio-btn" onclick="playAudio('Je vais à paris en France')" title="Listen" style="width:24px; height:24px; background-size:20px;"></button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="exercise-box">
+                <div class="exercise-row">
+                    3. L'avion arrête 
+                    <select class="blank-select" data-answer="à">
+                        <option value="">--select--</option>
+                        <option value="à">à</option>
+                        <option value="en">en</option>
+                        <option value="au">au</option>
+                    </select>
+                    Tokyo 
+                    <select class="blank-select" data-answer="au">
+                        <option value="">--select--</option>
+                        <option value="à">à</option>
+                        <option value="en">en</option>
+                        <option value="au">au</option>
+                    </select>
+                    Japon.
+                    <button class="inline-audio-btn" onclick="playAudio('Lavion arrête à Tokyo au Japon')" title="Listen" style="width:24px; height:24px; background-size:20px;"></button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="exercise-box">
+                <div class="exercise-row">
+                    4. Vont-ils 
+                    <select class="blank-select" data-answer="aux">
+                        <option value="">--select--</option>
+                        <option value="aux">aux</option>
+                        <option value="au">au</option>
+                        <option value="en">en</option>
+                    </select>
+                    etats-unis ?
+                    <button class="inline-audio-btn" onclick="playAudio('Vont-ils aux etats-unis')" title="Listen" style="width:24px; height:24px; background-size:20px;"></button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="exercise-box">
+                <div class="exercise-row">
+                    5. Mes parents sont 
+                    <select class="blank-select" data-answer="du">
+                        <option value="">--select--</option>
+                        <option value="du">du</option>
+                        <option value="de">de</option>
+                        <option value="en">en</option>
+                    </select>
+                    Mexique.
+                    <button class="inline-audio-btn" onclick="playAudio('Mes parents sont du Mexique')" title="Listen" style="width:24px; height:24px; background-size:20px;"></button>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="exercise-box">
+                <div class="exercise-row">
+                    6. Tu preferes aller 
+                    <select class="blank-select" data-answer="aux">
+                        <option value="">--select--</option>
+                        <option value="aux">aux</option>
+                        <option value="en">en</option>
+                        <option value="au">au</option>
+                    </select>
+                    Antilles ou 
+                    <select class="blank-select" data-answer="aux">
+                        <option value="">--select--</option>
+                        <option value="aux">aux</option>
+                        <option value="au">au</option>
+                        <option value="en">en</option>
+                    </select>
+                    pays bas.
+                    <button class="inline-audio-btn" onclick="playAudio('Tu preferes aller aux Antilles ou aux pays bas')" title="Listen" style="width:24px; height:24px; background-size:20px;"></button>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="exercise-box">
+                <div class="exercise-row">
+                    7. Elle va 
+                    <select class="blank-select" data-answer="à">
+                        <option value="">--select--</option>
+                        <option value="à">à</option>
+                        <option value="en">en</option>
+                        <option value="au">au</option>
+                    </select>
+                    londres. (City)
+                    <button class="inline-audio-btn" onclick="playAudio('Elle va à londres')" title="Listen" style="width:24px; height:24px; background-size:20px;"></button>
+                </div>
+            </div>
+
+            <button class="btn-check" onclick="checkAnswers()">Check Answers</button>
+            <span id="quiz-score"></span>
+        </div>
+    </div>
+    </div>
+
+    <!-- Footer container rendered via includes.js -->
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    function checkAnswers() {
+        const selects = document.querySelectorAll('.blank-select');
+        let correctCount = 0;
+        selects.forEach(sel => {
+            const expected = sel.getAttribute('data-answer');
+            sel.classList.remove('correct', 'incorrect');
+            if (sel.value.trim().toLowerCase() === expected.toLowerCase()) {
+                sel.classList.add('correct');
+                correctCount++;
+            } else {
+                sel.classList.add('incorrect');
+            }
+        });
+        const scoreEl = document.getElementById('quiz-score');
+        scoreEl.textContent = `Score: ${correctCount} / ${selects.length} correct!`;
+        scoreEl.style.color = correctCount === selects.length ? '#2e7d32' : '#c62828';
+    }
+</script>
+
+</body>
+</html>
