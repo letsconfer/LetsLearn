@@ -3,9 +3,9 @@
 // ==========================================
 window.French_MASTER_CONFIG = {
     // 1. Security & Interaction Controls
-    allowRightClick: true,      // false = Restricted (Default), true = Allowed
-    allowLeftClick: true,       // true = Normal clicks, false = Blocks selection/clicks
-    allowScreenshot: true,      // false = Blocks PrintScreen/shortcuts, true = Allowed
+    allowRightClick: false,      // false = Restricted (Default), true = Allowed
+    allowLeftClick: false,       // true = Normal clicks, false = Blocks selection/clicks
+    allowScreenshot: false,      // false = Blocks PrintScreen/shortcuts, true = Allowed
     
     // ... your existing config settings ...
     ENABLE_FLOATING_NAV: false, // Set to false to disable globally across all pages
@@ -16,13 +16,13 @@ window.French_MASTER_CONFIG = {
     showQuickLinks: false,        // true = Show Quick Links sidebar, false = Hide sidebar & expand layout
     
     // 3. Profile Image Setting (Points to root asset)
-    profileImage: "./images/me.jpeg",     
+    profileImage: "../images/me.jpeg",     
 
     // 4. Fixed homepage (Points to french root Language.html)
-    homePage: "home.html", 
+    homePage: "../main/home.html", 
 
     // 5. Favicon Setting (Local subfolder asset)
-    favicon: "./images/logo1.png",         
+    favicon: "../images/logo1.png",         
 
     // 6. Default Audio Speed (0.6 = Slow, 1.0 = Normal, 1.6 = Fast)
     audioSpeed: 1.0             
