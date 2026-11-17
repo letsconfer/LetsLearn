@@ -406,3 +406,71 @@ tr:hover {
     }
 }    
 }
+
+/* ==========================================
+   GLOBAL TOOLTIP HIGHLIGHTING (GREEN & RED)
+   ========================================== */
+.tt-green, .tt-red {
+    position: relative;
+    font-weight: 700;
+    cursor: help;
+    padding: 0 2px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.tt-green {
+    color: #1b5e20;
+    background-color: rgba(46, 125, 50, 0.1);
+    border-bottom: 1.5px dashed #2e7d32;
+}
+
+.tt-red {
+    color: #b71c1c;
+    background-color: rgba(198, 40, 40, 0.1);
+    border-bottom: 1.5px dashed #c62828;
+}
+
+[data-theme="dark"] .tt-green {
+    color: #81c784;
+    background-color: rgba(129, 199, 132, 0.15);
+    border-bottom-color: #81c784;
+}
+
+[data-theme="dark"] .tt-red {
+    color: #e57373;
+    background-color: rgba(229, 115, 115, 0.15);
+    border-bottom-color: #e57373;
+}
+
+.tt-green::after, .tt-red::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #86afe1;
+    color: #03101c;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12pt;
+    font-weight: 700;
+    line-height: 1.4;
+    white-space: pre-line;
+    width: max-content;
+    max-width: 280px;
+    box-shadow: 0 4px 12px rgba(218, 213, 213, 0.25);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    border: 1px solid #475569;
+    text-align: left;
+}
+
+.tt-green:hover::after, .tt-red:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-4px);
+}

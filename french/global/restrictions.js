@@ -1,15 +1,15 @@
 const restrictionMessage = "Access Denied";
 let isInternalAction = false;
 
-// Helper to get master config from window.CV_MASTER_CONFIG
+// Helper to get master config from window.French_MASTER_CONFIG
 function getConfig() {
-return window.French_MASTER_CONFIG || window.CV_MASTER_CONFIG || window.MASTER_CONFIG || {};
+    return window.French_MASTER_CONFIG || window.CV_MASTER_CONFIG || window.MASTER_CONFIG || {};
 }
 
 // Inject Indentation and Layout Styles
 const style = document.createElement('style');
 style.innerHTML = `
-    /* Two-column layout for IELTS GT Resources */
+    /* Two-column layout for Resources */
     .resources-grid {
         display: flex;
         gap: 20px;
@@ -149,13 +149,31 @@ document.addEventListener("DOMContentLoaded", function() {
             document.documentElement.setAttribute("data-theme", "light");
         }
 
-        // 0. Home Icon Button (Loads full URL from config.homePage)
-        const homeUrl = config.homePage || 'language.html';
+        // 0. Home Icon Button
+        /*const homeUrl = config.homePage || 'language.html';
         const homeLink = document.createElement('a');
         homeLink.href = homeUrl;
         homeLink.className = 'home-icon-link';
         homeLink.title = 'Return to Language Hub';
         homeLink.innerHTML = '🏠';
+        baseButtonStyle(homeLink);
+        switcher.appendChild(homeLink); */
+
+        const homeUrl = config.homePage || 'language.html';
+        const homeLink = document.createElement('a');
+        homeLink.href = homeUrl;
+        homeLink.className = 'home-icon-link';
+        homeLink.title = 'Returns to IELTS Exam Preparation';
+
+        // Create and configure the image element
+        const homeImg = document.createElement('img');
+        homeImg.src = '../images/homepage.png'; // Update path if located inside a folder (e.g., 'images/home.png')
+        homeImg.alt = 'Home';
+        homeImg.style.width = '20px';  // Adjust size to match your button
+        homeImg.style.height = '20px';
+        homeImg.style.display = 'block';
+
+        homeLink.appendChild(homeImg);
         baseButtonStyle(homeLink);
         switcher.appendChild(homeLink);
 
@@ -170,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
             updateThemeButton();
         }
         
-        // 2. Download PDF Button (Strictly hidden when showDownloadIcon is false)
+        // 2. Download PDF Button
         if (config.showDownloadIcon === true) {
             const downloadBtn = document.createElement('button');
             downloadBtn.id = 'download-pdf-btn';
@@ -232,5 +250,4 @@ document.addEventListener('keydown', function(e) {
         e.preventDefault();
         alert(restrictionMessage);
     }
-    
 });
