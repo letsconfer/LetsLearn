@@ -3,15 +3,15 @@
 // ==========================================
 window.French_MASTER_CONFIG = {
     // 1. Security & Interaction Controls
-    allowRightClick: false,      // false = Restricted (Default), true = Allowed
-    allowLeftClick: false,       // true = Normal clicks, false = Blocks selection/clicks
-    allowScreenshot: false,      // false = Blocks PrintScreen/shortcuts, true = Allowed
+    allowRightClick: true,      // false = Restricted (Default), true = Allowed
+    allowLeftClick: true,       // true = Normal clicks, false = Blocks selection/clicks
+    allowScreenshot: true,      // false = Blocks PrintScreen/shortcuts, true = Allowed
     
     // ... your existing config settings ...
     ENABLE_FLOATING_NAV: false, // Set to false to disable globally across all pages
     
     // 2. Toolbar Icon Controls
-    showDownloadIcon: false,      // true = Show PDF download icon, false = Hidden
+    showDownloadIcon: true,      // true = Show PDF download icon, false = Hidden
     showThemeIcon: true,         // true = Show Theme toggle icon, false = Hidden
     showQuickLinks: false,        // true = Show Quick Links sidebar, false = Hide sidebar & expand layout
     

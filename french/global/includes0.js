@@ -33,16 +33,17 @@ const siteHeaderHTML = `
         <div style="position: absolute; top: 0; right: 0; z-index: 5;"></div>
 
         <div style="display: flex; align-items: center; gap: 15px;">
-            <img src="../images/logo1.png" alt="Logo" style="width: 50px; height: 50px; object-fit: contain; border-radius: 4px;">
+            <img src="../images/logo1.png
+            " alt="Logo" style="width: 50px; height: 50px; object-fit: contain; border-radius: 4px;">
             <div style="width: 100%; padding-right: 120px;">
                 <h1 style="margin: 0; font-size: 20pt; text-align: left; text-transform: uppercase;">Apprenons le français (Let's Learn French Language)</h1>
                 
-                <!-- Subtitle row with voice and speed controls aligned to the exact right -->
+                <!-- Subtitle row with slider aligned to the exact right -->
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 2px; width: 100%;">
                     <p style="margin: 0; color: var(--muted-color); font-size: 9.5pt;">Master French (Basic to B2 levels) conversation, grammar, and fluency step-by-step.</p>
                     
                     <div id="top-speed-control-panel" style="display: flex; align-items: center; gap: 6px; background: var(--card-bg, #ffffff); padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border-color, #dee2e6); box-shadow: 0 1px 3px rgba(0,0,0,0.05); white-space: nowrap;">
-                        <span style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">VOICE:</span>
+                        <span style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Select VOICE:</span>
                         <select id="global-voice-select" onchange="handleVoiceChange(this)" style="font-size: 8pt; padding: 2px 4px; border-radius: 4px; border: 1px solid var(--border-color, #dee2e6); background: var(--card-bg, #ffffff); color: var(--text-color, #212529); max-width: 120px;" title="Select French Voice">
                             <option value="">Default Voice</option>
                         </select>
@@ -63,7 +64,7 @@ const siteHeaderHTML = `
 const siteFooterHTML = `
     <hr style="margin: 20px 0 10px 0;">
     <div style="text-align: center; color: var(--muted-color); font-size: 8.5pt; padding: 5px 0;">
-        &copy; 2026 French Learning Workspace. All rights reserved. | <a href="../../home.html" style="color: var(--primary-color); text-decoration: none;">Home</a>
+        &copy; 2026 French Learning Workspace. All rights reserved. | <a href="../../main/home.html" style="color: var(--primary-color); text-decoration: none;">Home</a>
     </div>
 `;
 
@@ -106,7 +107,6 @@ window.adjustAudioSpeed = function(direction) {
     updateSpeedUI(newIdx);
 };
 
-// Populate voice dropdown options from browser speech engine
 function populateVoices() {
     if (!('speechSynthesis' in window)) return;
     const voices = window.speechSynthesis.getVoices();
@@ -137,7 +137,6 @@ window.handleVoiceChange = function(selectElement) {
     localStorage.setItem('preferred_french_voice', window.selectedFrenchVoiceURI);
 };
 
-// Global playAudio function enhanced with voice selection
 window.playAudio = function(text) {
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
@@ -170,7 +169,157 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateSpeedUI(window.currentAudioSpeedIndex);
     setTimeout(populateVoices, 100);
+});
+
+
+
+// Dynamic Floating Top & Bottom Navigation
+function initFloatingNav() {
+    // Check master config flag
+    if (window.MASTER_CONFIG && window.MASTER_CONFIG.ENABLE_FLOATING_NAV === false) {
+        return;
+    }
+
+    if (document.getElementById('floating-nav-container')) return;
+
+    // Create container and buttons
+    const navContainer = document.createElement('div');
+    navContainer.id = 'floating-nav-container';
+    navContainer.innerHTML = `
+        <button id="float-top-btn" class="nav-btn-hidden" title="Go to Top" onclick="scrollToTop()">
+            <img src="../images/top.png" alt="Top" onerror="this.style.display='none'">
+        </button>
+        <button id="float-bottom-btn" title="Go to Bottom" onclick="scrollToBottom()">
+            <img src="../images/bottom.png" alt="Bottom" onerror="this.style.display='none'">
+        </button>
+    `;
+    document.body.appendChild(navContainer);
+
+    
+    // Inject CSS styles
+    const style = document.createElement('style');
+    style.innerHTML = `
+        #floating-nav-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        #floating-nav-container button {
+            // background-color: var(--primary-color, #2563eb);
+            background-color: #e6dada7e;
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s, background-color 0.2s;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #floating-nav-container button img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            pointer-events: none;
+        }
+
+        #floating-nav-container button:hover {
+            //background-color: var(--primary-hover, #1d4ed8);
+            background-color: #f5f6ec;
+            transform: scale(1.08);
+        }
+
+        #floating-nav-container button.nav-btn-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Scroll Visibility Logic
+    const topBtn = document.getElementById('float-top-btn');
+    const bottomBtn = document.getElementById('float-bottom-btn');
+
+    function updateNavVisibility() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        
+        // If page has no scrollable area, show bottom and hide top
+        if (scrollHeight <= 0) {
+            topBtn.classList.add('nav-btn-hidden');
+            bottomBtn.classList.remove('nav-btn-hidden');
+            return;
+        }
+
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+        // Show TOP button only after scrolling past 15%
+        if (scrollPercent >= 15) {
+            topBtn.classList.remove('nav-btn-hidden');
+        } else {
+            topBtn.classList.add('nav-btn-hidden');
+        }
+
+        // Hide BOTTOM button when near the end (85%+ scrolled)
+        if (scrollPercent >= 85) {
+            bottomBtn.classList.add('nav-btn-hidden');
+        } else {
+            bottomBtn.classList.remove('nav-btn-hidden');
+        }
+    }
+
+    window.addEventListener('scroll', updateNavVisibility);
+    window.addEventListener('resize', updateNavVisibility);
+    
+    // Run on load and after a brief timeout to ensure layout is fully rendered
+    updateNavVisibility();
+    setTimeout(updateNavVisibility, 100);
 }
-);
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', initFloatingNav);
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Intercept clicks on internal anchor/bookmark links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Stop the default URL hash change
+            
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Smoothly scroll to the target element without altering the URL hash
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
+
+
 
 

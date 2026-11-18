@@ -73,13 +73,17 @@ function applyMasterConfig() {
 
 function updateThemeButton() {
     const themeBtn = document.getElementById('theme-toggle-btn');
+    const themeText = document.getElementById('theme-toggle-text');
+    const currentTheme = document.body.getAttribute("data-theme") || "light";
     if (themeBtn) {
-        const currentTheme = document.body.getAttribute("data-theme") || "light";
         if (currentTheme === "dark") {
             themeBtn.style.backgroundImage = "url('../images/lightbulb.jpeg?v=2026')";
         } else {
             themeBtn.style.backgroundImage = "url('../images/darkbulb.jpeg?v=2026')";
         }
+    }
+    if (themeText) {
+        themeText.textContent = currentTheme === "dark" ? "Light Mode" : "Dark Mode";
     }
 }
 
@@ -92,15 +96,7 @@ function toggleTheme() {
     body.setAttribute("data-theme", newTheme);
     html.setAttribute("data-theme", newTheme);
     
-    const themeBtn = document.getElementById('theme-toggle-btn');
-    if (themeBtn) {
-        themeBtn.style.backgroundImage = 'none';
-    }
-    
-    void body.offsetHeight;
-    setTimeout(() => {
-        updateThemeButton();
-    }, 50);
+    updateThemeButton();
 }
 
 function downloadPDF() {
@@ -123,80 +119,219 @@ document.addEventListener("DOMContentLoaded", function() {
         switcher.style.right = '15px';
         switcher.style.margin = '0';
         switcher.style.textAlign = 'right';
-        switcher.style.zIndex = '10';
+        switcher.style.zIndex = '100';
         switcher.innerHTML = '';
-        
-        const baseButtonStyle = (btn) => {
-            btn.type = 'button';
-            btn.style.backgroundSize = '20px 20px';
-            btn.style.backgroundRepeat = 'no-repeat';
-            btn.style.backgroundPosition = 'center';
-            btn.style.backgroundColor = 'transparent';
-            btn.style.border = 'none';
-            btn.style.outline = 'none';
-            btn.style.boxShadow = 'none';
-            btn.style.cursor = 'pointer';
-            btn.style.width = '24px';
-            btn.style.height = '24px';
-            btn.style.padding = '0';
-            btn.style.margin = '0 4px';
-            btn.style.display = 'inline-block';
-            btn.style.verticalAlign = 'middle';
-        };
 
         if (!document.body.hasAttribute("data-theme")) {
             document.body.setAttribute("data-theme", "light");
             document.documentElement.setAttribute("data-theme", "light");
         }
 
-        // 0. Home Icon Button
-        /*const homeUrl = config.homePage || 'language.html';
-        const homeLink = document.createElement('a');
-        homeLink.href = homeUrl;
-        homeLink.className = 'home-icon-link';
-        homeLink.title = 'Return to Language Hub';
-        homeLink.innerHTML = '🏠';
-        baseButtonStyle(homeLink);
-        switcher.appendChild(homeLink); */
+       /* // Create Vertical Ellipsis Wrapper & Trigger
+        const menuWrapper = document.createElement('div');
+        menuWrapper.className = 'ellipsis-menu-wrapper';
 
+        const triggerBtn = document.createElement('button');
+        triggerBtn.type = 'button';
+        triggerBtn.id = 'global-ellipsis-btn';
+        triggerBtn.className = 'ellipsis-trigger-btn';
+        triggerBtn.title = 'Main Menu';
+        triggerBtn.setAttribute('aria-label', 'Main Menu');
+        triggerBtn.innerHTML = '&#9776;';
+
+        const dropdownPanel = document.createElement('div');
+        dropdownPanel.id = 'global-ellipsis-dropdown';
+        dropdownPanel.className = 'ellipsis-dropdown-panel';
+
+        triggerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownPanel.classList.toggle('open');
+        });
+
+        dropdownPanel.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', function() {
+            dropdownPanel.classList.remove('open');
+        });
+
+        const iconStyle = (el) => {
+            el.style.width = '22px';
+            el.style.height = '22px';
+            el.style.display = 'inline-block';
+            el.style.flexShrink = '0';
+            el.style.backgroundSize = '22px 2px';
+            el.style.backgroundRepeat = 'no-repeat';
+            el.style.backgroundPosition = 'center';
+        };
+    */
+
+        // Create Vertical Ellipsis Wrapper & Trigger
+        const menuWrapper = document.createElement('div');
+        menuWrapper.className = 'ellipsis-menu-wrapper';
+
+        const triggerBtn = document.createElement('button');
+        triggerBtn.type = 'button';
+        triggerBtn.id = 'global-ellipsis-btn';
+        triggerBtn.className = 'ellipsis-trigger-btn';
+        triggerBtn.title = 'Main Menu';
+        triggerBtn.setAttribute('aria-label', 'Main Menu');
+
+        // Create and style the menu.png image
+        const menuImg = document.createElement('img');
+        menuImg.src = '../images/menu.png'; // Change this if menu.png is inside a folder (e.g., 'images/menu.png')
+        menuImg.alt = 'Menu';
+        menuImg.style.width = '32px';   // Adjust size here (e.g., 28px, 32px, 40px)
+        menuImg.style.height = '32px';
+        menuImg.style.display = 'block';
+        menuImg.style.objectFit = 'contain';
+
+        triggerBtn.appendChild(menuImg);
+
+        const dropdownPanel = document.createElement('div');
+        dropdownPanel.id = 'global-ellipsis-dropdown';
+        dropdownPanel.className = 'ellipsis-dropdown-panel';
+
+        triggerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownPanel.classList.toggle('open');
+        });
+
+        dropdownPanel.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', function() {
+            dropdownPanel.classList.remove('open');
+        });
+
+        const iconStyle = (el) => {
+            el.style.width = '22px';
+            el.style.height = '22px';
+            el.style.display = 'inline-block';
+            el.style.flexShrink = '0';
+            el.style.backgroundSize = '22px 2px';
+            el.style.backgroundRepeat = 'no-repeat';
+            el.style.backgroundPosition = 'center';
+        };
+
+        // 1. Homepage Option
+        const homeRow = document.createElement('div');
+        homeRow.className = 'ellipsis-menu-row';
         const homeUrl = config.homePage || 'language.html';
         const homeLink = document.createElement('a');
         homeLink.href = homeUrl;
-        homeLink.className = 'home-icon-link';
-        homeLink.title = 'Returns to IELTS Exam Preparation';
+        homeLink.className = 'ellipsis-menu-link';
+        homeLink.title = 'Return to Language Hub';
 
-        // Create and configure the image element
         const homeImg = document.createElement('img');
-        homeImg.src = '../images/homepage.png'; // Update path if located inside a folder (e.g., 'images/home.png')
+        homeImg.src = '../images/homepage.png';
         homeImg.alt = 'Home';
-        homeImg.style.width = '20px';  // Adjust size to match your button
-        homeImg.style.height = '20px';
-        homeImg.style.display = 'block';
+        iconStyle(homeImg);
+
+        const homeLabel = document.createElement('span');
+        homeLabel.textContent = 'Homepage';
 
         homeLink.appendChild(homeImg);
-        baseButtonStyle(homeLink);
-        switcher.appendChild(homeLink);
+        homeLink.appendChild(homeLabel);
+        homeRow.appendChild(homeLink);
+        dropdownPanel.appendChild(homeRow);
 
-        // 1. Theme Toggle Button
+        // 2. Download PDF Option
+        if (config.showDownloadIcon === true) {
+            const dlRow = document.createElement('div');
+            dlRow.className = 'ellipsis-menu-row';
+            const downloadBtn = document.createElement('button');
+            downloadBtn.type = 'button';
+            downloadBtn.id = 'download-pdf-btn';
+            downloadBtn.className = 'ellipsis-menu-link';
+            downloadBtn.onclick = function() {
+                dropdownPanel.classList.remove('open');
+                downloadPDF();
+            };
+            downloadBtn.title = "Download PDF";
+
+            const dlIcon = document.createElement('span');
+            iconStyle(dlIcon);
+            dlIcon.style.backgroundImage = "url('../images/download.jpeg?v=2026')";
+
+            const dlLabel = document.createElement('span');
+            dlLabel.textContent = 'Download PDF';
+
+            downloadBtn.appendChild(dlIcon);
+            downloadBtn.appendChild(dlLabel);
+            dlRow.appendChild(downloadBtn);
+            dropdownPanel.appendChild(dlRow);
+        }
+
+        // 3. Theme Selector Option
         if (config.showThemeIcon !== false) {
-            const themeBtn = document.createElement('button');
+            const themeRow = document.createElement('div');
+            themeRow.className = 'ellipsis-menu-row';
+            const themeActionBtn = document.createElement('button');
+            themeActionBtn.type = 'button';
+            themeActionBtn.className = 'ellipsis-menu-link';
+            themeActionBtn.onclick = toggleTheme;
+            themeActionBtn.title = "Toggle Theme";
+
+            const themeBtn = document.createElement('span');
             themeBtn.id = 'theme-toggle-btn';
-            baseButtonStyle(themeBtn);
-            themeBtn.onclick = toggleTheme;
-            themeBtn.title = "Toggle Theme";
-            switcher.appendChild(themeBtn);
+            iconStyle(themeBtn);
+
+            const themeText = document.createElement('span');
+            themeText.id = 'theme-toggle-text';
+            themeText.textContent = 'Dark Mode';
+
+            themeActionBtn.appendChild(themeBtn);
+            themeActionBtn.appendChild(themeText);
+            themeRow.appendChild(themeActionBtn);
+            dropdownPanel.appendChild(themeRow);
             updateThemeButton();
         }
-        
-        // 2. Download PDF Button
-        if (config.showDownloadIcon === true) {
-            const downloadBtn = document.createElement('button');
-            downloadBtn.id = 'download-pdf-btn';
-            baseButtonStyle(downloadBtn);
-            downloadBtn.onclick = downloadPDF;
-            downloadBtn.title = "Download PDF";
-            downloadBtn.style.backgroundImage = "url('../images/download.jpeg?v=2026')";
-            switcher.appendChild(downloadBtn);
+
+        // 4. Voice Selection Option
+        const voiceRow = document.createElement('div');
+        voiceRow.className = 'ellipsis-menu-row';
+        voiceRow.style.flexDirection = 'column';
+        voiceRow.style.alignItems = 'stretch';
+        voiceRow.style.gap = '4px';
+        voiceRow.innerHTML = `
+            <label for="global-voice-select" style="font-size: 8.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Select Voice:</label>
+            <select id="global-voice-select" onchange="handleVoiceChange(this)" style="font-size: 9pt; padding: 5px 8px; border-radius: 4px; border: 1px solid var(--border-color, #dee2e6); background: var(--container-bg, var(--card-bg, #ffffff)); color: var(--text-color, #212529); width: 100%;" title="Select French Voice">
+                <option value="">Default Voice</option>
+            </select>
+        `;
+        dropdownPanel.appendChild(voiceRow);
+
+        // 5. Speed Selection Option
+        const speedRow = document.createElement('div');
+        speedRow.className = 'ellipsis-menu-row';
+        speedRow.style.flexDirection = 'column';
+        speedRow.style.alignItems = 'stretch';
+        speedRow.style.gap = '6px';
+        speedRow.innerHTML = `
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 8.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Playback Speed:</span>
+                <span id="speed-label" style="font-size: 8.5pt; font-weight: 700; background: var(--container-bg, var(--card-bg, #ffffff)); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border-color, #dee2e6); min-width: 18px; text-align: center; color: #2e7d32;" title="Normal">N</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                <button type="button" onclick="adjustAudioSpeed(-1)" style="background: transparent; border: 1px solid var(--border-color, #dee2e6); color: var(--text-color, #212529); border-radius: 3px; width: 26px; height: 26px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 11pt;" title="Slower (-)">-</button>
+                <input type="range" id="audio-speed-slider" class="custom-slider" style="flex: 1;" min="0" max="2" step="1" value="1" oninput="handleAudioSpeedSlider(this)" title="Audio Speed">
+                <button type="button" onclick="adjustAudioSpeed(1)" style="background: transparent; border: 1px solid var(--border-color, #dee2e6); color: var(--text-color, #212529); border-radius: 3px; width: 26px; height: 26px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 11pt;" title="Faster (+)">+</button>
+            </div>
+        `;
+        dropdownPanel.appendChild(speedRow);
+
+        menuWrapper.appendChild(triggerBtn);
+        menuWrapper.appendChild(dropdownPanel);
+        switcher.appendChild(menuWrapper);
+
+        if (typeof updateSpeedUI === 'function') {
+            updateSpeedUI(window.currentAudioSpeedIndex || 1);
+        }
+        if (typeof window.populateVoices === 'function') {
+            setTimeout(window.populateVoices, 100);
         }
     }
 });

@@ -150,12 +150,30 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // 0. Home Icon Button
-        const homeUrl = config.homePage || 'language.html';
+        /*const homeUrl = config.homePage || 'language.html';
         const homeLink = document.createElement('a');
         homeLink.href = homeUrl;
         homeLink.className = 'home-icon-link';
         homeLink.title = 'Return to Language Hub';
         homeLink.innerHTML = '🏠';
+        baseButtonStyle(homeLink);
+        switcher.appendChild(homeLink); */
+
+        const homeUrl = config.homePage || 'language.html';
+        const homeLink = document.createElement('a');
+        homeLink.href = homeUrl;
+        homeLink.className = 'home-icon-link';
+        homeLink.title = 'Returns to IELTS Exam Preparation';
+
+        // Create and configure the image element
+        const homeImg = document.createElement('img');
+        homeImg.src = '../images/homepage.png'; // Update path if located inside a folder (e.g., 'images/home.png')
+        homeImg.alt = 'Home';
+        homeImg.style.width = '20px';  // Adjust size to match your button
+        homeImg.style.height = '20px';
+        homeImg.style.display = 'block';
+
+        homeLink.appendChild(homeImg);
         baseButtonStyle(homeLink);
         switcher.appendChild(homeLink);
 

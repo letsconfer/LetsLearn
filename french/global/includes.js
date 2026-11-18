@@ -2,7 +2,7 @@ const siteHeaderHTML = `
     <style>
         .custom-slider {
             -webkit-appearance: none;
-            width: 70px;
+            width: 110px;
             height: 6px;
             border-radius: 3px;
             outline: none;
@@ -27,33 +27,89 @@ const siteHeaderHTML = `
             border: 2px solid #555;
             cursor: pointer;
         }
+        .ellipsis-menu-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .ellipsis-trigger-btn {
+            background: transparent;
+            border: 1px solid var(--border-color, #dee2e6);
+            color: var(--text-color, #212529);
+            border-radius: 6px;
+            width: 36px;
+            height: 36px;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .ellipsis-trigger-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        [data-theme="dark"] .ellipsis-trigger-btn:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        .ellipsis-dropdown-panel {
+            display: none;
+            position: absolute;
+            top: 42px;
+            right: 0;
+            min-width: 275px;
+            background: var(--container-bg, var(--card-bg, #ffffff));
+            color: var(--text-color, #212529);
+            border: 1px solid var(--border-color, #dee2e6);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+            padding: 12px 14px;
+            z-index: 1000;
+            text-align: left;
+        }
+        .ellipsis-dropdown-panel.open {
+            display: block;
+        }
+        .ellipsis-menu-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 9px 6px;
+            border-bottom: 1px solid var(--border-color, #dee2e6);
+            font-size: 9pt;
+        }
+        .ellipsis-menu-row:last-child {
+            border-bottom: none;
+        }
+        .ellipsis-menu-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: var(--text-color, #212529);
+            text-decoration: none;
+            font-size: 9.5pt;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+        }
+        .ellipsis-menu-link:hover {
+            color: var(--primary-color, #0055A5);
+        }
     </style>
     <div class="site-header-inner" style="margin-bottom: 12pt; position: relative;">
-        <!-- Top absolute row for home, theme, and download icons to prevent collisions -->
-        <div style="position: absolute; top: 0; right: 0; z-index: 5;"></div>
-
         <div style="display: flex; align-items: center; gap: 15px;">
-            <img src="../images/logo1.png
-            " alt="Logo" style="width: 50px; height: 50px; object-fit: contain; border-radius: 4px;">
-            <div style="width: 100%; padding-right: 120px;">
+            <img src="../images/logo1.png" alt="Logo" style="width: 50px; height: 50px; object-fit: contain; border-radius: 4px;">
+            <div style="width: 100%; padding-right: 45px;">
                 <h1 style="margin: 0; font-size: 20pt; text-align: left; text-transform: uppercase;">Apprenons le français (Let's Learn French Language)</h1>
                 
-                <!-- Subtitle row with slider aligned to the exact right -->
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 2px; width: 100%;">
                     <p style="margin: 0; color: var(--muted-color); font-size: 9.5pt;">Master French (Basic to B2 levels) conversation, grammar, and fluency step-by-step.</p>
-                    
-                    <div id="top-speed-control-panel" style="display: flex; align-items: center; gap: 6px; background: var(--card-bg, #ffffff); padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border-color, #dee2e6); box-shadow: 0 1px 3px rgba(0,0,0,0.05); white-space: nowrap;">
-                        <span style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">VOICE:</span>
-                        <select id="global-voice-select" onchange="handleVoiceChange(this)" style="font-size: 8pt; padding: 2px 4px; border-radius: 4px; border: 1px solid var(--border-color, #dee2e6); background: var(--card-bg, #ffffff); color: var(--text-color, #212529); max-width: 120px;" title="Select French Voice">
-                            <option value="">Default Voice</option>
-                        </select>
-
-                        <span style="font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 4px;">SPEED:</span>
-                        <button onclick="adjustAudioSpeed(-1)" style="background: transparent; border: 1px solid var(--border-color, #dee2e6); border-radius: 3px; width: 18px; height: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 9pt;" title="Slower (-)">-</button>
-                        <input type="range" id="audio-speed-slider" class="custom-slider" min="0" max="2" step="1" value="1" oninput="handleAudioSpeedSlider(this)" title="Audio Speed">
-                        <button onclick="adjustAudioSpeed(1)" style="background: transparent; border: 1px solid var(--border-color, #dee2e6); border-radius: 3px; width: 18px; height: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 9pt;" title="Faster (+)">+</button>
-                        <span id="speed-label" style="font-size: 8pt; font-weight: 700; background: var(--card-bg, #ffffff); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border-color, #dee2e6); min-width: 14px; text-align: center; color: #2e7d32;" title="Normal">N</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -107,7 +163,7 @@ window.adjustAudioSpeed = function(direction) {
     updateSpeedUI(newIdx);
 };
 
-function populateVoices() {
+window.populateVoices = function() {
     if (!('speechSynthesis' in window)) return;
     const voices = window.speechSynthesis.getVoices();
     const voiceSelect = document.getElementById('global-voice-select');
@@ -126,10 +182,10 @@ function populateVoices() {
         }
         voiceSelect.appendChild(option);
     });
-}
+};
 
 if ('speechSynthesis' in window) {
-    window.speechSynthesis.onvoiceschanged = populateVoices;
+    window.speechSynthesis.onvoiceschanged = window.populateVoices;
 }
 
 window.handleVoiceChange = function(selectElement) {
@@ -168,21 +224,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (footerContainer) footerContainer.innerHTML = siteFooterHTML;
 
     updateSpeedUI(window.currentAudioSpeedIndex);
-    setTimeout(populateVoices, 100);
+    setTimeout(window.populateVoices, 100);
 });
-
-
 
 // Dynamic Floating Top & Bottom Navigation
 function initFloatingNav() {
-    // Check master config flag
     if (window.MASTER_CONFIG && window.MASTER_CONFIG.ENABLE_FLOATING_NAV === false) {
         return;
     }
 
     if (document.getElementById('floating-nav-container')) return;
 
-    // Create container and buttons
     const navContainer = document.createElement('div');
     navContainer.id = 'floating-nav-container';
     navContainer.innerHTML = `
@@ -195,8 +247,6 @@ function initFloatingNav() {
     `;
     document.body.appendChild(navContainer);
 
-    
-    // Inject CSS styles
     const style = document.createElement('style');
     style.innerHTML = `
         #floating-nav-container {
@@ -210,7 +260,6 @@ function initFloatingNav() {
         }
 
         #floating-nav-container button {
-            // background-color: var(--primary-color, #2563eb);
             background-color: #e6dada7e;
             border: none;
             width: 42px;
@@ -236,7 +285,6 @@ function initFloatingNav() {
         }
 
         #floating-nav-container button:hover {
-            //background-color: var(--primary-hover, #1d4ed8);
             background-color: #f5f6ec;
             transform: scale(1.08);
         }
@@ -249,7 +297,6 @@ function initFloatingNav() {
     `;
     document.head.appendChild(style);
 
-    // Scroll Visibility Logic
     const topBtn = document.getElementById('float-top-btn');
     const bottomBtn = document.getElementById('float-bottom-btn');
 
@@ -257,7 +304,6 @@ function initFloatingNav() {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         
-        // If page has no scrollable area, show bottom and hide top
         if (scrollHeight <= 0) {
             topBtn.classList.add('nav-btn-hidden');
             bottomBtn.classList.remove('nav-btn-hidden');
@@ -266,14 +312,12 @@ function initFloatingNav() {
 
         const scrollPercent = (scrollTop / scrollHeight) * 100;
 
-        // Show TOP button only after scrolling past 15%
         if (scrollPercent >= 15) {
             topBtn.classList.remove('nav-btn-hidden');
         } else {
             topBtn.classList.add('nav-btn-hidden');
         }
 
-        // Hide BOTTOM button when near the end (85%+ scrolled)
         if (scrollPercent >= 85) {
             bottomBtn.classList.add('nav-btn-hidden');
         } else {
@@ -284,7 +328,6 @@ function initFloatingNav() {
     window.addEventListener('scroll', updateNavVisibility);
     window.addEventListener('resize', updateNavVisibility);
     
-    // Run on load and after a brief timeout to ensure layout is fully rendered
     updateNavVisibility();
     setTimeout(updateNavVisibility, 100);
 }
@@ -300,16 +343,14 @@ function scrollToBottom() {
 document.addEventListener('DOMContentLoaded', initFloatingNav);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Intercept clicks on internal anchor/bookmark links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault(); // Stop the default URL hash change
+            e.preventDefault();
             
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                // Smoothly scroll to the target element without altering the URL hash
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
@@ -318,8 +359,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-
-
-
-
