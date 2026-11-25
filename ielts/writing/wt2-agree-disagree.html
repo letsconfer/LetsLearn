@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Task 2: Agree or Disagree Essay</title>
+    
+    <!-- Global Configuration, Restrictions, Styles & Header/Footer Scripts -->
+    <script src="../global/load-global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    
+    <style>
+        /* Masterclass Custom Enhancers compatible with Global Light/Dark Theme */
+        .module-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            padding: 30px 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+        }
+        .module-hero h1 {
+            margin: 0 0 8px 0;
+            font-size: 1.8rem;
+            color: #ffffff;
+            border: none;
+        }
+        .module-hero p {
+            margin: 0;
+            font-size: 1rem;
+            color: #e0e7ff;
+        }
+        .hindi-phonetic {
+            display: block;
+            font-size: 0.88rem;
+            color: #0d9488;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        body.dark-theme .hindi-phonetic {
+            color: #5eead4;
+        }
+        .quick-nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .nav-pill {
+            background: #acc7eb;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+            padding: 8px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .nav-pill:hover {
+            background: #1d4ed8;
+            color: #ffffff;
+        }
+        body.dark-theme .nav-pill {
+            background: #1e293b;
+            color: #93c5fd;
+            border-color: #334155;
+        }
+        body.dark-theme .nav-pill:hover {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .letter-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 18px;
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        body.dark-theme .letter-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        .letter-card h3 {
+            margin-top: 0;
+            color: #1e40af;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        body.dark-theme .letter-card h3 {
+            color: #60a5fa;
+            border-bottom-color: #334155;
+        }
+        .badge-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .badge-formal { background: #fee2e2; color: #991b1b; }
+        .badge-semi { background: #fef3c7; color: #92400e; }
+        .badge-informal { background: #dcfce7; color: #166534; }
+        
+        .speak-btn {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 6px;
+            transition: background 0.2s;
+        }
+        .speak-btn:hover {
+            background: #1d4ed8;
+        }
+        .sample-box {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            line-height: 1.65;
+        }
+        body.dark-theme .sample-box {
+            background: #0f172a;
+            border-left-color: #3b82f6;
+        }
+        .rules-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 18px 0;
+        }
+        body.dark-theme .rules-box {
+            background: #272012;
+            border-color: #78350f;
+        }
+        .phrase-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.92rem;
+        }
+        .phrase-table th, .phrase-table td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .phrase-table th {
+            background: #1e3a8a;
+            color: #ffffff;
+        }
+        .phrase-table tr:nth-child(even) {
+            background: #f1f5f9;
+        }
+        body.dark-theme .phrase-table th, body.dark-theme .phrase-table td {
+            border-color: #334155;
+        }
+        body.dark-theme .phrase-table tr:nth-child(even) {
+            background: #1e293b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- Theme Switcher Required by restrictions.js -->
+        <div class="theme-switcher"></div>
+
+        <!-- Global Header Injected via includes.js -->
+        <div id="header-container"></div>
+        
+        <hr>
+
+        <h1>Writing Task 2: Agree or Disagree Essay</h1>
+        <p class="subtitle">Step-by-Step Blueprint, Introduction &amp; Thesis Formulas, 4-Step Body Paragraph Architecture &amp; Live Classroom Solved Sample.</p>
+
+        <!-- Quick Navigation Pills -->
+        <div class="section-rule-box">
+            <strong>Module Navigation:</strong> <br><br>
+        
+            <div class="quick-nav-pills">
+                <a href="#overview" class="nav-pill"><i class="fas fa-info-circle"></i> Exam Blueprint &amp; Core Rules</a> <br>
+                <a href="#intro-formula" class="nav-pill"><i class="fas fa-pen-nib"></i> Introduction &amp; Thesis Statement Formula</a> <br>
+                <a href="#bp-architecture" class="nav-pill"><i class="fas fa-layer-group"></i> 4-Step Body Paragraph Formula</a> <br>
+                <a href="#live-walkthrough" class="nav-pill"><i class="fas fa-chalkboard-teacher"></i> Live Classroom Construction Walkthrough</a> <br>
+                <a href="#solved-model" class="nav-pill"><i class="fas fa-file-alt"></i> Complete Band-9 Solved Essay &amp; Practice Prompts</a> <br>
+            </div>
+        </div>
+
+        <!-- SECTION 1: EXAM BLUEPRINT & CORE RULES -->
+        <section id="overview">
+            <h2>1. Agree or Disagree Essay Blueprint &amp; Golden Rules</h2>
+            <p>In an <strong>Agree or Disagree</strong> essay, the prompt presents a strong statement or opinion and directly asks: <em>"Do you agree or disagree?"</em> You must pick one clear side (either fully Agree or fully Disagree) and defend it across two body paragraphs using logical reasons and concrete examples.
+                <span class="hindi-phonetic">इस निबंध में आपको एक स्पष्ट पक्ष (या तो पूरी तरह सहमत या पूरी तरह असहमत) चुनना होता है और दो मजबूत कारणों के साथ उसे साबित करना होता है।</span>
+            </p>
+            <ul>
+                <li><strong>Minimum Word Count:</strong> Write at least <strong>250 words</strong> (Aim for 275–310 words for full development without rushing).</li>
+                <li><strong>Time Allocation:</strong> Spend strictly <strong>40 minutes</strong> (5 mins planning + 30 mins writing + 5 mins proofreading).</li>
+                <li><strong>4-Paragraph Discipline:</strong>
+                    <ul>
+                        <li><strong>Paragraph 1 (Introduction):</strong> &gt; 2 sentences — <em>Rephrase the Topic + Thesis Statement (Clue)</em>.</li>
+                        <li><strong>Paragraph 2 (Body Paragraph 1 - BP1):</strong> Focus exclusively on your <strong>1st Reason (TS 1)</strong>.</li>
+                        <li><strong>Paragraph 3 (Body Paragraph 2 - BP2):</strong> Focus exclusively on your <strong>2nd Reason (TS 2)</strong>.</li>
+                        <li><strong>Paragraph 4 (Conclusion):</strong> Restate your position and summarize TS 1 &amp; TS 2 without introducing new ideas.</li>
+                    </ul>
+                </li>
+                <li><strong>Golden Rule — Pick One Clear Side:</strong> Never sit on the fence in a direct <em>"Do you agree or disagree?"</em> question. Choose whichever side gives you two stronger, easier-to-explain reasons.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 2: INTRODUCTION & THESIS FORMULA -->
+        <section id="intro-formula">
+            <h2>2. Introduction (&gt;2 Sentences) &amp; Thesis Statement Formula</h2>
+            <p>Your introduction must immediately signal your vocabulary range and your exact stance to the examiner:
+                <span class="hindi-phonetic">भूमिका (Introduction) कम से कम 2 वाक्यों की होनी चाहिए: पहला वाक्य विषय को अपने शब्दों में लिखें (Rephrase) और दूसरे वाक्य में अपना स्पष्ट मत (Thesis) दें।</span>
+            </p>
+
+            <div class="grid-cards">
+                <!-- Step 1: Opening Hooks -->
+                <div class="letter-card">
+                    <span class="badge-tag badge-formal">Sentence 1: Rephrase Topic</span>
+                    <h3>6 Examiner-Approved Opening Hooks</h3>
+                    <p>Start your first sentence with one of these structures before paraphrasing the question:</p>
+                    <ol style="line-height: 1.8;">
+                        <li><code>It is true that...</code></li>
+                        <li><code>Few of the people think that...</code></li>
+                        <li><code>Most of the people think that...</code></li>
+                        <li><code>It is often argued that...</code></li>
+                        <li><code>It is generally considered that...</code></li>
+                        <li><code>No one can deny that...</code></li>
+                    </ol>
+                </div>
+
+                <!-- Step 2: Thesis Statement -->
+                <div class="letter-card">
+                    <span class="badge-tag badge-informal">Sentence 2: Thesis (Clue)</span>
+                    <h3>2 Proven Thesis Statement Templates</h3>
+                    <p><strong>Option A (With Specific Clues — Recommended):</strong><br>
+                    <code>I agree/disagree with this notion due to / because of [TS 1] and [TS 2].</code></p>
+                    <p><strong>Option B (Direct Outline):</strong><br>
+                    <code>I agree/disagree with this notion and will explain the reasons in the upcoming paragraphs.</code></p>
+                    <div class="rules-box" style="margin-bottom: 0;">
+                        <strong>Pro Tip:</strong> Naming your two core reasons (TS 1 &amp; TS 2) right in the thesis gives the examiner a clear roadmap and boosts your <strong>Task Response</strong> score.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 3: 4-STEP BODY PARAGRAPH FORMULA -->
+        <section id="bp-architecture">
+            <h2>3. The 4-Step Body Paragraph Formula (DEF → EXPLAIN → EXAMPLE → RESULT)</h2>
+            <p>Every body paragraph (both BP1 and BP2) must follow a strict 4-step sequence so your ideas never feel underdeveloped or repetitive:
+                <span class="hindi-phonetic">प्रत्येक बॉडी पैराग्राफ को इन 4 चरणों में लिखें: 1. मुख्य कारण बताएं (Define), 2. विस्तार से समझाएं (Explain), 3. उदाहरण दें (Example), 4. परिणाम लिखें (Result)।</span>
+            </p>
+
+            <table class="phrase-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Step &amp; Role</th>
+                        <th style="width: 35%;">Transition Starters</th>
+                        <th style="width: 40%;">What to Write in This Sentence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Step 1: DEF (Task Statement)</strong></td>
+                        <td>
+                            <strong>BP1:</strong> To commence with, / To begin with, / First of all, / To initial,<br>
+                            <strong>BP2:</strong> Furthermore, / Moreover, / Secondly, / In addition to this,
+                        </td>
+                        <td>State your single core reason (TS 1 in BP1; TS 2 in BP2) clearly in one direct topic sentence.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Step 2: EXPLAIN</strong></td>
+                        <td>
+                            In other words,<br>
+                            To elaborate it,<br>
+                            To explain it,<br>
+                            To explicate it,
+                        </td>
+                        <td>Unpack <em>why</em> or <em>how</em> your reason works in real life. Contrast what happens with and without it.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Step 3: EXAMPLE</strong></td>
+                        <td>
+                            For example,<br>
+                            For instance,<br>
+                            To epitome,<br>
+                            To exemplify,<br>
+                            To cite an example,
+                        </td>
+                        <td>Give a specific, realistic example (researchers, professionals, surveys, or everyday workplace scenarios).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Step 4: RESULT / EFFECT</strong></td>
+                        <td>
+                            Hence,<br>
+                            Therefore,<br>
+                            Thus,<br>
+                            As a result,
+                        </td>
+                        <td>Tie the example back to your main argument and close the paragraph with a logical takeaway.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 4: LIVE CLASSROOM CONSTRUCTION WALKTHROUGH -->
+        <section id="live-walkthrough">
+            <h2>4. Live Classroom Construction Walkthrough</h2>
+            <p><strong>Classroom Prompt:</strong> <em>"Big salary is much more important than job satisfaction. Do you agree or disagree?"</em></p>
+
+            <div class="rules-box">
+                <h3 style="margin-top: 0; color: #b45309;"><i class="fas fa-lightbulb"></i> 5-Minute Brainstorming Plan Before Writing</h3>
+                <ul>
+                    <li><strong>Side A (If you AGREE — Salary is more important):</strong> TS 1: Covers essential living costs &amp; financial security | TS 2: Enables better healthcare, education &amp; lifestyle upgrades.</li>
+                    <li><strong>Side B (If you DISAGREE — Job satisfaction is more important):</strong> TS 1: Gives inner fulfillment &amp; mental peace | TS 2: Inspires dedication, creativity, and long-term career growth.</li>
+                </ul>
+            </div>
+
+            <h3>Step-by-Step Drafting Breakdown (Choosing "Disagree")</h3>
+            <div class="sample-box">
+                <p><strong>1. Introduction (Rephrase + Thesis Clue):</strong><br>
+                <em>"It is often argued that it is more advantageous to choose a job with a high wage even if it does not satisfy you at all. I disagree with this notion because job satisfaction gives us inner fulfillment and inspires individuals to work harder."</em></p>
+
+                <p><strong>2. Body Paragraph 1 Built Using (DEF → EXPLAIN → EXAMPLE → RESULT):</strong></p>
+                <ul>
+                    <li><strong>[DEF]:</strong> <em>First of all, job satisfaction gives people a sense of fulfillment that no amount of money can guarantee.</em></li>
+                    <li><strong>[EXPLAIN]:</strong> <em>To explain it, if someone is earning a high salary, but feels tensed and compromises with their conscience every day, that person will not enjoy their life, whereas pursuing one's genuine interests brings lasting pleasure and peace of mind.</em></li>
+                    <li><strong>[EXAMPLE]:</strong> <em>For example, numerous famous researchers and scientists made their career choices not because of appealing wages, but because they were deeply passionate about discovery and innovation.</em></li>
+                    <li><strong>[RESULT]:</strong> <em>Therefore, it is far more important to choose the kind of work that makes you genuinely happy than to merely chase a high paycheck.</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 5: COMPLETE SOLVED BAND-9 ESSAY -->
+        <section id="solved-model">
+            <h2>5. Complete Solved Model Essay (Full 4-Paragraph Version)</h2>
+            <p><strong>Topic:</strong> <em>Big salary is much more important than job satisfaction. Do you agree or disagree?</em></p>
+
+            <div class="sample-box" id="agree-disagree-sample">
+                <p>It is often argued that it is more advantageous to choose a job with a lucrative wage even if it fails to provide personal fulfillment. However, I strongly disagree with this notion because genuine job satisfaction fosters mental well-being and inspires individuals to achieve long-term professional excellence.</p>
+
+                <p>First of all, job satisfaction gives people a sense of fulfillment and emotional stability that money alone can never guarantee. To explain it, when an employee earns a hefty paycheck in a role that causes chronic stress or forces them to compromise with their values, their overall quality of life deteriorates rapidly. Conversely, engaging in meaningful work aligned with one's passion generates daily enthusiasm and prevents burnout. For example, numerous renowned researchers and educators intentionally turn down lucrative corporate offers in favor of academic roles simply because they derive deep satisfaction from teaching and discovery. Therefore, prioritizing happiness at work is essential for a balanced and contented life.</p>
+
+                <p>Furthermore, enjoying one's profession naturally motivates individuals to work harder and unlock their full creative potential. In other words, employees who are passionate about their responsibilities willingly go the extra mile, acquire new skills, and consistently deliver superior results without needing constant supervision. To cite an example, many successful entrepreneurs and software innovators started their ventures with modest initial incomes, yet their passion drove them to build thriving enterprises that eventually brought financial rewards as well. As a result, intrinsic motivation proves to be a far more reliable engine for sustainable career growth than salary alone.</p>
+
+                <p>In conclusion, while a decent income is necessary to meet basic living expenses, I firmly believe that job satisfaction outweighs a high salary because it safeguards mental health and fuels genuine productivity.</p>
+
+                <button class="speak-btn" onclick="speakElement('agree-disagree-sample')">
+                    <i class="fas fa-volume-up"></i> Listen to Complete Model Essay
+                </button>
+            </div>
+
+            <!-- Extra Practice Prompts -->
+            <div class="letter-card" style="margin-top: 20px;">
+                <h3><i class="fas fa-pen-nib"></i> Practice Prompts for Self-Attempt</h3>
+                <ol style="line-height: 1.8;">
+                    <li><strong>Education &amp; Technology:</strong> <em>Online learning is rapidly replacing traditional classroom education, and some believe physical schools will soon become unnecessary. Do you agree or disagree?</em></li>
+                    <li><strong>Environment &amp; Government:</strong> <em>The best way to solve the world's environmental problems is to increase the cost of fuel for cars and other vehicles. Do you agree or disagree?</em></li>
+                    <li><strong>Society &amp; Health:</strong> <em>Fast food advertisements encourage unhealthy eating habits and should be completely banned by the government. Do you agree or disagree?</em></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Global Footer Injected via includes.js -->
+        <div id="footer-container"></div>
+    </div>
+
+    <script>
+        function speakText(text) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            const voiceSelect = document.getElementById('voice-select');
+            const speedSlider = document.getElementById('speed-slider');
+            if (voiceSelect && voiceSelect.selectedOptions[0]) {
+                const selectedName = voiceSelect.selectedOptions[0].getAttribute('data-name');
+                const voices = window.speechSynthesis.getVoices();
+                const match = voices.find(v => v.name === selectedName);
+                if (match) utterance.voice = match;
+            }
+            if (speedSlider) {
+                utterance.rate = parseFloat(speedSlider.value) || 1.0;
+            }
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function speakElement(elementId) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const clone = el.cloneNode(true);
+            const buttons = clone.querySelectorAll('button');
+            buttons.forEach(b => b.remove());
+            speakText(clone.innerText.trim());
+        }
+    </script>
+</body>
+</html>

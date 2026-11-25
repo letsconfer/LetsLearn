@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Task 1 | IELTS General Training</title>
+    
+    <!-- Global Configuration, Restrictions, Styles & Header/Footer Scripts -->
+    <script src="../global/load-global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    
+    <style>
+        /* Masterclass Custom Enhancers compatible with Global Light/Dark Theme */
+        .module-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            padding: 30px 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+        }
+        .module-hero h1 {
+            margin: 0 0 8px 0;
+            font-size: 1.8rem;
+            color: #ffffff;
+            border: none;
+        }
+        .module-hero p {
+            margin: 0;
+            font-size: 1rem;
+            color: #e0e7ff;
+        }
+        .hindi-phonetic {
+            display: block;
+            font-size: 0.88rem;
+            color: #0d9488;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        body.dark-theme .hindi-phonetic {
+            color: #5eead4;
+        }
+        .quick-nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .nav-pill {
+            background: #acc7eb;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+            padding: 8px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .nav-pill:hover {
+            background: #1d4ed8;
+            color: #ffffff;
+        }
+        body.dark-theme .nav-pill {
+            background: #1e293b;
+            color: #93c5fd;
+            border-color: #334155;
+        }
+        body.dark-theme .nav-pill:hover {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .letter-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 18px;
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        body.dark-theme .letter-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        .letter-card h3 {
+            margin-top: 0;
+            color: #1e40af;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        body.dark-theme .letter-card h3 {
+            color: #60a5fa;
+            border-bottom-color: #334155;
+        }
+        .badge-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .badge-formal { background: #fee2e2; color: #991b1b; }
+        .badge-semi { background: #fef3c7; color: #92400e; }
+        .badge-informal { background: #dcfce7; color: #166534; }
+        
+        .speak-btn {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 6px;
+            transition: background 0.2s;
+        }
+        .speak-btn:hover {
+            background: #1d4ed8;
+        }
+        .sample-box {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            line-height: 1.65;
+        }
+        body.dark-theme .sample-box {
+            background: #0f172a;
+            border-left-color: #3b82f6;
+        }
+        .rules-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 18px 0;
+        }
+        body.dark-theme .rules-box {
+            background: #272012;
+            border-color: #78350f;
+        }
+        .synonym-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.92rem;
+        }
+        .synonym-table th, .synonym-table td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .synonym-table th {
+            background: #1e3a8a;
+            color: #ffffff;
+        }
+        .synonym-table tr:nth-child(even) {
+            background: #f1f5f9;
+        }
+        body.dark-theme .synonym-table th, body.dark-theme .synonym-table td {
+            border-color: #334155;
+        }
+        body.dark-theme .synonym-table tr:nth-child(even) {
+            background: #1e293b;
+        }
+        .connector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin: 15px 0;
+        }
+        .connector-item {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        body.dark-theme .connector-item {
+            background: #06281e;
+            border-color: #065f46;
+        }
+        .search-filter {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        body.dark-theme .search-filter {
+            background: #1e293b;
+            color: #f8fafc;
+            border-color: #475569;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- Theme Switcher Required by restrictions.js -->
+        <div class="theme-switcher"></div>
+
+        <!-- Global Header Injected via includes.js -->
+        <div id="header-container"></div>
+        
+        <hr>
+
+        <!-- Hero Banner -->
+        <div class="cv-container">
+            <h1> IELTS General Training: Writing Task 1 Masterclass</h1>
+            <p>Complete Letter Writing Architecture, Band-9 Connectors, Golden Rules &amp; Synonym Bank</p>
+        </div>
+
+        <!-- Quick Navigation Pills -->
+        <div class="section-rule-box">
+            <strong>Task Overview:</strong> <br><br>
+        
+            <div class="quick-nav-pills">
+                <a href="#overview" class="nav-pill"><i class="fas fa-info-circle"></i> Exam Overview &amp; Criteria</a> <br>
+                <a href="#letter-types" class="nav-pill"><i class="fas fa-layer-group"></i> 3 Letter Styles &amp; Skeletons</a> <br>
+                <a href="#golden-rules" class="nav-pill"><i class="fas fa-exclamation-triangle"></i> Golden Rules &amp; Connectors</a> <br>
+                <a href="#model-letters" class="nav-pill"><i class="fas fa-file-alt"></i> Solved Band-9 Model Letters</a> <br>
+                <a href="#synonyms-bank" class="nav-pill"><i class="fas fa-book"></i> Master Synonym Bank</a> <br>
+            </div>
+        </div>
+
+        <!-- SECTION 1: EXAM OVERVIEW & MARKING CRITERIA -->
+        <section id="overview">
+            <h2>1. Exam Overview &amp; Assessment Breakdown</h2>
+            <p>In IELTS General Training Writing Task 1, you are presented with a real-life situation and asked to write a letter requesting information, complaining, apologizing, inviting, or explaining a scenario.
+                <span class="hindi-phonetic">जनरल ट्रेनिंग टास्क 1 में आपको किसी वास्तविक स्थिति पर एक पत्र (Letter) लिखना होता है।</span>
+            </p>
+            <ul>
+                <li><strong>Time Limit:</strong> Spend no more than <strong>20 minutes</strong> (Task 1 accounts for <strong>33%</strong> of your total Writing score).</li>
+                <li><strong>Word Count:</strong> Write at least <strong>150 words</strong> (Aim for 165–190 words for optimal development).</li>
+                <li><strong>3 Bullet Points Rule:</strong> Every prompt contains <strong>3 mandatory bullet points</strong>. Dedicate one clear Body Paragraph (BP1, BP2, BP3) to each bullet point.</li>
+                <li><strong>4 Marking Criteria (25% each):</strong> Task Achievement, Coherence &amp; Cohesion, Lexical Resource (Vocabulary), and Grammatical Range &amp; Accuracy.</li>
+                <li><strong>Strict No-Contraction Rule in Formal Letters:</strong> Never use shortened forms (like <em>don't, I'm, can't</em>) in Formal or Semi-Formal letters.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 2: THREE LETTER TYPES & SKELETONS -->
+        <section id="letter-types">
+            <h2>2. The 3 Letter Styles: Salutations, Skeleton &amp; Sign-offs</h2>
+            <p>Identifying the recipient immediately determines your tone, greeting, and closing sign-off:
+                <span class="hindi-phonetic">पत्र किसे लिखा जा रहा है (Recipient), उसी से पत्र की शैली (Formal, Semi-Formal, Informal) तय होती है।</span>
+            </p>
+
+            <div class="grid-cards">
+                <!-- Formal Card -->
+                <div class="letter-card">
+                    <span class="badge-tag badge-formal">Style 1: Formal Letter</span>
+                    <h3>High Authority / Stranger</h3>
+                    <p><strong>Recipient:</strong> Manager, Local Newspaper Editor, Insurance Company, Municipal Council, Unknown Official.</p>
+                    <p><strong>Salutation:</strong> <code>Dear Sir or Madam,</code></p>
+                    <p><strong>Paragraph Skeleton:</strong></p>
+                    <ul>
+                        <li><strong>Opening:</strong> Introduce yourself &amp; state purpose clearly.</li>
+                        <li><strong>BP1:</strong> Address Bullet Point 1</li>
+                        <li><strong>BP2:</strong> Address Bullet Point 2</li>
+                        <li><strong>BP3:</strong> Address Bullet Point 3</li>
+                        <li><strong>Closing Line:</strong> <em>I look forward to hearing from you at your earliest convenience.</em></li>
+                    </ul>
+                    <p><strong>Sign-Off:</strong> <code>Yours faithfully,</code> + <strong>Full Name</strong></p>
+                    <button class="speak-btn" onclick="speakText('Dear Sir or Madam. I am writing to bring a matter of urgent concern to your attention. I look forward to hearing from you at your earliest convenience. Yours faithfully.')">
+                        <i class="fas fa-volume-up"></i> Listen Formal Tone
+                    </button>
+                </div>
+
+                <!-- Semi-Formal Card -->
+                <div class="letter-card">
+                    <span class="badge-tag badge-semi">Style 2: Semi-Formal Letter</span>
+                    <h3>Known Acquaintance / Professional</h3>
+                    <p><strong>Recipient:</strong> Local Artist / Playback Singer, Landlord, Colleague, Neighbor, Teacher, RJ.</p>
+                    <p><strong>Salutation:</strong> <code>Dear Mr. Sharma,</code> / <code>Dear Ms. Verma,</code> / <code>Dear RJ,</code></p>
+                    <p><strong>Paragraph Skeleton:</strong></p>
+                    <ul>
+                        <li><strong>Opening:</strong> State the purpose politely and warmly.</li>
+                        <li><strong>BP1:</strong> Explain the occasion / context</li>
+                        <li><strong>BP2:</strong> Give details / reason for writing</li>
+                        <li><strong>BP3:</strong> Specify expectations / arrangements</li>
+                        <li><strong>Closing Line:</strong> <em>I hope to receive a positive response from you soon.</em></li>
+                    </ul>
+                    <p><strong>Sign-Off:</strong> <code>Yours sincerely,</code> + <strong>Full Name</strong></p>
+                    <button class="speak-btn" onclick="speakText('Dear Mr. Sharma, I am writing to invite you to perform at a special celebration at my residence next week. I hope to receive a positive response from you soon. Yours sincerely.')">
+                        <i class="fas fa-volume-up"></i> Listen Semi-Formal Tone
+                    </button>
+                </div>
+
+                <!-- Informal Card -->
+                <div class="letter-card">
+                    <span class="badge-tag badge-informal">Style 3: Informal Letter</span>
+                    <h3>Close Friend / Family Member</h3>
+                    <p><strong>Recipient:</strong> Best Friend, Cousin, Sibling, Close Relative.</p>
+                    <p><strong>Salutation:</strong> <code>Dear Ram,</code> (First Name Only)</p>
+                    <p><strong>Paragraph Skeleton:</strong></p>
+                    <ul>
+                        <li><strong>Opening:</strong> Warm personal greeting + purpose of writing.</li>
+                        <li><strong>BP1:</strong> Address Bullet Point 1 (friendly tone)</li>
+                        <li><strong>BP2:</strong> Address Bullet Point 2</li>
+                        <li><strong>BP3:</strong> Address Bullet Point 3</li>
+                        <li><strong>Closing Line:</strong> <em>Looking forward to catching up with you soon!</em></li>
+                    </ul>
+                    <p><strong>Sign-Off:</strong> <code>Yours lovingly,</code> / <code>Warm regards,</code> + <strong>First Name</strong></p>
+                    <button class="speak-btn" onclick="speakText('Dear Ram, I hope you are doing great! I am thrilled to share some exciting ideas for your upcoming milestone birthday celebration. Yours lovingly.')">
+                        <i class="fas fa-volume-up"></i> Listen Informal Tone
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 3: GOLDEN RULES & CONNECTORS -->
+        <section id="golden-rules">
+            <h2>3. Class Notes: Golden Rules &amp; High-Scoring Connectors</h2>
+
+            <div class="rules-box">
+                <h3 style="margin-top: 0; color: #b45309;"><i class="fas fa-star"></i> Crucial Classroom Rules to Remember</h3>
+                <ul>
+                    <li><strong>No Conclusion Paragraph in Task 1:</strong> Unlike Task 2 essays, Task 1 does <em>not</em> have a summary/conclusion paragraph—end with a polite closing line and sign-off.</li>
+                    <li><strong>Avoid the word "BELOW":</strong> Never write <em>"in the chart below"</em> or <em>"listed below"</em>; use formal phrasing instead.</li>
+                    <li><strong>Exact Precision vs. Approximation:</strong> When exact figures are not given, use qualifiers like <strong>Approximately, About, Around, Nearby</strong>.</li>
+                    <li><strong>Time Ranges:</strong> Use <strong>From [X] to [Y]</strong> or <strong>Between [X] and [Y]</strong> accurately without mixing prepositions.</li>
+                    <li><strong>Reporting Verbs (Academic/Data context):</strong> Use <em>Illustrates, Represents, Depicts, Demonstrates, Provides information about</em> (never invent fake synonyms for the word "graph").</li>
+                </ul>
+            </div>
+
+            <h3>Essential Linking Words &amp; Connectors (Coherence &amp; Cohesion)</h3>
+            <div class="connector-grid">
+                <div class="connector-item">
+                    <strong>Sequencing / Starting:</strong><br>
+                    First of all, Firstly, Initially
+                    <span class="hindi-phonetic">सबसे पहले / शुरुआत में</span>
+                </div>
+                <div class="connector-item">
+                    <strong>Adding Information:</strong><br>
+                    Moreover, Furthermore, Additionally, In addition to this
+                    <span class="hindi-phonetic">इसके अलावा / साथ ही</span>
+                </div>
+                <div class="connector-item">
+                    <strong>Showing Result / Consequence:</strong><br>
+                    Hence, Therefore, Consequently, As a result
+                    <span class="hindi-phonetic">इसलिए / परिणामस्वरूप</span>
+                </div>
+                <div class="connector-item">
+                    <strong>Contrasting Ideas:</strong><br>
+                    However, On the other hand, Nevertheless
+                    <span class="hindi-phonetic">हालाँकि / इसके विपरीत</span>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 4: SOLVED MODEL LETTERS -->
+        <section id="model-letters">
+            <h2>4. Solved Classroom Model Letters &amp; Prompts</h2>
+
+            <!-- Model 1: Formal Letter -->
+            <h3>Model 1: Formal Letter to Local Newspaper (Saving Public Park)</h3>
+            <p><strong>Prompt:</strong> There is a public park near where you live. You have heard that the local council wants to sell this park. Write a letter to a local newspaper. In your letter: <em>(1) introduce yourself, (2) describe the importance of the park, (3) say what action you will take if the council continues with its plan.</em></p>
+            
+            <div class="sample-box" id="formal-sample">
+                <p><strong>Dear Sir or Madam,</strong></p>
+                <p>My name is Vikramjit Singh, and I am a longtime resident of 341 Ferozepur Road. I am writing to bring to your attention a deeply concerning proposal by the local municipal council to sell the public park situated in our neighborhood. This decision has caused widespread distress among local citizens, as it will lead to severe negative consequences for our community.</p>
+                <p>Let me explain the situation in greater detail. There are approximately 3,000 residents in my locality who rely heavily on this green space. Around 400 to 500 individuals visit the park daily for jogging, morning walks, and outdoor exercise. Furthermore, this is the sole recreational area where senior citizens gather to socialize and children play safely. If the park is sold, residents will be forced to commute to the nearest alternative park located three miles away, which is impractical for elderly individuals on a daily basis.</p>
+                <p>If the council proceeds with this plan, I will have no option but to organize a peaceful neighborhood petition and escalate the matter to higher authorities. I would be truly grateful if you could publish this issue in your esteemed newspaper to raise public awareness.</p>
+                <p><strong>Yours faithfully,<br>Vikramjit Singh</strong></p>
+                <button class="speak-btn" onclick="speakElement('formal-sample')">
+                    <i class="fas fa-volume-up"></i> Listen to Full Formal Letter
+                </button>
+            </div>
+
+            <!-- Model 2: Informal Letter -->
+            <h3>Model 2: Informal Letter to a Friend (Landmark Birthday Celebration)</h3>
+            <p><strong>Prompt:</strong> Your friend is about to celebrate a landmark birthday and would welcome suggestions as to how it should be celebrated. Write a letter to your friend. In your letter: <em>(1) say what type of party should be held, (2) suggest a suitable venue, (3) make a recommendation as to entertainment.</em></p>
+
+            <div class="sample-box" id="informal-sample">
+                <p><strong>Dear Ram,</strong></p>
+                <p>I hope this letter finds you in high spirits! Since your milestone 30th birthday is right around the corner, I wanted to share a few exciting ideas to make sure we celebrate this unforgettable red-letter day in grand style.</p>
+                <p>To make this celebration truly unique, I think you should host a vibrant theme-based costume party where all guests dress according to a retro Bollywood or Hollywood theme. A themed gathering instantly breaks the ice and creates a lively atmosphere for everyone attending.</p>
+                <p>As for the venue, I strongly recommend booking the Orchid View Resort near your residence. It features spacious banquet lawns, exceptional cuisine, and a picturesque ambiance ideal for hosting a large group of friends and family. You should check their availability for next weekend at the earliest.</p>
+                <p>Moreover, regarding entertainment, we can invite a talented local playback singer to perform live acoustic hits, followed by a DJ session and interactive party games for both youngsters and elders. I am eagerly looking forward to celebrating with you next week!</p>
+                <p><strong>Yours lovingly,<br>Vikramjit</strong></p>
+                <button class="speak-btn" onclick="speakElement('informal-sample')">
+                    <i class="fas fa-volume-up"></i> Listen to Full Informal Letter
+                </button>
+            </div>
+
+            <!-- Practice Prompts Box -->
+            <div class="letter-card" style="margin-top: 20px;">
+                <h3><i class="fas fa-pen-nib"></i> Additional Practice Prompts from Class</h3>
+                <ul>
+                    <li><strong>Formal Practice (Travel Insurance Claim):</strong> On a recent holiday you lost a valuable item. Fortunately, you have travel insurance to cover the cost of anything lost. Write a letter to the manager of your insurance company. In your letter: <em>(A) describe the item you lost, (B) explain how you lost it, (C) tell the insurance company what you would like them to do.</em></li>
+                    <li><strong>Semi-Formal Practice (Inviting a Local Artist):</strong> You are going to arrange a special party at your home next week. You want to invite a local artist who is a playback singer. Write a letter to him. In your letter: <em>(1) explain the occasion, (2) invite him to the party, (3) tell him why you want him to perform.</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 5: COMPLETE VOCABULARY & SYNONYM BANK -->
+        <section id="synonyms-bank">
+            <h2>5. Master IELTS Synonym Bank (Lexical Resource Booster)</h2>
+            <p>Replace repetitive basic words with high-scoring synonyms to boost your Lexical Resource band score. Use the search box below to filter words instantly:
+                <span class="hindi-phonetic">अपने उत्तर को प्रभावी बनाने के लिए सामान्य शब्दों के स्थान पर इन उच्च-स्तरीय पर्यायवाची शब्दों (Synonyms) का उपयोग करें।</span>
+            </p>
+
+            <input type="text" id="synonymSearch" class="search-filter" onkeyup="filterSynonyms()" placeholder="Search word or synonym (e.g., Important, Increase, People, Dangerous)...">
+
+            <table class="synonym-table" id="synonymTable">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Common Word</th>
+                        <th style="width: 55%;">High-Scoring IELTS Synonyms</th>
+                        <th style="width: 20%;">Audio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Tired</strong></td><td>Fatigued, Exhausted, Lethargic</td><td><button class="speak-btn" onclick="speakText('Tired: Fatigued, Exhausted, Lethargic')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Food</strong></td><td>Cuisine, Meal, Nourishment</td><td><button class="speak-btn" onclick="speakText('Food: Cuisine, Meal, Nourishment')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Friend</strong></td><td>Companion, Ally, Confidant</td><td><button class="speak-btn" onclick="speakText('Friend: Companion, Ally, Confidant')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Village</strong></td><td>Countryside area, Rural area</td><td><button class="speak-btn" onclick="speakText('Village: Countryside area, Rural area')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Death</strong></td><td>Mortal, Fatality, Demise</td><td><button class="speak-btn" onclick="speakText('Death: Mortal, Fatality, Demise')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Unprotected</strong></td><td>Vulnerable, Unsafe, Insecure</td><td><button class="speak-btn" onclick="speakText('Unprotected: Vulnerable, Unsafe, Insecure')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Important</strong></td><td>Predominant, Vital, Crucial, Essential, Significant, Necessary</td><td><button class="speak-btn" onclick="speakText('Important: Predominant, Vital, Crucial, Essential, Significant, Necessary')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Difference</strong></td><td>Discrimination, Distinction, Distinguish</td><td><button class="speak-btn" onclick="speakText('Difference: Discrimination, Distinction, Distinguish')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Government</strong></td><td>Higher authority, Lawmakers, Legal authority</td><td><button class="speak-btn" onclick="speakText('Government: Higher authority, Lawmakers, Legal authority')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Teacher</strong></td><td>Educator, Trainer, Mentor, Tutor, Instructor</td><td><button class="speak-btn" onclick="speakText('Teacher: Educator, Trainer, Mentor, Tutor, Instructor')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Students</strong></td><td>Pupils, Trainees, Learners</td><td><button class="speak-btn" onclick="speakText('Students: Pupils, Trainees, Learners')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>People</strong></td><td>Individuals, Masses, Humans, Citizens, Persons, Mankind, Human beings</td><td><button class="speak-btn" onclick="speakText('People: Individuals, Masses, Humans, Citizens, Persons, Mankind, Human beings')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Parents</strong></td><td>Guardians, Procreators, Caregivers</td><td><button class="speak-btn" onclick="speakText('Parents: Guardians, Procreators, Caregivers')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Increase</strong></td><td>Incline, Rise, Escalate, Grow</td><td><button class="speak-btn" onclick="speakText('Increase: Incline, Rise, Escalate, Grow')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Decrease</strong></td><td>Decline, Go down, Drop down, Reduce, Lower, Lessen</td><td><button class="speak-btn" onclick="speakText('Decrease: Decline, Go down, Drop down, Reduce, Lower, Lessen')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Advantages</strong></td><td>Merits, Benefits, Pros</td><td><button class="speak-btn" onclick="speakText('Advantages: Merits, Benefits, Pros')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Disadvantages</strong></td><td>Demerits, Drawbacks, Cons</td><td><button class="speak-btn" onclick="speakText('Disadvantages: Demerits, Drawbacks, Cons')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Get</strong></td><td>Obtain, Attain, Gain, Acquire</td><td><button class="speak-btn" onclick="speakText('Get: Obtain, Attain, Gain, Acquire')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Society</strong></td><td>Community, Civilization</td><td><button class="speak-btn" onclick="speakText('Society: Community, Civilization')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Positive Development</strong></td><td>Constructive occurrence, Constructive growth</td><td><button class="speak-btn" onclick="speakText('Positive Development: Constructive occurrence, Constructive growth')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Negative Development</strong></td><td>Destructive occurrence, Adverse growth</td><td><button class="speak-btn" onclick="speakText('Negative Development: Destructive occurrence, Adverse growth')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Percent</strong></td><td>Ratio, Percentile, Percentum, Proportion</td><td><button class="speak-btn" onclick="speakText('Percent: Ratio, Percentile, Percentum, Proportion')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Population</strong></td><td>Populace, Folks, Inhabitants</td><td><button class="speak-btn" onclick="speakText('Population: Populace, Folks, Inhabitants')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Children</strong></td><td>Kinders, Little ones, Juveniles, Kids</td><td><button class="speak-btn" onclick="speakText('Children: Kinders, Little ones, Juveniles, Kids')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Countries</strong></td><td>Nations, Regions, States</td><td><button class="speak-btn" onclick="speakText('Countries: Nations, Regions, States')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Dangerous</strong></td><td>Risky, Hazardous, Harmful, Precarious, Unsafe</td><td><button class="speak-btn" onclick="speakText('Dangerous: Risky, Hazardous, Harmful, Precarious, Unsafe')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Festival</strong></td><td>Function, Ceremony, Celebration, Occasion</td><td><button class="speak-btn" onclick="speakText('Festival: Function, Ceremony, Celebration, Occasion')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Criminals</strong></td><td>Offenders, Lawbreakers, Felon, Culprit</td><td><button class="speak-btn" onclick="speakText('Criminals: Offenders, Lawbreakers, Felon, Culprit')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Police</strong></td><td>Lawmen, Law enforcement officers, Cops</td><td><button class="speak-btn" onclick="speakText('Police: Lawmen, Law enforcement officers, Cops')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Memorable Day</strong></td><td>Red-letter day, Unforgettable day</td><td><button class="speak-btn" onclick="speakText('Memorable Day: Red-letter day, Unforgettable day')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Free Time</strong></td><td>Leisure time, Spare time</td><td><button class="speak-btn" onclick="speakText('Free Time: Leisure time, Spare time')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Fat</strong></td><td>Obesity, Overweight, Plump</td><td><button class="speak-btn" onclick="speakText('Fat: Obesity, Overweight, Plump')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Wrong</strong></td><td>Incorrect, Improper, Inaccurate, Unsuitable</td><td><button class="speak-btn" onclick="speakText('Wrong: Incorrect, Improper, Inaccurate, Unsuitable')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Education</strong></td><td>Teaching, Coaching, Guidance, Instruction</td><td><button class="speak-btn" onclick="speakText('Education: Teaching, Coaching, Guidance, Instruction')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    <tr><td><strong>Law</strong></td><td>Act, Order, Principle, Rules, Legislation</td><td><button class="speak-btn" onclick="speakText('Law: Act, Order, Principle, Rules, Legislation')"><i class="fas fa-volume-up"></i></button></td></tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Global Footer Injected via includes.js -->
+    <div id="footer-container"></div>
+
+    <!-- Interactive Audio & Table Search Scripts -->
+    <script>
+        function speakText(text) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            const voiceSelect = document.getElementById('voice-select');
+            const speedSlider = document.getElementById('speed-slider');
+            if (voiceSelect && voiceSelect.selectedOptions[0]) {
+                const selectedName = voiceSelect.selectedOptions[0].getAttribute('data-name');
+                const voices = window.speechSynthesis.getVoices();
+                const match = voices.find(v => v.name === selectedName);
+                if (match) utterance.voice = match;
+            }
+            if (speedSlider) {
+                utterance.rate = parseFloat(speedSlider.value) || 1.0;
+            }
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function speakElement(elementId) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const clone = el.cloneNode(true);
+            const buttons = clone.querySelectorAll('button');
+            buttons.forEach(b => b.remove());
+            speakText(clone.innerText.trim());
+        }
+
+        function filterSynonyms() {
+            const input = document.getElementById('synonymSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#synonymTable tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(input) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

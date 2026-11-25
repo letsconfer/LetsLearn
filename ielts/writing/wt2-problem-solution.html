@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Task 2 - Problem and Solution Essay</title>
+    
+    <!-- Global Configuration, Restrictions, Styles & Header/Footer Scripts -->
+    <script src="../global/load-global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    
+    <style>
+        /* Masterclass Custom Enhancers compatible with Global Light/Dark Theme */
+        .module-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            padding: 30px 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+        }
+        .module-hero h1 {
+            margin: 0 0 8px 0;
+            font-size: 1.8rem;
+            color: #ffffff;
+            border: none;
+        }
+        .module-hero p {
+            margin: 0;
+            font-size: 1rem;
+            color: #e0e7ff;
+        }
+        .hindi-phonetic {
+            display: block;
+            font-size: 0.88rem;
+            color: #0d9488;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        body.dark-theme .hindi-phonetic {
+            color: #5eead4;
+        }
+        .quick-nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .nav-pill {
+            background: #acc7eb;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+            padding: 8px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .nav-pill:hover {
+            background: #1d4ed8;
+            color: #ffffff;
+        }
+        body.dark-theme .nav-pill {
+            background: #1e293b;
+            color: #93c5fd;
+            border-color: #334155;
+        }
+        body.dark-theme .nav-pill:hover {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .letter-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 18px;
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        body.dark-theme .letter-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        .letter-card h3 {
+            margin-top: 0;
+            color: #1e40af;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        body.dark-theme .letter-card h3 {
+            color: #60a5fa;
+            border-bottom-color: #334155;
+        }
+        .badge-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .badge-formal { background: #fee2e2; color: #991b1b; }
+        .badge-semi { background: #fef3c7; color: #92400e; }
+        .badge-informal { background: #dcfce7; color: #166534; }
+        
+        .speak-btn {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 6px;
+            transition: background 0.2s;
+        }
+        .speak-btn:hover {
+            background: #1d4ed8;
+        }
+        .sample-box {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            line-height: 1.65;
+        }
+        body.dark-theme .sample-box {
+            background: #0f172a;
+            border-left-color: #3b82f6;
+        }
+        .rules-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 18px 0;
+        }
+        body.dark-theme .rules-box {
+            background: #272012;
+            border-color: #78350f;
+        }
+        .phrase-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.92rem;
+        }
+        .phrase-table th, .phrase-table td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .phrase-table th {
+            background: #1e3a8a;
+            color: #ffffff;
+        }
+        .phrase-table tr:nth-child(even) {
+            background: #f1f5f9;
+        }
+        body.dark-theme .phrase-table th, body.dark-theme .phrase-table td {
+            border-color: #334155;
+        }
+        body.dark-theme .phrase-table tr:nth-child(even) {
+            background: #1e293b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- Theme Switcher Required by restrictions.js -->
+        <div class="theme-switcher"></div>
+
+        <!-- Global Header Injected via includes.js -->
+        <div id="header-container"></div>
+        
+        <hr>
+
+        <h1>Writing Task 2 - Problem and Solution Essay</h1>
+        <p class="subtitle">Step-by-Step Blueprint, Rephrase &amp; Thesis Templates, 4-Step Problem-Solution Body Paragraph Formula &amp; Live Classroom Solved Sample.</p>
+
+        <!-- Quick Navigation Pills -->
+        <div class="section-rule-box">
+            <strong>Module Navigation:</strong> <br><br>
+        
+            <div class="quick-nav-pills">
+                <a href="#overview" class="nav-pill"><i class="fas fa-info-circle"></i> Exam Blueprint &amp; Core Rules</a> <br>
+                <a href="#intro-formula" class="nav-pill"><i class="fas fa-pen-nib"></i> Introduction &amp; Thesis Formula</a> <br>
+                <a href="#bp-architecture" class="nav-pill"><i class="fas fa-layer-group"></i> 4-Step Problem-Solution Formula</a> <br>
+                <a href="#live-walkthrough" class="nav-pill"><i class="fas fa-chalkboard-teacher"></i> Live Classroom Walkthrough</a> <br>
+                <a href="#solved-model" class="nav-pill"><i class="fas fa-file-alt"></i> Complete Band-9 Solved Essay &amp; Bonus Model</a> <br>
+            </div>
+        </div>
+
+        <!-- SECTION 1: EXAM BLUEPRINT & CORE RULES -->
+        <section id="overview">
+            <h2>1. Problem and Solution Essay Blueprint &amp; Golden Rules</h2>
+            <p>In a <strong>Problem and Solution</strong> essay, the prompt describes a negative societal trend or issue and directly asks two distinct questions: <em>"What problems does this cause?"</em> and <em>"What can be done to solve this?"</em> (or measures to tackle it).
+                <span class="hindi-phonetic">इस निबंध में आपको किसी सामाजिक समस्या के कारण/नुकसान (Problems) और उनके निवारण/समाधान (Solutions) दोनों का विस्तार से विश्लेषण करना होता है।</span>
+            </p>
+            <ul>
+                <li><strong>Minimum Word Count:</strong> Write at least <strong>250 words</strong> (Aim for 280–340 words for full development; classroom model is 364 words).</li>
+                <li><strong>Time Allocation:</strong> Spend strictly <strong>40 minutes</strong> (5 mins planning + 30 mins writing + 5 mins proofreading).</li>
+                <li><strong>4-Paragraph Discipline:</strong>
+                    <ul>
+                        <li><strong>Paragraph 1 (Introduction):</strong> &gt; 2 sentences — <em>Rephrase the Topic + Thesis Statement (Clue of Problems &amp; Solutions)</em>.</li>
+                        <li><strong>Paragraph 2 (Body Paragraph 1 - BP1):</strong> Focus exclusively on the <strong>1st Problem</strong> and its direct Solution (<em>Define → Explain → Example → Solution</em>).</li>
+                        <li><strong>Paragraph 3 (Body Paragraph 2 - BP2):</strong> Focus exclusively on the <strong>2nd Problem</strong> and its direct Solution (<em>Define → Explain → Example → Solution</em>).</li>
+                        <li><strong>Paragraph 4 (Conclusion):</strong> Summarize the core problems and proposed solutions concisely without introducing new ideas.</li>
+                    </ul>
+                </li>
+                <li><strong>Golden Rule — Address Both Parts Equally:</strong> Never write an essay that only lists problems without solutions, or vice versa. Pairing each problem with its immediate solution inside the same paragraph keeps your essay tightly organized and cohesive.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 2: INTRODUCTION & THESIS FORMULA -->
+        <section id="intro-formula">
+            <h2>2. Introduction (&gt;2 Sentences) &amp; Thesis Statement Formula</h2>
+            <p>Your introduction sets the tone by paraphrasing the prompt's background and naming your two core problems (TS 1 &amp; TS 2) alongside your intent to propose solutions:
+                <span class="hindi-phonetic">भूमिका में पहला वाक्य प्रश्न को अपने शब्दों में rephrase करें और दूसरे वाक्य में थीसिस दें कि आप कौन-सी दो मुख्य समस्याओं (TS 1 और TS 2) और उनके समाधानों पर चर्चा करेंगे।</span>
+            </p>
+
+            <div class="grid-cards">
+                <!-- Step 1: Rephrasing Hook -->
+                <div class="letter-card">
+                    <span class="badge-tag badge-formal">Sentence 1: Rephrase Topic</span>
+                    <h3>Classroom Sample Prompt &amp; Rephrasing</h3>
+                    <p><strong>Prompt:</strong><br>
+                    <em>"Nowadays, an increasing number of professionals such as doctors and teachers are leaving their own poorer countries to work in developed countries. What problems do this cause? What can be done to solve this?"</em></p>
+                    <p><strong>Classroom Rephrased Opening:</strong><br>
+                    <code>It is generally considered that the considerable amount of white-collar workers are migrating to wealthy nations instead of living in their native underdeveloped nations.</code></p>
+                </div>
+
+                <!-- Step 2: Thesis Statement -->
+                <div class="letter-card">
+                    <span class="badge-tag badge-informal">Sentence 2: Thesis Statement</span>
+                    <h3>Problem-Solution Thesis Templates</h3>
+                    <p><strong>Option A (With TS 1 &amp; TS 2 Clues — Recommended):</strong><br>
+                    <code>This essay will articulate some of its problems such as [TS 1: Skills shortage] and [TS 2: Economic development] and propose some possible solutions to alleviate this.</code></p>
+                    <p><strong>Option B (General Outline):</strong><br>
+                    <code>This essay will articulate some of its problems along with its possible solutions in the upcoming paragraphs.</code></p>
+                    <div class="rules-box" style="margin-bottom: 0;">
+                        <strong>Pro Tip:</strong> Naming your two core problems (<em>Skills shortage</em> &amp; <em>Economic development</em>) right in Sentence 2 immediately boosts your <strong>Task Response</strong> score.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 3: 4-STEP PROBLEM-SOLUTION BODY PARAGRAPH FORMULA -->
+        <section id="bp-architecture">
+            <h2>3. The 4-Step Body Paragraph Formula (DEFINE → EXPLAIN → EXAMPLE → SOLUTION)</h2>
+            <p>Unlike Agree/Disagree essays where paragraphs end with a <em>Result</em>, in a Problem-Solution essay, <strong>each body paragraph tackles one distinct problem and closes with its direct solution</strong>:
+                <span class="hindi-phonetic">हर बॉडी पैराग्राफ में एक समस्या (Problem) और उसका समाधान (Solution) इस 4-चरणीय सूत्र से लिखा जाता है: Define → Explain → Example → Solution।</span>
+            </p>
+
+            <table class="phrase-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Step &amp; Role</th>
+                        <th style="width: 35%;">Transition Starters</th>
+                        <th style="width: 40%;">What to Write in This Sentence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Step 1: DEFINE (1st / 2nd Problem)</strong></td>
+                        <td>
+                            <strong>BP1:</strong> To begin with, / First of all, / To commence with,<br>
+                            <strong>BP2:</strong> Furthermore, / Moreover, / Secondly, / In addition to this,
+                        </td>
+                        <td>State the 1st problem clearly in BP1 (e.g., <em>Skills shortage</em>), and the 2nd problem in BP2 (e.g., <em>Hindered economic development</em>).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Step 2: EXPLAIN</strong></td>
+                        <td>
+                            In other words,<br>
+                            To elaborate it,<br>
+                            To explain it,<br>
+                            To explicate it,
+                        </td>
+                        <td>Elaborate on why this issue occurs in the contemporary era and how citizens or local industries suffer from it.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Step 3: EXAMPLE</strong></td>
+                        <td>
+                            For example,<br>
+                            For instance,<br>
+                            To epitome,<br>
+                            To exemplify,<br>
+                            To cite an example,
+                        </td>
+                        <td>Provide a concrete survey, institutional finding (e.g., WHO survey), or real-world example proving the severity of the problem.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Step 4: SOLUTION</strong></td>
+                        <td>
+                            To solve it,<br>
+                            To handle it,<br>
+                            To tackle it,
+                        </td>
+                        <td>Propose a practical, actionable measure (such as better salaries, good incentives, and upgraded amenities/facilities) to attract and retain talent.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 4: LIVE CLASSROOM CONSTRUCTION WALKTHROUGH -->
+        <section id="live-walkthrough">
+            <h2>4. Live Classroom Construction Walkthrough (Exact Class Notes)</h2>
+            <p><strong>Classroom Prompt:</strong> <em>"Nowadays, an increasing number of professionals such as doctors and teachers are leaving their own poorer countries to work in developed countries. What problems do this cause? What can be done to solve this?"</em></p>
+
+            <div class="rules-box">
+                <h3 style="margin-top: 0; color: #b45309;"><i class="fas fa-lightbulb"></i> 5-Minute Brainstorming Plan</h3>
+                <ul>
+                    <li><strong>TS 1 (BP1 — Skills Shortage):</strong> Developing nations are deprived of skilled doctors &amp; teachers → Citizens struggle for healthcare &amp; education → <em>Solution:</em> Offer better salaries, good incentives, and upgraded facilities/amenities to attract them.</li>
+                    <li><strong>TS 2 (BP2 — Economic Development):</strong> Loss of intellectual capital slows down innovation and local economy → <em>Solution:</em> Startup grants, tax exemptions, and research funding for returning professionals.</li>
+                </ul>
+            </div>
+
+            <h3>Sentence-by-Sentence Classroom Breakdown</h3>
+            <div class="sample-box">
+                <p><strong>1. Introduction (Rephrase + Thesis Clue):</strong><br>
+                <em>"It is generally considered that a considerable amount of white-collar workers are migrating to wealthy nations instead of living in their native underdeveloped nations. This essay will articulate some of its problems such as skills shortage and economic development and propose some possible solutions to alleviate this."</em></p>
+
+                <p><strong>2. Body Paragraph 1 Built Using (DEFINE → EXPLAIN → EXAMPLE → SOLUTION):</strong></p>
+                <ul>
+                    <li><strong>[DEFINE]:</strong> <em>To begin with, one of the major problems caused by such brain-drain is that poor countries are deprived of skilled professionals.</em></li>
+                    <li><strong>[EXPLAIN]:</strong> <em>In other words, in the contemporary era, most doctors and teachers are going abroad to attain higher wages and a better living standard, due to which citizens of such nations struggle to get fundamental facilities such as medical care and education.</em></li>
+                    <li><strong>[EXAMPLE]:</strong> <em>For instance, according to a recent survey by the WHO (World Health Organization), the mortality rate in undeveloped nations is high due to chronic diseases such as cancer because of a lack of expert doctors.</em></li>
+                    <li><strong>[SOLUTION]:</strong> <em>To solve it, governments should offer better salaries with good incentives as well as better amenities and facilities to attract them to live and work in their own country.</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 5: COMPLETE SOLVED BAND-9 ESSAY & BONUS CLASS SAMPLE -->
+        <section id="solved-model">
+            <h2>5. Complete Solved Model Essay (Full 4-Paragraph Version)</h2>
+            <p><strong>Topic:</strong> <em>Professional migration from poorer to developed nations: Problems and Solutions.</em></p>
+
+            <div class="sample-box" id="prob-sol-sample">
+                <p>It is generally considered that a considerable number of white-collar workers, including doctors and educators, are migrating to wealthy nations instead of living in their native underdeveloped nations. This essay will articulate some of its primary problems, such as skills shortage and hindered economic development, and propose practical solutions to alleviate this issue.</p>
+
+                <p>To begin with, one of the major problems caused by such brain-drain is that poorer countries are deprived of vital skilled professionals. In other words, in the contemporary era, many doctors and teachers go abroad to attain higher wages and a better standard of living, due to which citizens of their home nations struggle to access fundamental facilities such as healthcare and quality education. For instance, according to a recent survey by the World Health Organization (WHO), the mortality rate in undeveloped nations remains high due to chronic diseases such as cancer largely because of a shortage of expert doctors. To solve it, governments should offer better salaries with attractive incentives as well as upgraded amenities and facilities to entice professionals to live and work in their native country.</p>
+
+                <p>Furthermore, the mass departure of educated experts severely hampers local economic development and innovation. To explain it, when engineers, researchers, and academic leaders relocate permanently to affluent economies, domestic industries lose the intellectual capital needed to modernize infrastructure and create local jobs. To cite an example, several developing economies that later introduced tax exemptions and specialized research grants successfully encouraged expatriate specialists to return and launch thriving domestic enterprises. Therefore, to tackle this challenge, policymakers must invest in modern research hubs and provide financial grants for returning professionals.</p>
+
+                <p>In conclusion, while the migration of skilled workers leads to acute talent shortages and slower economic progress in developing countries, these problems can be effectively mitigated through competitive remuneration, improved working facilities, and targeted government incentives.</p>
+
+                <button class="speak-btn" onclick="speakElement('prob-sol-sample')">
+                    <i class="fas fa-volume-up"></i> Listen to Complete Model Essay
+                </button>
+            </div>
+
+            <!-- Bonus Classroom Revision Sample from Session -->
+            <div class="letter-card" style="margin-top: 20px;">
+                <span class="badge-tag badge-semi">Bonus Classroom Revision Sample (Agree/Disagree)</span>
+                <h3>Compulsory Sports &amp; Physical Education in Schools (311 Words)</h3>
+                <p><em>"The health and fitness levels of children and teenagers are declining these days. Therefore, physical education and sport should be compulsory for all students in all schools. Do you agree or disagree?"</em></p>
+                <div class="sample-box" id="bonus-sports-sample">
+                    <p>Nowadays, the well-being of school-aged children has been declining. That is why it is thought by some people that participation in sports and physical education should be mandatory for all. I agree with this statement because it is a powerful medium which can teach valuable lessons and inculcate a competitive spirit.</p>
+                    <p>First of all, sports and physical education teach valuable lessons like concentration and discipline. In other words, whenever all these sports activities are included in their academics, students have to take part in these tasks whether they are willing or not. In this way, they can improve their intellectual ability along with concentration by doing physical activities like yoga on a daily basis. For instance, a survey conducted by the World Health Organization in different schools in 2016 found that schools in which physical education is taught as a compulsory subject have a disciplined ambience and scholars are more attentive. Thus, it is quite clear that physical education is a proactive step to strengthen the capabilities of students regarding concentration and ethics.</p>
+                    <p>Moreover, sports introduce a competitive spirit. To explain it, when pupils play in a team, they want to compete with their rivals to win that particular game, which results in healthy competition among students. To epitome, a survey conducted by Queens University in 2018 found that 68% of participants were sportspersons who took part in adventurous or recreational competitions over the last five years. This evidence proves that playing sports is really beneficial to build their competitive skills.</p>
+                    <p>In conclusion, it is clear that not only do students learn discipline and concentration strategies with the help of sports, but it also instills valuable competitive skills in them.</p>
+                    <button class="speak-btn" onclick="speakElement('bonus-sports-sample')">
+                        <i class="fas fa-volume-up"></i> Listen to Bonus Revision Essay
+                    </button>
+                </div>
+            </div>
+
+            <!-- Extra Practice Prompts -->
+            <div class="letter-card" style="margin-top: 20px;">
+                <h3><i class="fas fa-pen-nib"></i> Practice Prompts for Self-Attempt</h3>
+                <ol style="line-height: 1.8;">
+                    <li><strong>Traffic Congestion:</strong> <em>In many cities, traffic congestion is worsening daily. What problems does this cause for individuals and society, and what solutions can be implemented?</em></li>
+                    <li><strong>Youth Unemployment:</strong> <em>Unemployment among young adults is rising globally. What are the main problems caused by this issue, and what measures can governments take to address it?</em></li>
+                    <li><strong>Overcrowded Cities:</strong> <em>Rapid urbanization is leading to overcrowded metropolitan areas. What problems arise from this trend, and how can they be solved?</em></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Global Footer Injected via includes.js -->
+        <div id="footer-container"></div>
+    </div>
+
+    <script>
+        function speakText(text) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            const voiceSelect = document.getElementById('voice-select');
+            const speedSlider = document.getElementById('speed-slider');
+            if (voiceSelect && voiceSelect.selectedOptions[0]) {
+                const selectedName = voiceSelect.selectedOptions[0].getAttribute('data-name');
+                const voices = window.speechSynthesis.getVoices();
+                const match = voices.find(v => v.name === selectedName);
+                if (match) utterance.voice = match;
+            }
+            if (speedSlider) {
+                utterance.rate = parseFloat(speedSlider.value) || 1.0;
+            }
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function speakElement(elementId) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const clone = el.cloneNode(true);
+            const buttons = clone.querySelectorAll('button');
+            buttons.forEach(b => b.remove());
+            speakText(clone.innerText.trim());
+        }
+    </script>
+</body>
+</html>
