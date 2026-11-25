@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Négation, Conjugaison & Lecture</title>
     <script src="../global/load-global.js"></script>
-    <!--<script src="master-config.js"></script>
-    <script src="restrictions.js"></script>
-    <script src="includes.js"></script>
-    <script src="quick-links.js"></script>-->
     <style>
         :root {
             --primary-color: #0055A5;
@@ -19,6 +15,8 @@
             --text-color: #212529;
             --success-bg: #e8f5e9;
             --success-border: #4caf50;
+            --warning-bg: #fff8e1;
+            --warning-border: #ffb300;
         }
         [data-theme="dark"] {
             --bg-color: #121212;
@@ -27,6 +25,8 @@
             --text-color: #e0e0e0;
             --success-bg: #1b3320;
             --success-border: #2e7d32;
+            --warning-bg: #332900;
+            --warning-border: #ffa000;
         }
         body {
             font-family: Arial, sans-serif;
@@ -91,12 +91,35 @@
             margin: 15px 0;
             border-radius: 4px;
         }
+        .tip-box {
+            background-color: var(--warning-bg);
+            border-left: 5px solid var(--warning-border);
+            padding: 12px 15px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
         .word-breakdown {
             font-size: 0.95rem;
             color: #555;
             margin-top: 6px;
             padding-left: 10px;
             border-left: 2px solid var(--secondary-color);
+        }
+        [data-theme="dark"] .word-breakdown {
+            color: #bbbbbb;
+        }
+        .negation-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .negation-card h3 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
         }
     </style>
     <script>
@@ -118,7 +141,7 @@
         <div class="main-layout-wrapper">
             <div class="main-content-area">
                 <h1>La Négation, Conjugaison & Lecture</h1>
-                <p>Guide featuring verb conjugation exercises, exhaustive theoretical breakdowns of French negation with exact implementation rules and use-cases, corrected transformation exercises, quick-reference summary tables, and word-by-word reading comprehension of <em>La Maison de Louise Laurent</em>.</p>
+                <p>Complete masterclass guide featuring verb conjugation exercises, easy-to-understand step-by-step explanations of French negation with practical examples, corrected transformation drills, quick-reference tables, and word-by-word reading comprehension of <em>La Maison de Louise Laurent</em>.</p>
 
                 <!-- SECTION 1 -->
                 <h2>1. Exercice de Conjugaison : Verbes du 2e et 3e Groupe</h2>
@@ -138,7 +161,7 @@
                                 Nous (finir) <strong>finissons</strong> le travail après avoir pris notre repas.<br>
                                 <strong>English Phonetic Guide:</strong> [noo fi-nee-sohn luh tra-vay ah-pres ah-vwar pre no-truh ruh-pah]<br>
                                 <strong>Pronunciation (Hindi):</strong> नू फ़िनिसों ल त्रावय आप्रेस आव्वार प्री नोत्र रपा<br>
-                                <strong>Grammar:</strong> Regular -ir verb (2nd group) taking `-issons` with *nous*.
+                                <strong>Grammar:</strong> Regular -ir verb (2nd group) taking <code>-issons</code> with <em>nous</em>.
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -153,7 +176,7 @@
                                 Les enfants (courir) <strong>courent</strong> dans le jardin.<br>
                                 <strong>English Phonetic Guide:</strong> [lay zahn-fahn koor dahn luh zhar-dain]<br>
                                 <strong>Pronunciation (Hindi):</strong> ले-जाँफा कूर दाँ ल जार्दै<br>
-                                <strong>Grammar:</strong> Irregular -ir verb (3rd group) taking `-ent` for 3rd person plural (*ils/elles*).
+                                <strong>Grammar:</strong> Irregular -ir verb (3rd group) taking <code>-ent</code> for 3rd person plural (<em>ils/elles</em>).
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -168,7 +191,7 @@
                                 Le professeur (punir) <strong>punit</strong> son élève.<br>
                                 <strong>English Phonetic Guide:</strong> [luh pro-fuh-sur py-nee sohn nay-lev]<br>
                                 <strong>Pronunciation (Hindi):</strong> ल प्रोफेसेर पुनी सों नेलेव<br>
-                                <strong>Grammar:</strong> Regular 2nd group `-ir` verb taking `-it` for singular third person.
+                                <strong>Grammar:</strong> Regular 2nd group <code>-ir</code> verb taking <code>-it</code> for singular third person.
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -183,7 +206,7 @@
                                 D'où (venir) <strong>venez</strong>-vous ?<br>
                                 <strong>English Phonetic Guide:</strong> [doo vuh-nay voo]<br>
                                 <strong>Pronunciation (Hindi):</strong> दू वने वू<br>
-                                <strong>Grammar:</strong> Irregular 3rd group verb *venir* with subject-verb inversion.
+                                <strong>Grammar:</strong> Irregular 3rd group verb <em>venir</em> with subject-verb inversion.
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -198,7 +221,7 @@
                                 Nous (sortir) <strong>sortons</strong> tout de suite !<br>
                                 <strong>English Phonetic Guide:</strong> [noo sor-tohn too duh sweet]<br>
                                 <strong>Pronunciation (Hindi):</strong> नू सोरतों तू द सुइत<br>
-                                <strong>Grammar:</strong> 3rd group irregular verb conjugated as *sortons* with *nous*.
+                                <strong>Grammar:</strong> 3rd group irregular verb conjugated as <em>sortons</em> with <em>nous</em>.
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -213,7 +236,7 @@
                                 Je (courir) <strong>cours</strong> chaque matin.<br>
                                 <strong>English Phonetic Guide:</strong> [zhuh koor shak mah-tain]<br>
                                 <strong>Pronunciation (Hindi):</strong> ज कूर शाक मतिं<br>
-                                <strong>Grammar:</strong> First-person singular (`je`) of *courir* ends in `-s`.
+                                <strong>Grammar:</strong> First-person singular (<code>je</code>) of <em>courir</em> ends in <code>-s</code>.
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -228,7 +251,7 @@
                                 Comment vous (sentir) <strong>sentez-vous</strong> maintenant ?<br>
                                 <strong>English Phonetic Guide:</strong> [koh-mahn voo sahn-tay voo main-tnah]<br>
                                 <strong>Pronunciation (Hindi):</strong> कोमाँ वू साँते वू मेंत्ना<br>
-                                <strong>Grammar:</strong> Reflexive verb *se sentir* with pronoun inversion.
+                                <strong>Grammar:</strong> Reflexive verb <em>se sentir</em> with pronoun inversion.
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -243,7 +266,7 @@
                                 Je (maigrir) <strong>maigris</strong> de plus en plus.<br>
                                 <strong>English Phonetic Guide:</strong> [zhuh may-gree duh ploo ahn ploo]<br>
                                 <strong>Pronunciation (Hindi):</strong> ज मेग्री द प्ली आँ प्ली<br>
-                                <strong>Grammar:</strong> Regular 2nd group `-ir` verb ending in `-is` for *je*.
+                                <strong>Grammar:</strong> Regular 2nd group <code>-ir</code> verb ending in <code>-is</code> for <em>je</em>.
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -258,7 +281,7 @@
                                 Je (mourir) <strong>meurs</strong> d'envie d'aller au musée !<br>
                                 <strong>English Phonetic Guide:</strong> [zhuh mur dahn-vee dah-lay oh moo-zay]<br>
                                 <strong>Pronunciation (Hindi):</strong> ज मूर दँवी दाले ओ मुजे<br>
-                                <strong>Grammar:</strong> Stem-changing irregular 3rd group verb (`je meurs`).
+                                <strong>Grammar:</strong> Stem-changing irregular 3rd group verb (<code>je meurs</code>).
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -273,7 +296,7 @@
                                 Je (être) <strong>suis</strong> puni ce soir !<br>
                                 <strong>English Phonetic Guide:</strong> [zhuh swee py-nee suh swahr]<br>
                                 <strong>Pronunciation (Hindi):</strong> ज सुइ पुनी स स्वार्<br>
-                                <strong>Grammar:</strong> Auxiliary *être* present tense with past participle.
+                                <strong>Grammar:</strong> Auxiliary <em>être</em> present tense with past participle.
                             </td>
                             <td>
                                 <div class="example-box-correct">
@@ -285,140 +308,206 @@
                     </tbody>
                 </table>
 
-                <!-- SECTION 2 -->
-                <h2>2. Comprehensive Theoretical Guide : La Forme Négative en Français (Why, When & How to Implement)</h2>
-                <p>Detailed breakdown explaining why and when to use each negative structure, complete with implementation rules and memory techniques.</p>
-                <ul>
-                    <li>
-                        <strong>1. Basic Negation (Ne ... Pas)</strong>
-                        <ul>
-                            <li><strong>Why and When to Use:</strong> Used for general negation to state that an action is not happening, a quality is absent, or a fact is untrue in everyday communication.</li>
-                            <li><strong>Detailed Breakdown:</strong> The conjugated verb is trapped between *ne* (or *n'* before vowels/silent 'h') and *pas*.</li>
-                            <li><strong>Implementation Rule & Memory Guide:</strong> Picture a sandwich where the verb is the filling, *ne* is the top slice, and *pas* is the bottom slice. Always attach *ne* directly to the front of the verb.</li>
-                        </ul>
-                        <div class="example-box-correct">
-                            <em>Example:</em> Je ne suis pas allemand. / Je n'habite pas en Allemagne. (I am not German. I don't live in Germany.)
-                        </div>
-                    </li>
-                    <li>
-                        <strong>2. Negative Expression : Ne ... Jamais (Never)</strong>
-                        <ul>
-                            <li><strong>Why and When to Use:</strong> Used when you want to express absolute frequency of zero—that an action never takes place under any circumstance.</li>
-                            <li><strong>Detailed Breakdown:</strong> Replaces *pas* in the negative sandwich.</li>
-                            <li><strong>Implementation Rule & Memory Guide:</strong> Whenever you hear words like "always" (*toujours*) or "sometimes" (*parfois*) in an affirmative sentence, swap them out for *jamais* in the negative position.</li>
-                        </ul>
-                        <div class="example-box-correct">
-                            <em>Example:</em> Je ne mange jamais de pain. (I never eat bread.)
-                        </div>
-                    </li>
-                    <li>
-                        <strong>3. Negative Expression : Ne ... Plus (No Longer / No More)</strong>
-                        <ul>
-                            <li><strong>Why and When to Use:</strong> Used when an action or state *used to* happen in the past, but has now stopped or ended permanently. Equivalent to "no longer" or "not anymore".</li>
-                            <li><strong>Detailed Breakdown:</strong> Replaces *pas* with *plus* after the conjugated verb.</li>
-                            <li><strong>Implementation Rule & Memory Guide:</strong> Ask yourself: "Did this happen before?" If yes and it has stopped, use *plus*. If it never happened at all, use *jamais*.</li>
-                        </ul>
-                        <div class="example-box-correct">
-                            <em>Example:</em> Je n'aime plus Théo. / Non, je n'ai plus faim. (I no longer love Théo. / No, I am not hungry anymore.)
-                        </div>
-                    </li>
-                    <li>
-                        <strong>4. Partitive & Indefinite Article Transformations in Negation</strong>
-                        <ul>
-                            <li><strong>Why and When to Use:</strong> French grammar dictates that quantities disappear or become zero in negative sentences.</li>
-                            <li><strong>Detailed Breakdown:</strong> Definite articles (*le, la, les*) stay the same, but partitive (*du, de la, des*) and indefinite (*un, une*) articles all collapse into <strong>de</strong> (or <strong>d'</strong> before a vowel).</li>
-                            <li><strong>Implementation Rule & Memory Guide:</strong> Memorize the golden rule: **"Any quantity or indefinite article turns into DE in a negative sentence."**</li>
-                        </ul>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Affirmative Article</th>
-                                    <th>Negative Article Conversion</th>
-                                    <th>Example</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>du / de la / des</td><td><strong>de / d'</strong></td><td>Je mange du pain. $\rightarrow$ Je ne mange pas <strong>de</strong> pain.</td></tr>
-                                <tr><td>un / une</td><td><strong>de / d'</strong></td><td>J'ai une voiture. $\rightarrow$ Je n'ai pas <strong>de</strong> voiture.</td></tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li>
-                        <strong>5. Answering Negative Questions (The Rule of "Si")</strong>
-                        <ul>
-                            <li><strong>Why and When to Use:</strong> Used when someone asks you a question framed negatively, and you want to contradict them and say "Yes, on the contrary!".</li>
-                            <li><strong>Detailed Breakdown:</strong> Instead of replying with *oui*, you must use <strong>si</strong>.</li>
-                            <li><strong>Implementation Rule & Memory Guide:</strong> If the question has *ne...pas* in it and your answer is affirmative, trigger **Si!** immediately in your mind.</li>
-                        </ul>
-                        <div class="example-box-correct">
-                            <em>Question:</em> Tu n'es pas allemand ? (Aren't you German?)<br>
-                            <em>Affirmative Answer:</em> <strong>Si, je suis allemand.</strong> (Yes, I am German.)<br>
-                            <em>Negative Answer:</em> Non, je ne suis pas allemand. (No, I am not German.)
-                        </div>
-                    </li>
-                    <li>
-                        <strong>6. Colloquial Spoken Omission of "Ne"</strong>
-                        <ul>
-                            <li><strong>Why and When to Use:</strong> Used in casual, everyday spoken French among friends and family to speak faster.</li>
-                            <li><strong>Detailed Breakdown:</strong> Dropping the first particle (*ne*) entirely while keeping the second (*pas*, *jamais*, *plus*).</li>
-                            <li><strong>Implementation Rule & Memory Guide:</strong> Never write this in formal essays or emails; reserve it strictly for relaxed spoken conversations.</li>
-                        </ul>
-                        <div class="example-box-correct">
-                            <em>Standard Written:</em> Je ne sais pas. $\rightarrow$ <em>Spoken:</em> <strong>Je sais pas</strong> (I don't know).
-                        </div>
-                    </li>
-                </ul>
+                <!-- SECTION 2: COMPLETELY REPHRASED & ELABORATED GUIDE -->
+                <h2>2. How to Make Negative Sentences in French (La Forme Négative)</h2>
+                <p>In English, we usually make a sentence negative by adding a single word like <strong>"not"</strong> (e.g., <em>I am <strong>not</strong> tired</em>). In French, negation works like a <strong>two-part bracket</strong> that wraps around the action word (the verb). Below is a simple, step-by-step guide to all six essential negation rules.</p>
+
+                <!-- RULE 1 -->
+                <div class="negation-card">
+                    <h3>1. Standard Negation: <code>ne ... pas</code> (Not)</h3>
+                    <p><strong>What it means:</strong> This is the everyday way to say <strong>"not"</strong> or <strong>"don't / doesn't"</strong> when stating that something is false or not happening.</p>
+                    <p><strong>How to build it (Step-by-Step):</strong></p>
+                    <ol>
+                        <li>Find the <strong>conjugated verb</strong> (the action word) in your sentence.</li>
+                        <li>Place <strong><code>ne</code></strong> right <em>before</em> the verb.</li>
+                        <li>Place <strong><code>pas</code></strong> right <em>after</em> the verb.</li>
+                        <li><strong>Vowel Rule:</strong> If the verb starts with a vowel (<code>a, e, i, o, u</code>) or a silent <code>h</code>, shorten <code>ne</code> to <strong><code>n'</code></strong> so the words blend smoothly.</li>
+                    </ol>
+                    <div class="tip-box">
+                        <strong>Easy Memory Trick:</strong> Think of a <strong>sandwich</strong>. The verb is the filling in the middle, <strong><code>ne</code></strong> is the top slice of bread, and <strong><code>pas</code></strong> is the bottom slice: <code>Subject + [ne + VERB + pas]</code>.
+                    </div>
+                    <div class="example-box-correct">
+                        <strong>Example 1 (Consonant verb):</strong><br>
+                        • Positive: Je <strong>suis</strong> français. (I am French.)<br>
+                        • Negative: Je <strong>ne</strong> suis <strong>pas</strong> français. (I am not French.) <button class="inline-audio-btn" onclick="playAudio('Je ne suis pas français.')" title="Écouter"></button><br>
+                        <span class="word-breakdown">Phonetic: [zhuh nuh swee pah frahn-say] | Hindi: ज न सुइ पा फ्राँसे</span>
+                        <br><br>
+                        <strong>Example 2 (Vowel / Silent 'h' verb — using <code>n'</code>):</strong><br>
+                        • Positive: J'<strong>habite</strong> à Paris. (I live in Paris.)<br>
+                        • Negative: Je <strong>n'</strong>habite <strong>pas</strong> à Paris. (I don't live in Paris.) <button class="inline-audio-btn" onclick="playAudio('Je n habite pas à Paris.')" title="Écouter"></button><br>
+                        <span class="word-breakdown">Phonetic: [zhuh nah-beet pah ah pah-ree] | Hindi: ज नाबीत पा आ पारी</span>
+                    </div>
+                </div>
+
+                <!-- RULE 2 -->
+                <div class="negation-card">
+                    <h3>2. Saying "Never": <code>ne ... jamais</code></h3>
+                    <p><strong>What it means:</strong> Use this structure when something happens <strong>0% of the time</strong>—meaning <strong>"never"</strong>.</p>
+                    <p><strong>How to build it:</strong> Keep <strong><code>ne</code></strong> (or <strong><code>n'</code></strong>) before the verb, and simply replace <code>pas</code> with <strong><code>jamais</code></strong> after the verb. Never use <code>pas</code> and <code>jamais</code> together.</p>
+                    <div class="tip-box">
+                        <strong>Easy Memory Trick:</strong> If a positive sentence has frequency words like <em>toujours</em> (always), <em>souvent</em> (often), or <em>parfois</em> (sometimes), remove them and replace <code>pas</code> with <strong><code>jamais</code></strong>.
+                    </div>
+                    <div class="example-box-correct">
+                        <strong>Example 1:</strong><br>
+                        • Positive: Il <strong>regarde</strong> toujours la télé. (He always watches TV.)<br>
+                        • Negative: Il <strong>ne</strong> regarde <strong>jamais</strong> la télé. (He never watches TV.) <button class="inline-audio-btn" onclick="playAudio('Il ne regarde jamais la télé.')" title="Écouter"></button><br>
+                        <span class="word-breakdown">Phonetic: [eel nuh ruh-gard zhah-may lah tay-lay] | Hindi: इल न रगार्द जामे ला तेले</span>
+                        <br><br>
+                        <strong>Example 2:</strong><br>
+                        • Negative: Nous <strong>n'</strong>allons <strong>jamais</strong> au cinéma. (We never go to the cinema.) <button class="inline-audio-btn" onclick="playAudio('Nous n allons jamais au cinéma.')" title="Écouter"></button><br>
+                        <span class="word-breakdown">Phonetic: [noo nah-lohn zhah-may oh see-nay-mah] | Hindi: नू नालों जामे ओ सिनेमा</span>
+                    </div>
+                </div>
+
+                <!-- RULE 3 -->
+                <div class="negation-card">
+                    <h3>3. Saying "No Longer / Not Anymore": <code>ne ... plus</code></h3>
+                    <p><strong>What it means:</strong> Use this when an action or habit <strong>used to happen in the past, but has now stopped</strong>. In English, this translates to <strong>"no longer"</strong> or <strong>"not anymore"</strong>.</p>
+                    <p><strong>How to build it:</strong> Wrap the verb with <strong><code>ne ... plus</code></strong> (replacing <code>pas</code> with <code>plus</code>).</p>
+                    <div class="tip-box">
+                        <strong><code>Jamais</code> vs. <code>Plus</code> — How to Choose:</strong><br>
+                        • Ask yourself: <em>"Did this happen in the past?"</em><br>
+                        • If <strong>NO</strong> (it never happened at all) → use <strong><code>ne ... jamais</code></strong>.<br>
+                        • If <strong>YES</strong> (it used to happen, and now it has stopped) → use <strong><code>ne ... plus</code></strong>.
+                    </div>
+                    <div class="example-box-correct">
+                        <strong>Example 1:</strong><br>
+                        • Past habit: Avant, je fumais. (Before, I used to smoke.)<br>
+                        • Now: Je <strong>ne</strong> fume <strong>plus</strong>. (I don't smoke anymore / I no longer smoke.) <button class="inline-audio-btn" onclick="playAudio('Je ne fume plus.')" title="Écouter"></button><br>
+                        <span class="word-breakdown">Phonetic: [zhuh nuh foom ploo] | Hindi: ज न फ्यूम प्लू</span>
+                        <br><br>
+                        <strong>Example 2:</strong><br>
+                        • Negative: Non merci, je <strong>n'</strong>ai <strong>plus</strong> faim. (No thanks, I am not hungry anymore.) <button class="inline-audio-btn" onclick="playAudio('Non merci, je n ai plus faim.')" title="Écouter"></button><br>
+                        <span class="word-breakdown">Phonetic: [nohn mer-see, zhuh nay ploo fain] | Hindi: नों मेर्सी, ज ने प्लू फैं</span>
+                    </div>
+                </div>
+
+                <!-- RULE 4 -->
+                <div class="negation-card">
+                    <h3>4. What Happens to Articles (<code>un, une, du, de la, des</code>) in Negative Sentences?</h3>
+                    <p><strong>The Golden Rule:</strong> In French, when you say you have <strong>zero</strong> of something (negative sentence), indefinite articles (<em>a, an, some</em>) and partitive articles (<em>some</em>) disappear and turn into <strong><code>de</code></strong> (or <strong><code>d'</code></strong> before a vowel).</p>
+                    <p><strong>Important Exception:</strong> Definite articles (<strong><code>le, la, l', les</code></strong> — meaning <em>"the"</em>) <strong>DO NOT CHANGE</strong> because they point to a specific item or general preference (especially with verbs like <em>aimer, adorer, détester, préférer</em>).</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 24%;">Article in Positive Sentence</th>
+                                <th style="width: 22%;">Becomes in Negative</th>
+                                <th style="width: 54%;">Before & After Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong><code>un / une</code></strong><br>(a / an)</td>
+                                <td><strong><code>de</code></strong> (or <strong><code>d'</code></strong>)</td>
+                                <td>
+                                    J'ai <strong>un</strong> chien. (I have a dog.)<br>
+                                    → Je n'ai pas <strong>de</strong> chien. (I don't have a dog.) <button class="inline-audio-btn" onclick="playAudio('Je n ai pas de chien.')" title="Écouter"></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong><code>du / de la / de l' / des</code></strong><br>(some / any)</td>
+                                <td><strong><code>de</code></strong> (or <strong><code>d'</code></strong>)</td>
+                                <td>
+                                    Il boit <strong>du</strong> café. (He drinks coffee.)<br>
+                                    → Il ne boit pas <strong>de</strong> café. (He doesn't drink any coffee.) <button class="inline-audio-btn" onclick="playAudio('Il ne boit pas de café.')" title="Écouter"></button><br><br>
+                                    Elle mange <strong>des</strong> oranges. (She eats oranges.)<br>
+                                    → Elle ne mange pas <strong>d'</strong>oranges. (She doesn't eat any oranges.) <button class="inline-audio-btn" onclick="playAudio('Elle ne mange pas d oranges.')" title="Écouter"></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong><code>le / la / l' / les</code></strong><br>(the — Exception!)</td>
+                                <td><strong>No Change!</strong><br>(Stays <code>le, la, l', les</code>)</td>
+                                <td>
+                                    J'aime <strong>le</strong> chocolat. (I like chocolate.)<br>
+                                    → Je n'aime pas <strong>le</strong> chocolat. (I don't like chocolate.) <button class="inline-audio-btn" onclick="playAudio('Je n aime pas le chocolat.')" title="Écouter"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- RULE 5 -->
+                <div class="negation-card">
+                    <h3>5. How to Answer a Negative Question: The Magic Word <code>Si</code></h3>
+                    <p><strong>The Problem with <code>Oui</code>:</strong> In English, if someone asks <em>"Don't you speak French?"</em> and you want to say <em>"Yes, I do!"</em>, you just say "Yes". In French, saying <em>"Oui"</em> to a negative question sounds confusing.</p>
+                    <p><strong>The Solution:</strong> Whenever someone asks a question containing <strong><code>ne ... pas</code></strong> and you want to <strong>contradict them</strong> (meaning <em>"Yes, on the contrary, I DO!"</em>), you must use <strong><code>Si</code></strong> instead of <code>Oui</code>.</p>
+                    <div class="tip-box">
+                        <strong>Quick Decision Chart:</strong><br>
+                        • Positive Question (<em>Tu es prêt ?</em>) → Yes = <strong>Oui</strong> | No = <strong>Non</strong><br>
+                        • Negative Question (<em>Tu <strong>n'</strong>es <strong>pas</strong> prêt ?</em>) → Yes, I am! = <strong>Si !</strong> | No, I'm not = <strong>Non</strong>
+                    </div>
+                    <div class="example-box-correct">
+                        <strong>Question:</strong> Tu <strong>n'</strong>aimes <strong>pas</strong> la pizza ? (Don't you like pizza?) <button class="inline-audio-btn" onclick="playAudio('Tu n aimes pas la pizza ?')" title="Écouter"></button><br>
+                        • <strong>To disagree ("Yes, I DO like it!"):</strong> <strong>Si</strong>, j'aime la pizza ! <button class="inline-audio-btn" onclick="playAudio('Si, j aime la pizza !')" title="Écouter"></button><br>
+                        • <strong>To agree ("No, I don't like it"):</strong> <strong>Non</strong>, je n'aime pas la pizza. <button class="inline-audio-btn" onclick="playAudio('Non, je n aime pas la pizza.')" title="Écouter"></button>
+                    </div>
+                </div>
+
+                <!-- RULE 6 -->
+                <div class="negation-card">
+                    <h3>6. Everyday Spoken French: Dropping <code>ne</code></h3>
+                    <p><strong>What happens in real life:</strong> When native French speakers talk casually with friends, family, or coworkers, they almost always <strong>drop the word <code>ne</code></strong> to speak faster and more smoothly, keeping only <strong><code>pas</code></strong>, <strong><code>jamais</code></strong>, or <strong><code>plus</code></strong>.</p>
+                    <div class="tip-box">
+                        <strong>When to use it:</strong><br>
+                        • <strong>Use full <code>ne ... pas</code>:</strong> In exams (TEF / TCF / DELF), job interviews, formal emails, and essays.<br>
+                        • <strong>Drop <code>ne</code>:</strong> When chatting casually with friends or understanding movies, podcasts, and street conversations.
+                    </div>
+                    <div class="example-box-correct">
+                        <strong>Formal / Written:</strong> Je <strong>ne</strong> sais <strong>pas</strong>. → <strong>Casual Spoken:</strong> Je sais <strong>pas</strong>. (I don't know.) <button class="inline-audio-btn" onclick="playAudio('Je sais pas.')" title="Écouter"></button><br>
+                        <strong>Formal / Written:</strong> Ce <strong>n'</strong>est <strong>pas</strong> grave. → <strong>Casual Spoken:</strong> C'est <strong>pas</strong> grave. (No worries / It's not a big deal.) <button class="inline-audio-btn" onclick="playAudio('C est pas grave.')" title="Écouter"></button>
+                    </div>
+                </div>
 
                 <!-- SECTION 3 -->
                 <h2>3. Exercices de Transformation à la Forme Négative (Corrigés & Analysés)</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th style="width: 15%;">N°</th>
-                            <th style="width: 42%;">Phrase Initiale</th>
-                            <th style="width: 43%;">Forme Négative Corrigée & Explication</th>
+                            <th style="width: 10%;">N°</th>
+                            <th style="width: 38%;">Phrase Initiale</th>
+                            <th style="width: 52%;">Forme Négative Corrigée & Explication</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
                             <td>Julie est Italien.</td>
-                            <td><strong>Julie n'est pas italienne.</strong><br><em>Explication:</em> Gender agreement (feminine *italienne*) and capital letter on proper noun.</td>
+                            <td><strong>Julie n'est pas italienne.</strong> <button class="inline-audio-btn" onclick="playAudio('Julie n est pas italienne.')" title="Écouter"></button><br><em>Explication:</em> Gender agreement (feminine <em>italienne</em>) and <code>n'</code> before the vowel <em>est</em>.</td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>J'habite à lyon.</td>
-                            <td><strong>Je n'habite pas à Lyon.</strong><br><em>Explication:</em> Mandatory capitalization for city names (*Lyon*).</td>
+                            <td><strong>Je n'habite pas à Lyon.</strong> <button class="inline-audio-btn" onclick="playAudio('Je n habite pas à Lyon.')" title="Écouter"></button><br><em>Explication:</em> Mandatory capitalization for city names (<em>Lyon</em>) and <code>n'</code> before silent <em>h</em>.</td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>Sa femme vient du Pakistan.</td>
-                            <td><strong>Sa femme ne vient pas du Pakistan.</strong><br><em>Explication:</em> Standard placement around conjugated verb *vient*.</td>
+                            <td><strong>Sa femme ne vient pas du Pakistan.</strong> <button class="inline-audio-btn" onclick="playAudio('Sa femme ne vient pas du Pakistan.')" title="Écouter"></button><br><em>Explication:</em> Standard placement around conjugated verb <em>vient</em>. (Here <em>du</em> = <em>de + le</em> country preposition, so it stays <em>du</em>).</td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>Je comprends anglaise.</td>
-                            <td><strong>Je ne comprends pas l'anglais.</strong><br><em>Explication:</em> Correct article treatment for language study (*l'anglais*).</td>
+                            <td><strong>Je ne comprends pas l'anglais.</strong> <button class="inline-audio-btn" onclick="playAudio('Je ne comprends pas l anglais.')" title="Écouter"></button><br><em>Explication:</em> Definite article <em>l'anglais</em> stays unchanged in negation.</td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>Elle connaît yusuf.</td>
-                            <td><strong>Elle ne connaît pas Yusuf.</strong><br><em>Explication:</em> Capitalization on proper name (*Yusuf*).</td>
+                            <td><strong>Elle ne connaît pas Yusuf.</strong> <button class="inline-audio-btn" onclick="playAudio('Elle ne connaît pas Yusuf.')" title="Écouter"></button><br><em>Explication:</em> Capitalization on proper name (<em>Yusuf</em>) and standard <code>ne ... pas</code> bracket.</td>
                         </tr>
                         <tr>
                             <td>6</td>
-                            <td>Il nage le lundi. *(ne... plus)*</td>
-                            <td><strong>Il ne nage plus le lundi.</strong><br><em>Explication:</em> Substitution with temporal negation *plus*.</td>
+                            <td>Il nage le lundi. <em>(ne... plus)</em></td>
+                            <td><strong>Il ne nage plus le lundi.</strong> <button class="inline-audio-btn" onclick="playAudio('Il ne nage plus le lundi.')" title="Écouter"></button><br><em>Explication:</em> Substitution with temporal negation <em>plus</em> (he no longer swims on Mondays).</td>
                         </tr>
                         <tr>
                             <td>7</td>
-                            <td>Je mange pomme. *(jamais)*</td>
-                            <td><strong>Je ne mange jamais de pomme.</strong><br><em>Explication:</em> Use of *jamais* and partitive article shift to *de*.</td>
+                            <td>Je mange pomme. <em>(jamais)</em></td>
+                            <td><strong>Je ne mange jamais de pomme.</strong> <button class="inline-audio-btn" onclick="playAudio('Je ne mange jamais de pomme.')" title="Écouter"></button><br><em>Explication:</em> Use of <em>jamais</em> and mandatory article shift to <em>de</em> in negative sentences.</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <!-- SECTION 4: SUMMARY REFERENCE TABLE (MATCHING REFERENCE STYLE) -->
+                <!-- SECTION 4 -->
                 <h2>4. Summary Reference Table : Conjugation & Negation Overview</h2>
                 <p>Quick-reference summary table mapping pronouns across core verb groups and negation structures for effortless implementation.</p>
                 <table>
