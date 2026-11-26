@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratique de l'écoute - Apprenons le français</title>
+    <script src="../global/load-global.js"></script>
+    <style>
+        :root {
+            --primary-color: #0055A5;
+            --secondary-color: #EF4135;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #dee2e6;
+            --text-color: #212529;
+            --hover-bg: #e9ecef;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+            --text-color: #e0e0e0;
+            --hover-bg: #2a2a2a;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: 10px;
+            font-size: 18pt;
+        }
+        .player-box {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .track-title-display {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        audio {
+            width: 100%;
+            outline: none;
+        }
+        .playlist-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .playlist-header h3 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        .track-counter {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        .playlist-container {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .playlist-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 0.95rem;
+        }
+        .playlist-item:last-child {
+            border-bottom: none;
+        }
+        .playlist-item:hover {
+            background-color: var(--hover-bg);
+        }
+        .playlist-item.active {
+            background-color: rgba(0, 85, 165, 0.12);
+            border-left: 5px solid var(--primary-color);
+            font-weight: bold;
+        }
+        .track-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .track-number {
+            color: var(--secondary-color);
+            font-weight: bold;
+            min-width: 28px;
+        }
+        .status-indicator {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-style: italic;
+        }
+        .load-more-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .load-more-btn {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 10px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .load-more-btn:hover {
+            opacity: 0.9;
+        }
+        .loading-text {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="theme-switcher"></div>
+        <div id="header-container"></div>
+        
+        <h1>French Listening Practice (Dossier Listen)</h1>
+        <p>Select any audio track below to open it in the player with full playback controls.</p>
+
+        <!-- Main Audio Player -->
+        <div class="player-box">
+            <div id="current-track-title" class="track-title-display">Select a track to start listening</div>
+            <audio id="main-audio-player" controls preload="metadata">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Playlist -->
+        <div class="playlist-header">
+            <h3>Playlist</h3>
+            <span class="track-counter" id="track-counter"></span>
+        </div>
+        <div class="playlist-container" id="playlist">
+            <div class="loading-text" id="loading-msg">Loading audio tracks...</div>
+        </div>
+
+        <!-- Load More Button Container -->
+        <div class="load-more-container" id="load-more-wrapper" style="display: none;">
+            <button class="load-more-btn" id="load-more-btn" onclick="loadMoreTracks()">Load More (+10)</button>
+        </div>
+
+        <div id="footer-container"></div>
+    </div>
+
+    <script>
+        let allTracks = [];
+        let displayedCount = 0;
+        const pageSize = 10;
+        let currentPlayingIndex = -1;
+
+        const player = document.getElementById('main-audio-player');
+        const titleDisplay = document.getElementById('current-track-title');
+        const playlistContainer = document.getElementById('playlist');
+        const loadMoreWrapper = document.getElementById('load-more-wrapper');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const trackCounter = document.getElementById('track-counter');
+
+        async function loadTracksIndex() {
+            try {
+                // Fetches the auto-generated static index directly from the same folder (zero API rate limits)
+                const response = await fetch('tracks.json?v=' + Date.now());
+                if (!response.ok) {
+                    throw new Error('tracks.json not found');
+                }
+                allTracks = await response.json();
+
+                if (!Array.isArray(allTracks) || allTracks.length === 0) {
+                    playlistContainer.innerHTML = '<div class="loading-text">No MP3 tracks found in the index yet.</div>';
+                    return;
+                }
+
+                playlistContainer.innerHTML = '';
+                loadMoreTracks();
+            } catch (error) {
+                console.error(error);
+                playlistContainer.innerHTML = '<div class="loading-text" style="color: var(--secondary-color);">Unable to load <b>tracks.json</b>. Ensure the GitHub Action has generated <code>french/listen/tracks.json</code>.</div>';
+            }
+        }
+
+        function updateCounter() {
+            trackCounter.textContent = `Showing ${displayedCount} of ${allTracks.length} tracks`;
+            const remaining = allTracks.length - displayedCount;
+            if (remaining > 0) {
+                const nextBatch = Math.min(pageSize, remaining);
+                loadMoreBtn.textContent = `Load More (+${nextBatch})`;
+                loadMoreWrapper.style.display = 'block';
+            } else {
+                loadMoreWrapper.style.display = 'none';
+            }
+        }
+
+        function loadMoreTracks() {
+            const nextBatchLimit = Math.min(displayedCount + pageSize, allTracks.length);
+            
+            for (let i = displayedCount; i < nextBatchLimit; i++) {
+                const track = allTracks[i];
+                const item = document.createElement('div');
+                item.className = 'playlist-item';
+                item.id = `track-item-${i}`;
+                item.innerHTML = `
+                    <div class="track-info">
+                        <span class="track-number">${i + 1 < 10 ? '0' + (i + 1) : i + 1}</span>
+                        <span>${track.title}</span>
+                    </div>
+                    <span class="status-indicator" id="status-${i}"></span>
+                `;
+                item.onclick = () => playTrack(i);
+                playlistContainer.appendChild(item);
+            }
+
+            displayedCount = nextBatchLimit;
+            updateCounter();
+        }
+
+        function playTrack(index) {
+            currentPlayingIndex = index;
+            const track = allTracks[index];
+
+            // Safely encode filename for spaces/special characters on Netlify
+            player.src = encodeURI(track.file);
+            titleDisplay.textContent = `Now Playing: ${track.title}`;
+            player.play();
+
+            allTracks.forEach((_, i) => {
+                const el = document.getElementById(`track-item-${i}`);
+                const statusEl = document.getElementById(`status-${i}`);
+                if (el) {
+                    if (i === index) {
+                        el.classList.add('active');
+                        if (statusEl) statusEl.textContent = 'Playing...';
+                    } else {
+                        el.classList.remove('active');
+                        if (statusEl) statusEl.textContent = '';
+                    }
+                }
+            });
+        }
+
+        // Auto-advance to next track when current track ends
+        player.onended = function() {
+            if (currentPlayingIndex < allTracks.length - 1) {
+                if (currentPlayingIndex + 1 >= displayedCount) {
+                    loadMoreTracks();
+                }
+                playTrack(currentPlayingIndex + 1);
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', loadTracksIndex);
+    </script>
+</body>
+</html>
