@@ -1,1 +1,60 @@
+name: Auto-Generate Listen Tracks Index
 
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'french/listen/**'
+      - '!french/listen/tracks.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Scan MP3 files and generate tracks.json
+        run: |
+          python3 -c "
+          import os, json, re
+
+          folder = 'french/listen'
+          output_file = os.path.join(folder, 'tracks.json')
+
+          def natural_key(s):
+              return [int(text) if text.isdigit() else text.lower() for text in re.split(r'([0-9]+)', s)]
+
+          if os.path.exists(folder):
+              files = [f for f in os.listdir(folder) if f.lower().endswith('.mp3')]
+              files.sort(key=natural_key)
+          else:
+              files = []
+
+          tracks = []
+          for f in files:
+              clean_title = re.sub(r'\.mp3$', '', f, flags=re.IGNORECASE)
+              clean_title = re.sub(r'\s+', ' ', clean_title).strip()
+              tracks.append({
+                  'file': f,
+                  'title': clean_title
+              })
+
+          with open(output_file, 'w', encoding='utf-8') as out:
+              json.dump(tracks, out, indent=2, ensure_ascii=False)
+          print(f'Generated {output_file} with {len(tracks)} tracks.')
+          "
+
+      - name: Commit and push updated tracks.json
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add french/listen/tracks.json
+          git diff --staged --quiet || git commit -m "chore: auto-update french/listen/tracks.json"
+          git push
