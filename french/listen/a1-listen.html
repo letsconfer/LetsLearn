@@ -93,26 +93,25 @@
             font-style: italic;
             font-weight: bold;
         }
-        .action-btn {
-            background-color: var(--primary-color);
-            color: #ffffff;
+
+        /* Pure Icon Action Buttons */
+        .icon-btn {
+            background: transparent;
             border: none;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border-radius: 4px;
             cursor: pointer;
+            padding: 4px;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            transition: opacity 0.2s;
+            justify-content: center;
+            transition: opacity 0.2s, transform 0.1s;
         }
-        .action-btn:hover {
-            opacity: 0.9;
+        .icon-btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
         }
         .action-icon {
-            width: 14px;
-            height: 14px;
+            width: 22px;
+            height: 22px;
             object-fit: contain;
             vertical-align: middle;
         }
@@ -323,13 +322,15 @@
                     <div class="column-panel">
                         <div class="column-header">
                             <h3>Live Transcript & Translation</h3>
-                            <div style="display: flex; gap: 8px;">
-                                <button class="action-btn" id="regenerate-btn" onclick="forceRegenerate()" style="background-color: var(--secondary-color); display: none;">Re-Generate</button>
-                                <button class="action-btn" id="download-transcript-btn" onclick="downloadTranscript()" style="display: none;" title="Download Transcript">
-                                    <img src="../images/download.png" class="action-icon" alt=""> Download
+                            <div style="display: flex; gap: 6px; align-items: center;">
+                                <button class="icon-btn" id="regenerate-btn" onclick="forceRegenerate()" style="display: none;" title="Re-Generate Transcript">
+                                    <img src="../images/regenerate.png" class="action-icon" alt="Re-Generate">
                                 </button>
-                                <button class="action-btn" id="clear-transcript-btn" onclick="clearTranscript()" style="background-color: #6c757d; display: none;" title="Clear Transcript">
-                                    <img src="../images/clear.png" class="action-icon" alt=""> Clear
+                                <button class="icon-btn" id="download-transcript-btn" onclick="downloadTranscript()" style="display: none;" title="Download Transcript">
+                                    <img src="../images/download.png" class="action-icon" alt="Download">
+                                </button>
+                                <button class="icon-btn" id="clear-transcript-btn" onclick="clearTranscript()" style="display: none;" title="Clear Transcript">
+                                    <img src="../images/clear.png" class="action-icon" alt="Clear">
                                 </button>
                             </div>
                         </div>
@@ -471,11 +472,11 @@
 
         function clearTranscript() {
             activeTranscriptSegments = [];
-            transcriptContent.innerHTML = '<div class="transcript-empty">Transcript cleared. Click "Re-Generate" or select another track.</div>';
+            transcriptContent.innerHTML = '<div class="transcript-empty">Transcript cleared. Click the regenerate icon to re-run.</div>';
             downloadBtn.style.display = 'none';
             clearBtn.style.display = 'none';
             if (currentPlayingIndex !== -1) {
-                regenerateBtn.style.display = 'inline-block';
+                regenerateBtn.style.display = 'inline-flex';
             }
         }
 
@@ -606,7 +607,7 @@
                 console.error(err);
                 transcribeStatus.textContent = '⚠️ Error generating transcript.';
                 transcriptContent.innerHTML = '<div class="transcript-empty" style="color: var(--secondary-color);">Unable to generate transcript. Check console for details.</div>';
-                regenerateBtn.style.display = 'inline-block';
+                regenerateBtn.style.display = 'inline-flex';
             } finally {
                 isProcessing = false;
             }
