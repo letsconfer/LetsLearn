@@ -66,15 +66,46 @@
         audio {
             width: 100%;
             outline: none;
+            margin-bottom: 15px;
         }
-        /* Transcript Styles */
+        .transcribe-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .ai-transcribe-btn {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            border: none;
+            padding: 10px 22px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .ai-transcribe-btn:hover {
+            opacity: 0.9;
+        }
+        .ai-transcribe-btn:disabled {
+            background-color: #888;
+            cursor: not-allowed;
+        }
+        .transcribe-status {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            font-style: italic;
+        }
+        /* Live Transcript Panel */
         .transcript-box {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
             margin: 25px 0;
-            max-height: 250px;
+            max-height: 280px;
             overflow-y: auto;
             display: none;
         }
@@ -83,8 +114,10 @@
             margin-bottom: 6px;
             border-radius: 4px;
             cursor: pointer;
-            transition: background 0.2s, font-weight 0.2s;
+            transition: background 0.2s;
             font-size: 1.05rem;
+            display: flex;
+            gap: 12px;
         }
         .transcript-line:hover {
             background-color: var(--hover-bg);
@@ -94,6 +127,13 @@
             border-left: 4px solid var(--primary-color);
             font-weight: bold;
             color: var(--primary-color);
+        }
+        .timestamp-badge {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-family: monospace;
+            min-width: 48px;
+            padding-top: 2px;
         }
         .playlist-header {
             display: flex;
@@ -190,7 +230,7 @@
         <div class="main-layout-wrapper">
             <div class="main-content-area">
                 <h1>Pratique de l'écoute : Dossier Listen</h1>
-                <p>Welcome to your listening practice module. Audio tracks and transcripts are indexed automatically. Select any track below to start listening with live text highlighting.</p>
+                <p>Select any track below to listen. Click <strong>Auto-Transcribe (AI)</strong> to dynamically generate live, synchronized French subtitles directly in your browser.</p>
 
                 <!-- Main Audio Player Box -->
                 <div class="player-box">
@@ -198,11 +238,18 @@
                     <audio id="main-audio-player" controls preload="metadata">
                         Your browser does not support the audio element.
                     </audio>
+                    
+                    <div class="transcribe-controls">
+                        <button class="ai-transcribe-btn" id="transcribe-btn" onclick="generateLiveTranscript()" disabled>
+                            ✨ Auto-Transcribe Audio (French AI)
+                        </button>
+                        <span class="transcribe-status" id="transcribe-status"></span>
+                    </div>
                 </div>
 
                 <!-- Live Transcript Box -->
                 <div class="transcript-box" id="transcript-box">
-                    <h3>Live Transcript</h3>
+                    <h3 style="margin-top: 0;">Live AI Transcript (Click any line to jump)</h3>
                     <div id="transcript-content"></div>
                 </div>
 
@@ -231,11 +278,21 @@
         <div id="footer-container"></div>
     </div>
 
+    <!-- Load Transformers.js (Whisper AI) via ES Module -->
+    <script type="module">
+        import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
+        env.allowLocalModels = false;
+        window.transformersPipeline = pipeline;
+    </script>
+
     <script>
         let allTracks = [];
         let displayedCount = 0;
         const pageSize = 10;
         let currentPlayingIndex = -1;
+        let activeTranscriptSegments = [];
+        let transcriberModel = null;
+        const transcriptCache = {}; // Cache transcripts in memory during session
 
         const player = document.getElementById('main-audio-player');
         const titleDisplay = document.getElementById('current-track-title');
@@ -243,6 +300,8 @@
         const loadMoreWrapper = document.getElementById('load-more-wrapper');
         const loadMoreBtn = document.getElementById('load-more-btn');
         const trackCounter = document.getElementById('track-counter');
+        const transcribeBtn = document.getElementById('transcribe-btn');
+        const transcribeStatus = document.getElementById('transcribe-status');
         const transcriptBox = document.getElementById('transcript-box');
         const transcriptContent = document.getElementById('transcript-content');
 
@@ -279,7 +338,6 @@
 
         function loadMoreTracks() {
             const nextBatchLimit = Math.min(displayedCount + pageSize, allTracks.length);
-            
             for (let i = displayedCount; i < nextBatchLimit; i++) {
                 const track = allTracks[i];
                 const item = document.createElement('div');
@@ -295,9 +353,36 @@
                 item.onclick = () => playTrack(i);
                 playlistContainer.appendChild(item);
             }
-
             displayedCount = nextBatchLimit;
             updateCounter();
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function renderTranscript(segments) {
+            activeTranscriptSegments = segments;
+            transcriptBox.style.display = 'block';
+            transcriptContent.innerHTML = '';
+
+            segments.forEach((seg, idx) => {
+                const start = seg.timestamp[0] || 0;
+                const line = document.createElement('div');
+                line.className = 'transcript-line';
+                line.id = `t-line-${idx}`;
+                line.innerHTML = `
+                    <span class="timestamp-badge">[${formatTime(start)}]</span>
+                    <span>${seg.text.trim()}</span>
+                `;
+                line.onclick = () => {
+                    player.currentTime = start;
+                    player.play();
+                };
+                transcriptContent.appendChild(line);
+            });
         }
 
         function playTrack(index) {
@@ -306,24 +391,15 @@
 
             player.src = encodeURI(track.file);
             titleDisplay.textContent = `Now Playing: ${track.title}`;
+            transcribeBtn.disabled = false;
+            transcribeStatus.textContent = '';
             player.play();
 
-            // Render Transcript if available in tracks.json
-            if (track.transcript && Array.isArray(track.transcript) && track.transcript.length > 0) {
-                transcriptBox.style.display = 'block';
-                transcriptContent.innerHTML = '';
-                track.transcript.forEach((item, idx) => {
-                    const line = document.createElement('div');
-                    line.className = 'transcript-line';
-                    line.id = `t-line-${idx}`;
-                    line.textContent = item.text;
-                    line.onclick = () => {
-                        player.currentTime = item.start;
-                        player.play();
-                    };
-                    transcriptContent.appendChild(line);
-                });
+            // Check if already transcribed during this session
+            if (transcriptCache[track.file]) {
+                renderTranscript(transcriptCache[track.file]);
             } else {
+                activeTranscriptSegments = [];
                 transcriptBox.style.display = 'none';
                 transcriptContent.innerHTML = '';
             }
@@ -343,16 +419,66 @@
             });
         }
 
-        // Live Transcript Sync on Audio Time Update
-        player.ontimeupdate = function() {
-            const track = allTracks[currentPlayingIndex];
-            if (!track || !track.transcript || !Array.isArray(track.transcript)) return;
+        // Convert MP3 to 16kHz Mono AudioBuffer required by Whisper AI
+        async function decodeAudioTo16kHz(url) {
+            const response = await fetch(url);
+            const arrayBuffer = await response.arrayBuffer();
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
+            const decoded = await audioCtx.decodeAudioData(arrayBuffer);
+            return decoded.getChannelData(0);
+        }
 
+        async function generateLiveTranscript() {
+            if (currentPlayingIndex === -1) return;
+            const track = allTracks[currentPlayingIndex];
+
+            if (transcriptCache[track.file]) {
+                renderTranscript(transcriptCache[track.file]);
+                return;
+            }
+
+            transcribeBtn.disabled = true;
+            try {
+                if (!transcriberModel) {
+                    transcribeStatus.textContent = 'Loading French AI model (first time only, ~40MB)...';
+                    transcriberModel = await window.transformersPipeline('automatic-speech-recognition', 'Xenova/whisper-tiny');
+                }
+
+                transcribeStatus.textContent = 'Decoding & transcribing French audio on the spot...';
+                const audioData = await decodeAudioTo16kHz(encodeURI(track.file));
+
+                const result = await transcriberModel(audioData, {
+                    language: 'french',
+                    task: 'transcribe',
+                    chunk_length_s: 30,
+                    stride_length_s: 5,
+                    return_timestamps: true
+                });
+
+                const chunks = result.chunks || [{ timestamp: [0, player.duration || 30], text: result.text }];
+                transcriptCache[track.file] = chunks;
+                renderTranscript(chunks);
+                transcribeStatus.textContent = '✓ Transcript ready!';
+            } catch (err) {
+                console.error(err);
+                transcribeStatus.textContent = 'Error transcribing audio. Check console for details.';
+            } finally {
+                transcribeBtn.disabled = false;
+            }
+        }
+
+        // Real-time highlight sync as audio plays
+        player.ontimeupdate = function() {
+            if (!activeTranscriptSegments.length) return;
             const currentTime = player.currentTime;
-            track.transcript.forEach((item, idx) => {
+
+            activeTranscriptSegments.forEach((seg, idx) => {
+                const start = seg.timestamp[0] || 0;
+                const end = seg.timestamp[1] || (start + 5);
                 const lineEl = document.getElementById(`t-line-${idx}`);
+
                 if (lineEl) {
-                    if (currentTime >= item.start && currentTime <= item.end) {
+                    if (currentTime >= start && currentTime <= end) {
                         if (!lineEl.classList.contains('active')) {
                             lineEl.classList.add('active');
                             lineEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
