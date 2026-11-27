@@ -14,6 +14,7 @@
             --border-color: #dee2e6;
             --text-color: #212529;
             --hover-bg: #e9ecef;
+            --highlight-bg: rgba(0, 85, 165, 0.12);
         }
         [data-theme="dark"] {
             --bg-color: #121212;
@@ -21,6 +22,7 @@
             --border-color: #333333;
             --text-color: #e0e0e0;
             --hover-bg: #2a2a2a;
+            --highlight-bg: rgba(0, 85, 165, 0.3);
         }
         body {
             font-family: Arial, sans-serif;
@@ -65,6 +67,34 @@
             width: 100%;
             outline: none;
         }
+        /* Transcript Styles */
+        .transcript-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            max-height: 250px;
+            overflow-y: auto;
+            display: none;
+        }
+        .transcript-line {
+            padding: 8px 12px;
+            margin-bottom: 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s, font-weight 0.2s;
+            font-size: 1.05rem;
+        }
+        .transcript-line:hover {
+            background-color: var(--hover-bg);
+        }
+        .transcript-line.active {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--primary-color);
+            font-weight: bold;
+            color: var(--primary-color);
+        }
         .playlist-header {
             display: flex;
             align-items: center;
@@ -108,7 +138,7 @@
             background-color: var(--hover-bg);
         }
         .playlist-item.active {
-            background-color: rgba(0, 85, 165, 0.12);
+            background-color: var(--highlight-bg);
             border-left: 5px solid var(--primary-color);
             font-weight: bold;
         }
@@ -154,14 +184,13 @@
 </head>
 <body>
     <div class="container">
-        <!-- Wrapped inside container matching basic34.html -->
         <div class="theme-switcher"></div>
         <div id="header-container"></div>
         
         <div class="main-layout-wrapper">
             <div class="main-content-area">
                 <h1>Pratique de l'écoute : Dossier Listen</h1>
-                <p>Welcome to your listening practice module. Audio tracks are indexed automatically from your repository. Select any track below to open it in the player with full playback controls.</p>
+                <p>Welcome to your listening practice module. Audio tracks and transcripts are indexed automatically. Select any track below to start listening with live text highlighting.</p>
 
                 <!-- Main Audio Player Box -->
                 <div class="player-box">
@@ -169,6 +198,12 @@
                     <audio id="main-audio-player" controls preload="metadata">
                         Your browser does not support the audio element.
                     </audio>
+                </div>
+
+                <!-- Live Transcript Box -->
+                <div class="transcript-box" id="transcript-box">
+                    <h3>Live Transcript</h3>
+                    <div id="transcript-content"></div>
                 </div>
 
                 <!-- Playlist Section Header -->
@@ -208,13 +243,13 @@
         const loadMoreWrapper = document.getElementById('load-more-wrapper');
         const loadMoreBtn = document.getElementById('load-more-btn');
         const trackCounter = document.getElementById('track-counter');
+        const transcriptBox = document.getElementById('transcript-box');
+        const transcriptContent = document.getElementById('transcript-content');
 
         async function loadTracksIndex() {
             try {
                 const response = await fetch('tracks.json?v=' + Date.now());
-                if (!response.ok) {
-                    throw new Error('tracks.json not found');
-                }
+                if (!response.ok) throw new Error('tracks.json not found');
                 allTracks = await response.json();
 
                 if (!Array.isArray(allTracks) || allTracks.length === 0) {
@@ -226,7 +261,7 @@
                 loadMoreTracks();
             } catch (error) {
                 console.error(error);
-                playlistContainer.innerHTML = '<div class="loading-text" style="color: var(--secondary-color);">Unable to load <b>tracks.json</b>. Ensure the GitHub Action has generated <code>french/listen/tracks.json</code>.</div>';
+                playlistContainer.innerHTML = '<div class="loading-text" style="color: var(--secondary-color);">Unable to load <b>tracks.json</b>. Ensure <code>french/listen/tracks.json</code> exists.</div>';
             }
         }
 
@@ -273,6 +308,26 @@
             titleDisplay.textContent = `Now Playing: ${track.title}`;
             player.play();
 
+            // Render Transcript if available in tracks.json
+            if (track.transcript && Array.isArray(track.transcript) && track.transcript.length > 0) {
+                transcriptBox.style.display = 'block';
+                transcriptContent.innerHTML = '';
+                track.transcript.forEach((item, idx) => {
+                    const line = document.createElement('div');
+                    line.className = 'transcript-line';
+                    line.id = `t-line-${idx}`;
+                    line.textContent = item.text;
+                    line.onclick = () => {
+                        player.currentTime = item.start;
+                        player.play();
+                    };
+                    transcriptContent.appendChild(line);
+                });
+            } else {
+                transcriptBox.style.display = 'none';
+                transcriptContent.innerHTML = '';
+            }
+
             allTracks.forEach((_, i) => {
                 const el = document.getElementById(`track-item-${i}`);
                 const statusEl = document.getElementById(`status-${i}`);
@@ -287,6 +342,27 @@
                 }
             });
         }
+
+        // Live Transcript Sync on Audio Time Update
+        player.ontimeupdate = function() {
+            const track = allTracks[currentPlayingIndex];
+            if (!track || !track.transcript || !Array.isArray(track.transcript)) return;
+
+            const currentTime = player.currentTime;
+            track.transcript.forEach((item, idx) => {
+                const lineEl = document.getElementById(`t-line-${idx}`);
+                if (lineEl) {
+                    if (currentTime >= item.start && currentTime <= item.end) {
+                        if (!lineEl.classList.contains('active')) {
+                            lineEl.classList.add('active');
+                            lineEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    } else {
+                        lineEl.classList.remove('active');
+                    }
+                }
+            });
+        };
 
         player.onended = function() {
             if (currentPlayingIndex < allTracks.length - 1) {
