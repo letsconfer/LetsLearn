@@ -74,7 +74,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-top: 12px;
+            margin-top: 10px;
             font-size: 0.95rem;
         }
         .player-options label {
@@ -83,39 +83,29 @@
             gap: 6px;
             cursor: pointer;
         }
-        .transcribe-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-        .ai-transcribe-btn, .action-btn {
-            background-color: var(--secondary-color);
-            color: #ffffff;
-            border: none;
-            padding: 8px 18px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        .ai-transcribe-btn:hover, .action-btn:hover {
-            opacity: 0.9;
-        }
-        .ai-transcribe-btn:disabled, .action-btn:disabled {
-            background-color: #888;
-            cursor: not-allowed;
-        }
-        .action-btn {
-            background-color: var(--primary-color);
+        .status-bar {
+            margin-top: 10px;
+            min-height: 22px;
         }
         .transcribe-status {
             font-size: 0.9rem;
             color: var(--primary-color);
             font-style: italic;
+            font-weight: bold;
+        }
+        .action-btn {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .action-btn:hover {
+            opacity: 0.9;
         }
 
         /* Two Column Workspace Layout */
@@ -283,7 +273,7 @@
         <div class="main-layout-wrapper">
             <div class="main-content-area">
                 <h1>Pratique de l'écoute : Dossier Listen</h1>
-                <p>Select a track from the playlist, click <strong>Auto-Transcribe & Translate</strong> to view synchronized French text with simultaneous English translation on the right.</p>
+                <p>Select any track from the playlist to start playback—synchronized French transcription and English translation will generate automatically on the right.</p>
 
                 <!-- Main Audio Player Box -->
                 <div class="player-box">
@@ -298,10 +288,8 @@
                         <label><input type="checkbox" id="shuffle-toggle"> Shuffle Play</label>
                     </div>
 
-                    <div class="transcribe-controls">
-                        <button class="ai-transcribe-btn" id="transcribe-btn" onclick="generateLiveTranscript()" disabled>
-                            ✨ Auto-Transcribe & Translate (AI)
-                        </button>
+                    <!-- Automatic AI Status Indicator -->
+                    <div class="status-bar">
                         <span class="transcribe-status" id="transcribe-status"></span>
                     </div>
                 </div>
@@ -327,12 +315,13 @@
                         <div class="column-header">
                             <h3>Live Transcript & Translation</h3>
                             <div style="display: flex; gap: 8px;">
-                                <button class="action-btn" id="download-transcript-btn" onclick="downloadTranscript()" style="padding: 4px 10px; font-size: 0.8rem; display: none;">Download (.txt)</button>
-                                <button class="action-btn" id="clear-transcript-btn" onclick="clearTranscript()" style="padding: 4px 10px; font-size: 0.8rem; background-color: #6c757d; display: none;">Clear</button>
+                                <button class="action-btn" id="regenerate-btn" onclick="forceRegenerate()" style="background-color: var(--secondary-color); display: none;">Re-Generate</button>
+                                <button class="action-btn" id="download-transcript-btn" onclick="downloadTranscript()" style="display: none;">Download (.txt)</button>
+                                <button class="action-btn" id="clear-transcript-btn" onclick="clearTranscript()" style="background-color: #6c757d; display: none;">Clear</button>
                             </div>
                         </div>
                         <div class="transcript-scroll" id="transcript-content">
-                            <div class="transcript-empty" id="transcript-empty-msg">No transcript generated yet. Click "Auto-Transcribe & Translate" above.</div>
+                            <div class="transcript-empty" id="transcript-empty-msg">Select a track from the playlist to automatically transcribe and translate.</div>
                         </div>
                     </div>
                 </div>
@@ -361,6 +350,7 @@
         let activeTranscriptSegments = [];
         let transcriberModel = null;
         let translatorModel = null;
+        let isProcessing = false;
         const transcriptCache = {};
 
         const player = document.getElementById('main-audio-player');
@@ -369,17 +359,16 @@
         const loadMoreWrapper = document.getElementById('load-more-wrapper');
         const loadMoreBtn = document.getElementById('load-more-btn');
         const trackCounter = document.getElementById('track-counter');
-        const transcribeBtn = document.getElementById('transcribe-btn');
         const transcribeStatus = document.getElementById('transcribe-status');
         const transcriptContent = document.getElementById('transcript-content');
         const autoplayToggle = document.getElementById('autoplay-toggle');
         const shuffleToggle = document.getElementById('shuffle-toggle');
         const downloadBtn = document.getElementById('download-transcript-btn');
         const clearBtn = document.getElementById('clear-transcript-btn');
+        const regenerateBtn = document.getElementById('regenerate-btn');
 
         async function loadTracksIndex() {
             try {
-                // Check local folder first, then fallback to parent folder if needed
                 let response = await fetch('tracks.json?v=' + Date.now());
                 if (!response.ok) {
                     response = await fetch('../tracks.json?v=' + Date.now());
@@ -445,6 +434,7 @@
             transcriptContent.innerHTML = '';
             downloadBtn.style.display = 'inline-block';
             clearBtn.style.display = 'inline-block';
+            regenerateBtn.style.display = 'none';
 
             segments.forEach((seg, idx) => {
                 const start = seg.timestamp[0] || 0;
@@ -468,9 +458,19 @@
 
         function clearTranscript() {
             activeTranscriptSegments = [];
-            transcriptContent.innerHTML = '<div class="transcript-empty" id="transcript-empty-msg">Transcript cleared. Click "Auto-Transcribe & Translate" above.</div>';
+            transcriptContent.innerHTML = '<div class="transcript-empty">Transcript cleared. Click "Re-Generate" or select another track.</div>';
             downloadBtn.style.display = 'none';
             clearBtn.style.display = 'none';
+            if (currentPlayingIndex !== -1) {
+                regenerateBtn.style.display = 'inline-block';
+            }
+        }
+
+        function forceRegenerate() {
+            if (currentPlayingIndex === -1) return;
+            const track = allTracks[currentPlayingIndex];
+            delete transcriptCache[track.file];
+            generateLiveTranscript();
         }
 
         function downloadTranscript() {
@@ -491,15 +491,7 @@
 
             player.src = encodeURI(track.file);
             titleDisplay.textContent = `Now Playing: ${track.title}`;
-            transcribeBtn.disabled = false;
-            transcribeStatus.textContent = '';
             player.play();
-
-            if (transcriptCache[track.file]) {
-                renderTranscript(transcriptCache[track.file]);
-            } else {
-                clearTranscript();
-            }
 
             allTracks.forEach((_, i) => {
                 const el = document.getElementById(`track-item-${i}`);
@@ -514,6 +506,9 @@
                     }
                 }
             });
+
+            // Automatically start transcription & translation
+            generateLiveTranscript();
         }
 
         async function decodeAudioTo16kHz(url) {
@@ -524,24 +519,46 @@
             return decoded.getChannelData(0);
         }
 
+        async function waitForTransformers() {
+            let attempts = 0;
+            while (!window.transformersPipeline && attempts < 50) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+                attempts++;
+            }
+            if (!window.transformersPipeline) {
+                throw new Error('Transformers.js failed to load.');
+            }
+        }
+
         async function generateLiveTranscript() {
             if (currentPlayingIndex === -1) return;
-            const track = allTracks[currentPlayingIndex];
+            const targetIndex = currentPlayingIndex;
+            const track = allTracks[targetIndex];
 
             if (transcriptCache[track.file]) {
                 renderTranscript(transcriptCache[track.file]);
+                transcribeStatus.textContent = '✓ Transcript & translation loaded from session cache.';
                 return;
             }
 
-            transcribeBtn.disabled = true;
+            if (isProcessing) return;
+            isProcessing = true;
+
+            downloadBtn.style.display = 'none';
+            clearBtn.style.display = 'none';
+            regenerateBtn.style.display = 'none';
+            transcriptContent.innerHTML = '<div class="transcript-empty">⏳ Generating French transcript & English translation...</div>';
+
             try {
+                await waitForTransformers();
+
                 if (!transcriberModel) {
-                    transcribeStatus.textContent = 'Loading AI models (~50MB, first time only)...';
+                    transcribeStatus.textContent = '⏳ Loading AI models (~50MB, first time only)...';
                     transcriberModel = await window.transformersPipeline('automatic-speech-recognition', 'Xenova/whisper-tiny');
                     translatorModel = await window.transformersPipeline('translation', 'Xenova/opus-mt-fr-en');
                 }
 
-                transcribeStatus.textContent = 'Transcribing & translating French audio...';
+                transcribeStatus.textContent = '⏳ Transcribing & translating French audio...';
                 const audioData = await decodeAudioTo16kHz(encodeURI(track.file));
 
                 const result = await transcriberModel(audioData, {
@@ -554,7 +571,6 @@
 
                 const chunks = result.chunks || [{ timestamp: [0, player.duration || 30], text: result.text }];
 
-                // Translate each chunk to English simultaneously
                 for (let chunk of chunks) {
                     try {
                         const translationRes = await translatorModel(chunk.text);
@@ -565,13 +581,23 @@
                 }
 
                 transcriptCache[track.file] = chunks;
-                renderTranscript(chunks);
-                transcribeStatus.textContent = '✓ Ready!';
+
+                // Only render if the user hasn't switched to another track mid-process
+                if (currentPlayingIndex === targetIndex) {
+                    renderTranscript(chunks);
+                    transcribeStatus.textContent = '✓ Live transcript & English translation ready!';
+                } else {
+                    isProcessing = false;
+                    generateLiveTranscript(); // Process the newly selected track
+                    return;
+                }
             } catch (err) {
                 console.error(err);
-                transcribeStatus.textContent = 'Transcription error.';
+                transcribeStatus.textContent = '⚠️ Error generating transcript.';
+                transcriptContent.innerHTML = '<div class="transcript-empty" style="color: var(--secondary-color);">Unable to generate transcript. Check console for details.</div>';
+                regenerateBtn.style.display = 'inline-block';
             } finally {
-                transcribeBtn.disabled = false;
+                isProcessing = false;
             }
         }
 
