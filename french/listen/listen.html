@@ -31,31 +31,32 @@
             line-height: 1.6;
         }
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             background: var(--card-bg);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            position: relative;
         }
-        h1 {
+        h1, h2, h3 {
             color: var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 5px;
-            margin-top: 10px;
-            font-size: 18pt;
+            margin-top: 30px;
+        }
+        p, li {
+            font-size: 1.05rem;
         }
         .player-box {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 25px;
+            margin: 25px 0;
             text-align: center;
         }
         .track-title-display {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: bold;
             color: var(--primary-color);
             margin-bottom: 15px;
@@ -68,31 +69,37 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
         }
         .playlist-header h3 {
             margin: 0;
-            color: var(--primary-color);
+            border-bottom: none;
+            padding-bottom: 0;
         }
         .track-counter {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-color);
             opacity: 0.8;
+            font-weight: bold;
         }
         .playlist-container {
             border: 1px solid var(--border-color);
             border-radius: 6px;
+            background: var(--card-bg);
             margin-bottom: 20px;
         }
         .playlist-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 15px;
+            padding: 14px 18px;
             border-bottom: 1px solid var(--border-color);
             cursor: pointer;
             transition: background 0.2s;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
         }
         .playlist-item:last-child {
             border-bottom: none;
@@ -108,28 +115,28 @@
         .track-info {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
         .track-number {
             color: var(--secondary-color);
             font-weight: bold;
-            min-width: 28px;
+            min-width: 30px;
         }
         .status-indicator {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--primary-color);
             font-style: italic;
         }
         .load-more-container {
             text-align: center;
-            margin-top: 20px;
+            margin: 30px 0;
         }
         .load-more-btn {
             background-color: var(--primary-color);
             color: #ffffff;
             border: none;
-            padding: 10px 25px;
-            font-size: 1rem;
+            padding: 12px 30px;
+            font-size: 1.05rem;
             border-radius: 5px;
             cursor: pointer;
             transition: opacity 0.2s;
@@ -139,7 +146,7 @@
         }
         .loading-text {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             color: var(--text-color);
             font-style: italic;
         }
@@ -150,29 +157,39 @@
         <div class="theme-switcher"></div>
         <div id="header-container"></div>
         
-        <h1>French Listening Practice (Dossier Listen)</h1>
-        <p>Select any audio track below to open it in the player with full playback controls.</p>
+        <div class="main-layout-wrapper">
+            <div class="main-content-area">
+                <h1>Pratique de l'écoute : Dossier Listen</h1>
+                <p>Welcome to your listening practice module. Audio tracks are indexed automatically from your repository. Select any track below to open it in the player with full playback controls.</p>
 
-        <!-- Main Audio Player -->
-        <div class="player-box">
-            <div id="current-track-title" class="track-title-display">Select a track to start listening</div>
-            <audio id="main-audio-player" controls preload="metadata">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
+                <!-- Main Audio Player Box -->
+                <div class="player-box">
+                    <div id="current-track-title" class="track-title-display">Select a track to start listening</div>
+                    <audio id="main-audio-player" controls preload="metadata">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
 
-        <!-- Playlist -->
-        <div class="playlist-header">
-            <h3>Playlist</h3>
-            <span class="track-counter" id="track-counter"></span>
-        </div>
-        <div class="playlist-container" id="playlist">
-            <div class="loading-text" id="loading-msg">Loading audio tracks...</div>
-        </div>
+                <!-- Playlist Section Header -->
+                <div class="playlist-header">
+                    <h3>Playlist</h3>
+                    <span class="track-counter" id="track-counter"></span>
+                </div>
 
-        <!-- Load More Button Container -->
-        <div class="load-more-container" id="load-more-wrapper" style="display: none;">
-            <button class="load-more-btn" id="load-more-btn" onclick="loadMoreTracks()">Load More (+10)</button>
+                <!-- Playlist Container -->
+                <div class="playlist-container" id="playlist">
+                    <div class="loading-text" id="loading-msg">Loading audio tracks...</div>
+                </div>
+
+                <!-- Load More Button Container -->
+                <div class="load-more-container" id="load-more-wrapper" style="display: none;">
+                    <button class="load-more-btn" id="load-more-btn" onclick="loadMoreTracks()">Load More (+10)</button>
+                </div>
+            </div>
+            
+            <div class="sidebar-area">
+                <div id="quick-links-container"></div>
+            </div>
         </div>
 
         <div id="footer-container"></div>
@@ -193,7 +210,6 @@
 
         async function loadTracksIndex() {
             try {
-                // Fetches the auto-generated static index directly from the same folder (zero API rate limits)
                 const response = await fetch('tracks.json?v=' + Date.now());
                 if (!response.ok) {
                     throw new Error('tracks.json not found');
@@ -252,7 +268,6 @@
             currentPlayingIndex = index;
             const track = allTracks[index];
 
-            // Safely encode filename for spaces/special characters on Netlify
             player.src = encodeURI(track.file);
             titleDisplay.textContent = `Now Playing: ${track.title}`;
             player.play();
@@ -272,7 +287,6 @@
             });
         }
 
-        // Auto-advance to next track when current track ends
         player.onended = function() {
             if (currentPlayingIndex < allTracks.length - 1) {
                 if (currentPlayingIndex + 1 >= displayedCount) {
