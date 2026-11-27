@@ -30,10 +30,10 @@
             color: var(--text-color);
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1350px;
             margin: 0 auto;
             background: var(--card-bg);
             padding: 30px;
@@ -44,9 +44,9 @@
             color: var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 5px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
-        p, li {
+        p {
             font-size: 1.05rem;
         }
         .player-box {
@@ -54,7 +54,7 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
-            margin: 25px 0;
+            margin: 20px 0;
             text-align: center;
         }
         .track-title-display {
@@ -66,7 +66,22 @@
         audio {
             width: 100%;
             outline: none;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+        }
+        .player-options {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+        .player-options label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
         }
         .transcribe-controls {
             display: flex;
@@ -74,102 +89,87 @@
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
+            margin-top: 12px;
         }
-        .ai-transcribe-btn {
+        .ai-transcribe-btn, .action-btn {
             background-color: var(--secondary-color);
             color: #ffffff;
             border: none;
-            padding: 10px 22px;
-            font-size: 1rem;
+            padding: 8px 18px;
+            font-size: 0.95rem;
             font-weight: bold;
             border-radius: 5px;
             cursor: pointer;
             transition: opacity 0.2s;
         }
-        .ai-transcribe-btn:hover {
+        .ai-transcribe-btn:hover, .action-btn:hover {
             opacity: 0.9;
         }
-        .ai-transcribe-btn:disabled {
+        .ai-transcribe-btn:disabled, .action-btn:disabled {
             background-color: #888;
             cursor: not-allowed;
         }
+        .action-btn {
+            background-color: var(--primary-color);
+        }
         .transcribe-status {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--primary-color);
             font-style: italic;
         }
-        /* Live Transcript Panel */
-        .transcript-box {
+
+        /* Two Column Workspace Layout */
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        @media (max-width: 900px) {
+            .workspace-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .column-panel {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
-            margin: 25px 0;
-            max-height: 280px;
-            overflow-y: auto;
-            display: none;
-        }
-        .transcript-line {
-            padding: 8px 12px;
-            margin-bottom: 6px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.2s;
-            font-size: 1.05rem;
             display: flex;
-            gap: 12px;
+            flex-direction: column;
+            max-height: 600px;
         }
-        .transcript-line:hover {
-            background-color: var(--hover-bg);
-        }
-        .transcript-line.active {
-            background-color: var(--highlight-bg);
-            border-left: 4px solid var(--primary-color);
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        .timestamp-badge {
-            font-size: 0.85rem;
-            color: var(--secondary-color);
-            font-family: monospace;
-            min-width: 48px;
-            padding-top: 2px;
-        }
-        .playlist-header {
+        .column-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 5px;
+            padding-bottom: 6px;
         }
-        .playlist-header h3 {
+        .column-header h3 {
             margin: 0;
             border-bottom: none;
             padding-bottom: 0;
+            font-size: 1.15rem;
         }
-        .track-counter {
-            font-size: 0.95rem;
-            color: var(--text-color);
-            opacity: 0.8;
-            font-weight: bold;
-        }
-        .playlist-container {
+        
+        /* Playlist Styles (Left Column) */
+        .playlist-scroll {
+            overflow-y: auto;
+            flex-grow: 1;
             border: 1px solid var(--border-color);
             border-radius: 6px;
-            background: var(--card-bg);
-            margin-bottom: 20px;
         }
         .playlist-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 18px;
+            padding: 12px 14px;
             border-bottom: 1px solid var(--border-color);
             cursor: pointer;
             transition: background 0.2s;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
         }
         .playlist-item:last-child {
             border-bottom: none;
@@ -179,45 +179,87 @@
         }
         .playlist-item.active {
             background-color: var(--highlight-bg);
-            border-left: 5px solid var(--primary-color);
+            border-left: 4px solid var(--primary-color);
             font-weight: bold;
         }
         .track-info {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
         .track-number {
             color: var(--secondary-color);
             font-weight: bold;
-            min-width: 30px;
+            min-width: 25px;
         }
         .status-indicator {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--primary-color);
+            font-style: italic;
+        }
+
+        /* Transcript Styles (Right Column) - Compact Font & Spacing */
+        .transcript-scroll {
+            overflow-y: auto;
+            flex-grow: 1;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            background: var(--bg-color);
+        }
+        .transcript-line {
+            padding: 5px 8px;
+            margin-bottom: 3px; /* Tight line spacing */
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 0.9rem; /* Reduced font size */
+            line-height: 1.35; /* Tight line height */
+            display: flex;
+            gap: 10px;
+        }
+        .transcript-line:hover {
+            background-color: var(--hover-bg);
+        }
+        .transcript-line.active {
+            background-color: var(--highlight-bg);
+            border-left: 3px solid var(--primary-color);
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .timestamp-badge {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            font-family: monospace;
+            min-width: 42px;
+            padding-top: 1px;
+        }
+        .transcript-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-color);
+            opacity: 0.7;
             font-style: italic;
         }
         .load-more-container {
             text-align: center;
-            margin: 30px 0;
+            margin: 15px 0;
         }
         .load-more-btn {
             background-color: var(--primary-color);
             color: #ffffff;
             border: none;
-            padding: 12px 30px;
-            font-size: 1.05rem;
+            padding: 8px 20px;
+            font-size: 0.95rem;
             border-radius: 5px;
             cursor: pointer;
-            transition: opacity 0.2s;
         }
         .load-more-btn:hover {
             opacity: 0.9;
         }
         .loading-text {
             text-align: center;
-            padding: 30px;
-            color: var(--text-color);
+            padding: 20px;
             font-style: italic;
         }
     </style>
@@ -230,7 +272,7 @@
         <div class="main-layout-wrapper">
             <div class="main-content-area">
                 <h1>Pratique de l'écoute : Dossier Listen</h1>
-                <p>Select any track below to listen. Click <strong>Auto-Transcribe (AI)</strong> to dynamically generate live, synchronized French subtitles directly in your browser.</p>
+                <p>Select a track from the playlist, click <strong>Auto-Transcribe</strong>, and view the synchronized live transcript on the right.</p>
 
                 <!-- Main Audio Player Box -->
                 <div class="player-box">
@@ -238,36 +280,52 @@
                     <audio id="main-audio-player" controls preload="metadata">
                         Your browser does not support the audio element.
                     </audio>
-                    
+
+                    <!-- Player Options (Auto-Play, Shuffle) -->
+                    <div class="player-options">
+                        <label><input type="checkbox" id="autoplay-toggle"> Auto-Play Next</label>
+                        <label><input type="checkbox" id="shuffle-toggle"> Shuffle Play</label>
+                    </div>
+
                     <div class="transcribe-controls">
                         <button class="ai-transcribe-btn" id="transcribe-btn" onclick="generateLiveTranscript()" disabled>
-                            ✨ Auto-Transcribe Audio (French AI)
+                            ✨ Auto-Transcribe Audio
                         </button>
                         <span class="transcribe-status" id="transcribe-status"></span>
                     </div>
                 </div>
 
-                <!-- Live Transcript Box -->
-                <div class="transcript-box" id="transcript-box">
-                    <h3 style="margin-top: 0;">Live AI Transcript (Click any line to jump)</h3>
-                    <div id="transcript-content"></div>
+                <!-- Two Column Panel: Left (Playlist), Right (Live Transcript) -->
+                <div class="workspace-grid">
+                    <!-- Left Column: Playlist -->
+                    <div class="column-panel">
+                        <div class="column-header">
+                            <h3>Playlist</h3>
+                            <span class="track-counter" id="track-counter"></span>
+                        </div>
+                        <div class="playlist-scroll" id="playlist">
+                            <div class="loading-text" id="loading-msg">Loading audio tracks...</div>
+                        </div>
+                        <div class="load-more-container" id="load-more-wrapper" style="display: none;">
+                            <button class="load-more-btn" id="load-more-btn" onclick="loadMoreTracks()">Load More (+10)</button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Live Transcript -->
+                    <div class="column-panel">
+                        <div class="column-header">
+                            <h3>Live Transcript</h3>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="action-btn" id="download-transcript-btn" onclick="downloadTranscript()" style="padding: 4px 10px; font-size: 0.8rem; display: none;">Download (.txt)</button>
+                                <button class="action-btn" id="clear-transcript-btn" onclick="clearTranscript()" style="padding: 4px 10px; font-size: 0.8rem; background-color: #6c757d; display: none;">Clear</button>
+                            </div>
+                        </div>
+                        <div class="transcript-scroll" id="transcript-content">
+                            <div class="transcript-empty" id="transcript-empty-msg">No transcript generated yet. Click "Auto-Transcribe Audio" above.</div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Playlist Section Header -->
-                <div class="playlist-header">
-                    <h3>Playlist</h3>
-                    <span class="track-counter" id="track-counter"></span>
-                </div>
-
-                <!-- Playlist Container -->
-                <div class="playlist-container" id="playlist">
-                    <div class="loading-text" id="loading-msg">Loading audio tracks...</div>
-                </div>
-
-                <!-- Load More Button Container -->
-                <div class="load-more-container" id="load-more-wrapper" style="display: none;">
-                    <button class="load-more-btn" id="load-more-btn" onclick="loadMoreTracks()">Load More (+10)</button>
-                </div>
             </div>
             
             <div class="sidebar-area">
@@ -278,228 +336,5 @@
         <div id="footer-container"></div>
     </div>
 
-    <!-- Load Transformers.js (Whisper AI) via ES Module -->
     <script type="module">
-        import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
-        env.allowLocalModels = false;
-        window.transformersPipeline = pipeline;
-    </script>
-
-    <script>
-        let allTracks = [];
-        let displayedCount = 0;
-        const pageSize = 10;
-        let currentPlayingIndex = -1;
-        let activeTranscriptSegments = [];
-        let transcriberModel = null;
-        const transcriptCache = {}; // Cache transcripts in memory during session
-
-        const player = document.getElementById('main-audio-player');
-        const titleDisplay = document.getElementById('current-track-title');
-        const playlistContainer = document.getElementById('playlist');
-        const loadMoreWrapper = document.getElementById('load-more-wrapper');
-        const loadMoreBtn = document.getElementById('load-more-btn');
-        const trackCounter = document.getElementById('track-counter');
-        const transcribeBtn = document.getElementById('transcribe-btn');
-        const transcribeStatus = document.getElementById('transcribe-status');
-        const transcriptBox = document.getElementById('transcript-box');
-        const transcriptContent = document.getElementById('transcript-content');
-
-        async function loadTracksIndex() {
-            try {
-                const response = await fetch('tracks.json?v=' + Date.now());
-                if (!response.ok) throw new Error('tracks.json not found');
-                allTracks = await response.json();
-
-                if (!Array.isArray(allTracks) || allTracks.length === 0) {
-                    playlistContainer.innerHTML = '<div class="loading-text">No MP3 tracks found in the index yet.</div>';
-                    return;
-                }
-
-                playlistContainer.innerHTML = '';
-                loadMoreTracks();
-            } catch (error) {
-                console.error(error);
-                playlistContainer.innerHTML = '<div class="loading-text" style="color: var(--secondary-color);">Unable to load <b>tracks.json</b>. Ensure <code>french/listen/tracks.json</code> exists.</div>';
-            }
-        }
-
-        function updateCounter() {
-            trackCounter.textContent = `Showing ${displayedCount} of ${allTracks.length} tracks`;
-            const remaining = allTracks.length - displayedCount;
-            if (remaining > 0) {
-                const nextBatch = Math.min(pageSize, remaining);
-                loadMoreBtn.textContent = `Load More (+${nextBatch})`;
-                loadMoreWrapper.style.display = 'block';
-            } else {
-                loadMoreWrapper.style.display = 'none';
-            }
-        }
-
-        function loadMoreTracks() {
-            const nextBatchLimit = Math.min(displayedCount + pageSize, allTracks.length);
-            for (let i = displayedCount; i < nextBatchLimit; i++) {
-                const track = allTracks[i];
-                const item = document.createElement('div');
-                item.className = 'playlist-item';
-                item.id = `track-item-${i}`;
-                item.innerHTML = `
-                    <div class="track-info">
-                        <span class="track-number">${i + 1 < 10 ? '0' + (i + 1) : i + 1}</span>
-                        <span>${track.title}</span>
-                    </div>
-                    <span class="status-indicator" id="status-${i}"></span>
-                `;
-                item.onclick = () => playTrack(i);
-                playlistContainer.appendChild(item);
-            }
-            displayedCount = nextBatchLimit;
-            updateCounter();
-        }
-
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-
-        function renderTranscript(segments) {
-            activeTranscriptSegments = segments;
-            transcriptBox.style.display = 'block';
-            transcriptContent.innerHTML = '';
-
-            segments.forEach((seg, idx) => {
-                const start = seg.timestamp[0] || 0;
-                const line = document.createElement('div');
-                line.className = 'transcript-line';
-                line.id = `t-line-${idx}`;
-                line.innerHTML = `
-                    <span class="timestamp-badge">[${formatTime(start)}]</span>
-                    <span>${seg.text.trim()}</span>
-                `;
-                line.onclick = () => {
-                    player.currentTime = start;
-                    player.play();
-                };
-                transcriptContent.appendChild(line);
-            });
-        }
-
-        function playTrack(index) {
-            currentPlayingIndex = index;
-            const track = allTracks[index];
-
-            player.src = encodeURI(track.file);
-            titleDisplay.textContent = `Now Playing: ${track.title}`;
-            transcribeBtn.disabled = false;
-            transcribeStatus.textContent = '';
-            player.play();
-
-            // Check if already transcribed during this session
-            if (transcriptCache[track.file]) {
-                renderTranscript(transcriptCache[track.file]);
-            } else {
-                activeTranscriptSegments = [];
-                transcriptBox.style.display = 'none';
-                transcriptContent.innerHTML = '';
-            }
-
-            allTracks.forEach((_, i) => {
-                const el = document.getElementById(`track-item-${i}`);
-                const statusEl = document.getElementById(`status-${i}`);
-                if (el) {
-                    if (i === index) {
-                        el.classList.add('active');
-                        if (statusEl) statusEl.textContent = 'Playing...';
-                    } else {
-                        el.classList.remove('active');
-                        if (statusEl) statusEl.textContent = '';
-                    }
-                }
-            });
-        }
-
-        // Convert MP3 to 16kHz Mono AudioBuffer required by Whisper AI
-        async function decodeAudioTo16kHz(url) {
-            const response = await fetch(url);
-            const arrayBuffer = await response.arrayBuffer();
-            const audioCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
-            const decoded = await audioCtx.decodeAudioData(arrayBuffer);
-            return decoded.getChannelData(0);
-        }
-
-        async function generateLiveTranscript() {
-            if (currentPlayingIndex === -1) return;
-            const track = allTracks[currentPlayingIndex];
-
-            if (transcriptCache[track.file]) {
-                renderTranscript(transcriptCache[track.file]);
-                return;
-            }
-
-            transcribeBtn.disabled = true;
-            try {
-                if (!transcriberModel) {
-                    transcribeStatus.textContent = 'Loading French AI model (first time only, ~40MB)...';
-                    transcriberModel = await window.transformersPipeline('automatic-speech-recognition', 'Xenova/whisper-tiny');
-                }
-
-                transcribeStatus.textContent = 'Decoding & transcribing French audio on the spot...';
-                const audioData = await decodeAudioTo16kHz(encodeURI(track.file));
-
-                const result = await transcriberModel(audioData, {
-                    language: 'french',
-                    task: 'transcribe',
-                    chunk_length_s: 30,
-                    stride_length_s: 5,
-                    return_timestamps: true
-                });
-
-                const chunks = result.chunks || [{ timestamp: [0, player.duration || 30], text: result.text }];
-                transcriptCache[track.file] = chunks;
-                renderTranscript(chunks);
-                transcribeStatus.textContent = '✓ Transcript ready!';
-            } catch (err) {
-                console.error(err);
-                transcribeStatus.textContent = 'Error transcribing audio. Check console for details.';
-            } finally {
-                transcribeBtn.disabled = false;
-            }
-        }
-
-        // Real-time highlight sync as audio plays
-        player.ontimeupdate = function() {
-            if (!activeTranscriptSegments.length) return;
-            const currentTime = player.currentTime;
-
-            activeTranscriptSegments.forEach((seg, idx) => {
-                const start = seg.timestamp[0] || 0;
-                const end = seg.timestamp[1] || (start + 5);
-                const lineEl = document.getElementById(`t-line-${idx}`);
-
-                if (lineEl) {
-                    if (currentTime >= start && currentTime <= end) {
-                        if (!lineEl.classList.contains('active')) {
-                            lineEl.classList.add('active');
-                            lineEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        }
-                    } else {
-                        lineEl.classList.remove('active');
-                    }
-                }
-            });
-        };
-
-        player.onended = function() {
-            if (currentPlayingIndex < allTracks.length - 1) {
-                if (currentPlayingIndex + 1 >= displayedCount) {
-                    loadMoreTracks();
-                }
-                playTrack(currentPlayingIndex + 1);
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', loadTracksIndex);
-    </script>
-</body>
-</html>
+        import { pipeline, env } from '
