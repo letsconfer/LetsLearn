@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pratique de l'écoute - Apprenons le français</title>
-    <script src="../global/load-global.js"></script>
+    <script src="../../global/load-global.js"></script>
     <style>
         :root {
             --primary-color: #0055A5;
@@ -153,10 +153,12 @@
     </style>
 </head>
 <body>
+    <!-- Theme Switcher & Global Header Containers -->
+    <div class="theme-switcher"></div>
+    <div id="header-container"></div>
+    <div id="main-menu-container"></div>
+
     <div class="container">
-        <div class="theme-switcher"></div>
-        <div id="header-container"></div>
-        
         <div class="main-layout-wrapper">
             <div class="main-content-area">
                 <h1>Pratique de l'écoute : Dossier Listen</h1>
@@ -191,9 +193,10 @@
                 <div id="quick-links-container"></div>
             </div>
         </div>
-
-        <div id="footer-container"></div>
     </div>
+
+    <!-- Global Footer Container -->
+    <div id="footer-container"></div>
 
     <script>
         let allTracks = [];
