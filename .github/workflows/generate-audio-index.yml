@@ -7,7 +7,6 @@ on:
       - master
     paths:
       - 'french/listen/**'
-      - '!french/listen/tracks.json'
   workflow_dispatch:
 
 permissions:
@@ -56,5 +55,4 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add french/listen/tracks.json
-          git diff --staged --quiet || git commit -m "chore: auto-update french/listen/tracks.json"
-          git push
+          git diff --staged --quiet || (git commit -m "chore: auto-update french/listen/tracks.json" && git push)
