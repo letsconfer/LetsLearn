@@ -97,15 +97,24 @@
             background-color: var(--primary-color);
             color: #ffffff;
             border: none;
-            padding: 5px 12px;
+            padding: 5px 10px;
             font-size: 0.8rem;
             font-weight: bold;
             border-radius: 4px;
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
             transition: opacity 0.2s;
         }
         .action-btn:hover {
             opacity: 0.9;
+        }
+        .action-icon {
+            width: 14px;
+            height: 14px;
+            object-fit: contain;
+            vertical-align: middle;
         }
 
         /* Two Column Workspace Layout */
@@ -188,7 +197,7 @@
             font-style: italic;
         }
 
-        /* Transcript Styles (Right Column) - Compact Font & Spacing */
+        /* Transcript Styles (Right Column) */
         .transcript-scroll {
             overflow-y: auto;
             flex-grow: 1;
@@ -316,8 +325,12 @@
                             <h3>Live Transcript & Translation</h3>
                             <div style="display: flex; gap: 8px;">
                                 <button class="action-btn" id="regenerate-btn" onclick="forceRegenerate()" style="background-color: var(--secondary-color); display: none;">Re-Generate</button>
-                                <button class="action-btn" id="download-transcript-btn" onclick="downloadTranscript()" style="display: none;">Download (.txt)</button>
-                                <button class="action-btn" id="clear-transcript-btn" onclick="clearTranscript()" style="background-color: #6c757d; display: none;">Clear</button>
+                                <button class="action-btn" id="download-transcript-btn" onclick="downloadTranscript()" style="display: none;" title="Download Transcript">
+                                    <img src="../images/download.png" class="action-icon" alt=""> Download
+                                </button>
+                                <button class="action-btn" id="clear-transcript-btn" onclick="clearTranscript()" style="background-color: #6c757d; display: none;" title="Clear Transcript">
+                                    <img src="../images/clear.png" class="action-icon" alt=""> Clear
+                                </button>
                             </div>
                         </div>
                         <div class="transcript-scroll" id="transcript-content">
@@ -432,8 +445,8 @@
         function renderTranscript(segments) {
             activeTranscriptSegments = segments;
             transcriptContent.innerHTML = '';
-            downloadBtn.style.display = 'inline-block';
-            clearBtn.style.display = 'inline-block';
+            downloadBtn.style.display = 'inline-flex';
+            clearBtn.style.display = 'inline-flex';
             regenerateBtn.style.display = 'none';
 
             segments.forEach((seg, idx) => {
@@ -507,7 +520,6 @@
                 }
             });
 
-            // Automatically start transcription & translation
             generateLiveTranscript();
         }
 
@@ -582,13 +594,12 @@
 
                 transcriptCache[track.file] = chunks;
 
-                // Only render if the user hasn't switched to another track mid-process
                 if (currentPlayingIndex === targetIndex) {
                     renderTranscript(chunks);
                     transcribeStatus.textContent = '✓ Live transcript & English translation ready!';
                 } else {
                     isProcessing = false;
-                    generateLiveTranscript(); // Process the newly selected track
+                    generateLiveTranscript();
                     return;
                 }
             } catch (err) {
