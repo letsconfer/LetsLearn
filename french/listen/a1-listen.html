@@ -209,14 +209,15 @@
         }
         .transcript-line {
             padding: 5px 8px;
-            margin-bottom: 3px; /* Tight line spacing */
+            margin-bottom: 4px;
             border-radius: 4px;
             cursor: pointer;
             transition: background 0.2s;
-            font-size: 0.9rem; /* Reduced font size */
-            line-height: 1.35; /* Tight line height */
+            font-size: 0.88rem;
+            line-height: 1.35;
             display: flex;
-            gap: 10px;
+            gap: 8px;
+            align-items: baseline;
         }
         .transcript-line:hover {
             background-color: var(--hover-bg);
@@ -228,11 +229,21 @@
             color: var(--primary-color);
         }
         .timestamp-badge {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--secondary-color);
             font-family: monospace;
-            min-width: 42px;
-            padding-top: 1px;
+            min-width: 40px;
+        }
+        .trans-fr {
+            color: var(--text-color);
+        }
+        .trans-en {
+            color: #555;
+            font-style: italic;
+            font-size: 0.83rem;
+        }
+        [data-theme="dark"] .trans-en {
+            color: #aaa;
         }
         .transcript-empty {
             text-align: center;
@@ -272,7 +283,7 @@
         <div class="main-layout-wrapper">
             <div class="main-content-area">
                 <h1>Pratique de l'écoute : Dossier Listen</h1>
-                <p>Select a track from the playlist, click <strong>Auto-Transcribe</strong>, and view the synchronized live transcript on the right.</p>
+                <p>Select a track from the playlist, click <strong>Auto-Transcribe & Translate</strong> to view synchronized French text with simultaneous English translation on the right.</p>
 
                 <!-- Main Audio Player Box -->
                 <div class="player-box">
@@ -281,7 +292,7 @@
                         Your browser does not support the audio element.
                     </audio>
 
-                    <!-- Player Options (Auto-Play, Shuffle) -->
+                    <!-- Player Options -->
                     <div class="player-options">
                         <label><input type="checkbox" id="autoplay-toggle"> Auto-Play Next</label>
                         <label><input type="checkbox" id="shuffle-toggle"> Shuffle Play</label>
@@ -289,13 +300,13 @@
 
                     <div class="transcribe-controls">
                         <button class="ai-transcribe-btn" id="transcribe-btn" onclick="generateLiveTranscript()" disabled>
-                            ✨ Auto-Transcribe Audio
+                            ✨ Auto-Transcribe & Translate (AI)
                         </button>
                         <span class="transcribe-status" id="transcribe-status"></span>
                     </div>
                 </div>
 
-                <!-- Two Column Panel: Left (Playlist), Right (Live Transcript) -->
+                <!-- Two Column Panel -->
                 <div class="workspace-grid">
                     <!-- Left Column: Playlist -->
                     <div class="column-panel">
@@ -311,17 +322,17 @@
                         </div>
                     </div>
 
-                    <!-- Right Column: Live Transcript -->
+                    <!-- Right Column: Live Transcript & Translation -->
                     <div class="column-panel">
                         <div class="column-header">
-                            <h3>Live Transcript</h3>
+                            <h3>Live Transcript & Translation</h3>
                             <div style="display: flex; gap: 8px;">
                                 <button class="action-btn" id="download-transcript-btn" onclick="downloadTranscript()" style="padding: 4px 10px; font-size: 0.8rem; display: none;">Download (.txt)</button>
                                 <button class="action-btn" id="clear-transcript-btn" onclick="clearTranscript()" style="padding: 4px 10px; font-size: 0.8rem; background-color: #6c757d; display: none;">Clear</button>
                             </div>
                         </div>
                         <div class="transcript-scroll" id="transcript-content">
-                            <div class="transcript-empty" id="transcript-empty-msg">No transcript generated yet. Click "Auto-Transcribe Audio" above.</div>
+                            <div class="transcript-empty" id="transcript-empty-msg">No transcript generated yet. Click "Auto-Transcribe & Translate" above.</div>
                         </div>
                     </div>
                 </div>
@@ -337,4 +348,274 @@
     </div>
 
     <script type="module">
-        import { pipeline, env } from '
+        import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
+        env.allowLocalModels = false;
+        window.transformersPipeline = pipeline;
+    </script>
+
+    <script>
+        let allTracks = [];
+        let displayedCount = 0;
+        const pageSize = 10;
+        let currentPlayingIndex = -1;
+        let activeTranscriptSegments = [];
+        let transcriberModel = null;
+        let translatorModel = null;
+        const transcriptCache = {};
+
+        const player = document.getElementById('main-audio-player');
+        const titleDisplay = document.getElementById('current-track-title');
+        const playlistContainer = document.getElementById('playlist');
+        const loadMoreWrapper = document.getElementById('load-more-wrapper');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const trackCounter = document.getElementById('track-counter');
+        const transcribeBtn = document.getElementById('transcribe-btn');
+        const transcribeStatus = document.getElementById('transcribe-status');
+        const transcriptContent = document.getElementById('transcript-content');
+        const autoplayToggle = document.getElementById('autoplay-toggle');
+        const shuffleToggle = document.getElementById('shuffle-toggle');
+        const downloadBtn = document.getElementById('download-transcript-btn');
+        const clearBtn = document.getElementById('clear-transcript-btn');
+
+        async function loadTracksIndex() {
+            try {
+                // Check local folder first, then fallback to parent folder if needed
+                let response = await fetch('tracks.json?v=' + Date.now());
+                if (!response.ok) {
+                    response = await fetch('../tracks.json?v=' + Date.now());
+                }
+                if (!response.ok) throw new Error('tracks.json not found');
+                
+                allTracks = await response.json();
+
+                if (!Array.isArray(allTracks) || allTracks.length === 0) {
+                    playlistContainer.innerHTML = '<div class="loading-text">No MP3 tracks found in the index.</div>';
+                    return;
+                }
+
+                playlistContainer.innerHTML = '';
+                loadMoreTracks();
+            } catch (error) {
+                console.error(error);
+                playlistContainer.innerHTML = '<div class="loading-text" style="color: var(--secondary-color);">Unable to load <b>tracks.json</b>. Ensure GitHub Action generated it.</div>';
+            }
+        }
+
+        function updateCounter() {
+            trackCounter.textContent = `Showing ${displayedCount} of ${allTracks.length} tracks`;
+            const remaining = allTracks.length - displayedCount;
+            if (remaining > 0) {
+                const nextBatch = Math.min(pageSize, remaining);
+                loadMoreBtn.textContent = `Load More (+${nextBatch})`;
+                loadMoreWrapper.style.display = 'block';
+            } else {
+                loadMoreWrapper.style.display = 'none';
+            }
+        }
+
+        function loadMoreTracks() {
+            const nextBatchLimit = Math.min(displayedCount + pageSize, allTracks.length);
+            for (let i = displayedCount; i < nextBatchLimit; i++) {
+                const track = allTracks[i];
+                const item = document.createElement('div');
+                item.className = 'playlist-item';
+                item.id = `track-item-${i}`;
+                item.innerHTML = `
+                    <div class="track-info">
+                        <span class="track-number">${i + 1 < 10 ? '0' + (i + 1) : i + 1}</span>
+                        <span>${track.title}</span>
+                    </div>
+                    <span class="status-indicator" id="status-${i}"></span>
+                `;
+                item.onclick = () => playTrack(i);
+                playlistContainer.appendChild(item);
+            }
+            displayedCount = nextBatchLimit;
+            updateCounter();
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function renderTranscript(segments) {
+            activeTranscriptSegments = segments;
+            transcriptContent.innerHTML = '';
+            downloadBtn.style.display = 'inline-block';
+            clearBtn.style.display = 'inline-block';
+
+            segments.forEach((seg, idx) => {
+                const start = seg.timestamp[0] || 0;
+                const line = document.createElement('div');
+                line.className = 'transcript-line';
+                line.id = `t-line-${idx}`;
+                line.innerHTML = `
+                    <span class="timestamp-badge">[${formatTime(start)}]</span>
+                    <div>
+                        <div class="trans-fr">${seg.text.trim()}</div>
+                        <div class="trans-en">(${seg.translation || seg.text.trim()})</div>
+                    </div>
+                `;
+                line.onclick = () => {
+                    player.currentTime = start;
+                    player.play();
+                };
+                transcriptContent.appendChild(line);
+            });
+        }
+
+        function clearTranscript() {
+            activeTranscriptSegments = [];
+            transcriptContent.innerHTML = '<div class="transcript-empty" id="transcript-empty-msg">Transcript cleared. Click "Auto-Transcribe & Translate" above.</div>';
+            downloadBtn.style.display = 'none';
+            clearBtn.style.display = 'none';
+        }
+
+        function downloadTranscript() {
+            if (!activeTranscriptSegments.length) return;
+            const textContent = activeTranscriptSegments.map(seg => `[${formatTime(seg.timestamp[0] || 0)}] ${seg.text.trim()} (${seg.translation || ''})`).join('\n');
+            const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = (allTracks[currentPlayingIndex]?.title || 'transcript') + '.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function playTrack(index) {
+            currentPlayingIndex = index;
+            const track = allTracks[index];
+
+            player.src = encodeURI(track.file);
+            titleDisplay.textContent = `Now Playing: ${track.title}`;
+            transcribeBtn.disabled = false;
+            transcribeStatus.textContent = '';
+            player.play();
+
+            if (transcriptCache[track.file]) {
+                renderTranscript(transcriptCache[track.file]);
+            } else {
+                clearTranscript();
+            }
+
+            allTracks.forEach((_, i) => {
+                const el = document.getElementById(`track-item-${i}`);
+                const statusEl = document.getElementById(`status-${i}`);
+                if (el) {
+                    if (i === index) {
+                        el.classList.add('active');
+                        if (statusEl) statusEl.textContent = 'Playing...';
+                    } else {
+                        el.classList.remove('active');
+                        if (statusEl) statusEl.textContent = '';
+                    }
+                }
+            });
+        }
+
+        async function decodeAudioTo16kHz(url) {
+            const response = await fetch(url);
+            const arrayBuffer = await response.arrayBuffer();
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
+            const decoded = await audioCtx.decodeAudioData(arrayBuffer);
+            return decoded.getChannelData(0);
+        }
+
+        async function generateLiveTranscript() {
+            if (currentPlayingIndex === -1) return;
+            const track = allTracks[currentPlayingIndex];
+
+            if (transcriptCache[track.file]) {
+                renderTranscript(transcriptCache[track.file]);
+                return;
+            }
+
+            transcribeBtn.disabled = true;
+            try {
+                if (!transcriberModel) {
+                    transcribeStatus.textContent = 'Loading AI models (~50MB, first time only)...';
+                    transcriberModel = await window.transformersPipeline('automatic-speech-recognition', 'Xenova/whisper-tiny');
+                    translatorModel = await window.transformersPipeline('translation', 'Xenova/opus-mt-fr-en');
+                }
+
+                transcribeStatus.textContent = 'Transcribing & translating French audio...';
+                const audioData = await decodeAudioTo16kHz(encodeURI(track.file));
+
+                const result = await transcriberModel(audioData, {
+                    language: 'french',
+                    task: 'transcribe',
+                    chunk_length_s: 30,
+                    stride_length_s: 5,
+                    return_timestamps: true
+                });
+
+                const chunks = result.chunks || [{ timestamp: [0, player.duration || 30], text: result.text }];
+
+                // Translate each chunk to English simultaneously
+                for (let chunk of chunks) {
+                    try {
+                        const translationRes = await translatorModel(chunk.text);
+                        chunk.translation = translationRes[0]?.translation_text || '';
+                    } catch (e) {
+                        chunk.translation = chunk.text;
+                    }
+                }
+
+                transcriptCache[track.file] = chunks;
+                renderTranscript(chunks);
+                transcribeStatus.textContent = '✓ Ready!';
+            } catch (err) {
+                console.error(err);
+                transcribeStatus.textContent = 'Transcription error.';
+            } finally {
+                transcribeBtn.disabled = false;
+            }
+        }
+
+        player.ontimeupdate = function() {
+            if (!activeTranscriptSegments.length) return;
+            const currentTime = player.currentTime;
+
+            activeTranscriptSegments.forEach((seg, idx) => {
+                const start = seg.timestamp[0] || 0;
+                const end = seg.timestamp[1] || (start + 5);
+                const lineEl = document.getElementById(`t-line-${idx}`);
+
+                if (lineEl) {
+                    if (currentTime >= start && currentTime <= end) {
+                        if (!lineEl.classList.contains('active')) {
+                            lineEl.classList.add('active');
+                            lineEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    } else {
+                        lineEl.classList.remove('active');
+                    }
+                }
+            });
+        };
+
+        player.onended = function() {
+            if (!autoplayToggle.checked) return;
+
+            let nextIndex;
+            if (shuffleToggle.checked) {
+                nextIndex = Math.floor(Math.random() * allTracks.length);
+            } else {
+                nextIndex = currentPlayingIndex + 1;
+            }
+
+            if (nextIndex < allTracks.length) {
+                if (nextIndex >= displayedCount) {
+                    loadMoreTracks();
+                }
+                playTrack(nextIndex);
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', loadTracksIndex);
+    </script>
+</body>
+</html>
